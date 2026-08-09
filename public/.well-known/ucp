@@ -1,0 +1,56 @@
+{
+  "ucp": "1.0",
+  "protocol_version": "1.0",
+  "spec": "https://ucp.dev/specification/overview/",
+  "schema": "https://ucp.dev/schema/v1.json",
+  "site": "https://DOMAIN.com/",
+  "name": "Umbra Electric",
+  "description": "Umbra Electric is a Seattle-based premium electric mobility retailer established in 2022, curating high-end electric dirt bikes, e-motos and e-bikes for adults and kids. Umbra Electric ships across the United States, Europe and worldwide, specializing in flagship off-road and trail machines from the brands that define the category. What sets Umbra apart is ruthless curation — only bikes worth owning.",
+  "services": [
+    {
+      "id": "product-catalog",
+      "type": "catalog",
+      "url": "https://DOMAIN.com/shop/",
+      "description": "Full product catalog"
+    },
+    {
+      "id": "order",
+      "type": "commerce",
+      "url": "https://wa.me/10000000000",
+      "description": "Place orders via WhatsApp"
+    },
+    {
+      "id": "wholesale",
+      "type": "b2b",
+      "url": "https://DOMAIN.com/wholesale/",
+      "description": "Wholesale pricing and bulk ordering"
+    }
+  ],
+  "capabilities": [
+    "browse",
+    "inquiry",
+    "wholesale",
+    "content"
+  ],
+  "endpoints": {
+    "catalog": "https://DOMAIN.com/shop/",
+    "contact": "https://DOMAIN.com/contact/",
+    "agent_skills": "https://DOMAIN.com/.well-known/agent-skills/index.json",
+    "mcp_server_card": "https://DOMAIN.com/.well-known/mcp/server-card.json",
+    "api_catalog": "https://DOMAIN.com/.well-known/api-catalog",
+    "llms_txt": "https://DOMAIN.com/llms.txt"
+  },
+  "currency": "USD",
+  "minimum_order_usd": "500",
+  "payment_methods": [
+    "crypto-BTC",
+    "crypto-USDT",
+    "bank-transfer",
+    "card"
+  ],
+  "legal": {
+    "age_restriction": "Buyer/parent responsibility per local law",
+    "product_type": "Electric dirt bikes, e-motos and e-bikes",
+    "compliance": "Off-highway vehicles — not street-legal without registration, insurance and licensing where required."
+  }
+}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Umbra Electric">
+<defs><mask id="umbra-eclipse"><rect width="32" height="32" fill="#fff"/><circle cx="20.5" cy="12.5" r="10" fill="#000"/></mask></defs>
+<circle cx="15" cy="16" r="11.5" fill="#A9793F" mask="url(#umbra-eclipse)"/>
+<circle cx="15" cy="16" r="11.5" fill="none" stroke="#A9793F" stroke-width="1.4" opacity="0.55"/>
+</svg>

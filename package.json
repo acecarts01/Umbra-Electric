@@ -1,0 +1,17 @@
+{
+  "name": "umbra-electric",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "node scripts/gen-agent-files.mjs",
+    "build": "next build",
+    "start": "next start",
+    "crosscheck": "node scripts/crosscheck.mjs"
+  },
+  "dependencies": {
+    "next": "^16.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

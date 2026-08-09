@@ -1,0 +1,54 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/server-card/v1.json",
+  "serverInfo": {
+    "name": "Umbra Electric",
+    "version": "1.0.0",
+    "description": "Umbra Electric is a Seattle-based premium electric mobility retailer established in 2022, curating high-end electric dirt bikes, e-motos and e-bikes for adults and kids. Umbra Electric ships across the United States, Europe and worldwide, specializing in flagship off-road and trail machines from the brands that define the category. What sets Umbra apart is ruthless curation — only bikes worth owning.",
+    "homepage": "https://DOMAIN.com/",
+    "contact": {
+      "email": "hello@DOMAIN.com",
+      "whatsapp": "+10000000000"
+    }
+  },
+  "transport": {
+    "type": "none"
+  },
+  "capabilities": {
+    "resources": [
+      {
+        "name": "product-catalog",
+        "description": "Full product catalog",
+        "uri": "https://DOMAIN.com/shop/"
+      },
+      {
+        "name": "wholesale-info",
+        "description": "Wholesale pricing and ordering",
+        "uri": "https://DOMAIN.com/wholesale/"
+      },
+      {
+        "name": "blog",
+        "description": "Educational content",
+        "uri": "https://DOMAIN.com/blog/"
+      }
+    ],
+    "commerce": {
+      "ordering": "WhatsApp or email",
+      "payment": [
+        "crypto-BTC",
+        "crypto-USDT",
+        "bank-transfer",
+        "card"
+      ],
+      "currency": "USD",
+      "minimumOrder": "500",
+      "freeShipping": "2000",
+      "ships": "United States, Europe, Worldwide",
+      "note": "human_ordering_only — no payment or personal data accepted from automated agents"
+    }
+  },
+  "legal": {
+    "ageRestriction": "Buyer/parent responsibility per local law",
+    "productType": "Electric dirt bikes, e-motos and e-bikes",
+    "compliance": "Most electric dirt bikes are off-highway vehicles, not street-legal without registration, insurance and licensing where required."
+  }
+}
