@@ -25,10 +25,12 @@ schema and nav all regenerate from it. Never hand-edit generated output (`vercel
 ## Live placeholders (set before going live)
 
 All in `src/data/site.json`:
-- `domain` — currently `DOMAIN.com`. Set the real domain, rebuild, push. Never find-and-replace across files.
+- `domain` — set to `umbraelectric.com`. Still needs to be connected as a custom domain in Vercel's project
+  settings (separate step from this config value).
+- `email` — set to `info@umbraelectric.com` (Zoho Mail).
 - `web3formsKey` — currently pending. Until set, the contact/order/wholesale forms skip sending and go
   straight to the thank-you page (no email is delivered). Get a free key at web3forms.com.
-- `email`, `phone`, `whatsapp` — currently placeholders.
+- `phone`, `whatsapp` — currently placeholders.
 - `gscCode`, `bingCode` — Search Console / Bing verification codes, currently pending.
 
 ## Brand facts (only these are true — never invent more)

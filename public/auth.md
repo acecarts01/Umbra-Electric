@@ -2,17 +2,17 @@
 
 ## Umbra Electric — Agent Registration
 
-No authentication is required to access public resources on DOMAIN.com. All product, category, blog and policy pages are publicly readable.
+No authentication is required to access public resources on umbraelectric.com. All product, category, blog and policy pages are publicly readable.
 
 ## Public resources
 
 | Resource | URL |
 |---|---|
-| Product catalog | https://DOMAIN.com/shop/ |
-| llms.txt | https://DOMAIN.com/llms.txt |
-| API catalog | https://DOMAIN.com/.well-known/api-catalog |
-| Agent skills | https://DOMAIN.com/.well-known/agent-skills/index.json |
-| MCP server card | https://DOMAIN.com/.well-known/mcp/server-card.json |
+| Product catalog | https://umbraelectric.com/shop/ |
+| llms.txt | https://umbraelectric.com/llms.txt |
+| API catalog | https://umbraelectric.com/.well-known/api-catalog |
+| Agent skills | https://umbraelectric.com/.well-known/agent-skills/index.json |
+| MCP server card | https://umbraelectric.com/.well-known/mcp/server-card.json |
 
 ```json
 {
@@ -27,7 +27,7 @@ No authentication is required to access public resources on DOMAIN.com. All prod
 
 ## Ordering
 
-Agents may browse the catalog and prepare a draft order, but a human must complete checkout — Umbra Electric does not accept payment or personal data submission from automated agents. Direct agents to https://DOMAIN.com/order/ or WhatsApp for human-confirmed ordering.
+Agents may browse the catalog and prepare a draft order, but a human must complete checkout — Umbra Electric does not accept payment or personal data submission from automated agents. Direct agents to https://umbraelectric.com/order/ or WhatsApp for human-confirmed ordering.
 
 ## Age restriction
 

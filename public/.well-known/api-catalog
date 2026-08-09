@@ -1,21 +1,21 @@
 {
   "linkset": [
     {
-      "anchor": "https://DOMAIN.com/",
+      "anchor": "https://umbraelectric.com/",
       "https://www.iana.org/assignments/link-relations/service-doc": [
         {
-          "href": "https://DOMAIN.com/faq"
+          "href": "https://umbraelectric.com/faq"
         }
       ],
       "title": "Umbra Electric — Silent Power. Refined."
     },
     {
-      "anchor": "https://DOMAIN.com/shop",
+      "anchor": "https://umbraelectric.com/shop",
       "type": "text/html",
       "title": "Umbra Electric Product Catalog"
     },
     {
-      "anchor": "https://DOMAIN.com/wholesale",
+      "anchor": "https://umbraelectric.com/wholesale",
       "type": "text/html",
       "title": "Umbra Electric Wholesale"
     }

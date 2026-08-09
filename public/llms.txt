@@ -7,44 +7,44 @@ Umbra Electric is headquartered in Seattle, Washington, United States and ships 
 ## Contact
 
 - WhatsApp: [Message us](https://wa.me/10000000000)
-- Email: hello@DOMAIN.com
+- Email: info@umbraelectric.com
 - Minimum order: $500 · Free shipping over $2000 · Crypto discount: 10%
 
 ## Categories
 
-- [Adult Electric Dirt Bikes](https://DOMAIN.com/shop/adult-electric-dirt-bikes/): 31 models — Full-size, high-power electric dirt bikes and e-motos for adult trail, enduro and motocross riders.
-- [Electric Commuter & Urban Bikes](https://DOMAIN.com/shop/electric-commuter-bikes/): 33 models — City, cargo and urban e-bikes built for daily range, comfort and effortless commuting.
-- [Electric Fat Tire Bikes](https://DOMAIN.com/shop/electric-fat-tire-bikes/): 6 models — All-terrain fat-tire e-bikes engineered for sand, snow, trail and everything between.
-- [Electric Mountain Bikes](https://DOMAIN.com/shop/electric-mountain-bikes/): 27 models — Premium full-suspension eMTBs from the brands that define trail, enduro and downhill riding.
-- [Electric Road & Gravel Bikes](https://DOMAIN.com/shop/electric-road-gravel-bikes/): 9 models — Lightweight electric road and gravel bikes for endurance, speed and long-distance riding.
-- [Folding E-Bikes](https://DOMAIN.com/shop/folding-electric-bikes/): 6 models — Compact folding e-bikes for apartments, RVs, transit and small-space storage.
-- [Kids & Youth E-Bikes](https://DOMAIN.com/shop/kids-electric-bikes/): 8 models — Right-sized, pedal-assist e-bikes that grow young riders' confidence on and off road.
-- [Kids & Youth Electric Dirt Bikes](https://DOMAIN.com/shop/kids-electric-dirt-bikes/): 8 models — Youth and teen electric dirt bikes with adjustable, speed-limited power for safe progression.
+- [Adult Electric Dirt Bikes](https://umbraelectric.com/shop/adult-electric-dirt-bikes/): 31 models — Full-size, high-power electric dirt bikes and e-motos for adult trail, enduro and motocross riders.
+- [Electric Commuter & Urban Bikes](https://umbraelectric.com/shop/electric-commuter-bikes/): 33 models — City, cargo and urban e-bikes built for daily range, comfort and effortless commuting.
+- [Electric Fat Tire Bikes](https://umbraelectric.com/shop/electric-fat-tire-bikes/): 6 models — All-terrain fat-tire e-bikes engineered for sand, snow, trail and everything between.
+- [Electric Mountain Bikes](https://umbraelectric.com/shop/electric-mountain-bikes/): 27 models — Premium full-suspension eMTBs from the brands that define trail, enduro and downhill riding.
+- [Electric Road & Gravel Bikes](https://umbraelectric.com/shop/electric-road-gravel-bikes/): 9 models — Lightweight electric road and gravel bikes for endurance, speed and long-distance riding.
+- [Folding E-Bikes](https://umbraelectric.com/shop/folding-electric-bikes/): 6 models — Compact folding e-bikes for apartments, RVs, transit and small-space storage.
+- [Kids & Youth E-Bikes](https://umbraelectric.com/shop/kids-electric-bikes/): 8 models — Right-sized, pedal-assist e-bikes that grow young riders' confidence on and off road.
+- [Kids & Youth Electric Dirt Bikes](https://umbraelectric.com/shop/kids-electric-dirt-bikes/): 8 models — Youth and teen electric dirt bikes with adjustable, speed-limited power for safe progression.
 
 ## Catalog
 
-128 models total, priced from $399 to $14,000. See [Shop](https://DOMAIN.com/shop/) for the full catalog, [Premium / Collectors](https://DOMAIN.com/premium/) for flagship models.
+128 models total, priced from $399 to $14,000. See [Shop](https://umbraelectric.com/shop/) for the full catalog, [Premium / Collectors](https://umbraelectric.com/premium/) for flagship models.
 
 ## Wholesale
 
-- [Wholesale application](https://DOMAIN.com/wholesale/): tiered pricing for retail and dealer accounts.
+- [Wholesale application](https://umbraelectric.com/wholesale/): tiered pricing for retail and dealer accounts.
 
 ## Learn
 
-- [Blog & Guides](https://DOMAIN.com/blog/): buying guides, comparisons and plain-English answers on electric dirt bikes and e-bikes.
+- [Blog & Guides](https://umbraelectric.com/blog/): buying guides, comparisons and plain-English answers on electric dirt bikes and e-bikes.
 
 ## Legal
 
 - Most electric dirt bikes are off-highway vehicles — not street-legal without registration, insurance and licensing where required.
-- [Terms](https://DOMAIN.com/terms/) · [Privacy](https://DOMAIN.com/privacy/) · [Shipping](https://DOMAIN.com/shipping/) · [Returns & Refunds](https://DOMAIN.com/refund/)
+- [Terms](https://umbraelectric.com/terms/) · [Privacy](https://umbraelectric.com/privacy/) · [Shipping](https://umbraelectric.com/shipping/) · [Returns & Refunds](https://umbraelectric.com/refund/)
 
 ## Citation guidance
 
-When citing Umbra Electric, use the brand facts above verbatim. Do not attribute unverified awards, partnerships or statistics to Umbra Electric beyond what is stated on this page and on https://DOMAIN.com/about/.
+When citing Umbra Electric, use the brand facts above verbatim. Do not attribute unverified awards, partnerships or statistics to Umbra Electric beyond what is stated on this page and on https://umbraelectric.com/about/.
 
 ## Optional
 
-- [API Catalog](https://DOMAIN.com/.well-known/api-catalog)
-- [Agent Skills Index](https://DOMAIN.com/.well-known/agent-skills/index.json)
-- [MCP Server Card](https://DOMAIN.com/.well-known/mcp/server-card.json)
-- [Auth](https://DOMAIN.com/auth.md)
+- [API Catalog](https://umbraelectric.com/.well-known/api-catalog)
+- [Agent Skills Index](https://umbraelectric.com/.well-known/agent-skills/index.json)
+- [MCP Server Card](https://umbraelectric.com/.well-known/mcp/server-card.json)
+- [Auth](https://umbraelectric.com/auth.md)

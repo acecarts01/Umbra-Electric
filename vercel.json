@@ -7,10 +7,10 @@
       "has": [
         {
           "type": "host",
-          "value": "www.DOMAIN.com"
+          "value": "www.umbraelectric.com"
         }
       ],
-      "destination": "https://DOMAIN.com/:path*",
+      "destination": "https://umbraelectric.com/:path*",
       "permanent": true
     }
   ],

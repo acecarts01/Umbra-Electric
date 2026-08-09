@@ -4,7 +4,7 @@ Last updated: 2026-08-09
 Migrated from Cloudflare Pages (WebForge v5 static build) to Vercel/Next.js (WebForge v9.1) by Claude.
 
 ## Identity
-- Domain: DOMAIN.com ⚠ PLACEHOLDER — set `domain` in `src/data/site.json`, rebuild, push
+- Domain: umbraelectric.com
 - Site Name: Umbra Electric
 - Tagline: Silent Power. Refined.
 - Primary Color: #A9793F (bronze) · Ink #141210 · Ivory #F5F1E9
@@ -19,7 +19,7 @@ Europe and worldwide, specializing in flagship off-road and trail machines from 
 category. What sets Umbra apart is ruthless curation — only bikes worth owning.
 
 ## Contact & Region
-- Email: hello@DOMAIN.com ⚠ PLACEHOLDER
+- Email: info@umbraelectric.com (Zoho Mail)
 - Phone: +1 (000) 000-0000 ⚠ PLACEHOLDER
 - WhatsApp: 10000000000 ⚠ PLACEHOLDER (digits only)
 - Region: Seattle, WA, USA · Ships United States, Europe & Worldwide
@@ -67,11 +67,13 @@ Finance Calculator, Legal)
   this pass; the site ships the static declaration layer only. Can be added later without touching content.
 
 ## ⚠ PENDING before go-live
-1. Set the real domain in `src/data/site.json` → `domain`.
-2. Get a Web3Forms access key (web3forms.com) → `src/data/site.json` → `web3formsKey`.
-3. Real contact email, phone, WhatsApp number → `src/data/site.json`.
-4. GSC + Bing verification codes → `src/data/site.json` → `gscCode` / `bingCode`.
-5. Real social profile URLs → `src/data/site.json` → `instagram` / `facebook`.
-6. Confirm/verify all prices with the client before the site is publicly promoted.
-7. Award/partner claims: the source site's intake listed "Auto Dealers of the Year" with no verifiable name —
+1. Get a Web3Forms access key (web3forms.com) → `src/data/site.json` → `web3formsKey`. Until set, the
+   contact/order/wholesale forms redirect straight to the thank-you page WITHOUT sending email.
+2. Real phone and WhatsApp number → `src/data/site.json`.
+3. GSC + Bing verification codes → `src/data/site.json` → `gscCode` / `bingCode`.
+4. Confirm the Instagram/Facebook URLs in `src/data/site.json` are the real, live profiles.
+5. Confirm/verify all prices with the client before the site is publicly promoted.
+6. Award/partner claims: the source site's intake listed "Auto Dealers of the Year" with no verifiable name —
    this was correctly never published. Only add real, named awards/partners if supplied.
+7. Connect the umbraelectric.com domain in Vercel's project settings (DNS/domain assignment is separate
+   from setting `SITE.domain` — both are needed for the live site to resolve correctly).

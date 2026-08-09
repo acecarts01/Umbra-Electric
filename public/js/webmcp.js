@@ -7,7 +7,7 @@
         description: 'Browse products by category',
         inputSchema: { type: 'object', properties: { category: { type: 'string', description: 'Product category to browse' } } },
         execute: async ({ category }) => {
-          const url = category ? 'https://DOMAIN.com/shop/' + category + '/' : 'https://DOMAIN.com/shop/';
+          const url = category ? 'https://umbraelectric.com/shop/' + category + '/' : 'https://umbraelectric.com/shop/';
           window.location.href = url;
           return { url };
         },
@@ -26,13 +26,13 @@
         name: 'get_wholesale_info',
         description: 'Get wholesale pricing tiers and ordering info',
         inputSchema: { type: 'object', properties: {} },
-        execute: async () => { window.location.href = 'https://DOMAIN.com/wholesale/'; return { url: 'https://DOMAIN.com/wholesale/' }; },
+        execute: async () => { window.location.href = 'https://umbraelectric.com/wholesale/'; return { url: 'https://umbraelectric.com/wholesale/' }; },
       },
       {
         name: 'contact',
         description: 'Contact for product questions or support',
         inputSchema: { type: 'object', properties: {} },
-        execute: async () => { window.location.href = 'https://DOMAIN.com/contact/'; return { url: 'https://DOMAIN.com/contact/' }; },
+        execute: async () => { window.location.href = 'https://umbraelectric.com/contact/'; return { url: 'https://umbraelectric.com/contact/' }; },
       },
     ],
   });

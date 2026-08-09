@@ -41,9 +41,9 @@ User-agent: cohere-ai
 Allow: /
 
 # Agent-readable resources
-# llms.txt: https://DOMAIN.com/llms.txt
-# API Catalog: https://DOMAIN.com/.well-known/api-catalog
-# Agent Skills: https://DOMAIN.com/.well-known/agent-skills/index.json
-# MCP Server Card: https://DOMAIN.com/.well-known/mcp/server-card.json
+# llms.txt: https://umbraelectric.com/llms.txt
+# API Catalog: https://umbraelectric.com/.well-known/api-catalog
+# Agent Skills: https://umbraelectric.com/.well-known/agent-skills/index.json
+# MCP Server Card: https://umbraelectric.com/.well-known/mcp/server-card.json
 
-Sitemap: https://DOMAIN.com/sitemap.xml
+Sitemap: https://umbraelectric.com/sitemap.xml
