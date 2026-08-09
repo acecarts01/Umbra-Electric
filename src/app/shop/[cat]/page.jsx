@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ProductGrid from '@/components/ProductGrid';
 import JsonLd from '@/components/JsonLd';
+import SmartImage from '@/components/SmartImage';
 import { SITE, CATEGORIES, PRODUCTS, getCategory, absUrl } from '@/config/site';
 
 export function generateStaticParams() {
@@ -48,8 +49,10 @@ export default async function CategoryPage({ params }) {
       <JsonLd data={crumbLd} />
       <JsonLd data={collectionLd} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop/' }, { label: cat.title }]} />
-      <section className="phead">
-        <div className="container">
+      <section className="cat-banner">
+        <SmartImage src={`/images/categories/${cat.slug}.webp`} alt={`${cat.title} — ${SITE.name}`} fill fit="cover" priority sizes="100vw" />
+        <div className="cat-banner-scrim" />
+        <div className="container cat-banner-in">
           <span className="eyebrow">Category</span>
           <h1>{cat.title}</h1>
           <p className="lead">{cat.lead}</p>

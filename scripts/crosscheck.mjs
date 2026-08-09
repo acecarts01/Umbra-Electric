@@ -15,6 +15,7 @@ function pass(msg) { console.log(`OK    ${msg}`); }
 
 const SITE = JSON.parse(fs.readFileSync(rel('src/data/site.json'), 'utf8'));
 const PRODUCTS = JSON.parse(fs.readFileSync(rel('src/data/products.json'), 'utf8'));
+const CATEGORIES = JSON.parse(fs.readFileSync(rel('src/data/categories.json'), 'utf8'));
 
 // B1: domain placeholder (warn only — pending domain is permitted, never silently ship to prod though)
 if (SITE.domain === 'DOMAIN.com') {
@@ -49,6 +50,25 @@ for (const p of PRODUCTS) {
   }
 }
 if (!missingImages) pass(`All ${PRODUCTS.reduce((a, p) => a + p.images.length, 0)} product images present.`);
+
+// Category hero images: one per category, real photos (not product shots)
+let missingCatImages = 0;
+for (const c of CATEGORIES) {
+  if (!fs.existsSync(rel(`public/images/categories/${c.slug}.webp`))) { fail(`Missing category hero image: ${c.slug}.webp`); missingCatImages++; }
+}
+if (!missingCatImages) pass(`All ${CATEGORIES.length} category hero images present.`);
+
+// Homepage hero images
+let missingHero = 0;
+for (let i = 1; i <= 4; i++) {
+  if (!fs.existsSync(rel(`public/images/hero/hero-${i}.webp`))) { fail(`Missing homepage hero image: hero-${i}.webp`); missingHero++; }
+}
+if (!missingHero) pass('All 4 homepage hero images present.');
+
+// Pagination: ProductGrid must paginate at 10/page
+const productGrid = fs.readFileSync(rel('src/components/ProductGrid.jsx'), 'utf8');
+if (!/PAGE_SIZE\s*=\s*10/.test(productGrid)) fail('ProductGrid.jsx PAGE_SIZE is not 10.');
+else pass('ProductGrid.jsx paginates at 10 products per page.');
 
 // Deploy config present
 if (!fs.existsSync(rel('vercel.json'))) fail('vercel.json missing at repo root.');

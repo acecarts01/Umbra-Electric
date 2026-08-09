@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function SmartImage({ src, alt, fill, width, height, priority, sizes, className, style }) {
+export default function SmartImage({ src, alt, fill, width, height, priority, sizes, className, style, fit = 'contain' }) {
   const path = src.startsWith('/') ? src : `/images/products/${src}`;
   if (fill) {
     return (
@@ -10,7 +10,7 @@ export default function SmartImage({ src, alt, fill, width, height, priority, si
         fill
         sizes={sizes || '(max-width: 600px) 50vw, 300px'}
         className={className}
-        style={{ objectFit: 'contain', ...style }}
+        style={{ objectFit: fit, ...style }}
         priority={priority}
       />
     );

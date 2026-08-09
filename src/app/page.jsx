@@ -21,7 +21,6 @@ export const metadata = {
   },
 };
 
-const HERO_SLUGS = ['stark-varg-standard', 'sur-ron-storm-bee', 'ktm-freeride-e-xc', 'santa-cruz-heckler-sl-cc-x0-axs'];
 const FEATURED_SLUGS = [
   'stark-varg-standard', 'sur-ron-ultra-bee', 'talaria-komodo-new-2026', 'specialized-turbo-levo-sl-comp-carbon',
   'santa-cruz-heckler-sl-cc-x0-axs', 'zero-fx', 'altis-sigma', 'aventon-level-3',
@@ -29,10 +28,6 @@ const FEATURED_SLUGS = [
 ];
 
 export default function HomePage() {
-  const heroSlides = HERO_SLUGS.map((slug) => {
-    const p = getProduct(slug);
-    return { slug: p.slug, headline: p.name, description: p.description, image: p.images[0], brand: p.brand, price: p.price };
-  });
   const featured = FEATURED_SLUGS.map(getProduct).filter(Boolean);
   const homeFaqs = FAQS.slice(0, 4);
 
@@ -64,7 +59,7 @@ export default function HomePage() {
       <JsonLd data={websiteLd} />
       <JsonLd data={speakableLd} />
       <JsonLd data={faqLd} />
-      <Hero slides={heroSlides} />
+      <Hero />
 
       <section className="section">
         <div className="container">

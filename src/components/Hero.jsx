@@ -1,50 +1,78 @@
 'use client';
 import { useEffect, useState } from 'react';
 import SmartImage from './SmartImage';
-import { fmtPrice } from '@/config/site';
 
-export default function Hero({ slides }) {
+const SLIDES = [
+  {
+    image: '/images/hero/hero-1.webp',
+    alt: 'Riders fist-bumping on their electric dirt bikes at a desert quarry — Umbra Electric',
+    eyebrow: 'Silent Power. Refined.',
+    headline: 'Premium Electric Dirt Bikes & E-Bikes',
+    description:
+      "Umbra Electric curates the world's finest electric dirt bikes, e-motos and e-bikes for adults and kids — flagship machines, expert guidance, worldwide shipping.",
+  },
+  {
+    image: '/images/hero/hero-2.webp',
+    alt: 'Rider commuting on a premium electric fat-tire bike along the coast — Umbra Electric',
+    eyebrow: 'Every Ride',
+    headline: 'Effortless Range, Everyday Riding',
+    description:
+      'From coastal commutes to weekend errands, our e-bike lineup is built for daily range, comfort and near-silent power.',
+  },
+  {
+    image: '/images/hero/hero-3.webp',
+    alt: 'Mountain biker overlooking a dramatic ridge at golden hour — Umbra Electric',
+    eyebrow: 'Adventure',
+    headline: 'Built For The Trail Ahead',
+    description:
+      'Premium full-suspension eMTBs from the brands that define trail, enduro and downhill riding — chosen for build quality and ride feel.',
+  },
+  {
+    image: '/images/hero/hero-4.webp',
+    alt: 'Mountain biker silhouetted against a golden-hour ridge — Umbra Electric',
+    eyebrow: 'Ruthless Curation',
+    headline: 'Only Bikes Worth Owning',
+    description:
+      "128 curated models across 8 categories from the brands that define the category. If we wouldn't ride it, we don't carry it.",
+  },
+];
+
+export default function Hero() {
   const [i, setI] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setI((prev) => (prev + 1) % slides.length), 5500);
+    const id = setInterval(() => setI((prev) => (prev + 1) % SLIDES.length), 6000);
     return () => clearInterval(id);
-  }, [slides.length]);
+  }, []);
 
   return (
     <section className="hero">
+      {SLIDES.map((s, idx) => (
+        <div key={s.image} className={`hero-bg${idx === i ? ' on' : ''}`} aria-hidden={idx !== i}>
+          <SmartImage src={s.image} alt={s.alt} fill fit="cover" priority={idx === 0} sizes="100vw" />
+        </div>
+      ))}
+      <div className="hero-scrim" />
       <div className="hero-in">
-        {slides.map((s, idx) => (
-          <div key={s.slug} style={{ display: idx === i ? 'contents' : 'none' }}>
-            <div>
-              <span className="eyebrow">{idx === 0 ? 'Silent Power. Refined.' : 'Featured'}</span>
-              {idx === 0 ? <h1>{s.headline}</h1> : <div className="h1">{s.headline}</div>}
-              <p className="hero-description">{s.description}</p>
-              <div className="hero-cta">
-                <a className="btn-primary" href="/shop/">
-                  Shop the Collection
-                </a>
-                <a className="btn-secondary" href="/premium/">
-                  Premium / Collectors
-                </a>
-              </div>
-            </div>
-            <div className="hero-frame">
-              <span className="hero-tag">Premium</span>
-              <SmartImage src={s.image} alt={`${s.headline} — premium electric dirt bike — Umbra Electric`} width={600} height={600} priority={idx === 0} />
-              <div className="cap">
-                <span>
-                  {s.brand} · {s.headline}
-                </span>
-                <b>{fmtPrice(s.price)}</b>
-              </div>
+        {SLIDES.map((s, idx) => (
+          <div key={s.headline} className="hero-content" style={{ display: idx === i ? 'block' : 'none' }}>
+            <span className="eyebrow">{s.eyebrow}</span>
+            {idx === 0 ? <h1>{s.headline}</h1> : <div className="h1">{s.headline}</div>}
+            <p className="hero-description">{s.description}</p>
+            <div className="hero-cta">
+              <a className="btn-primary" href="/shop/">
+                Shop the Collection
+              </a>
+              <a className="btn-secondary" href="/premium/">
+                Premium / Collectors
+              </a>
             </div>
           </div>
         ))}
       </div>
       <div className="hero-dots">
-        {slides.map((s, idx) => (
-          <button key={s.slug} type="button" className={idx === i ? 'on' : ''} aria-label={`Slide ${idx + 1}`} onClick={() => setI(idx)} />
+        {SLIDES.map((s, idx) => (
+          <button key={s.image} type="button" className={idx === i ? 'on' : ''} aria-label={`Slide ${idx + 1}`} onClick={() => setI(idx)} />
         ))}
       </div>
     </section>
