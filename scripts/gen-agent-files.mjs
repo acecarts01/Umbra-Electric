@@ -378,9 +378,11 @@ const wellKnownContentTypes = [
 const vercelJson = {
   $schema: 'https://openapi.vercel.sh/vercel.json',
   trailingSlash: true,
-  redirects: [
-    { source: '/:path*', has: [{ type: 'host', value: `www.${D}` }], destination: `https://${D}/:path*`, permanent: true },
-  ],
+  // NOTE: no www<->apex redirect here — Vercel's own project Domain settings
+  // (Settings -> Domains) already own that canonicalization. Duplicating it
+  // here caused an infinite redirect loop when it disagreed with the
+  // dashboard-configured direction. If you ever see ERR_TOO_MANY_REDIRECTS
+  // on www or the apex domain, check Domains in the Vercel dashboard first.
   headers: [
     {
       source: '/(.*)',
