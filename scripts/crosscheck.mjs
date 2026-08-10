@@ -165,13 +165,20 @@ else pass('ProductGrid.jsx paginates at 10 products per page.');
 if (!fs.existsSync(rel('vercel.json'))) fail('vercel.json missing at repo root.');
 else pass('vercel.json present.');
 
-// Agent-ready files
+// Agent-ready files. api-catalog/oauth-protected-resource/oauth-authorization-server/
+// openid-configuration/ucp are served by Route Handlers (src/app/.well-known/*/route.js)
+// rather than static public/ files -- Vercel ignores custom Content-Type headers on
+// extensionless static files, so those 5 moved to a generated source file + a route
+// handler that fully controls the Response. Check the generated source, not public/.
 const agentFiles = [
   'public/robots.txt', 'public/llms.txt', 'public/auth.md',
-  'public/.well-known/api-catalog', 'public/.well-known/agent-skills/index.json',
-  'public/.well-known/mcp/server-card.json', 'public/.well-known/oauth-protected-resource',
-  'public/.well-known/oauth-authorization-server', 'public/.well-known/openid-configuration',
-  'public/.well-known/acp.json', 'public/.well-known/ucp', 'public/js/webmcp.js',
+  'src/data/well-known-generated/api-catalog.json', 'public/.well-known/agent-skills/index.json',
+  'public/.well-known/mcp/server-card.json', 'src/data/well-known-generated/oauth-protected-resource.json',
+  'src/data/well-known-generated/oauth-authorization-server.json', 'src/data/well-known-generated/openid-configuration.json',
+  'public/.well-known/acp.json', 'src/data/well-known-generated/ucp.json', 'public/js/webmcp.js',
+  'src/app/.well-known/api-catalog/route.js', 'src/app/.well-known/oauth-protected-resource/route.js',
+  'src/app/.well-known/oauth-authorization-server/route.js', 'src/app/.well-known/openid-configuration/route.js',
+  'src/app/.well-known/ucp/route.js',
 ];
 let missingAgent = 0;
 for (const f of agentFiles) {
@@ -180,10 +187,10 @@ for (const f of agentFiles) {
 if (!missingAgent) pass('All agent-ready files present (A–L).');
 
 // JSON validity of well-known + package files
-for (const f of ['vercel.json', 'public/.well-known/api-catalog', 'public/.well-known/agent-skills/index.json',
-  'public/.well-known/mcp/server-card.json', 'public/.well-known/oauth-protected-resource',
-  'public/.well-known/oauth-authorization-server', 'public/.well-known/openid-configuration',
-  'public/.well-known/acp.json', 'public/.well-known/ucp']) {
+for (const f of ['vercel.json', 'src/data/well-known-generated/api-catalog.json', 'public/.well-known/agent-skills/index.json',
+  'public/.well-known/mcp/server-card.json', 'src/data/well-known-generated/oauth-protected-resource.json',
+  'src/data/well-known-generated/oauth-authorization-server.json', 'src/data/well-known-generated/openid-configuration.json',
+  'public/.well-known/acp.json', 'src/data/well-known-generated/ucp.json']) {
   try { JSON.parse(fs.readFileSync(rel(f), 'utf8')); } catch (e) { fail(`Invalid JSON in ${f}: ${e.message}`); }
 }
 pass('All generated JSON files are valid.');
@@ -194,9 +201,18 @@ if (!authMd.startsWith('# Auth.md')) fail('auth.md does not start with "# Auth.m
 else pass('auth.md starts with the required heading.');
 
 // ucp mandatory field
-const ucp = JSON.parse(fs.readFileSync(rel('public/.well-known/ucp'), 'utf8'));
+const ucp = JSON.parse(fs.readFileSync(rel('src/data/well-known-generated/ucp.json'), 'utf8'));
 if (ucp.ucp !== '1.0') fail('.well-known/ucp missing mandatory "ucp":"1.0" field.');
 else pass('.well-known/ucp has the mandatory ucp field.');
+
+// Static public/ files must NOT exist for the 5 route-handler-served paths --
+// a same-named static file re-introduces the exact ambiguity this was fixed for.
+let staleWellKnown = 0;
+for (const f of ['public/.well-known/api-catalog', 'public/.well-known/oauth-protected-resource',
+  'public/.well-known/oauth-authorization-server', 'public/.well-known/openid-configuration', 'public/.well-known/ucp']) {
+  if (fs.existsSync(rel(f))) { fail(`Stale static file would shadow its Route Handler: ${f}`); staleWellKnown++; }
+}
+if (!staleWellKnown) pass('No stale static files shadowing the well-known Route Handlers.');
 
 // Forms: WebForm.jsx uses the exact CORS shape
 const webForm = fs.readFileSync(rel('src/components/WebForm.jsx'), 'utf8');

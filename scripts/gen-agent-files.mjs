@@ -143,7 +143,7 @@ const apiCatalog = {
     { anchor: abs('/wholesale'), type: 'text/html', title: `${SITE.name} Wholesale` },
   ],
 };
-write('public/.well-known/api-catalog', JSON.stringify(apiCatalog, null, 2));
+write('src/data/well-known-generated/api-catalog.json', JSON.stringify(apiCatalog, null, 2));
 
 // ---------- E: .well-known/agent-skills/index.json ----------
 const agentSkills = {
@@ -208,7 +208,7 @@ const oauthProtectedResource = {
   tls_client_certificate_bound_access_tokens: false,
   note: `All resources on ${D} are publicly accessible. No OAuth tokens are required.`,
 };
-write('public/.well-known/oauth-protected-resource', JSON.stringify(oauthProtectedResource, null, 2));
+write('src/data/well-known-generated/oauth-protected-resource.json', JSON.stringify(oauthProtectedResource, null, 2));
 
 // ---------- H: .well-known/oauth-authorization-server ----------
 const oauthAuthServer = {
@@ -228,7 +228,7 @@ const oauthAuthServer = {
     notes: 'No registration required. All content is publicly accessible to agents.',
   },
 };
-write('public/.well-known/oauth-authorization-server', JSON.stringify(oauthAuthServer, null, 2));
+write('src/data/well-known-generated/oauth-authorization-server.json', JSON.stringify(oauthAuthServer, null, 2));
 
 // ---------- I: .well-known/openid-configuration ----------
 const openidConfig = {
@@ -245,7 +245,7 @@ const openidConfig = {
   subject_types_supported: [],
   id_token_signing_alg_values_supported: [],
 };
-write('public/.well-known/openid-configuration', JSON.stringify(openidConfig, null, 2));
+write('src/data/well-known-generated/openid-configuration.json', JSON.stringify(openidConfig, null, 2));
 
 // ---------- J: .well-known/acp.json ----------
 const acp = {
@@ -306,7 +306,7 @@ const ucp = {
     compliance: 'Off-highway vehicles — not street-legal without registration, insurance and licensing where required.',
   },
 };
-write('public/.well-known/ucp', JSON.stringify(ucp, null, 2));
+write('src/data/well-known-generated/ucp.json', JSON.stringify(ucp, null, 2));
 
 // ---------- L: /js/webmcp.js ----------
 const webmcp = `(function () {
@@ -364,15 +364,19 @@ const linkHeader = [
   '</.well-known/openid-configuration>; rel="openid-configuration"',
 ].join(', ');
 
+// api-catalog, oauth-protected-resource, oauth-authorization-server,
+// openid-configuration and ucp are EXTENSIONLESS files -- Vercel's static
+// file server ignores custom Content-Type headers for those and always
+// serves application/octet-stream regardless of what's configured here
+// (confirmed via a live isitagentready.com scan). Those 5 are served by
+// Next.js Route Handlers instead (src/app/.well-known/*/route.js), which
+// fully control the Response Content-Type. Only list files here whose
+// filename already carries a real extension, where Vercel's static-file
+// content-type guess is reliable.
 const wellKnownContentTypes = [
-  ['/.well-known/api-catalog', 'application/linkset+json'],
   ['/.well-known/agent-skills/index.json', 'application/json'],
   ['/.well-known/mcp/server-card.json', 'application/json'],
-  ['/.well-known/oauth-protected-resource', 'application/json'],
-  ['/.well-known/oauth-authorization-server', 'application/json'],
-  ['/.well-known/openid-configuration', 'application/json'],
   ['/.well-known/acp.json', 'application/json'],
-  ['/.well-known/ucp', 'application/json'],
 ];
 
 const vercelJson = {
