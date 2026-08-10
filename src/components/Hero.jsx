@@ -21,15 +21,15 @@ const SLIDES = [
   },
   {
     image: '/images/hero/hero-3.webp',
-    alt: 'Mountain biker overlooking a dramatic ridge at golden hour — Umbra Electric',
-    eyebrow: 'Adventure',
-    headline: 'Built For The Trail Ahead',
+    alt: 'Riders racing electric dirt bikes through mud on a competition track — Umbra Electric',
+    eyebrow: 'Adrenaline',
+    headline: 'Race-Bred Power',
     description:
-      'Premium full-suspension eMTBs from the brands that define trail, enduro and downhill riding — chosen for build quality and ride feel.',
+      'Built for the track and the trail — instant torque, precise handling and the aftermarket depth serious riders demand.',
   },
   {
     image: '/images/hero/hero-4.webp',
-    alt: 'Mountain biker silhouetted against a golden-hour ridge — Umbra Electric',
+    alt: 'Young rider cornering a youth electric dirt bike on a dirt track — Umbra Electric',
     eyebrow: 'Ruthless Curation',
     headline: 'Only Bikes Worth Owning',
     description:

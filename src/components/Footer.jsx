@@ -8,13 +8,8 @@ export default function Footer() {
         <div>
           <a className="brand" href="/">
             <svg width="26" height="26" viewBox="0 0 32 32" role="img" aria-label={SITE.name}>
-              <defs>
-                <mask id="umbra-eclipse-footer">
-                  <rect width="32" height="32" fill="#fff" />
-                  <circle cx="20.5" cy="12.5" r="10" fill="#000" />
-                </mask>
-              </defs>
-              <circle cx="15" cy="16" r="11.5" fill="#A9793F" mask="url(#umbra-eclipse-footer)" />
+              <circle cx="16" cy="16" r="13.5" fill="none" stroke="#A9793F" strokeWidth="2" />
+              <path d="M18.5,4 L9,17.5 L14.2,17.5 L13,28 L23,14.5 L17.8,14.5 Z" fill="#A9793F" />
             </svg>
             <span>{SITE.name.toUpperCase()}</span>
           </a>

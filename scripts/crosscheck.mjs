@@ -65,6 +65,38 @@ for (let i = 1; i <= 4; i++) {
 }
 if (!missingHero) pass('All 4 homepage hero images present.');
 
+// Image quality: category images must be >=2800px wide (native-crop, no
+// upscale target), hero images >=1800px wide -- catches any accidental
+// regression back to undersized/blurry sources.
+const sharp = (await import('sharp')).default;
+let lowResCat = 0;
+for (const c of CATEGORIES) {
+  const p = rel(`public/images/categories/${c.slug}.webp`);
+  if (!fs.existsSync(p)) continue;
+  const meta = await sharp(p).metadata();
+  if (meta.width < 2800) { fail(`Category image ${c.slug}.webp is only ${meta.width}px wide (want >=2800 to avoid upscale blur).`); lowResCat++; }
+}
+if (!lowResCat) pass('All category images are high enough resolution to avoid upscale blur.');
+
+let lowResHero = 0;
+for (let i = 1; i <= 4; i++) {
+  const p = rel(`public/images/hero/hero-${i}.webp`);
+  if (!fs.existsSync(p)) continue;
+  const meta = await sharp(p).metadata();
+  if (meta.width < 1800) { fail(`hero-${i}.webp is only ${meta.width}px wide (want >=1800 to avoid upscale blur).`); lowResHero++; }
+}
+if (!lowResHero) pass('All hero images are high enough resolution to avoid upscale blur.');
+
+// Logo / favicon
+if (!fs.existsSync(rel('public/images/favicon.svg'))) fail('favicon.svg missing.');
+else pass('favicon.svg present.');
+if (!fs.existsSync(rel('public/images/logo.webp'))) fail('logo.webp missing.');
+else pass('logo.webp present.');
+const navSrc = fs.readFileSync(rel('src/components/Nav.jsx'), 'utf8');
+const footerSrc = fs.readFileSync(rel('src/components/Footer.jsx'), 'utf8');
+if (navSrc.includes('umbra-eclipse') || footerSrc.includes('umbra-eclipse')) fail('Old eclipse-mark logo markup still present in Nav/Footer.');
+else pass('Nav/Footer use the new logo mark (no leftover eclipse-mark markup).');
+
 // Pagination: ProductGrid must paginate at 10/page
 const productGrid = fs.readFileSync(rel('src/components/ProductGrid.jsx'), 'utf8');
 if (!/PAGE_SIZE\s*=\s*10/.test(productGrid)) fail('ProductGrid.jsx PAGE_SIZE is not 10.');
