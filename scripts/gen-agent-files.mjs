@@ -404,6 +404,16 @@ const vercelJson = {
     })),
     { source: '/auth.md', headers: [{ key: 'Content-Type', value: 'text/markdown; charset=utf-8' }, { key: 'Access-Control-Allow-Origin', value: '*' }] },
     { source: '/llms.txt', headers: [{ key: 'Content-Type', value: 'text/plain; charset=utf-8' }, { key: 'Access-Control-Allow-Origin', value: '*' }] },
+    // public/images/* and public/js/* have no automatic Vercel cache header
+    // (unlike hashed _next/static/* assets, which Vercel already serves
+    // immutable). These filenames are NOT content-hashed and this catalog's
+    // images/scripts do get periodically replaced under the same filename,
+    // so a full year-long immutable cache risks serving stale content to
+    // returning visitors after a real update. 1 day fresh + 1 week
+    // stale-while-revalidate is a deliberate middle ground: a large repeat-
+    // visit win over the previous max-age=0 default, bounded staleness risk.
+    { source: '/images/(.*)', headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }] },
+    { source: '/js/(.*)', headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }] },
   ],
 };
 write('vercel.json', JSON.stringify(vercelJson, null, 2));
