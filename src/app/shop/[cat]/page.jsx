@@ -64,10 +64,10 @@ export default async function CategoryPage({ params }) {
       <JsonLd data={crumbLd} />
       <JsonLd data={collectionLd} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop/' }, { label: cat.title }]} />
-      <section className="cat-banner" style={{ '--pos-d': BANNER_POSITION[cat.slug] || '50% 50%', '--pos-m': '50% 50%' }}>
+      <section className="photo-banner" style={{ '--pos-d': BANNER_POSITION[cat.slug] || '50% 50%', '--pos-m': '50% 50%' }}>
         <SmartImage src={`/images/categories/${cat.slug}-banner.webp`} alt={`${cat.title} — ${SITE.name}`} fill fit="cover" priority sizes="100vw" />
-        <div className="cat-banner-scrim" />
-        <div className="container cat-banner-in">
+        <div className="photo-banner-scrim" />
+        <div className="container photo-banner-in">
           <span className="eyebrow">Category</span>
           <h1>{cat.title}</h1>
           <p className="lead">{cat.lead}</p>

@@ -1,5 +1,6 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import JsonLd from '@/components/JsonLd';
+import SmartImage from '@/components/SmartImage';
 import { SITE, PRODUCTS, absUrl } from '@/config/site';
 
 export const metadata = {
@@ -22,10 +23,16 @@ export default function AboutPage() {
     <>
       <JsonLd data={aboutLd} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
-      <section className="section">
-        <div className="container prose">
+      <section className="photo-banner" style={{ '--pos-d': '50% 50%', '--pos-m': '50% 50%' }}>
+        <SmartImage src="/images/hero/hero-1.webp" alt={`The ${SITE.name} team — Umbra Electric`} fill fit="cover" priority sizes="100vw" />
+        <div className="photo-banner-scrim" />
+        <div className="container photo-banner-in">
           <span className="eyebrow">Our story</span>
           <h1>About {SITE.name}</h1>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container prose">
           <p className="about-intro">{SITE.brandStatement}</p>
           <h2>Why we started</h2>
           <p>

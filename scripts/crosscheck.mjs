@@ -104,6 +104,20 @@ const footerSrc = fs.readFileSync(rel('src/components/Footer.jsx'), 'utf8');
 if (navSrc.includes('umbra-eclipse') || footerSrc.includes('umbra-eclipse')) fail('Old eclipse-mark logo markup still present in Nav/Footer.');
 else pass('Nav/Footer use the new logo mark (no leftover eclipse-mark markup).');
 
+// Visual design quality (WebForge design-quality.md, crosscheck item 41)
+const layoutSrc = fs.readFileSync(rel('src/app/layout.jsx'), 'utf8');
+if (!layoutSrc.includes('ScrollReveal')) fail('ScrollReveal not mounted in root layout.');
+else pass('ScrollReveal motion system mounted sitewide.');
+
+const globalsCss = fs.readFileSync(rel('src/app/globals.css'), 'utf8');
+if (!/\.reveal\{[^}]*opacity:0/.test(globalsCss)) fail('.reveal base state missing from globals.css.');
+if (!/prefers-reduced-motion:\s*reduce\).*\.hero-content\{animation:none\}|\.hero-content\{animation:none\}/.test(globalsCss)) {
+  warn('Could not confirm hero-content animation has an explicit reduced-motion disable (may still be covered by the global "*" transition-duration override).');
+}
+const homeSrc = fs.readFileSync(rel('src/app/page.jsx'), 'utf8');
+if (!homeSrc.includes('stat-row')) fail('Homepage "Why Umbra" section is missing its visual anchor (stat-row) -- bare-section violation.');
+else pass('No bare sections on homepage (stat-row anchor present).');
+
 // Pagination: ProductGrid must paginate at 10/page
 const productGrid = fs.readFileSync(rel('src/components/ProductGrid.jsx'), 'utf8');
 if (!/PAGE_SIZE\s*=\s*10/.test(productGrid)) fail('ProductGrid.jsx PAGE_SIZE is not 10.');

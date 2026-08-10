@@ -109,6 +109,24 @@ export default function HomePage() {
         <div className="container prose">
           <span className="eyebrow">Why Umbra</span>
           <h2>The premium electric dirt bike destination</h2>
+          <div className="stat-row">
+            <div className="stat-card">
+              <b>{PRODUCTS.length}</b>
+              <span>Curated models</span>
+            </div>
+            <div className="stat-card">
+              <b>8</b>
+              <span>Categories</span>
+            </div>
+            <div className="stat-card">
+              <b>~100</b>
+              <span>Premium brands</span>
+            </div>
+            <div className="stat-card">
+              <b>$399–$14K</b>
+              <span>Price range</span>
+            </div>
+          </div>
           <p className="brand-statement">{SITE.brandStatement}</p>
           <p>
             The electric off-road world has exploded — and most stores try to sell everything to everyone. {SITE.name} takes the opposite

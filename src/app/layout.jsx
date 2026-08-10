@@ -4,6 +4,7 @@ import Announce from '@/components/Announce';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import ChatHub from '@/components/ChatHub';
+import ScrollReveal from '@/components/ScrollReveal';
 import JsonLd from '@/components/JsonLd';
 import { SITE, absUrl } from '@/config/site';
 
@@ -54,6 +55,7 @@ export default function RootLayout({ children }) {
         <main id="main">{children}</main>
         <Footer />
         <ChatHub />
+        <ScrollReveal />
         <script src="/js/webmcp.js" defer />
       </body>
     </html>

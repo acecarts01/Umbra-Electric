@@ -28,6 +28,14 @@ button{font-family:inherit}
 .skip-link:focus{left:0}
 :focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 @media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+/* scroll-reveal (see ScrollReveal.jsx) -- JS skips adding these classes
+   entirely when prefers-reduced-motion is set, so content is never gated
+   behind a transition in that case */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.22,.61,.36,1)}
+.reveal-in{opacity:1;transform:translateY(0)}
+@keyframes heroFadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.hero-content{animation:heroFadeUp .7s cubic-bezier(.22,.61,.36,1) both}
+@media (prefers-reduced-motion: reduce){.hero-content{animation:none}}
 .btn-primary,.btn-secondary,.btn-ghost{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
   font-family:var(--font-inter),sans-serif;font-weight:600;font-size:.95rem;padding:.85rem 1.6rem;border-radius:100px;
   cursor:pointer;border:1.5px solid transparent;transition:.18s;min-height:46px;text-decoration:none}
@@ -135,16 +143,16 @@ button{font-family:inherit}
 /* aspect-ratio (not vh) bounds how extreme the crop of the 2:1 banner
    source can get -- vh alone let a totally standard 1920x1080 desktop
    produce a ~4.7:1 box, cropping away most of the photo's height */
-.cat-banner{position:relative;aspect-ratio:2.4/1;min-height:280px;max-height:540px;display:flex;align-items:flex-end;overflow:hidden;background:var(--night)}
-.cat-banner-scrim{position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,18,16,.86) 0%,rgba(20,18,16,.45) 55%,rgba(20,18,16,.15) 100%);z-index:1}
-.cat-banner-in{position:relative;z-index:2;padding:2.4rem 20px 2rem}
-.cat-banner h1{color:var(--ivory);margin:.3rem 0 .5rem;text-shadow:0 2px 16px rgba(0,0,0,.4)}
-.cat-banner .eyebrow{color:var(--bronze)}
-.cat-banner .lead{color:#EDE8DC}
-.cat-banner img{object-position:var(--pos-d,50% 50%)}
+.photo-banner{position:relative;aspect-ratio:2.4/1;min-height:280px;max-height:540px;display:flex;align-items:flex-end;overflow:hidden;background:var(--night)}
+.photo-banner-scrim{position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,18,16,.86) 0%,rgba(20,18,16,.45) 55%,rgba(20,18,16,.15) 100%);z-index:1}
+.photo-banner-in{position:relative;z-index:2;padding:2.4rem 20px 2rem}
+.photo-banner h1{color:var(--ivory);margin:.3rem 0 .5rem;text-shadow:0 2px 16px rgba(0,0,0,.4)}
+.photo-banner .eyebrow{color:var(--bronze)}
+.photo-banner .lead{color:#EDE8DC}
+.photo-banner img{object-position:var(--pos-d,50% 50%)}
 @media(max-width:760px){
-  .cat-banner{aspect-ratio:4/3;min-height:220px;max-height:320px}
-  .cat-banner img{object-position:var(--pos-m,50% 50%)}
+  .photo-banner{aspect-ratio:4/3;min-height:220px;max-height:320px}
+  .photo-banner img{object-position:var(--pos-m,50% 50%)}
 }
 /* shop layout */
 .shop-wrap{display:grid;grid-template-columns:250px 1fr;gap:2rem;align-items:start}
@@ -186,6 +194,12 @@ button{font-family:inherit}
 .prose ul{padding-left:1.2rem} .prose li{margin:.3rem 0}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
 .card-soft{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:none;margin:1.5rem 0 2rem}
+.stat-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:1.2rem 1rem;text-align:center;transition:transform .18s,box-shadow .18s}
+.stat-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.stat-card b{display:block;font-family:var(--font-fraunces),serif;font-size:1.7rem;color:var(--bronze-d);line-height:1.1}
+.stat-card span{font-family:var(--font-inter),sans-serif;font-size:.78rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-top:.3rem;display:block}
+@media(max-width:600px){.stat-row{grid-template-columns:1fr 1fr;gap:.7rem}}
 .timeline{list-style:none;padding:0;margin:1rem 0}
 .timeline li{display:flex;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--line);font-family:var(--font-inter),sans-serif}
 .timeline b{color:var(--bronze-d);min-width:64px}
