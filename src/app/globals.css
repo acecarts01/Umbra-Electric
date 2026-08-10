@@ -66,10 +66,11 @@ button{font-family:inherit}
 .searchbar form{max-width:var(--maxw);margin:0 auto;padding:.8rem 20px;display:flex;gap:.5rem}
 .searchbar input{flex:1;padding:.7rem 1rem;border:1.5px solid var(--line);border-radius:100px;font-size:1rem}
 /* hero — full-bleed cinematic background with scrim */
-.hero{background:var(--night);color:var(--ivory);position:relative;overflow:hidden;min-height:72vh;display:flex;align-items:flex-end}
+.hero{background:var(--night);color:var(--ivory);position:relative;overflow:hidden;min-height:72vh;max-height:800px;display:flex;align-items:flex-end}
 .hero-bg{position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease}
 .hero-bg.on{opacity:1}
-.hero-bg img{filter:saturate(1.04)}
+.hero-bg img{filter:saturate(1.04);object-position:var(--pos-d,50% 50%)}
+@media(max-width:760px){.hero-bg img{object-position:var(--pos-m,50% 50%)}}
 .hero-scrim{position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,18,16,.88) 0%,rgba(20,18,16,.55) 42%,rgba(20,18,16,.18) 75%,rgba(20,18,16,.35) 100%);z-index:1}
 .hero-in{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:clamp(3rem,8vw,5.5rem) 20px clamp(4rem,9vw,6rem);width:100%}
 .hero-content{max-width:640px}
@@ -82,7 +83,7 @@ button{font-family:inherit}
 .hero-dots{position:absolute;bottom:20px;left:0;right:0;display:flex;gap:8px;justify-content:center;z-index:5}
 .hero-dots button{width:9px;height:9px;border-radius:50%;border:none;background:rgba(255,255,255,.4);cursor:pointer;padding:0}
 .hero-dots button.on{background:var(--bronze);width:22px;border-radius:5px}
-@media(max-width:760px){.hero{min-height:60vh}}
+@media(max-width:760px){.hero{min-height:60vh;max-height:620px}}
 /* trust bar */
 .trust{background:var(--night-2);color:var(--ivory)}
 .trust-in{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:var(--maxw);margin:0 auto;padding:1.4rem 20px}
@@ -131,13 +132,20 @@ button{font-family:inherit}
 .phead .container{padding-top:1.6rem;padding-bottom:2rem}
 .phead h1{margin:.3rem 0 .6rem}
 /* category page photo banner */
-.cat-banner{position:relative;min-height:38vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--night)}
+/* aspect-ratio (not vh) bounds how extreme the crop of the 2:1 banner
+   source can get -- vh alone let a totally standard 1920x1080 desktop
+   produce a ~4.7:1 box, cropping away most of the photo's height */
+.cat-banner{position:relative;aspect-ratio:2.4/1;min-height:280px;max-height:540px;display:flex;align-items:flex-end;overflow:hidden;background:var(--night)}
 .cat-banner-scrim{position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,18,16,.86) 0%,rgba(20,18,16,.45) 55%,rgba(20,18,16,.15) 100%);z-index:1}
 .cat-banner-in{position:relative;z-index:2;padding:2.4rem 20px 2rem}
 .cat-banner h1{color:var(--ivory);margin:.3rem 0 .5rem;text-shadow:0 2px 16px rgba(0,0,0,.4)}
 .cat-banner .eyebrow{color:var(--bronze)}
 .cat-banner .lead{color:#EDE8DC}
-@media(max-width:760px){.cat-banner{min-height:30vh}}
+.cat-banner img{object-position:var(--pos-d,50% 50%)}
+@media(max-width:760px){
+  .cat-banner{aspect-ratio:4/3;min-height:220px;max-height:320px}
+  .cat-banner img{object-position:var(--pos-m,50% 50%)}
+}
 /* shop layout */
 .shop-wrap{display:grid;grid-template-columns:250px 1fr;gap:2rem;align-items:start}
 .filters{position:sticky;top:86px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.1rem}

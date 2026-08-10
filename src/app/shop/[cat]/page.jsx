@@ -9,6 +9,21 @@ export function generateStaticParams() {
   return CATEGORIES.map((c) => ({ cat: c.slug }));
 }
 
+// Hand-tuned per photo by simulating the actual object-fit:cover crop at
+// both a standard 1920x1080 desktop and mobile, then checking the subject
+// stays in frame -- see scripts/process-hero-images.mjs for how the master
+// 2:1 banner crop itself was generated. Default (unlisted) is "50% 50%".
+const BANNER_POSITION = {
+  'adult-electric-dirt-bikes': '50% 10%',
+  'kids-electric-dirt-bikes': '50% 0%',
+  'electric-mountain-bikes': '50% 10%',
+  'electric-commuter-bikes': '50% 10%',
+  'electric-road-gravel-bikes': '50% 10%',
+  'electric-fat-tire-bikes': '50% 10%',
+  'kids-electric-bikes': '50% 70%',
+  'folding-electric-bikes': '50% 40%',
+};
+
 export async function generateMetadata({ params }) {
   const { cat: catSlug } = await params;
   const cat = getCategory(catSlug);
@@ -49,8 +64,8 @@ export default async function CategoryPage({ params }) {
       <JsonLd data={crumbLd} />
       <JsonLd data={collectionLd} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop/' }, { label: cat.title }]} />
-      <section className="cat-banner">
-        <SmartImage src={`/images/categories/${cat.slug}.webp`} alt={`${cat.title} — ${SITE.name}`} fill fit="cover" priority sizes="100vw" />
+      <section className="cat-banner" style={{ '--pos-d': BANNER_POSITION[cat.slug] || '50% 50%', '--pos-m': '50% 50%' }}>
+        <SmartImage src={`/images/categories/${cat.slug}-banner.webp`} alt={`${cat.title} — ${SITE.name}`} fill fit="cover" priority sizes="100vw" />
         <div className="cat-banner-scrim" />
         <div className="container cat-banner-in">
           <span className="eyebrow">Category</span>

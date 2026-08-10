@@ -2,6 +2,14 @@
 import { useEffect, useState } from 'react';
 import SmartImage from './SmartImage';
 
+// Each slide's stored image is a gentle 3:2 master crop (see
+// scripts/process-hero-images.mjs) so the actual per-viewport crop is a
+// SECOND, independent object-fit:cover crop done by the browser -- full
+// width kept on wide desktop (only height trimmed), full height kept on
+// narrow mobile (only width trimmed). posDesktop/posMobile were hand-tuned
+// per photo by simulating both crops and checking the subject stays in
+// frame (not just centered) -- default center clips heads/riders on several
+// of these depending on where they actually sit in the frame.
 const SLIDES = [
   {
     image: '/images/hero/hero-1.webp',
@@ -10,6 +18,8 @@ const SLIDES = [
     headline: 'Premium Electric Dirt Bikes & E-Bikes',
     description:
       "Umbra Electric curates the world's finest electric dirt bikes, e-motos and e-bikes for adults and kids — flagship machines, expert guidance, worldwide shipping.",
+    posDesktop: '50% 50%',
+    posMobile: '50% 50%',
   },
   {
     image: '/images/hero/hero-2.webp',
@@ -18,6 +28,8 @@ const SLIDES = [
     headline: 'Effortless Range, Everyday Riding',
     description:
       'From coastal commutes to weekend errands, our e-bike lineup is built for daily range, comfort and near-silent power.',
+    posDesktop: '50% 10%',
+    posMobile: '50% 50%',
   },
   {
     image: '/images/hero/hero-3.webp',
@@ -26,14 +38,18 @@ const SLIDES = [
     headline: 'Race-Bred Power',
     description:
       'Built for the track and the trail — instant torque, precise handling and the aftermarket depth serious riders demand.',
+    posDesktop: '50% 5%',
+    posMobile: '50% 50%',
   },
   {
     image: '/images/hero/hero-4.webp',
-    alt: 'Young rider cornering a youth electric dirt bike on a dirt track — Umbra Electric',
-    eyebrow: 'Ruthless Curation',
-    headline: 'Only Bikes Worth Owning',
+    alt: 'Rider on a premium electric road bike crossing a bridge — Umbra Electric',
+    eyebrow: 'Every Terrain',
+    headline: 'Built For The Long Ride',
     description:
-      "128 curated models across 8 categories from the brands that define the category. If we wouldn't ride it, we don't carry it.",
+      'Lightweight electric road and gravel bikes for endurance, speed and long-distance riding — chosen for ride feel, not just spec sheets.',
+    posDesktop: '50% 50%',
+    posMobile: '50% 50%',
   },
 ];
 
@@ -48,7 +64,12 @@ export default function Hero() {
   return (
     <section className="hero">
       {SLIDES.map((s, idx) => (
-        <div key={s.image} className={`hero-bg${idx === i ? ' on' : ''}`} aria-hidden={idx !== i}>
+        <div
+          key={s.image}
+          className={`hero-bg${idx === i ? ' on' : ''}`}
+          aria-hidden={idx !== i}
+          style={{ '--pos-d': s.posDesktop, '--pos-m': s.posMobile }}
+        >
           <SmartImage src={s.image} alt={s.alt} fill fit="cover" priority={idx === 0} sizes="100vw" />
         </div>
       ))}

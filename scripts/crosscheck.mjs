@@ -51,12 +51,17 @@ for (const p of PRODUCTS) {
 }
 if (!missingImages) pass(`All ${PRODUCTS.reduce((a, p) => a + p.images.length, 0)} product images present.`);
 
-// Category hero images: one per category, real photos (not product shots)
+// Category tile + banner images: one of each per category, real photos
+// (not product shots). Separate files because the tile (4:3) and the
+// banner (2:1, ~3:1 on desktop) need different master crops -- reusing one
+// for both clipped subjects badly on the banner. See BANNER_POSITION in
+// src/app/shop/[cat]/page.jsx for the hand-tuned crop position per photo.
 let missingCatImages = 0;
 for (const c of CATEGORIES) {
-  if (!fs.existsSync(rel(`public/images/categories/${c.slug}.webp`))) { fail(`Missing category hero image: ${c.slug}.webp`); missingCatImages++; }
+  if (!fs.existsSync(rel(`public/images/categories/${c.slug}.webp`))) { fail(`Missing category tile image: ${c.slug}.webp`); missingCatImages++; }
+  if (!fs.existsSync(rel(`public/images/categories/${c.slug}-banner.webp`))) { fail(`Missing category banner image: ${c.slug}-banner.webp`); missingCatImages++; }
 }
-if (!missingCatImages) pass(`All ${CATEGORIES.length} category hero images present.`);
+if (!missingCatImages) pass(`All ${CATEGORIES.length} category tile + banner images present.`);
 
 // Homepage hero images
 let missingHero = 0;
@@ -71,12 +76,14 @@ if (!missingHero) pass('All 4 homepage hero images present.');
 const sharp = (await import('sharp')).default;
 let lowResCat = 0;
 for (const c of CATEGORIES) {
-  const p = rel(`public/images/categories/${c.slug}.webp`);
-  if (!fs.existsSync(p)) continue;
-  const meta = await sharp(p).metadata();
-  if (meta.width < 2800) { fail(`Category image ${c.slug}.webp is only ${meta.width}px wide (want >=2800 to avoid upscale blur).`); lowResCat++; }
+  for (const suffix of ['', '-banner']) {
+    const p = rel(`public/images/categories/${c.slug}${suffix}.webp`);
+    if (!fs.existsSync(p)) continue;
+    const meta = await sharp(p).metadata();
+    if (meta.width < 2800) { fail(`Category image ${c.slug}${suffix}.webp is only ${meta.width}px wide (want >=2800 to avoid upscale blur).`); lowResCat++; }
+  }
 }
-if (!lowResCat) pass('All category images are high enough resolution to avoid upscale blur.');
+if (!lowResCat) pass('All category tile + banner images are high enough resolution to avoid upscale blur.');
 
 let lowResHero = 0;
 for (let i = 1; i <= 4; i++) {
