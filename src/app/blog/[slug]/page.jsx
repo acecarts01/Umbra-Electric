@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import JsonLd from '@/components/JsonLd';
+import SmartImage from '@/components/SmartImage';
 import { SITE, POSTS, getPost, absUrl } from '@/config/site';
 
 export function generateStaticParams() {
@@ -43,6 +44,7 @@ export default async function BlogPostPage({ params }) {
     author: { '@type': 'Organization', name: SITE.name },
     publisher: { '@type': 'Organization', name: SITE.name, logo: { '@type': 'ImageObject', url: absUrl('/images/logo.webp') } },
     mainEntityOfPage: absUrl(`/blog/${post.slug}/`),
+    ...(post.image ? { image: absUrl(post.image) } : {}),
   };
 
   return (
@@ -50,6 +52,13 @@ export default async function BlogPostPage({ params }) {
       <JsonLd data={crumbLd} />
       <JsonLd data={postLd} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog/' }, { label: post.title }]} />
+      {post.image && (
+        <div className="container">
+          <div className="blog-hero-img">
+            <SmartImage src={post.image} alt={post.title} fill fit="cover" priority sizes="(max-width:760px) 100vw, 900px" />
+          </div>
+        </div>
+      )}
       <section className="section">
         <article dangerouslySetInnerHTML={{ __html: post.body }} />
       </section>

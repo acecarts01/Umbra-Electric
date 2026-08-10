@@ -120,6 +120,9 @@ button{font-family:inherit}
 .brand-menu-compact{margin-bottom:1.75rem}
 .brand-menu-compact .brand-pill{padding:.4rem .85rem;font-size:.82rem}
 
+.blog-hero-img{position:relative;aspect-ratio:16/10;max-height:440px;max-width:860px;border-radius:var(--r);overflow:hidden;margin-top:1.6rem;background:var(--night)}
+@media(max-width:760px){ .blog-hero-img{max-height:300px} }
+
 .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
 .review-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem;display:flex;flex-direction:column;transition:.18s}
 .review-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
@@ -279,8 +282,6 @@ button{font-family:inherit}
 .footer-bottom{border-top:1px solid #2c2820;padding:1.2rem 20px;max-width:var(--maxw);margin:0 auto;font-family:var(--font-inter),sans-serif;font-size:.78rem;color:#9a9384;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .footer .disclaimer{font-size:.76rem;color:#8b8474;max-width:70ch;margin-top:.4rem}
 /* whatsapp float */
-.wafloat{position:fixed;left:18px;bottom:18px;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:90;color:#fff;font-size:1.5rem}
-.wafloat:hover{text-decoration:none;transform:scale(1.05)}
 /* quick view dialog */
 .qv-dialog{border:none;padding:0;background:transparent;max-width:90vw;max-height:90vh}
 .qv-dialog::backdrop{background:rgba(20,18,16,.55)}

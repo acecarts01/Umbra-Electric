@@ -1,4 +1,5 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
+import SmartImage from '@/components/SmartImage';
 import { SITE, POSTS, absUrl } from '@/config/site';
 
 export const metadata = {
@@ -24,7 +25,13 @@ export default function BlogIndexPage() {
             {POSTS.map((post) => (
               <article className="bcard" key={post.slug}>
                 <a href={`/blog/${post.slug}/`}>
-                  <div className="ph">{post.title}</div>
+                  <div className="ph">
+                    {post.image ? (
+                      <SmartImage src={post.image} alt={post.title} fill fit="cover" sizes="(max-width:760px) 100vw, 33vw" />
+                    ) : (
+                      post.title
+                    )}
+                  </div>
                 </a>
                 <div className="b">
                   <span className="tag">{post.tag}</span>

@@ -4,7 +4,6 @@ import './globals.css';
 import Announce from '@/components/Announce';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
-import ChatHub from '@/components/ChatHub';
 import ScrollReveal from '@/components/ScrollReveal';
 import JsonLd from '@/components/JsonLd';
 import { SITE, REVIEW_STATS, absUrl } from '@/config/site';
@@ -56,7 +55,6 @@ export default function RootLayout({ children }) {
         <Nav />
         <main id="main">{children}</main>
         <Footer />
-        <ChatHub />
         <ScrollReveal />
         <Script id="tawk-to" strategy="afterInteractive">
           {`var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

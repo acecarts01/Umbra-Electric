@@ -137,6 +137,13 @@ for (const p of POSTS) {
 }
 if (!brokenKeepReading) pass(`All ${POSTS.length} blog posts have a valid "Keep reading" link.`);
 
+// Blog post images: every post with an "image" field must have a real file.
+let missingPostImages = 0;
+for (const p of POSTS) {
+  if (p.image && !fs.existsSync(rel(`public${p.image}`))) { fail(`Post "${p.slug}" references missing image: ${p.image}`); missingPostImages++; }
+}
+if (!missingPostImages) pass('All blog post "image" references resolve to real files.');
+
 // Reviews: every review must carry rating/name/state/date/text, and no
 // bracketed placeholder text should ever ship to the live site.
 let reviewIssues = 0;
