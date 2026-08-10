@@ -5,8 +5,8 @@
   },
   "name": "Umbra Electric",
   "description": "Umbra Electric is a Seattle-based premium electric mobility retailer established in 2022, curating high-end electric dirt bikes, e-motos and e-bikes for adults and kids. Umbra Electric ships across the United States, Europe and worldwide, specializing in flagship off-road and trail machines from the brands that define the category. What sets Umbra apart is ruthless curation — only bikes worth owning.",
-  "api_base_url": "https://umbraelectric.com/",
-  "homepage": "https://umbraelectric.com/",
+  "api_base_url": "https://www.umbraelectric.com/",
+  "homepage": "https://www.umbraelectric.com/",
   "transports": [
     "https"
   ],

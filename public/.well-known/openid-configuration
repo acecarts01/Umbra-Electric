@@ -1,5 +1,5 @@
 {
-  "issuer": "https://umbraelectric.com/",
+  "issuer": "https://www.umbraelectric.com/",
   "note": "Umbra Electric does not operate an OpenID Connect provider. All resources are publicly accessible.",
   "public_site": true,
   "authorization_endpoint": null,

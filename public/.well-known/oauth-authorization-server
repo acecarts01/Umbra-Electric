@@ -1,5 +1,5 @@
 {
-  "issuer": "https://umbraelectric.com/",
+  "issuer": "https://www.umbraelectric.com/",
   "authorization_endpoint": null,
   "token_endpoint": null,
   "jwks_uri": null,
@@ -8,14 +8,14 @@
   "scopes_supported": [],
   "note": "Umbra Electric has no protected APIs. All resources are publicly accessible.",
   "public_resources": [
-    "https://umbraelectric.com/shop/",
-    "https://umbraelectric.com/blog/",
-    "https://umbraelectric.com/faq/",
-    "https://umbraelectric.com/wholesale/",
-    "https://umbraelectric.com/llms.txt",
-    "https://umbraelectric.com/.well-known/api-catalog",
-    "https://umbraelectric.com/.well-known/agent-skills/index.json",
-    "https://umbraelectric.com/.well-known/mcp/server-card.json"
+    "https://www.umbraelectric.com/shop/",
+    "https://www.umbraelectric.com/blog/",
+    "https://www.umbraelectric.com/faq/",
+    "https://www.umbraelectric.com/wholesale/",
+    "https://www.umbraelectric.com/llms.txt",
+    "https://www.umbraelectric.com/.well-known/api-catalog",
+    "https://www.umbraelectric.com/.well-known/agent-skills/index.json",
+    "https://www.umbraelectric.com/.well-known/mcp/server-card.json"
   ],
   "agent_auth": {
     "register_uri": null,

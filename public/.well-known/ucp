@@ -3,14 +3,14 @@
   "protocol_version": "1.0",
   "spec": "https://ucp.dev/specification/overview/",
   "schema": "https://ucp.dev/schema/v1.json",
-  "site": "https://umbraelectric.com/",
+  "site": "https://www.umbraelectric.com/",
   "name": "Umbra Electric",
   "description": "Umbra Electric is a Seattle-based premium electric mobility retailer established in 2022, curating high-end electric dirt bikes, e-motos and e-bikes for adults and kids. Umbra Electric ships across the United States, Europe and worldwide, specializing in flagship off-road and trail machines from the brands that define the category. What sets Umbra apart is ruthless curation — only bikes worth owning.",
   "services": [
     {
       "id": "product-catalog",
       "type": "catalog",
-      "url": "https://umbraelectric.com/shop/",
+      "url": "https://www.umbraelectric.com/shop/",
       "description": "Full product catalog"
     },
     {
@@ -22,7 +22,7 @@
     {
       "id": "wholesale",
       "type": "b2b",
-      "url": "https://umbraelectric.com/wholesale/",
+      "url": "https://www.umbraelectric.com/wholesale/",
       "description": "Wholesale pricing and bulk ordering"
     }
   ],
@@ -33,12 +33,12 @@
     "content"
   ],
   "endpoints": {
-    "catalog": "https://umbraelectric.com/shop/",
-    "contact": "https://umbraelectric.com/contact/",
-    "agent_skills": "https://umbraelectric.com/.well-known/agent-skills/index.json",
-    "mcp_server_card": "https://umbraelectric.com/.well-known/mcp/server-card.json",
-    "api_catalog": "https://umbraelectric.com/.well-known/api-catalog",
-    "llms_txt": "https://umbraelectric.com/llms.txt"
+    "catalog": "https://www.umbraelectric.com/shop/",
+    "contact": "https://www.umbraelectric.com/contact/",
+    "agent_skills": "https://www.umbraelectric.com/.well-known/agent-skills/index.json",
+    "mcp_server_card": "https://www.umbraelectric.com/.well-known/mcp/server-card.json",
+    "api_catalog": "https://www.umbraelectric.com/.well-known/api-catalog",
+    "llms_txt": "https://www.umbraelectric.com/llms.txt"
   },
   "currency": "USD",
   "minimum_order_usd": "500",

@@ -3,6 +3,7 @@ import CategoryGrid from '@/components/CategoryGrid';
 import ProductCard from '@/components/ProductCard';
 import FaqAccordion from '@/components/FaqAccordion';
 import JsonLd from '@/components/JsonLd';
+import SmartImage from '@/components/SmartImage';
 import { SITE, PRODUCTS, POSTS, FAQS, getProduct, absUrl } from '@/config/site';
 
 export const metadata = {
@@ -180,7 +181,9 @@ export default function HomePage() {
             {POSTS.slice(0, 3).map((post) => (
               <article className="bcard" key={post.slug}>
                 <a href={`/blog/${post.slug}/`}>
-                  <div className="ph">{post.title}</div>
+                  <div className="ph">
+                    <SmartImage src={`/images/blog/${post.slug}.webp`} alt={post.title} fill fit="cover" sizes="(max-width:760px) 100vw, 33vw" />
+                  </div>
                 </a>
                 <div className="b">
                   <span className="tag">{post.tag}</span>

@@ -234,7 +234,7 @@ button{font-family:inherit}
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .bcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.18s;display:flex;flex-direction:column}
 .bcard:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.bcard .ph{aspect-ratio:16/10;background:linear-gradient(135deg,var(--night),var(--bronze-d));display:flex;align-items:flex-end;padding:1rem;color:#fff;font-family:var(--font-fraunces),serif;font-size:1.05rem}
+.bcard .ph{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--night)}
 .bcard .b{padding:1.1rem}
 .bcard .tag{font-family:var(--font-inter),sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--bronze-d);font-weight:700}
 .bcard h3{margin:.4rem 0} .bcard h3 a{color:var(--ink)}

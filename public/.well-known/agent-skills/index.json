@@ -1,14 +1,14 @@
 {
   "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
   "name": "Umbra Electric",
-  "url": "https://umbraelectric.com/",
+  "url": "https://www.umbraelectric.com/",
   "description": "Silent Power. Refined.",
   "skills": [
     {
       "name": "browse-products",
       "type": "navigation",
       "description": "Browse the full product catalog by category",
-      "url": "https://umbraelectric.com/shop/",
+      "url": "https://www.umbraelectric.com/shop/",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
@@ -22,21 +22,21 @@
       "name": "wholesale-inquiry",
       "type": "commerce",
       "description": "Wholesale pricing tiers and bulk ordering",
-      "url": "https://umbraelectric.com/wholesale/",
+      "url": "https://www.umbraelectric.com/wholesale/",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "name": "product-education",
       "type": "content",
       "description": "Educational blog content about electric dirt bikes and e-bikes",
-      "url": "https://umbraelectric.com/blog/",
+      "url": "https://www.umbraelectric.com/blog/",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "name": "contact",
       "type": "support",
       "description": "Contact for product questions, orders, or wholesale inquiries",
-      "url": "https://umbraelectric.com/contact/",
+      "url": "https://www.umbraelectric.com/contact/",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     }
   ]

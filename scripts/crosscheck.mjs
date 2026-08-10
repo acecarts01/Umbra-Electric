@@ -70,6 +70,13 @@ for (let i = 1; i <= 4; i++) {
 }
 if (!missingHero) pass('All 4 homepage hero images present.');
 
+// Homepage blog card images (Guides & insights section)
+let missingBlog = 0;
+for (const slug of ['are-electric-dirt-bikes-street-legal', 'electric-bike-classes-explained', 'electric-dirt-bikes-for-kids-guide']) {
+  if (!fs.existsSync(rel(`public/images/blog/${slug}.webp`))) { fail(`Missing homepage blog card image: ${slug}.webp`); missingBlog++; }
+}
+if (!missingBlog) pass('All 3 homepage blog card images present.');
+
 // Image quality: category images must be >=2800px wide (native-crop, no
 // upscale target), hero images >=1800px wide -- catches any accidental
 // regression back to undersized/blurry sources.
