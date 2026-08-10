@@ -10,7 +10,7 @@ export const metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Privacy Policy' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Privacy Policy', href: '/privacy/' }]} />
       <section className="phead">
         <div className="container">
           <span className="eyebrow">Legal</span>

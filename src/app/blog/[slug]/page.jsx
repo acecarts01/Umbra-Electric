@@ -16,7 +16,13 @@ export async function generateMetadata({ params }) {
     title: post.title,
     description: post.description,
     alternates: { canonical: absUrl(`/blog/${post.slug}/`) },
-    openGraph: { type: 'article', title: post.title, description: post.description, url: absUrl(`/blog/${post.slug}/`) },
+    openGraph: {
+      type: 'article',
+      title: post.title,
+      description: post.description,
+      url: absUrl(`/blog/${post.slug}/`),
+      images: [absUrl(post.image || '/images/og-default.webp')],
+    },
   };
 }
 
@@ -25,15 +31,6 @@ export default async function BlogPostPage({ params }) {
   const post = getPost(slug);
   if (!post) notFound();
 
-  const crumbLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: absUrl('/') },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: absUrl('/blog/') },
-      { '@type': 'ListItem', position: 3, name: post.title, item: absUrl(`/blog/${post.slug}/`) },
-    ],
-  };
   const postLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -44,14 +41,14 @@ export default async function BlogPostPage({ params }) {
     author: { '@type': 'Organization', name: SITE.name },
     publisher: { '@type': 'Organization', name: SITE.name, logo: { '@type': 'ImageObject', url: absUrl('/images/logo.webp') } },
     mainEntityOfPage: absUrl(`/blog/${post.slug}/`),
+    about: { '@type': 'Thing', name: post.tag },
     ...(post.image ? { image: absUrl(post.image) } : {}),
   };
 
   return (
     <>
-      <JsonLd data={crumbLd} />
       <JsonLd data={postLd} />
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog/' }, { label: post.title }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog/' }, { label: post.title, href: `/blog/${post.slug}/` }]} />
       {post.image && (
         <div className="container">
           <div className="blog-hero-img">

@@ -4,8 +4,8 @@ import JsonLd from '@/components/JsonLd';
 import { FAQS, absUrl } from '@/config/site';
 
 export const metadata = {
-  title: 'Frequently Asked Questions',
-  description: 'Everything you need to know about ordering electric dirt bikes and e-bikes from Umbra Electric.',
+  title: 'FAQ — Electric Dirt Bikes & E-Bikes',
+  description: 'Answers to common questions about electric dirt bikes and e-bikes: ordering, financing, shipping, returns and more at Umbra Electric.',
   alternates: { canonical: absUrl('/faq/') },
 };
 
@@ -19,7 +19,7 @@ export default function FaqPage() {
   return (
     <>
       <JsonLd data={faqLd} />
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'FAQ' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'FAQ', href: '/faq/' }]} />
       <section className="phead">
         <div className="container">
           <span className="eyebrow">Answers</span>

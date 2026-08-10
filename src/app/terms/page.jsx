@@ -10,7 +10,7 @@ export const metadata = {
 export default function TermsPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Terms & Conditions' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Terms & Conditions', href: '/terms/' }]} />
       <section className="phead">
         <div className="container">
           <span className="eyebrow">Legal</span>

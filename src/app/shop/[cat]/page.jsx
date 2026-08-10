@@ -3,7 +3,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import ProductGrid from '@/components/ProductGrid';
 import JsonLd from '@/components/JsonLd';
 import SmartImage from '@/components/SmartImage';
-import { SITE, CATEGORIES, PRODUCTS, getCategory, absUrl } from '@/config/site';
+import { SITE, CATEGORIES, PRODUCTS, POSTS, getCategory, absUrl } from '@/config/site';
 
 export function generateStaticParams() {
   return CATEGORIES.map((c) => ({ cat: c.slug }));
@@ -40,16 +40,8 @@ export default async function CategoryPage({ params }) {
   const cat = getCategory(catSlug);
   if (!cat) notFound();
   const products = PRODUCTS.filter((p) => p.category === cat.slug);
+  const relatedPosts = (cat.relatedPosts || []).map((slug) => POSTS.find((p) => p.slug === slug)).filter(Boolean);
 
-  const crumbLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: absUrl('/') },
-      { '@type': 'ListItem', position: 2, name: 'Shop', item: absUrl('/shop/') },
-      { '@type': 'ListItem', position: 3, name: cat.title, item: absUrl(`/shop/${cat.slug}/`) },
-    ],
-  };
   const collectionLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -61,9 +53,8 @@ export default async function CategoryPage({ params }) {
 
   return (
     <>
-      <JsonLd data={crumbLd} />
       <JsonLd data={collectionLd} />
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop/' }, { label: cat.title }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop/' }, { label: cat.title, href: `/shop/${cat.slug}/` }]} />
       <section className="photo-banner" style={{ '--pos-d': BANNER_POSITION[cat.slug] || '50% 50%', '--pos-m': '50% 50%' }}>
         <SmartImage src={`/images/categories/${cat.slug}-banner.webp`} alt={`${cat.title} — ${SITE.name}`} fill fit="cover" priority sizes="100vw" />
         <div className="photo-banner-scrim" />
@@ -73,6 +64,24 @@ export default async function CategoryPage({ params }) {
           <p className="lead">{cat.lead}</p>
         </div>
       </section>
+      {cat.seoIntro && (
+        <section className="section" style={{ paddingBottom: 0 }}>
+          <div className="container prose">
+            <p>{cat.seoIntro}</p>
+            {relatedPosts.length > 0 && (
+              <p className="muted" style={{ fontSize: '.9rem' }}>
+                Learn more:{' '}
+                {relatedPosts.map((post, i) => (
+                  <span key={post.slug}>
+                    {i > 0 && ' · '}
+                    <a href={`/blog/${post.slug}/`}>{post.title}</a>
+                  </span>
+                ))}
+              </p>
+            )}
+          </div>
+        </section>
+      )}
       <section className="section">
         <div className="container">
           <ProductGrid products={products} />

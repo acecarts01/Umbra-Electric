@@ -11,7 +11,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Contact' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Contact', href: '/contact/' }]} />
       <section className="form-section">
         <div className="container">
           <span className="eyebrow">Get in touch</span>

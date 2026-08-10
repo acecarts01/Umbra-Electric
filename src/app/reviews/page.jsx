@@ -10,14 +10,6 @@ export const metadata = {
 };
 
 export default function ReviewsPage() {
-  const crumbLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: absUrl('/') },
-      { '@type': 'ListItem', position: 2, name: 'Reviews', item: absUrl('/reviews/') },
-    ],
-  };
   const reviewsLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -42,9 +34,8 @@ export default function ReviewsPage() {
 
   return (
     <>
-      <JsonLd data={crumbLd} />
       <JsonLd data={reviewsLd} />
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Reviews' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Reviews', href: '/reviews/' }]} />
       <section className="phead">
         <div className="container">
           <span className="eyebrow">Reviews</span>

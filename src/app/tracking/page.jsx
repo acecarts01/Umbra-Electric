@@ -6,12 +6,13 @@ export const metadata = {
   title: 'Track Your Order',
   description: "Enter your order number and we'll pull up its status. For the fastest update, message us on WhatsApp.",
   alternates: { canonical: absUrl('/tracking/') },
+  robots: { index: false, follow: true },
 };
 
 export default function TrackingPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Track Order' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Track Order', href: '/tracking/' }]} />
       <section className="phead">
         <div className="container">
           <span className="eyebrow">Support</span>

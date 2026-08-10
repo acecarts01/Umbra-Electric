@@ -11,7 +11,7 @@ export const metadata = {
 export default function WholesalePage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Wholesale' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Wholesale', href: '/wholesale/' }]} />
       <section className="form-section">
         <div className="container">
           <span className="eyebrow">Trade</span>

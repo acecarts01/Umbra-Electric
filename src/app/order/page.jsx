@@ -12,7 +12,7 @@ export const metadata = {
 export default function OrderPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Order' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Order', href: '/order/' }]} />
       <section className="form-section">
         <div className="container">
           <span className="eyebrow">Checkout</span>

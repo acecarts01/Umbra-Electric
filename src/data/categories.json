@@ -4,6 +4,8 @@
     "title": "Adult Electric Dirt Bikes",
     "lead": "Full-size, high-power electric dirt bikes and e-motos for adult trail, enduro and motocross riders.",
     "metaDescription": "Buy adult electric dirt bikes at Umbra Electric. 31 curated models. Premium brands, financing and worldwide shipping.",
+    "seoIntro": "Umbra Electric's adult electric dirt bike collection covers everything from approachable trail bikes to race-ready electric motocross machines. Every electric off-road bike here is chosen for instant torque, near-silent operation and the build quality to hold up to real enduro and trail riding. Whether you're after your first electric trail bike or a premium electric dirt bike from a brand that defines the category, our team can help you match power, weight and seat height to your experience and terrain.",
+    "relatedPosts": ["are-electric-dirt-bikes-street-legal", "electric-dirt-bike-maintenance-checklist"],
     "count": 31
   },
   {
@@ -11,6 +13,8 @@
     "title": "Electric Commuter & Urban Bikes",
     "lead": "City, cargo and urban e-bikes built for daily range, comfort and effortless commuting.",
     "metaDescription": "Buy electric commuter bikes at Umbra Electric. 33 curated models. Premium brands, financing and worldwide shipping.",
+    "seoIntro": "This is our electric commuter bike and electric city bike range — step-through frames, racks and fenders included, built for daily commute range rather than weekend-only mileage. If you're comparing an electric bike for commuting against driving or transit, look at total cost per mile, not just the sticker price: no gas, minimal maintenance and a bike that gets you to work rested instead of stuck in traffic. Lightweight electric commuter bike options sit alongside longer-range models for bigger daily distances.",
+    "relatedPosts": ["how-much-does-it-cost-to-charge-an-ebike", "e-bike-vs-electric-dirt-bike-difference"],
     "count": 33
   },
   {
@@ -18,6 +22,8 @@
     "title": "Electric Fat Tire Bikes",
     "lead": "All-terrain fat-tire e-bikes engineered for sand, snow, trail and everything between.",
     "metaDescription": "Buy electric fat tire bikes at Umbra Electric. 6 curated models. Premium brands, financing and worldwide shipping.",
+    "seoIntro": "Wide, low-pressure tires make an electric fat tire bike the right call for sand, snow and loose off-road terrain where a standard-width tire loses grip. Every fat tire e-bike in this collection trades a little rolling efficiency on pavement for real stability and flotation everywhere else — a fair swap for riders whose routes aren't all smooth asphalt. Compare a fat tire electric bike against our standard-width commuter and mountain lines if you're not sure which fits your terrain.",
+    "relatedPosts": ["fat-tire-vs-standard-ebike", "cold-weather-riding-tips-electric-bikes"],
     "count": 6
   },
   {
@@ -25,6 +31,8 @@
     "title": "Electric Mountain Bikes",
     "lead": "Premium full-suspension eMTBs from the brands that define trail, enduro and downhill riding.",
     "metaDescription": "Buy electric mountain bikes at Umbra Electric. 27 curated models. Premium brands, financing and worldwide shipping.",
+    "seoIntro": "Our electric mountain bike lineup runs from trail-focused full suspension electric mountain bike builds to enduro-ready platforms from Specialized, Trek, Giant, Cannondale, Santa Cruz and Yeti. Every premium electric mountain bike here pairs a pedal-assist motor with real suspension travel and a proper frame — not a bolt-on kit. New to eMTBs? Get the sizing and full-power-vs-SL basics right before you buy; our team can also help you match travel and geometry to your local trails.",
+    "relatedPosts": ["how-to-choose-premium-emtb", "choosing-the-right-size-electric-mountain-bike"],
     "count": 27
   },
   {
@@ -32,6 +40,8 @@
     "title": "Electric Road & Gravel Bikes",
     "lead": "Lightweight electric road and gravel bikes for endurance, speed and long-distance riding.",
     "metaDescription": "Buy electric road and gravel bikes at Umbra Electric. 9 curated models. Premium brands, financing and worldwide shipping.",
+    "seoIntro": "An electric road bike or electric gravel bike adds just enough assist to extend your range and flatten climbs, without turning the ride into a motorcycle. These lightweight builds are for riders who still want a genuine road or gravel feel — quick handling, drop bars, real pedaling effort — with a motor in reserve for longer routes, more elevation, or riding back-to-back days. Every e-road bike and e-gravel bike here is chosen for a natural, low-drag ride feel first.",
+    "relatedPosts": ["cold-weather-riding-tips-electric-bikes", "e-bike-vs-electric-dirt-bike-difference"],
     "count": 9
   },
   {
@@ -39,6 +49,8 @@
     "title": "Folding E-Bikes",
     "lead": "Compact folding e-bikes for apartments, RVs, transit and small-space storage.",
     "metaDescription": "Buy folding electric bikes at Umbra Electric. 6 curated models. Premium brands, financing and worldwide shipping.",
+    "seoIntro": "A folding electric bike solves a real problem: nowhere to store or transport a full-size bike. Every foldable electric bike in this collection is chosen for the fold itself — a compact footprint, a hinge that stays solid over years of use, and enough wheel size to still ride comfortably. This is a portable electric bike range built for commuters combining a train or car with the last mile, apartment and RV storage, and anyone who wants a folding electric bike for travel.",
+    "relatedPosts": ["folding-ebike-buyers-guide", "how-to-transport-an-electric-dirt-bike"],
     "count": 6
   },
   {
@@ -46,6 +58,8 @@
     "title": "Kids & Youth E-Bikes",
     "lead": "Right-sized, pedal-assist e-bikes that grow young riders' confidence on and off road.",
     "metaDescription": "Buy electric bikes for kids at Umbra Electric. 8 curated models. Premium brands, financing and worldwide shipping.",
+    "seoIntro": "Our kids e-bike and youth electric bike range is pedal-assist, not throttle-driven — a real bicycle with a boost, sized and speed-limited for the rider's age and experience. A safe electric bike for kids should fit first: reachable ground, manageable weight, and power a parent can cap while skills develop. Browse by age and size below, and see our electric dirt bike guide for kids if you're weighing a throttle-driven youth e-moto instead.",
+    "relatedPosts": ["electric-dirt-bikes-for-kids-guide", "e-bike-vs-electric-dirt-bike-difference"],
     "count": 8
   },
   {
@@ -53,6 +67,8 @@
     "title": "Kids & Youth Electric Dirt Bikes",
     "lead": "Youth and teen electric dirt bikes with adjustable, speed-limited power for safe progression.",
     "metaDescription": "Buy electric dirt bikes for kids at Umbra Electric. 8 curated models. Premium brands, financing and worldwide shipping.",
+    "seoIntro": "A kids electric dirt bike should let a parent set the ceiling and raise it as skills grow — that's the standard every youth electric dirt bike in this collection is held to. From a small electric dirt bike for a first-time 8-year-old rider to a mid-size youth e-moto for a confident teenager, fit and adjustable, limitable power matter more than headline speed. Read our safety and sizing guide before you buy, and always pair any electric pit bike or youth e-moto with proper protective gear.",
+    "relatedPosts": ["electric-dirt-bikes-for-kids-guide", "essential-gear-for-electric-dirt-bike-riding"],
     "count": 8
   }
 ]

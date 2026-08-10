@@ -214,6 +214,7 @@ button{font-family:inherit}
 .compliance-warning{background:#fff7ec;border:1px solid #e7c98f;border-radius:12px;padding:1rem 1.2rem;font-family:var(--font-inter),sans-serif;font-size:.88rem;color:#6b4e18;margin:1.2rem 0}
 /* faq */
 .acc{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:.7rem;background:var(--card)}
+.acc h3{margin:0;font-size:1em;font-weight:400}
 .acc button{width:100%;text-align:left;background:none;border:none;padding:1.1rem 1.2rem;font-family:var(--font-inter),sans-serif;font-weight:600;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;gap:1rem;color:var(--ink)}
 .acc .ans{padding:0 1.2rem;max-height:0;overflow:hidden;transition:.25s;color:var(--ink-soft)}
 .acc.on .ans{padding:0 1.2rem 1.1rem;max-height:600px}

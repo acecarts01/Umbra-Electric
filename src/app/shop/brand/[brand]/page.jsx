@@ -25,15 +25,6 @@ export default async function BrandPage({ params }) {
   if (!brand) notFound();
   const products = PRODUCTS.filter((p) => p.brand === brand.name);
 
-  const crumbLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: absUrl('/') },
-      { '@type': 'ListItem', position: 2, name: 'Shop', item: absUrl('/shop/') },
-      { '@type': 'ListItem', position: 3, name: brand.name, item: absUrl(`/shop/brand/${brand.slug}/`) },
-    ],
-  };
   const collectionLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -45,9 +36,8 @@ export default async function BrandPage({ params }) {
 
   return (
     <>
-      <JsonLd data={crumbLd} />
       <JsonLd data={collectionLd} />
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop/' }, { label: brand.name }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop/' }, { label: brand.name, href: `/shop/brand/${brand.slug}/` }]} />
       <section className="phead">
         <div className="container">
           <span className="eyebrow">Brand</span>

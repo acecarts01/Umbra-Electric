@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
   const p = getProduct(slug);
   if (!p) return {};
   const title = `${p.name} — ${SITE.name}`;
-  const description = `${p.name} — ${fmtPrice(p.price)} at ${SITE.name}. Premium electric dirt bike, financing and worldwide shipping.`;
+  const description = `${p.name} — ${fmtPrice(p.price)}. ${p.categoryName} from ${p.brand} at ${SITE.name}. Financing and worldwide shipping.`;
   return {
     title: p.name,
     description,
@@ -35,16 +35,6 @@ export default async function ProductPage({ params }) {
   const isDirtBike = DIRT_BIKE_CATEGORIES.includes(p.category);
   const waMessage = `Hi ${SITE.name}, I am interested in the ${p.name} (${fmtPrice(p.price)}).`;
 
-  const crumbLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: absUrl('/') },
-      { '@type': 'ListItem', position: 2, name: 'Shop', item: absUrl('/shop/') },
-      { '@type': 'ListItem', position: 3, name: cat?.title || p.categoryName, item: absUrl(`/shop/${p.category}/`) },
-      { '@type': 'ListItem', position: 4, name: p.name, item: absUrl(`/product/${p.slug}/`) },
-    ],
-  };
   const productLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -66,14 +56,13 @@ export default async function ProductPage({ params }) {
 
   return (
     <>
-      <JsonLd data={crumbLd} />
       <JsonLd data={productLd} />
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },
           { label: 'Shop', href: '/shop/' },
           { label: cat?.title || p.categoryName, href: `/shop/${p.category}/` },
-          { label: p.name },
+          { label: p.name, href: `/product/${p.slug}/` },
         ]}
       />
       <section className="section">

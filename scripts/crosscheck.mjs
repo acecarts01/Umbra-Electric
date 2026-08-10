@@ -34,7 +34,7 @@ if (SITE.whatsapp === '10000000000') warn('WhatsApp number is still the placehol
 if (SITE.email === 'hello@DOMAIN.com') warn('Contact email is still the placeholder.');
 
 // B4: strategy docs must never be in public/
-for (const p of ['public/PROJECT.md', 'public/keyword-map.md', 'public/docs']) {
+for (const p of ['public/PROJECT.md', 'public/keyword-map.md', 'public/keyword-cluster-map.md', 'public/docs']) {
   if (fs.existsSync(rel(p))) fail(`Strategy doc leaked into public/: ${p}`);
 }
 pass('No strategy docs in public/.');

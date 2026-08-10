@@ -4,7 +4,7 @@ import SmartImage from '@/components/SmartImage';
 import { SITE, PRODUCTS, absUrl } from '@/config/site';
 
 export const metadata = {
-  title: 'About Us',
+  title: 'About Umbra Electric — Seattle-Based Electric Bike Retailer',
   description: `${SITE.brandStatement.slice(0, 150)}...`,
   alternates: { canonical: absUrl('/about/') },
 };
@@ -22,7 +22,7 @@ export default function AboutPage() {
   return (
     <>
       <JsonLd data={aboutLd} />
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About', href: '/about/' }]} />
       <section className="photo-banner" style={{ '--pos-d': '50% 50%', '--pos-m': '50% 50%' }}>
         <SmartImage src="/images/hero/hero-1.webp" alt={`The ${SITE.name} team — Umbra Electric`} fill fit="cover" priority sizes="100vw" />
         <div className="photo-banner-scrim" />

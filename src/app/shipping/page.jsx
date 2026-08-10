@@ -2,24 +2,24 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { SITE, absUrl, fmtPrice } from '@/config/site';
 
 export const metadata = {
-  title: 'Shipping Policy',
-  description: `${SITE.name} shipping rates, processing times and delivery information.`,
+  title: 'Electric Bike Shipping — USA, Europe & Worldwide',
+  description: `${SITE.name} electric bike shipping rates, processing times and delivery information for the United States, Europe and worldwide.`,
   alternates: { canonical: absUrl('/shipping/') },
 };
 
 export default function ShippingPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Shipping Policy' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Shipping Policy', href: '/shipping/' }]} />
       <section className="phead">
         <div className="container">
           <span className="eyebrow">Legal</span>
-          <h1>Shipping Policy</h1>
+          <h1>Electric Bike Shipping Policy</h1>
         </div>
       </section>
       <section className="section">
         <div className="container prose">
-          <p>{SITE.name} ships across the United States, Europe and worldwide.</p>
+          <p>{SITE.name} offers electric bike shipping across the United States, with worldwide shipping to Europe and beyond.</p>
           <h2>Processing</h2>
           <p>
             In-stock models are prepared for dispatch promptly after your order is confirmed. Premium or made-to-order machines may require

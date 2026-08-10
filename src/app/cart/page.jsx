@@ -11,7 +11,7 @@ export const metadata = {
 export default function CartPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Cart' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Cart', href: '/cart/' }]} />
       <section className="phead">
         <div className="container">
           <span className="eyebrow">Your cart</span>

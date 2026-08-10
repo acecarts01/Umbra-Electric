@@ -25,7 +25,7 @@ export default async function ShopPage({ searchParams }) {
   return (
     <>
       <JsonLd data={crumbLd} />
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Shop' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop/' }]} />
       <section className="phead">
         <div className="container">
           <span className="eyebrow">Shop</span>

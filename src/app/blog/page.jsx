@@ -11,7 +11,7 @@ export const metadata = {
 export default function BlogIndexPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Blog' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog/' }]} />
       <section className="phead">
         <div className="container">
           <span className="eyebrow">Guides</span>

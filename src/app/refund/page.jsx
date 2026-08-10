@@ -10,7 +10,7 @@ export const metadata = {
 export default function RefundPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Returns & Refunds' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Returns & Refunds', href: '/refund/' }]} />
       <section className="phead">
         <div className="container">
           <span className="eyebrow">Legal</span>
