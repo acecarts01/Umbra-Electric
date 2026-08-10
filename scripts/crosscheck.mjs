@@ -16,6 +16,8 @@ function pass(msg) { console.log(`OK    ${msg}`); }
 const SITE = JSON.parse(fs.readFileSync(rel('src/data/site.json'), 'utf8'));
 const PRODUCTS = JSON.parse(fs.readFileSync(rel('src/data/products.json'), 'utf8'));
 const CATEGORIES = JSON.parse(fs.readFileSync(rel('src/data/categories.json'), 'utf8'));
+const POSTS = JSON.parse(fs.readFileSync(rel('src/data/posts.json'), 'utf8'));
+const REVIEWS = JSON.parse(fs.readFileSync(rel('src/data/reviews.json'), 'utf8'));
 
 // B1: domain placeholder (warn only — pending domain is permitted, never silently ship to prod though)
 if (SITE.domain === 'DOMAIN.com') {
@@ -124,6 +126,25 @@ if (!/prefers-reduced-motion:\s*reduce\).*\.hero-content\{animation:none\}|\.her
 const homeSrc = fs.readFileSync(rel('src/app/page.jsx'), 'utf8');
 if (!homeSrc.includes('stat-row')) fail('Homepage "Why Umbra" section is missing its visual anchor (stat-row) -- bare-section violation.');
 else pass('No bare sections on homepage (stat-row anchor present).');
+
+// Blog: every post's "Keep reading" link must resolve to a real post slug,
+// forming one connected loop with no dead links.
+const postSlugs = new Set(POSTS.map((p) => p.slug));
+let brokenKeepReading = 0;
+for (const p of POSTS) {
+  const m = p.body.match(/Next up: <a href="\/blog\/([^/]+)\/">/);
+  if (!m || !postSlugs.has(m[1])) { fail(`Post "${p.slug}" has a broken or missing "Keep reading" link.`); brokenKeepReading++; }
+}
+if (!brokenKeepReading) pass(`All ${POSTS.length} blog posts have a valid "Keep reading" link.`);
+
+// Reviews: every review must carry rating/name/state/date/text, and no
+// bracketed placeholder text should ever ship to the live site.
+let reviewIssues = 0;
+for (const r of REVIEWS) {
+  if (!r.rating || !r.name || !r.state || !r.text || !r.title) { fail(`Review #${r.id} is missing a required field.`); reviewIssues++; }
+  if (/\[[A-Z_ /]+\]/.test(r.text)) { fail(`Review #${r.id} still contains bracketed placeholder text.`); reviewIssues++; }
+}
+if (!reviewIssues) pass(`All ${REVIEWS.length} reviews are complete with no placeholder text.`);
 
 // Pagination: ProductGrid must paginate at 10/page
 const productGrid = fs.readFileSync(rel('src/components/ProductGrid.jsx'), 'utf8');

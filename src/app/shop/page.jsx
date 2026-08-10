@@ -1,5 +1,6 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ProductGrid from '@/components/ProductGrid';
+import BrandMenu from '@/components/BrandMenu';
 import JsonLd from '@/components/JsonLd';
 import { SITE, PRODUCTS, absUrl } from '@/config/site';
 
@@ -34,6 +35,8 @@ export default async function ShopPage({ searchParams }) {
       </section>
       <section className="section">
         <div className="container">
+          <span className="eyebrow">Shop by brand</span>
+          <BrandMenu compact />
           <ProductGrid products={PRODUCTS} searchQuery={q} />
         </div>
       </section>

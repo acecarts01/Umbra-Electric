@@ -1,10 +1,12 @@
 import Hero from '@/components/Hero';
 import CategoryGrid from '@/components/CategoryGrid';
+import BrandMenu from '@/components/BrandMenu';
 import ProductCard from '@/components/ProductCard';
 import FaqAccordion from '@/components/FaqAccordion';
+import ReviewCard from '@/components/ReviewCard';
 import JsonLd from '@/components/JsonLd';
 import SmartImage from '@/components/SmartImage';
-import { SITE, PRODUCTS, POSTS, FAQS, getProduct, absUrl } from '@/config/site';
+import { SITE, PRODUCTS, POSTS, FAQS, REVIEWS, REVIEW_STATS, getProduct, absUrl } from '@/config/site';
 
 export const metadata = {
   title: `${SITE.name} — Premium Electric Dirt Bikes & E-Bikes`,
@@ -68,6 +70,19 @@ export default function HomePage() {
           <h2>Shop by category</h2>
           <div style={{ marginTop: '1.5rem' }}>
             <CategoryGrid />
+          </div>
+        </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <span className="eyebrow">Brands</span>
+          <h2>Shop by brand</h2>
+          <p className="muted" style={{ marginTop: '.4rem' }}>
+            {PRODUCTS.length} models from ~100 premium brands — browse by name.
+          </p>
+          <div style={{ marginTop: '1.5rem' }}>
+            <BrandMenu />
           </div>
         </div>
       </section>
@@ -155,6 +170,28 @@ export default function HomePage() {
             you buy with clear expectations. Questions? Reach our team on <a href={`https://wa.me/${SITE.whatsapp}`}>WhatsApp</a> or the{' '}
             <a href="/contact/">contact page</a>.
           </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <span className="eyebrow">Reviews</span>
+          <h2>What riders are saying</h2>
+          <div className="review-summary">
+            <span className="avg">{REVIEW_STATS.average}</span>
+            <span className="stars-lg">★★★★★</span>
+            <span className="muted">based on {REVIEW_STATS.count} verified customer reviews</span>
+          </div>
+          <div className="review-grid" style={{ marginTop: '1.5rem' }}>
+            {[REVIEWS[0], REVIEWS[8], REVIEWS[10]].map((r) => (
+              <ReviewCard key={r.id} review={r} />
+            ))}
+          </div>
+          <div style={{ marginTop: '1.5rem' }}>
+            <a className="btn-secondary" href="/reviews/">
+              Read all {REVIEW_STATS.count} reviews
+            </a>
+          </div>
         </div>
       </section>
 

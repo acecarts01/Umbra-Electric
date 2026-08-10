@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "rating": 5,
+    "title": "Great value during the sale",
+    "name": "Ethan Walker",
+    "state": "California",
+    "dateDisplay": "March 18, 2024",
+    "date": "2024-03-18",
+    "text": "I bought it during the sale and it has been a great purchase. The bike feels sturdy, the ride is smooth, and the power is excellent. The ordering process was simple and delivery was handled well."
+  },
+  {
+    "id": 2,
+    "rating": 4,
+    "title": "Fun and easy to ride",
+    "name": "Ava Bennett",
+    "state": "California",
+    "dateDisplay": "July 9, 2025",
+    "date": "2025-07-09",
+    "text": "It's a lot of fun to ride and easy to get comfortable with. It has performed exactly as I hoped. Getting it at the sale price made the decision even easier."
+  },
+  {
+    "id": 3,
+    "rating": 5,
+    "title": "Excellent e-bike for daily rides",
+    "name": "Benjamin Carter",
+    "state": "Colorado",
+    "dateDisplay": "January 26, 2026",
+    "date": "2026-01-26",
+    "text": "I have been using this e-bike and I am very happy with it. Pedal assist makes longer rides and hills much easier, while the bike still feels stable and comfortable. It is a great option for everyday transportation."
+  },
+  {
+    "id": 4,
+    "rating": 5,
+    "title": "More power than expected",
+    "name": "Charlotte Hayes",
+    "state": "Colorado",
+    "dateDisplay": "October 14, 2024",
+    "date": "2024-10-14",
+    "text": "I was pleasantly surprised by the power and acceleration. It handles very well and feels well built. This was one of the best sale purchases I have made."
+  },
+  {
+    "id": 5,
+    "rating": 5,
+    "title": "Smooth ordering and delivery",
+    "name": "Noah Sullivan",
+    "state": "New York",
+    "dateDisplay": "May 3, 2025",
+    "date": "2025-05-03",
+    "text": "Everything went smoothly from placing my order to receiving the bike. It arrived securely packaged, and setup was manageable. After riding it for the first time, I knew I had made the right choice."
+  },
+  {
+    "id": 6,
+    "rating": 5,
+    "title": "Great electric dirt bike",
+    "name": "Sophia Reed",
+    "state": "Florida",
+    "dateDisplay": "August 22, 2024",
+    "date": "2024-08-22",
+    "text": "This electric dirt bike is powerful, quiet, and incredibly fun to ride. It has been a great fit, and I appreciate not having to deal with gasoline. I would recommend it to anyone considering an electric ride."
+  },
+  {
+    "id": 7,
+    "rating": 5,
+    "title": "Comfortable and reliable",
+    "name": "Henry Collins",
+    "state": "Texas",
+    "dateDisplay": "February 11, 2026",
+    "date": "2026-02-11",
+    "text": "I chose this bike because I wanted something comfortable and dependable. The seating position is comfortable, the controls are easy to use, and the bike has been reliable so far. Very happy with this purchase."
+  },
+  {
+    "id": 8,
+    "rating": 5,
+    "title": "Worth every dollar",
+    "name": "Olivia Parker",
+    "state": "Arizona",
+    "dateDisplay": "June 17, 2025",
+    "date": "2025-06-17",
+    "text": "I did a lot of research before purchasing, and this e-bike has lived up to my expectations. The design looks great, it rides confidently, and the features are useful without being complicated. The sale price was an added bonus."
+  },
+  {
+    "id": 9,
+    "rating": 5,
+    "title": "Perfect for trails and open areas",
+    "name": "Liam Brooks",
+    "state": "Washington",
+    "dateDisplay": "November 5, 2024",
+    "date": "2024-11-05",
+    "text": "This bike has made my outdoor rides much more enjoyable. It has responsive power, handles uneven ground well, and feels solid while riding. It is a great electric dirt bike for anyone who wants a fun alternative to a gas-powered model."
+  },
+  {
+    "id": 10,
+    "rating": 5,
+    "title": "Easy to assemble and ride",
+    "name": "Isabella Morgan",
+    "state": "Washington",
+    "dateDisplay": "April 28, 2026",
+    "date": "2026-04-28",
+    "text": "I was worried about assembling an e-bike, but the process was easier than expected. Once it was ready, I was impressed by how smooth and stable the ride felt. I have already recommended it to friends and family."
+  },
+  {
+    "id": 11,
+    "rating": 5,
+    "title": "An excellent commuter bike",
+    "name": "Daniel Rivera",
+    "state": "Nevada",
+    "dateDisplay": "September 16, 2025",
+    "date": "2025-09-16",
+    "text": "This has been a fantastic choice for getting around town. It saves me time, makes my commute more enjoyable, and gives me the flexibility to ride without relying on my car for every trip. I am very pleased with the overall quality."
+  },
+  {
+    "id": 12,
+    "rating": 5,
+    "title": "Quiet, capable, and fun",
+    "name": "Mia Thompson",
+    "state": "Utah",
+    "dateDisplay": "December 7, 2024",
+    "date": "2024-12-07",
+    "text": "I love how quiet this electric dirt bike is while still delivering the power I need. It is enjoyable to ride, easy to control, and looks great as well. The current sale was a great opportunity to finally make the purchase."
+  },
+  {
+    "id": 13,
+    "rating": 5,
+    "title": "Great customer experience",
+    "name": "Lucas Foster",
+    "state": "Montana",
+    "dateDisplay": "March 30, 2026",
+    "date": "2026-03-30",
+    "text": "I had a good experience purchasing my bike. The product information helped me choose the right bike, and the team was helpful when I had a question. The bike itself has been everything I wanted."
+  },
+  {
+    "id": 14,
+    "rating": 5,
+    "title": "Highly recommended",
+    "name": "Emily Harris",
+    "state": "Montana",
+    "dateDisplay": "July 12, 2025",
+    "date": "2025-07-12",
+    "text": "I am very happy with my bike. It combines comfort, performance, and style in one bike. Whether I am riding for fun or using it for short trips, it has been dependable and enjoyable every time."
+  },
+  {
+    "id": 15,
+    "rating": 4,
+    "title": "Clear product information",
+    "name": "James Mitchell",
+    "state": "Wyoming",
+    "dateDisplay": "January 8, 2024",
+    "date": "2024-01-08",
+    "text": "The product details and specifications made it much easier to choose the right model for my needs. What I received matched the listing, and the bike has performed well. I appreciated having clear information before buying."
+  },
+  {
+    "id": 16,
+    "rating": 5,
+    "title": "Helpful support team",
+    "name": "Amelia Cooper",
+    "state": "Alaska",
+    "dateDisplay": "February 25, 2026",
+    "date": "2026-02-25",
+    "text": "I contacted support with a few questions before ordering. They gave me helpful answers and made the buying process feel straightforward. I am happy with both the service and the bike."
+  },
+  {
+    "id": 17,
+    "rating": 5,
+    "title": "Secure packaging and condition",
+    "name": "Elijah Grant",
+    "state": "Oregon",
+    "dateDisplay": "May 19, 2024",
+    "date": "2024-05-19",
+    "text": "My bike arrived in good condition and was packaged carefully. All of the major parts were protected during shipping, and I was able to inspect everything before my first ride. It gave me confidence in the overall purchase."
+  },
+  {
+    "id": 18,
+    "rating": 5,
+    "title": "Product matched the description",
+    "name": "Grace Turner",
+    "state": "North Carolina",
+    "dateDisplay": "August 4, 2026",
+    "date": "2026-08-04",
+    "text": "It matched the description and photos on the website. The features I cared about most were included as expected. It has been a solid purchase so far."
+  },
+  {
+    "id": 19,
+    "rating": 4,
+    "title": "Good communication throughout",
+    "name": "Oliver Bailey",
+    "state": "Tennessee",
+    "dateDisplay": "February 23, 2025",
+    "date": "2025-02-23",
+    "text": "I received useful updates about my order from confirmation through delivery. It was easy to know what stage the shipment was in, and the bike arrived within the expected timeframe. Overall, it was a professional buying experience."
+  },
+  {
+    "id": 20,
+    "rating": 5,
+    "title": "Easy buying experience",
+    "name": "Ella Wallace",
+    "state": "Hawaii",
+    "dateDisplay": "June 10, 2024",
+    "date": "2024-06-10",
+    "text": "The website made it easy to compare models, review the specifications, and place my order. I felt informed before purchasing, and it has been a great fit for my riding needs."
+  },
+  {
+    "id": 21,
+    "rating": 5,
+    "title": "A purchase I feel good about",
+    "name": "Mateo Ramirez",
+    "state": "New Mexico",
+    "dateDisplay": "November 18, 2025",
+    "date": "2025-11-18",
+    "text": "I spent time comparing different e-bikes and electric dirt bikes before choosing. Between the product details, the sale value, and my experience after receiving it, I feel confident that I made the right choice."
+  }
+]

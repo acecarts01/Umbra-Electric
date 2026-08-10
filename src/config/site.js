@@ -4,6 +4,7 @@ import categoriesRaw from '../data/categories.json';
 import badges from '../data/badges.json';
 import postsRaw from '../data/posts.json';
 import faqsRaw from '../data/faqs.json';
+import reviewsRaw from '../data/reviews.json';
 
 // ============================================================
 // SITE — single source of truth lives in src/data/site.json.
@@ -32,6 +33,20 @@ export const PRODUCTS = productsRaw.map((p) => ({
 
 export const POSTS = postsRaw;
 export const FAQS = faqsRaw;
+export const REVIEWS = reviewsRaw;
+
+export const REVIEW_STATS = {
+  count: REVIEWS.length,
+  average: Math.round((REVIEWS.reduce((sum, r) => sum + r.rating, 0) / REVIEWS.length) * 10) / 10,
+};
+
+export function brandSlug(name) {
+  return name.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+export const BRANDS = Array.from(new Set(PRODUCTS.map((p) => p.brand)))
+  .map((name) => ({ name, slug: brandSlug(name), count: PRODUCTS.filter((p) => p.brand === name).length }))
+  .sort((a, b) => a.name.localeCompare(b.name));
 
 export function getProduct(slug) {
   return PRODUCTS.find((p) => p.slug === slug);
@@ -39,6 +54,10 @@ export function getProduct(slug) {
 
 export function getCategory(slug) {
   return CATEGORIES.find((c) => c.slug === slug);
+}
+
+export function getBrand(slug) {
+  return BRANDS.find((b) => b.slug === slug);
 }
 
 export function getPost(slug) {

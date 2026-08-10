@@ -112,6 +112,27 @@ button{font-family:inherit}
 .buyrow-note{font-family:var(--font-inter),sans-serif;font-size:.85rem;color:var(--ink-soft);margin-top:.8rem}
 /* product grid + card */
 .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem}
+
+.brand-menu{display:flex;flex-wrap:wrap;gap:.6rem}
+.brand-pill{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border:1px solid var(--line);border-radius:999px;background:var(--card);font-family:var(--font-inter),sans-serif;font-size:.88rem;font-weight:600;color:var(--ink);transition:.15s}
+.brand-pill:hover{border-color:var(--bronze);color:var(--bronze-d);text-decoration:none;transform:translateY(-2px)}
+.brand-count{color:var(--ink-soft);font-weight:500;font-size:.8rem}
+.brand-menu-compact{margin-bottom:1.75rem}
+.brand-menu-compact .brand-pill{padding:.4rem .85rem;font-size:.82rem}
+
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.review-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem;display:flex;flex-direction:column;transition:.18s}
+.review-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.review-stars{color:var(--bronze);font-size:1.05rem;letter-spacing:.1em;margin-bottom:.6rem}
+.review-card h3{margin:0 0 .5rem;font-size:1.1rem}
+.review-text{color:var(--ink-soft);font-size:.92rem;line-height:1.6;flex:1;position:relative;padding-left:.1rem}
+.review-meta{margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--line);font-family:var(--font-inter),sans-serif;font-size:.82rem;color:var(--ink-soft)}
+.review-name{color:var(--ink);font-weight:600}
+.review-summary{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin:.6rem 0 0}
+.review-summary .avg{font-family:var(--font-fraunces),serif;font-size:2rem;color:var(--ink)}
+.review-summary .stars-lg{color:var(--bronze);font-size:1.3rem;letter-spacing:.08em}
+@media(max-width:900px){ .review-grid{grid-template-columns:1fr 1fr} }
+@media(max-width:600px){ .review-grid{grid-template-columns:1fr} }
 .pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.18s;position:relative}
 .pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d8cdb8}
 .pcard .imgwrap{position:relative;aspect-ratio:1/1;background:#f6f4ef;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
@@ -258,7 +279,7 @@ button{font-family:inherit}
 .footer-bottom{border-top:1px solid #2c2820;padding:1.2rem 20px;max-width:var(--maxw);margin:0 auto;font-family:var(--font-inter),sans-serif;font-size:.78rem;color:#9a9384;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .footer .disclaimer{font-size:.76rem;color:#8b8474;max-width:70ch;margin-top:.4rem}
 /* whatsapp float */
-.wafloat{position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:90;color:#fff;font-size:1.5rem}
+.wafloat{position:fixed;left:18px;bottom:18px;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:90;color:#fff;font-size:1.5rem}
 .wafloat:hover{text-decoration:none;transform:scale(1.05)}
 /* quick view dialog */
 .qv-dialog{border:none;padding:0;background:transparent;max-width:90vw;max-height:90vh}

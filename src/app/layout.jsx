@@ -1,4 +1,5 @@
 import { Fraunces, Inter } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import Announce from '@/components/Announce';
 import Nav from '@/components/Nav';
@@ -6,7 +7,7 @@ import Footer from '@/components/Footer';
 import ChatHub from '@/components/ChatHub';
 import ScrollReveal from '@/components/ScrollReveal';
 import JsonLd from '@/components/JsonLd';
-import { SITE, absUrl } from '@/config/site';
+import { SITE, REVIEW_STATS, absUrl } from '@/config/site';
 
 const fraunces = Fraunces({ subsets: ['latin'], weight: ['500', '600'], variable: '--font-fraunces', display: 'swap' });
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-inter', display: 'swap' });
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
     priceRange: '$399–$14,000',
     makesOffer: { '@type': 'AggregateOffer', priceCurrency: SITE.currency, lowPrice: 399, highPrice: 14000, offerCount: 128, availability: 'https://schema.org/InStock' },
     brand: { '@type': 'Brand', name: SITE.name },
+    aggregateRating: { '@type': 'AggregateRating', ratingValue: REVIEW_STATS.average, reviewCount: REVIEW_STATS.count, bestRating: 5, worstRating: 1 },
     sameAs: [absUrl('/'), SITE.instagram, SITE.facebook],
     contactPoint: { '@type': 'ContactPoint', telephone: SITE.phone, contactType: 'customer service', availableLanguage: 'English' },
   };
@@ -56,6 +58,17 @@ export default function RootLayout({ children }) {
         <Footer />
         <ChatHub />
         <ScrollReveal />
+        <Script id="tawk-to" strategy="afterInteractive">
+          {`var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+          (function(){
+          var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+          s1.async=true;
+          s1.src='https://embed.tawk.to/6a798349224bc71d4a539c3c/1jvlahm4k';
+          s1.charset='UTF-8';
+          s1.setAttribute('crossorigin','*');
+          s0.parentNode.insertBefore(s1,s0);
+          })();`}
+        </Script>
         <script src="/js/webmcp.js" defer />
       </body>
     </html>
