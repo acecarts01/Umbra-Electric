@@ -137,12 +137,15 @@ for (const p of POSTS) {
 }
 if (!brokenKeepReading) pass(`All ${POSTS.length} blog posts have a valid "Keep reading" link.`);
 
-// Blog post images: every post with an "image" field must have a real file.
+// Blog post images: every post must have an "image" field, and it must
+// resolve to a real file (catches both missing-image and broken-path
+// regressions).
 let missingPostImages = 0;
 for (const p of POSTS) {
-  if (p.image && !fs.existsSync(rel(`public${p.image}`))) { fail(`Post "${p.slug}" references missing image: ${p.image}`); missingPostImages++; }
+  if (!p.image) { fail(`Post "${p.slug}" has no image field.`); missingPostImages++; }
+  else if (!fs.existsSync(rel(`public${p.image}`))) { fail(`Post "${p.slug}" references missing image: ${p.image}`); missingPostImages++; }
 }
-if (!missingPostImages) pass('All blog post "image" references resolve to real files.');
+if (!missingPostImages) pass(`All ${POSTS.length} blog posts have a valid image.`);
 
 // Reviews: every review must carry rating/name/state/date/text, and no
 // bracketed placeholder text should ever ship to the live site.

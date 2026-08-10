@@ -35,8 +35,9 @@ export default async function ShopPage({ searchParams }) {
       </section>
       <section className="section">
         <div className="container">
-          <span className="eyebrow">Shop by brand</span>
-          <BrandMenu compact />
+          <div style={{ marginBottom: '1.75rem' }}>
+            <BrandMenu />
+          </div>
           <ProductGrid products={PRODUCTS} searchQuery={q} />
         </div>
       </section>

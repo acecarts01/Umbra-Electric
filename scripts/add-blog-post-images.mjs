@@ -29,6 +29,18 @@ const MAP = {
   'folding-ebike-buyers-guide': 'Lectric XP 3.0 Folding 1.webp',
   'e-bike-vs-electric-dirt-bike-difference': 'E Ride Pro SS 2.0.webp',
   'throttle-emotos-vs-pedal-assist-emtbs': 'Specialized Turbo Levo SL Comp Carbon.webp',
+  // The 3 original posts that never got an image in the first pass.
+  'electric-vs-gas-dirt-bikes-cost': '79Bike Falcon Pro.webp',
+  'how-to-choose-premium-emtb': 'Santa Cruz Heckler Carbon CC X0 AXS.webp',
+  'sur-ron-vs-talaria-2026': 'Sur-Ron Ultra Bee.png',
+};
+
+// Per-slug crop position override -- 'attention' (entropy-based, the
+// default) sometimes centers on the busiest mechanical detail and crops
+// off the bike's silhouette on a near-square source; these read better
+// anchored toward the top so the cockpit/seat stays in frame.
+const POSITION_OVERRIDE = {
+  'sur-ron-vs-talaria-2026': 'top',
 };
 
 function maxCoverSize(meta, aspectW, aspectH) {
@@ -48,7 +60,7 @@ for (const [slug, file] of Object.entries(MAP)) {
   const { w, h } = maxCoverSize(meta, 16, 10);
   const outPath = path.join(OUT, `${slug}.webp`);
   await sharp(srcPath)
-    .resize(w, h, { fit: 'cover', position: 'attention' })
+    .resize(w, h, { fit: 'cover', position: POSITION_OVERRIDE[slug] || 'attention' })
     .flatten({ background: '#ffffff' })
     .webp({ quality: 88 })
     .toFile(outPath);

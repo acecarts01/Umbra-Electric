@@ -113,12 +113,17 @@ button{font-family:inherit}
 /* product grid + card */
 .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem}
 
-.brand-menu{display:flex;flex-wrap:wrap;gap:.6rem}
-.brand-pill{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border:1px solid var(--line);border-radius:999px;background:var(--card);font-family:var(--font-inter),sans-serif;font-size:.88rem;font-weight:600;color:var(--ink);transition:.15s}
-.brand-pill:hover{border-color:var(--bronze);color:var(--bronze-d);text-decoration:none;transform:translateY(-2px)}
+.brand-dropdown{position:relative;display:inline-block}
+.brand-dropdown-trigger{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.3rem;border:1px solid var(--line);border-radius:999px;background:var(--card);font-family:var(--font-inter),sans-serif;font-size:.92rem;font-weight:700;color:var(--ink);cursor:pointer;transition:.15s}
+.brand-dropdown-trigger:hover{border-color:var(--bronze);color:var(--bronze-d)}
+.brand-dropdown-trigger .caret{display:inline-block;transition:transform .15s;color:var(--bronze-d);font-size:.8rem}
+.brand-dropdown-trigger .caret.up{transform:rotate(180deg)}
+.brand-dropdown-panel{position:absolute;top:calc(100% + 8px);left:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:1rem;display:grid;grid-template-columns:repeat(3,1fr);gap:.2rem;width:640px;max-width:min(90vw,640px);max-height:420px;overflow-y:auto;z-index:80}
+.brand-dropdown-panel .brand-pill{display:flex;align-items:center;justify-content:space-between;gap:.4rem;padding:.5rem .6rem;border-radius:8px;font-family:var(--font-inter),sans-serif;font-size:.88rem;font-weight:600;color:var(--ink)}
+.brand-dropdown-panel .brand-pill:hover{background:var(--panel);text-decoration:none}
 .brand-count{color:var(--ink-soft);font-weight:500;font-size:.8rem}
-.brand-menu-compact{margin-bottom:1.75rem}
-.brand-menu-compact .brand-pill{padding:.4rem .85rem;font-size:.82rem}
+@media(max-width:760px){ .brand-dropdown-panel{grid-template-columns:1fr 1fr;width:92vw} }
+@media(max-width:480px){ .brand-dropdown-panel{grid-template-columns:1fr} }
 
 .blog-hero-img{position:relative;aspect-ratio:16/10;max-height:440px;max-width:860px;border-radius:var(--r);overflow:hidden;margin-top:1.6rem;background:var(--night)}
 @media(max-width:760px){ .blog-hero-img{max-height:300px} }
