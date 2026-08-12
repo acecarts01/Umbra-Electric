@@ -3,7 +3,7 @@
 Tracks implementation status against `docs/keyword-cluster-map.md` (258 keywords / 15 clusters). Never
 publish this file or the cluster map — `docs/` only, never `public/` or the deploy output.
 
-Last updated: 2026-08-10
+Last updated: 2026-08-13
 
 ---
 
@@ -35,7 +35,7 @@ Last updated: 2026-08-10
 
 ---
 
-## Published blog posts (18)
+## Published blog posts (23)
 
 Cluster 13 (how-to/educational) and Cluster 15 (long-tail) targeted first per usage rules.
 
@@ -59,9 +59,19 @@ Cluster 13 (how-to/educational) and Cluster 15 (long-tail) targeted first per us
 | `folding-ebike-buyers-guide` | folding electric bike buyer's guide | 9 |
 | `e-bike-vs-electric-dirt-bike-difference` | eMTB vs electric dirt bike | 13 |
 | `throttle-emotos-vs-pedal-assist-emtbs` | electric dirt bike vs eMTB riding style (supporting) | 10 + 4 |
+| `how-fast-do-electric-dirt-bikes-go` | electric dirt bike top speed / how fast do electric dirt bikes go | 13 |
+| `electric-dirt-bike-motor-types-explained` | electric dirt bike motor types | 13 |
+| `electric-dirt-bike-watt-hours-explained` | electric dirt bike watt hours explained | 13 |
+| `how-to-ride-an-electric-dirt-bike-beginners-guide` | how to ride an electric dirt bike | 13 |
+| `why-electric-dirt-bikes-are-quiet` | electric dirt bike noise level | 13 |
 
-All 18 posts are interlinked: the "Keep reading" chain connects every post in a loop, and every category
-page now links to its 2 most relevant posts (see `relatedPosts` in `src/data/categories.json`).
+All 23 posts are interlinked: the "Keep reading" chain connects every post in a loop, and every category
+page now links to its 2 most relevant posts (see `relatedPosts` in `src/data/categories.json`). The 5
+newest posts are spliced into the loop right after `throttle-emotos-vs-pedal-assist-emtbs`, which now
+points to `how-fast-do-electric-dirt-bikes-go`; the chain closes again from `why-electric-dirt-bikes-are-quiet`
+back to `sur-ron-vs-talaria-2026`. All 5 use client-supplied product photos (from the ELECTRIC DIRT BIKES
+PRODUCT IMAGES source folder) as their card/header image, picked for topical fit, processed to the
+`.bcard .ph` 16:10 aspect ratio.
 
 ---
 
@@ -70,20 +80,18 @@ page now links to its 2 most relevant posts (see `relatedPosts` in `src/data/cat
 High-value, high-search-intent terms not yet targeted by a dedicated page. Recommended as future blog posts
 (Cluster 13/15 compound fastest per usage rules) or product-page copy additions.
 
-1. **electric dirt bike top speed / how fast do electric dirt bikes go** (C13 #18-19) — evergreen spec-explainer, easy to rank, links to every dirt bike product page.
-2. **electric dirt bike motor types** (C13 #8) — technical authority piece, reinforces topical depth for Cluster 1/2.
-3. **electric dirt bike watt hours explained** (C13 #9) — pairs naturally with the existing battery-care post.
-4. **how to ride an electric dirt bike** (C13 #12) — true beginner funnel content, pairs with essential-gear post.
-5. **electric dirt bike noise level** (C13 #13) — differentiator content (quiet vs gas), strong for AI-citation ("why electric").
-6. **electric dirt bike weight** (C13 #20) — spec-comparison content, good internal-link bait from product pages.
-7. **best electric dirt bike for heavy riders / electric dirt bike for tall riders** (C15 #1-2) — underserved long-tail, low competition.
-8. **fastest electric dirt bike / longest range electric dirt bike / most powerful electric dirt bike / quietest electric dirt bike** (C15 #4-7) — "best of" roundup content pulling from the existing catalog, no new facts needed.
-9. **electric dirt bike for farm use / electric dirt bike for hunting / electric dirt bike for trail access** (C15 #8-10) — niche use-case content, near-zero competition.
-10. **electric bike for seniors / electric mountain bike for heavy riders / electric commuter bike for tall riders** (C15 #16-18) — fit/accessibility angle, currently uncovered.
-11. **Stark vs KTM electric** (C10 #3) — comparison piece, mirrors the existing Sur-Ron vs Talaria post structure.
-12. **electric dirt bike range comparison / power comparison / charging time** (C10 #13-15) — spec-comparison hub page, could pull structured data from `products.json`.
-13. Klarna / pay-monthly / buy-now-pay-later phrasing (C11 #5-7, #13-14) — only add if the actual financing provider supports these terms; do not imply a specific provider (Klarna) unless it is genuinely integrated.
-14. Ship to UK / Australia / customs & import (C12 #11-13) — only add once shipping policy explicitly confirms these lanes; currently the site only commits to US/Europe/Worldwide in general terms.
+1. **electric dirt bike weight** (C13 #20) — spec-comparison content, good internal-link bait from product pages.
+2. **best electric dirt bike for heavy riders / electric dirt bike for tall riders** (C15 #1-2) — underserved long-tail, low competition.
+3. **fastest electric dirt bike / longest range electric dirt bike / most powerful electric dirt bike / quietest electric dirt bike** (C15 #4-7) — "best of" roundup content pulling from the existing catalog, no new facts needed.
+4. **electric dirt bike for farm use / electric dirt bike for hunting / electric dirt bike for trail access** (C15 #8-10) — niche use-case content, near-zero competition.
+5. **electric bike for seniors / electric mountain bike for heavy riders / electric commuter bike for tall riders** (C15 #16-18) — fit/accessibility angle, currently uncovered.
+6. **Stark vs KTM electric** (C10 #3) — comparison piece, mirrors the existing Sur-Ron vs Talaria post structure.
+7. **electric dirt bike range comparison / power comparison / charging time** (C10 #13-15) — spec-comparison hub page, could pull structured data from `products.json`.
+8. Klarna / pay-monthly / buy-now-pay-later phrasing (C11 #5-7, #13-14) — only add if the actual financing provider supports these terms; do not imply a specific provider (Klarna) unless it is genuinely integrated.
+9. Ship to UK / Australia / customs & import (C12 #11-13) — only add once shipping policy explicitly confirms these lanes; currently the site only commits to US/Europe/Worldwide in general terms.
+
+**Implemented 2026-08-13:** items 1-5 from the prior list (top speed, motor types, watt-hours, how to ride,
+noise level — all C13 #8/#9/#12/#13/#18-19) shipped as the 5 posts above.
 
 ## Excluded (never target)
 
