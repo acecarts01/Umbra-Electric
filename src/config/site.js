@@ -5,6 +5,7 @@ import badges from '../data/badges.json';
 import postsRaw from '../data/posts.json';
 import faqsRaw from '../data/faqs.json';
 import reviewsRaw from '../data/reviews.json';
+import brandsSeo from '../data/brands.json';
 
 // ============================================================
 // SITE — single source of truth lives in src/data/site.json.
@@ -45,7 +46,13 @@ export function brandSlug(name) {
 }
 
 export const BRANDS = Array.from(new Set(PRODUCTS.map((p) => p.brand)))
-  .map((name) => ({ name, slug: brandSlug(name), count: PRODUCTS.filter((p) => p.brand === name).length }))
+  .map((name) => ({
+    name,
+    slug: brandSlug(name),
+    count: PRODUCTS.filter((p) => p.brand === name).length,
+    metaDescription: brandsSeo[name]?.metaDescription || null,
+    seoIntro: brandsSeo[name]?.seoIntro || null,
+  }))
   .sort((a, b) => a.name.localeCompare(b.name));
 
 export function getProduct(slug) {

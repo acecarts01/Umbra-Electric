@@ -3,7 +3,7 @@
 Tracks implementation status against `docs/keyword-cluster-map.md` (258 keywords / 15 clusters). Never
 publish this file or the cluster map — `docs/` only, never `public/` or the deploy output.
 
-Last updated: 2026-08-13
+Last updated: 2026-08-14
 
 ---
 
@@ -102,3 +102,26 @@ noise level — all C13 #8/#9/#12/#13/#18-19) shipped as the 5 posts above.
 | Talaria Sting review, Stark Varg review, KTM Freeride E-XC review, Sur-Ron Light Bee review | We carry these models but have not published dedicated single-model review content — do not title a page "review" without genuine independent review content; existing comparison posts (Sur-Ron vs Talaria) cover this more honestly. |
 | electric cargo bike USA | Not a category Umbra Electric carries (no cargo bikes in the catalog). |
 | electric bike for disabled riders | Do not target without a genuinely adapted/accessible product line — claiming relevance here without real accessibility features would be misleading. |
+
+## Brand + category SEO pass (2026-08-14)
+
+Client supplied two keyword research sets (local only, see `ebike-dirtbike-seo-keywords/USAGE_LOG.md` for
+full detail — never committed, same handling as the product-photo source folders). The current/best set
+(61 per-brand-per-category files + `GENERAL_CATEGORY_KEYWORDS.txt`) was used to:
+- Enhance all 8 category pages' `metaDescription` + `seoIntro` (`src/data/categories.json`).
+- Add real per-brand `metaDescription` + `seoIntro` to all 36 brand pages, previously fully templated
+  with zero custom content (new `src/data/brands.json`, wired via `src/config/site.js` into
+  `src/app/shop/brand/[brand]/page.jsx`).
+- Rewrite the product meta title/description template (`src/app/product/[slug]/page.jsx`) to weave in
+  "for sale"/"price" + financing across all 128 products, adaptively (some product names alone are
+  already 35–40 chars, leaving no room under the 60-char title budget).
+
+All new copy verified unique (0 duplicate meta descriptions/H1s across 128 products + 8 categories + 36
+brands) and within character budget before shipping.
+
+**Next candidate content** (from the brand keyword files' "vs [competitor]" lines — ready-made blog
+titles, not yet written): Cannondale vs Trek Rail, Segway Xaber 300 vs Talaria, Pivot vs Yeti 160E,
+Santa Cruz vs Specialized Turbo Levo SL, Rad Power Bikes vs Aventon, Serial 1 vs Trek Allant+, and
+several more — full list in the brand keyword files themselves. Model-specific long-tail keywords
+(battery, specs, "vs" within a single brand's own model lineup) are reserved for a future per-product
+description/FAQ pass rather than mass-generated now — see the usage log for why.

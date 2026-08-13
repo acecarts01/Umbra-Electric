@@ -12,14 +12,28 @@ export function generateStaticParams() {
   return PRODUCTS.map((p) => ({ slug: p.slug }));
 }
 
+// Adaptive: appends a transactional keyword ("for sale" / "price") to the
+// product-title tag only when it fits the 60-char budget alongside the
+// layout's " — Umbra Electric" template suffix -- some product names alone
+// are already 40 chars, leaving no room to spare.
+function productTitleTag(name) {
+  const titleSuffixLen = SITE.name.length + 3; // " — " + site name
+  const budget = 60 - titleSuffixLen;
+  for (const candidate of [`${name} For Sale`, `${name} Price`]) {
+    if (candidate.length <= budget) return candidate;
+  }
+  return name;
+}
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const p = getProduct(slug);
   if (!p) return {};
-  const title = `${p.name} — ${SITE.name}`;
-  const description = `${p.name} — ${fmtPrice(p.price)}. ${p.categoryName} from ${p.brand} at ${SITE.name}. Financing and worldwide shipping.`;
+  const titleTag = productTitleTag(p.name);
+  const title = `${titleTag} — ${SITE.name}`;
+  const description = `${p.name} for sale — ${fmtPrice(p.price)}. ${p.categoryName} from ${p.brand} at ${SITE.name}, with financing.`;
   return {
-    title: p.name,
+    title: titleTag,
     description,
     alternates: { canonical: absUrl(`/product/${p.slug}/`) },
     openGraph: { type: 'website', title, description, url: absUrl(`/product/${p.slug}/`), images: [absUrl(`/images/products/${p.images[0]}`)] },

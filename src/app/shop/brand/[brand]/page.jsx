@@ -14,7 +14,9 @@ export async function generateMetadata({ params }) {
   if (!brand) return {};
   return {
     title: `${brand.name} Electric Bikes & Dirt Bikes`,
-    description: `Shop ${brand.count} ${brand.name} electric dirt bikes and e-bikes at ${SITE.name}. Curated models, financing and worldwide shipping.`,
+    description:
+      brand.metaDescription ||
+      `Shop ${brand.count} ${brand.name} electric dirt bikes and e-bikes at ${SITE.name}. Curated models, financing and worldwide shipping.`,
     alternates: { canonical: absUrl(`/shop/brand/${brand.slug}/`) },
   };
 }
@@ -30,6 +32,7 @@ export default async function BrandPage({ params }) {
     '@type': 'CollectionPage',
     name: `${brand.name} — ${SITE.name}`,
     url: absUrl(`/shop/brand/${brand.slug}/`),
+    ...(brand.metaDescription ? { description: brand.metaDescription } : {}),
     about: { '@type': 'Brand', name: brand.name },
     numberOfItems: products.length,
   };
@@ -47,6 +50,13 @@ export default async function BrandPage({ params }) {
           </p>
         </div>
       </section>
+      {brand.seoIntro && (
+        <section className="section" style={{ paddingBottom: 0 }}>
+          <div className="container prose">
+            <p>{brand.seoIntro}</p>
+          </div>
+        </section>
+      )}
       <section className="section">
         <div className="container">
           <ProductGrid products={products} />
