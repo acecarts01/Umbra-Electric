@@ -15,8 +15,6 @@ export function generateStaticParams() {
 // 2:1 banner crop itself was generated. Default (unlisted) is "50% 50%".
 const BANNER_POSITION = {
   'adult-electric-dirt-bikes': '50% 10%',
-  'kids-electric-dirt-bikes': '50% 0%',
-  'electric-mountain-bikes': '50% 10%',
   'electric-road-gravel-bikes': '50% 10%',
 };
 
