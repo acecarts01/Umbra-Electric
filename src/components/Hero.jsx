@@ -23,13 +23,13 @@ const SLIDES = [
   },
   {
     image: '/images/hero/hero-2.webp',
-    alt: 'Rider fastening her helmet on a folding electric fat-tire bike in a suburban driveway — Umbra Electric',
+    alt: 'Rider on an EVELO electric mountain bike riding along a shaded forest trail — Umbra Electric',
     eyebrow: 'Every Ride',
     headline: 'Effortless Range, Everyday Riding',
     description:
       'From coastal commutes to weekend errands, our e-bike lineup is built for daily range, comfort and near-silent power.',
-    posDesktop: '50% 15%',
-    posMobile: '50% 20%',
+    posDesktop: '58% 38%',
+    posMobile: '60% 50%',
   },
   {
     image: '/images/hero/hero-3.webp',
