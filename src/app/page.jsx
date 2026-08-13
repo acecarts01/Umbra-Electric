@@ -6,6 +6,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import ReviewCard from '@/components/ReviewCard';
 import JsonLd from '@/components/JsonLd';
 import SmartImage from '@/components/SmartImage';
+import CountUp from '@/components/CountUp';
 import { SITE, PRODUCTS, POSTS, FAQS, REVIEWS, REVIEW_STATS, getProduct, absUrl } from '@/config/site';
 
 export const metadata = {
@@ -127,15 +128,15 @@ export default function HomePage() {
           <h2>The premium electric dirt bike destination</h2>
           <div className="stat-row">
             <div className="stat-card">
-              <b>{PRODUCTS.length}</b>
+              <CountUp end={PRODUCTS.length} />
               <span>Curated models</span>
             </div>
             <div className="stat-card">
-              <b>8</b>
+              <CountUp end={8} />
               <span>Categories</span>
             </div>
             <div className="stat-card">
-              <b>~100</b>
+              <CountUp end={100} prefix="~" />
               <span>Premium brands</span>
             </div>
             <div className="stat-card">

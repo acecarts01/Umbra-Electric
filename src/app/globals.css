@@ -1,7 +1,7 @@
 /* ===== UMBRA ELECTRIC — premium theme ===== */
 :root{
   --ivory:#F5F1E9; --paper:#FBF9F4; --ink:#141210; --ink-soft:#4A463F;
-  --line:#E4DDCF; --bronze:#A9793F; --bronze-d:#8A6132; --night:#141210; --night-2:#1D1A15;
+  --line:#E4DDCF; --bronze:#5B82D6; --bronze-d:#2C468C; --night:#141210; --night-2:#1D1A15;
   --ok:#2f6f3e; --card:#FFFFFF; --panel:#F1EADD;
   --primary:var(--bronze); --text-muted:var(--ink-soft); --bg-secondary:var(--panel);
   --maxw:1200px; --r:14px; --shadow:0 10px 30px rgba(20,18,16,.08);
@@ -36,12 +36,17 @@ button{font-family:inherit}
 @keyframes heroFadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .hero-content{animation:heroFadeUp .7s cubic-bezier(.22,.61,.36,1) both}
 @media (prefers-reduced-motion: reduce){.hero-content{animation:none}}
+@keyframes addPop{0%{transform:scale(1)}35%{transform:scale(1.08)}65%{transform:scale(.97)}100%{transform:scale(1)}}
+.added-pop{animation:addPop .5s cubic-bezier(.22,.61,.36,1)}
+@media (prefers-reduced-motion: reduce){.added-pop{animation:none}}
 .btn-primary,.btn-secondary,.btn-ghost{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
   font-family:var(--font-inter),sans-serif;font-weight:600;font-size:.95rem;padding:.85rem 1.6rem;border-radius:100px;
   cursor:pointer;border:1.5px solid transparent;transition:.18s;min-height:46px;text-decoration:none}
-.btn-primary{background:var(--ink);color:var(--ivory)} .btn-primary:hover{background:var(--bronze);text-decoration:none}
-.btn-secondary{background:transparent;color:var(--ink);border-color:var(--ink)} .btn-secondary:hover{background:var(--ink);color:var(--ivory);text-decoration:none}
-.btn-ghost{background:var(--paper);border-color:var(--line);color:var(--ink)} .btn-ghost:hover{border-color:var(--bronze);text-decoration:none}
+.btn-primary{background:var(--ink);color:var(--ivory)} .btn-primary:hover{background:var(--bronze);text-decoration:none;transform:translateY(-2px);box-shadow:0 8px 18px rgba(20,18,16,.18)}
+.btn-secondary{background:transparent;color:var(--ink);border-color:var(--ink)} .btn-secondary:hover{background:var(--ink);color:var(--ivory);text-decoration:none;transform:translateY(-2px);box-shadow:0 8px 18px rgba(20,18,16,.14)}
+.btn-ghost{background:var(--paper);border-color:var(--line);color:var(--ink)} .btn-ghost:hover{border-color:var(--bronze);text-decoration:none;transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-primary:active,.btn-secondary:active,.btn-ghost:active{transform:translateY(0);transition-duration:.06s}
+@media (prefers-reduced-motion: reduce){.btn-primary:hover,.btn-secondary:hover,.btn-ghost:hover{transform:none}}
 .btn-block{width:100%}
 .btn-primary:disabled,.btn-secondary:disabled{opacity:.6;cursor:not-allowed}
 /* announcement */
@@ -143,8 +148,10 @@ button{font-family:inherit}
 @media(max-width:600px){ .review-grid{grid-template-columns:1fr} }
 .pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.18s;position:relative}
 .pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d8cdb8}
-.pcard .imgwrap{position:relative;aspect-ratio:1/1;background:#f6f4ef;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
-.pcard .imgwrap img{object-fit:contain;padding:10px}
+.pcard .imgwrap{position:relative;aspect-ratio:1/1;background:#f6f4ef;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden}
+.pcard .imgwrap img{object-fit:contain;padding:10px;transition:transform .35s ease}
+.pcard:hover .imgwrap img{transform:scale(1.04)}
+@media (prefers-reduced-motion: reduce){.pcard:hover .imgwrap img{transform:none}}
 .badge{position:absolute;top:10px;left:10px;font-family:var(--font-inter),sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.28rem .6rem;border-radius:100px;color:#fff;background:var(--ink);z-index:2}
 .badge.Premium{background:var(--bronze)} .badge.New{background:#2f6f3e} .badge.Sale{background:#b23b3b}
 .badge.Popular{background:#33506e} .badge.Best{background:#7a5cae}
@@ -265,6 +272,9 @@ button{font-family:inherit}
 .bcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.18s;display:flex;flex-direction:column}
 .bcard:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .bcard .ph{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--night)}
+.bcard .ph img{transition:transform .35s ease}
+.bcard:hover .ph img{transform:scale(1.06)}
+@media (prefers-reduced-motion: reduce){.bcard:hover .ph img{transform:none}}
 .bcard .b{padding:1.1rem}
 .bcard .tag{font-family:var(--font-inter),sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--bronze-d);font-weight:700}
 .bcard h3{margin:.4rem 0} .bcard h3 a{color:var(--ink)}

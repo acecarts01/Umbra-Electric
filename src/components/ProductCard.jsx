@@ -42,7 +42,7 @@ export default function ProductCard({ product }) {
               +
             </button>
           </div>
-          <button className="btn-primary" type="button" onClick={handleAdd}>
+          <button className={`btn-primary${added ? ' added-pop' : ''}`} type="button" onClick={handleAdd}>
             {added ? 'Added ✓' : 'Add to Cart'}
           </button>
         </div>
@@ -70,7 +70,7 @@ export default function ProductCard({ product }) {
               </div>
               <p className="muted">{product.description}</p>
               <div className="buyrow">
-                <button className="btn-primary" type="button" onClick={handleAdd}>
+                <button className={`btn-primary${added ? ' added-pop' : ''}`} type="button" onClick={handleAdd}>
                   {added ? 'Added ✓' : 'Add to Cart'}
                 </button>
                 <a className="btn-secondary" href={`/product/${product.slug}/`}>
