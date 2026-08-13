@@ -59,7 +59,7 @@ export default function ProductCard({ product }) {
             ×
           </button>
           <div className="split">
-            <div style={{ background: '#f6f4ef', borderRadius: 12, padding: '1rem', position: 'relative', aspectRatio: '1/1' }}>
+            <div style={{ background: '#f6f4ef', borderRadius: 'var(--r-sm)', padding: '1rem', position: 'relative', aspectRatio: '1/1' }}>
               <SmartImage src={product.images[0]} alt={product.name} fill />
             </div>
             <div>

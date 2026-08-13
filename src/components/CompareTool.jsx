@@ -48,7 +48,7 @@ export default function CompareTool() {
                 <td>Image</td>
                 {chosen.map((p) => (
                   <td key={p.slug}>
-                    <div style={{ width: 120, height: 120, position: 'relative', background: '#f6f4ef', borderRadius: 8 }}>
+                    <div style={{ width: 120, height: 120, position: 'relative', background: '#f6f4ef', borderRadius: 'var(--r-sm)' }}>
                       <SmartImage src={p.images[0]} alt={p.name} fill sizes="120px" />
                     </div>
                   </td>
