@@ -28,7 +28,6 @@ export const metadata = {
 const FEATURED_SLUGS = [
   'stark-varg-standard', 'sur-ron-ultra-bee', 'talaria-komodo-new-2026', 'specialized-turbo-levo-sl-comp-carbon',
   'santa-cruz-heckler-sl-cc-x0-axs', 'zero-fx', 'altis-sigma', 'aventon-level-3',
-  'ktm-freeride-e-xc', 'yeti-160e-t2', 'lectric-xp-3-0', 'e-ride-pro-ss-2-0',
 ];
 
 export default function HomePage() {
@@ -109,7 +108,7 @@ export default function HomePage() {
         <div className="container">
           <span className="eyebrow">Handpicked</span>
           <h2>Featured machines</h2>
-          <div className="prod-grid" style={{ marginTop: '1.5rem' }}>
+          <div className="prod-grid prod-grid-featured" style={{ marginTop: '1.5rem' }}>
             {featured.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}

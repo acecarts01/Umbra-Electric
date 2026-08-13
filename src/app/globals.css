@@ -310,7 +310,8 @@ button{font-family:inherit}
 @media(max-width:960px){
   .pd{grid-template-columns:1fr} .split{grid-template-columns:1fr}
   .shop-wrap{grid-template-columns:1fr} .filters{position:static}
-  .prod-grid{grid-template-columns:repeat(3,1fr)} .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .prod-grid{grid-template-columns:repeat(3,1fr)} .cat-grid{grid-template-columns:repeat(4,1fr)}
+  .prod-grid.prod-grid-featured{grid-template-columns:repeat(4,1fr)}
   .footer-in{grid-template-columns:1fr 1fr} .grid-2{grid-template-columns:1fr}
   .form-row.three{grid-template-columns:1fr 1fr}
 }
@@ -326,6 +327,7 @@ button{font-family:inherit}
 @media(max-width:600px){
   .section{padding:3rem 0}
   .prod-grid{grid-template-columns:1fr 1fr;gap:.9rem} .blog-grid{grid-template-columns:1fr}
+  .prod-grid.prod-grid-featured{grid-template-columns:1fr 1fr}
   .cat-grid{grid-template-columns:1fr 1fr} .footer-in{grid-template-columns:1fr 1fr}
   .cart-row{grid-template-columns:60px 1fr auto;grid-row-gap:.4rem} .cart-row .thumb{width:60px;height:60px}
   .pcard h3{font-size:.9rem} .pcard .price{font-size:1.1rem}
