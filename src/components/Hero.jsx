@@ -13,43 +13,43 @@ import SmartImage from './SmartImage';
 const SLIDES = [
   {
     image: '/images/hero/hero-1.webp',
-    alt: 'Riders fist-bumping on their electric dirt bikes at a desert quarry — Umbra Electric',
+    alt: 'Rider standing with an off-road electric motorcycle beside a river, mountains in the background — Umbra Electric',
     eyebrow: 'Silent Power. Refined.',
     headline: 'Premium Electric Dirt Bikes & E-Bikes',
     description:
       "Umbra Electric curates the world's finest electric dirt bikes, e-motos and e-bikes for adults and kids — flagship machines, expert guidance, worldwide shipping.",
-    posDesktop: '50% 50%',
-    posMobile: '50% 50%',
+    posDesktop: '65% 50%',
+    posMobile: '70% 50%',
   },
   {
     image: '/images/hero/hero-2.webp',
-    alt: 'Rider commuting on a premium electric fat-tire bike along the coast — Umbra Electric',
+    alt: 'Rider fastening her helmet on a folding electric fat-tire bike in a suburban driveway — Umbra Electric',
     eyebrow: 'Every Ride',
     headline: 'Effortless Range, Everyday Riding',
     description:
       'From coastal commutes to weekend errands, our e-bike lineup is built for daily range, comfort and near-silent power.',
-    posDesktop: '50% 10%',
-    posMobile: '50% 50%',
+    posDesktop: '50% 15%',
+    posMobile: '50% 20%',
   },
   {
     image: '/images/hero/hero-3.webp',
-    alt: 'Riders racing electric dirt bikes through mud on a competition track — Umbra Electric',
+    alt: 'Riders cornering hard on electric dirt bikes through a motocross track — Umbra Electric',
     eyebrow: 'Adrenaline',
     headline: 'Race-Bred Power',
     description:
       'Built for the track and the trail — instant torque, precise handling and the aftermarket depth serious riders demand.',
-    posDesktop: '50% 5%',
-    posMobile: '50% 50%',
+    posDesktop: '35% 30%',
+    posMobile: '35% 50%',
   },
   {
     image: '/images/hero/hero-4.webp',
-    alt: 'Rider on a premium electric road bike crossing a bridge — Umbra Electric',
+    alt: 'Two riders cruising side by side on electric bikes along a tree-lined street — Umbra Electric',
     eyebrow: 'Every Terrain',
     headline: 'Built For The Long Ride',
     description:
       'Lightweight electric road and gravel bikes for endurance, speed and long-distance riding — chosen for ride feel, not just spec sheets.',
-    posDesktop: '50% 50%',
-    posMobile: '50% 50%',
+    posDesktop: '50% 65%',
+    posMobile: '50% 70%',
   },
 ];
 
