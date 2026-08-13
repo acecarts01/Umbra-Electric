@@ -124,6 +124,7 @@ button{font-family:inherit}
 .brand-dropdown-trigger .caret{display:inline-block;transition:transform .15s;color:var(--bronze-d);font-size:.8rem}
 .brand-dropdown-trigger .caret.up{transform:rotate(180deg)}
 .brand-dropdown-panel{position:absolute;top:calc(100% + 8px);left:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:1rem;display:grid;grid-template-columns:repeat(3,1fr);gap:.2rem;width:640px;max-width:min(90vw,640px);max-height:420px;overflow-y:auto;z-index:80}
+.brand-dropdown-panel.up{top:auto;bottom:calc(100% + 8px)}
 .brand-dropdown-panel .brand-pill{display:flex;align-items:center;justify-content:space-between;gap:.4rem;padding:.5rem .6rem;border-radius:var(--r-sm);font-family:var(--font-inter),sans-serif;font-size:.88rem;font-weight:600;color:var(--ink)}
 .brand-dropdown-panel .brand-pill:hover{background:var(--panel);text-decoration:none}
 .brand-count{color:var(--ink-soft);font-weight:500;font-size:.8rem}
