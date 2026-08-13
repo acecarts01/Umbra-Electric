@@ -17,11 +17,7 @@ const BANNER_POSITION = {
   'adult-electric-dirt-bikes': '50% 10%',
   'kids-electric-dirt-bikes': '50% 0%',
   'electric-mountain-bikes': '50% 10%',
-  'electric-commuter-bikes': '50% 10%',
   'electric-road-gravel-bikes': '50% 10%',
-  'electric-fat-tire-bikes': '50% 10%',
-  'kids-electric-bikes': '50% 70%',
-  'folding-electric-bikes': '50% 40%',
 };
 
 export async function generateMetadata({ params }) {
