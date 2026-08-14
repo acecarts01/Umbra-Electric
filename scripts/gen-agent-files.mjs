@@ -200,7 +200,7 @@ write('public/.well-known/mcp/server-card.json', JSON.stringify(serverCard, null
 const oauthProtectedResource = {
   resource: abs('/'),
   resource_name: `${SITE.name} Public Catalog`,
-  authorization_servers: [],
+  authorization_servers: [abs('/')],
   scopes_supported: [],
   bearer_methods_supported: [],
   resource_documentation: abs('/auth.md'),

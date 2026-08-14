@@ -1,7 +1,9 @@
 {
   "resource": "https://www.umbraelectric.com/",
   "resource_name": "Umbra Electric Public Catalog",
-  "authorization_servers": [],
+  "authorization_servers": [
+    "https://www.umbraelectric.com/"
+  ],
   "scopes_supported": [],
   "bearer_methods_supported": [],
   "resource_documentation": "https://www.umbraelectric.com/auth.md",
