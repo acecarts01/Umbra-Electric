@@ -3,7 +3,7 @@
 Tracks implementation status against `docs/keyword-cluster-map.md` (258 keywords / 15 clusters). Never
 publish this file or the cluster map — `docs/` only, never `public/` or the deploy output.
 
-Last updated: 2026-08-14
+Last updated: 2026-08-15
 
 ---
 
@@ -125,3 +125,31 @@ Santa Cruz vs Specialized Turbo Levo SL, Rad Power Bikes vs Aventon, Serial 1 vs
 several more — full list in the brand keyword files themselves. Model-specific long-tail keywords
 (battery, specs, "vs" within a single brand's own model lineup) are reserved for a future per-product
 description/FAQ pass rather than mass-generated now — see the usage log for why.
+
+## Third keyword package + US-market audit (2026-08-15)
+
+Client supplied a third local-only keyword set (`ebike-dirtbike-seo-keywords/new keywords.txt` + a
+70-per-product template, never committed — same handling as the product-photo source folders and the
+first two packages). Full audit detail in `ebike-dirtbike-seo-keywords/USAGE_LOG.md`; summary:
+
+- The template was forced-count padded (duplicate lines within a product's own block, generic spec-noise
+  modifiers with no buyer intent, irrelevant modifiers like "for snow riding" bolted onto every product
+  regardless of fit) — the same anti-pattern the first package's superseded draft already showed, and the
+  reason the 2026-08-14 pass avoided it. It also listed a few products Umbra Electric does not sell
+  (e.g. "Sur-Ron Light Bee X Teen," "SSR SR-E8 Pro Youth") — not used, per the Excluded rule below.
+- No literal non-US signals were present (no GBP/£/UK/EU spellings) — the issue was generic low-value
+  padding, not wrong-country targeting.
+- Rather than implement the template as-is, `ebike-dirtbike-seo-keywords/ebike_seo_keywords_usa_complete_2026.txt`
+  was regenerated directly from `src/data/products.json` (all 128 real products/prices/categories): ~27
+  deduplicated, US-transactional, category-appropriate keywords per product, including a real same-brand
+  "vs" comparison computed from actual catalog price-neighbors (not a generic placeholder) and a
+  "[Brand] authorized dealer USA" authority line. This is the new reference for future blog/FAQ/product-copy
+  work — no live page copy changed in this pass; the 2026-08-14 pass already covers all 128 products + 8
+  categories + 36 brands with unique, budget-checked copy.
+- **New candidate blog posts** (real same-brand model comparisons, computed from actual catalog
+  price-neighbors — higher-intent than the cross-brand list above because a buyer choosing between two
+  models of the same bike they already want to buy is closer to a purchase decision): Sur-Ron Light Bee X
+  vs Ultra Bee, Sur-Ron Ultra Bee vs Storm Bee, Talaria Sting MX3 vs Sting R MX4, Talaria Sting R MX4 vs
+  Komodo, Stark Varg vs Varg EX, KTM Freeride E-XC vs E-SM, Zero XB vs XE, Zero XE vs FX, Santa Cruz
+  Heckler SL C GX AXS vs Bullit CC X0 AXS, Yeti 160E C2 vs C3, Trek Rail 7 vs Powerfly FS 9.9, Specialized
+  Turbo Creo SL Comp Carbon vs Expert EVO.
