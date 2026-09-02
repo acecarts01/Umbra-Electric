@@ -106,9 +106,6 @@ export default async function ProductPage({ params }) {
               <p className="instock">✓ In stock · Ships United States, Europe &amp; Worldwide</p>
               <p className="muted">{p.fullDescription}</p>
               <ProductBuyRow slug={p.slug} name={p.name} price={p.price} />
-              <a className="btn-secondary btn-block" href="/order/" style={{ marginBottom: '.6rem' }}>
-                Order by Email
-              </a>
               <a className="btn-ghost btn-block" href="/financing/">
                 Financing available →
               </a>

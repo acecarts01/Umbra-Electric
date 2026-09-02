@@ -1,7 +1,7 @@
 'use client';
 import { useMemo } from 'react';
 import SmartImage from './SmartImage';
-import { useCart, incItem, decItem, removeItem } from '@/lib/cart';
+import { useCart, incItem, decItem, removeItem, clearCart } from '@/lib/cart';
 import { SITE, fmtPrice } from '@/config/site';
 
 export default function CartView() {
@@ -16,9 +16,22 @@ export default function CartView() {
 
   const waMessage = `Hi ${SITE.name}, I would like to order:\n${cart.map((i) => `${i.q}x ${i.name}`).join('\n')}\nTotal approx $${totals.total}`;
 
+  function handleEmpty() {
+    if (!cart.length) return;
+    if (window.confirm('Empty your cart? This removes every item.')) clearCart();
+  }
+
   return (
     <div className="shop-wrap">
       <div>
+        {cart.length > 0 && (
+          <div className="cart-list-head">
+            <h2>Items in your cart</h2>
+            <button className="btn-ghost" type="button" onClick={handleEmpty}>
+              Empty Cart
+            </button>
+          </div>
+        )}
         {!cart.length ? (
           <p className="muted">
             Your cart is empty. <a href="/shop/">Browse the collection →</a>

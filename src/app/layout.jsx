@@ -4,6 +4,7 @@ import './globals.css';
 import Announce from '@/components/Announce';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import CartDrawer from '@/components/CartDrawer';
 import ScrollReveal from '@/components/ScrollReveal';
 import JsonLd from '@/components/JsonLd';
 import { SITE, PRODUCTS, REVIEW_STATS, absUrl, PHONE_PLACEHOLDER } from '@/config/site';
@@ -86,6 +87,7 @@ export default function RootLayout({ children }) {
         <Nav />
         <main id="main">{children}</main>
         <Footer />
+        <CartDrawer />
         <ScrollReveal />
         <Script id="tawk-to" strategy="lazyOnload">
           {`var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

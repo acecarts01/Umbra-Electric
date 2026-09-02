@@ -13,6 +13,7 @@ export default function ProductCard({ product }) {
     addToCart(product.slug, product.name, product.price, qty);
     setAdded(true);
     setTimeout(() => setAdded(false), 1600);
+    window.dispatchEvent(new Event('umbra-cart-open'));
   }
 
   return (
