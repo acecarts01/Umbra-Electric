@@ -17,7 +17,7 @@
         description: 'Initiate a WhatsApp order. Minimum order $500.',
         inputSchema: { type: 'object', properties: { message: { type: 'string', description: 'Pre-filled order message' } } },
         execute: async ({ message }) => {
-          const url = message ? 'https://wa.me/10000000000?text=' + encodeURIComponent(message) : 'https://wa.me/10000000000';
+          const url = message ? 'https://wa.me/14482348667?text=' + encodeURIComponent(message) : 'https://wa.me/14482348667';
           window.open(url, '_blank');
           return { url };
         },

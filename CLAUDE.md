@@ -24,14 +24,16 @@ schema and nav all regenerate from it. Never hand-edit generated output (`vercel
 
 ## Live placeholders (set before going live)
 
-All in `src/data/site.json`:
-- `domain` — set to `umbraelectric.com`. Still needs to be connected as a custom domain in Vercel's project
-  settings (separate step from this config value).
+In `src/data/site.json` unless noted:
+- `domain` — set to `www.umbraelectric.com`. Still needs to be connected as a custom domain in Vercel's
+  project settings (separate step from this config value).
 - `email` — set to `info@umbraelectric.com` (Zoho Mail).
-- `web3formsKey` — currently pending. Until set, the contact/order/wholesale forms skip sending and go
-  straight to the thank-you page (no email is delivered). Get a free key at web3forms.com.
-- `phone`, `whatsapp` — currently placeholders.
-- `gscCode`, `bingCode` — Search Console / Bing verification codes, currently pending.
+- Web3Forms key — set via the `NEXT_PUBLIC_WEB3FORMS_KEY` Vercel environment variable, NOT in site.json
+  (see `.env.example`). Until it's set (locally in `.env.local`, in prod in Vercel's dashboard), forms
+  redirect to the thank-you page without sending.
+- `whatsapp` — set to the real number. `phone` is still a placeholder.
+- `gscCode`, `bingCode` — codes are set; confirm both properties are actually verified live in Search
+  Console / Bing Webmaster Tools (a code being present doesn't guarantee verification happened there).
 
 ## Brand facts (only these are true — never invent more)
 

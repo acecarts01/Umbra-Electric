@@ -3,15 +3,17 @@
 Premium electric dirt bikes, e-motos and e-bikes for adults and kids. Next.js 16 (App Router), deployed on
 Vercel via GitHub.
 
-Migrated from a Cloudflare Pages static build to the Vercel/Next.js WebForge workflow. All 128 products, 8
-categories, 6 blog posts and every static page were ported over with their original content, pricing and
-images.
+Migrated from a Cloudflare Pages static build to the Vercel/Next.js WebForge workflow. 128 products, 8
+categories, 36 brands, 23 blog posts and every static page.
 
 ## Stack
 
 - Next.js 16 (App Router), React 19
 - Plain CSS (no framework) — design system in `src/app/globals.css`
-- Web3Forms for contact/order/wholesale forms (client-side, no server secrets)
+- Web3Forms for contact/order/wholesale forms (client-side; key comes from the `NEXT_PUBLIC_WEB3FORMS_KEY`
+  env var, see `.env.example`)
+- Live MCP/JSON API (`/api/mcp`, `/api/products`, `/api/categories`, `/api/brands`, `/api/search`) for AI
+  agents — read-only plus order-draft, never payment
 - Cart via `localStorage`, no backend
 
 ## Commands
@@ -32,17 +34,18 @@ npm run crosscheck    # pre-ship checks (images, JSON validity, forms, agent-rea
 
 ## Before going live
 
-See the "Live placeholders" section in `CLAUDE.md` — domain, Web3Forms key, email, phone, WhatsApp number,
-and GSC/Bing verification codes are all currently pending values and need to be set in
-`src/data/site.json` before this is a fully live storefront.
+See the "Live placeholders" section in `CLAUDE.md`. Remaining: real phone number in `src/data/site.json`,
+and `NEXT_PUBLIC_WEB3FORMS_KEY` set in Vercel's Project Settings → Environment Variables (it's already in
+`.env.local` for local dev, but that's never deployed).
 
 ## Content data
 
-- `src/data/products.json` — 128 products (name, brand, category, price, description, images)
-- `src/data/categories.json` — 8 shop categories
-- `src/data/posts.json` — 6 blog posts (full body HTML)
-- `src/data/faqs.json` — 10 FAQ entries
+- `src/data/products.json` — 128 products (name, brand, category, price, description, images, keywords, FAQs)
+- `src/data/categories.json` — 8 shop categories · `src/data/brands.json` — 36 brand pages
+- `src/data/posts.json` — 23 blog posts (full body HTML, keywords, FAQs)
+- `src/data/faqs.json` — site-wide FAQ entries (homepage + `/faq/`)
 - `src/data/site.json` — brand/contact/order-rule config (the single source of truth)
+- `src/data/mcp-tools.json` — MCP tool definitions, shared by `/api/mcp` and `server-card.json`
 
 Add a product or post by adding one entry to the relevant JSON file — pages, sitemap, JSON-LD and nav all
 derive from it automatically.

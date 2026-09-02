@@ -21,7 +21,8 @@ category. What sets Umbra apart is ruthless curation — only bikes worth owning
 ## Contact & Region
 - Email: info@umbraelectric.com (Zoho Mail)
 - Phone: +1 (000) 000-0000 ⚠ PLACEHOLDER
-- WhatsApp: 10000000000 ⚠ PLACEHOLDER (digits only)
+- WhatsApp: +14482348667 (client-supplied 2026-09-02, live in `src/data/site.json` and confirmed working —
+  see the "Forms" section below for the order-draft test)
 - Region: Seattle, WA, USA · Ships United States, Europe & Worldwide
 - Currency: USD
 
@@ -46,7 +47,11 @@ Finance Calculator, Legal)
 
 ## Forms
 - Provider: Web3Forms (exact CORS method: FormData + Accept-only header, in `src/components/WebForm.jsx`)
-- Web3Forms API key: pending — set `web3formsKey` in `src/data/site.json`
+- Web3Forms API key: set via the `NEXT_PUBLIC_WEB3FORMS_KEY` env var (2026-09-02 — moved out of
+  `src/data/site.json`, which no longer holds it). Local dev reads it from `.env.local` (gitignored, real
+  key already there); production must have it set in Vercel Project Settings → Environment Variables — this
+  step happens in the Vercel dashboard, outside this repo, and needs to be done before the live site's forms
+  will actually send. `.env.example` documents the variable name for reference.
 
 ## Hosting
 - Platform: Vercel · Deployment: GitHub push → auto-deploy
@@ -124,9 +129,12 @@ Old `docs/keyword-cluster-map.md` (258 hand-picked terms, no volume data) is ret
 but the Semrush pool now supersedes it as the primary keyword reference for this site.
 
 ## ⚠ PENDING before go-live
-1. Real phone and WhatsApp number → `src/data/site.json` (still the placeholder `+1 (000) 000-0000` /
-   `10000000000`). Web3Forms key, GSC code and Bing code are already set in `site.json` — confirm the GSC/Bing
-   codes are actually verified live in Search Console / Bing Webmaster Tools (a code being present in the
+1. Real phone number → `src/data/site.json` (still the placeholder `+1 (000) 000-0000`; WhatsApp is set).
+   **Set `NEXT_PUBLIC_WEB3FORMS_KEY` in Vercel's Project Settings → Environment Variables** (Production, and
+   Preview/Development too if you want forms to send from preview deploys) — it's already in `.env.local`
+   for local dev, but that file is never deployed, so production forms will silently redirect-without-sending
+   until this is set in the Vercel dashboard. GSC code and Bing code are already set in `site.json` — confirm
+   both are actually verified live in Search Console / Bing Webmaster Tools (a code being present in the
    file doesn't guarantee the property was verified there).
 2. Confirm the Instagram/Facebook URLs in `src/data/site.json` are the real, live profiles.
 3. Confirm/verify all prices with the client before the site is publicly promoted.

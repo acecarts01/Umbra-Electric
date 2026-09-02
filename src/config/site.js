@@ -18,7 +18,16 @@ export const SITE = siteData;
 
 export const FORMS = {
   provider: 'web3forms',
-  web3formsKey: siteData.web3formsKey, // ⚠ REQUIRED before forms send email — get a free key at web3forms.com
+  // Sourced from the NEXT_PUBLIC_WEB3FORMS_KEY Vercel environment variable
+  // (Project Settings -> Environment Variables), not committed to the repo.
+  // Web3Forms access keys are public-by-design (they sit in client-side
+  // HTML on every form submit either way), so NEXT_PUBLIC_ exposure isn't a
+  // leak -- the env var is about deploy hygiene (rotate the key or vary it
+  // per environment without a code change), not secrecy. Locally, set it in
+  // .env.local (gitignored; see .env.example). Empty/unset is treated by
+  // WebForm.jsx as "key pending" — forms redirect to the thank-you page
+  // without sending.
+  web3formsKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || '',
 };
 
 export const CHAT = {

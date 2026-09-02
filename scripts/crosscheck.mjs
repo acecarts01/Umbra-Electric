@@ -2,10 +2,13 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import nextEnv from '@next/env';
+const { loadEnvConfig } = nextEnv;
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const rel = (p) => path.join(ROOT, p);
+loadEnvConfig(ROOT); // reads .env.local etc. the same way `next build` does, for the check below
 
 let failures = 0;
 let warnings = 0;
@@ -25,10 +28,10 @@ if (SITE.domain === 'DOMAIN.com') {
 } else {
   pass('SITE.domain is set to a real domain.');
 }
-if (SITE.web3formsKey === 'WEB3FORMS_KEY_PENDING') {
-  warn('Web3Forms key is pending — contact/order/wholesale forms will redirect to thank-you pages WITHOUT sending email until a real key is set.');
+if (!process.env.NEXT_PUBLIC_WEB3FORMS_KEY) {
+  warn('NEXT_PUBLIC_WEB3FORMS_KEY is not set — contact/order/wholesale forms will redirect to thank-you pages WITHOUT sending email until it is set (locally in .env.local, in production via Vercel Project Settings -> Environment Variables).');
 } else {
-  pass('Web3Forms key is set.');
+  pass('NEXT_PUBLIC_WEB3FORMS_KEY is set.');
 }
 if (SITE.whatsapp === '10000000000') warn('WhatsApp number is still the placeholder.');
 if (SITE.email === 'hello@DOMAIN.com') warn('Contact email is still the placeholder.');
