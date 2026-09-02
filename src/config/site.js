@@ -93,3 +93,16 @@ export function absUrl(path = '/') {
 export function fmtPrice(n) {
   return `$${Number(n).toLocaleString('en-US')}`;
 }
+
+// SITE.phone is still a placeholder (no real landline yet) -- SITE.whatsapp
+// is the one confirmed-real, working contact number. Formats it human-
+// readable (NANP grouping for US/Canada 11-digit numbers, else a bare
+// +-prefixed international number) for display in place of the fake phone
+// placeholder until a real `phone` is supplied.
+export function fmtWhatsApp(digits) {
+  const d = String(digits).replace(/\D/g, '');
+  if (d.length === 11 && d[0] === '1') return `+1 (${d.slice(1, 4)}) ${d.slice(4, 7)}-${d.slice(7)}`;
+  return `+${d}`;
+}
+
+export const PHONE_PLACEHOLDER = '+1 (000) 000-0000';

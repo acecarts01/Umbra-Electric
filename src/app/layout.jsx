@@ -6,7 +6,7 @@ import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
 import JsonLd from '@/components/JsonLd';
-import { SITE, PRODUCTS, REVIEW_STATS, absUrl } from '@/config/site';
+import { SITE, PRODUCTS, REVIEW_STATS, absUrl, PHONE_PLACEHOLDER } from '@/config/site';
 
 const fraunces = Fraunces({ subsets: ['latin'], weight: ['500', '600'], variable: '--font-fraunces', display: 'swap' });
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-inter', display: 'swap' });
@@ -62,8 +62,17 @@ export default function RootLayout({ children }) {
     },
     brand: { '@type': 'Brand', name: SITE.name },
     aggregateRating: { '@type': 'AggregateRating', ratingValue: REVIEW_STATS.average, reviewCount: REVIEW_STATS.count, bestRating: 5, worstRating: 1 },
-    sameAs: [absUrl('/'), SITE.instagram, SITE.facebook],
-    contactPoint: { '@type': 'ContactPoint', telephone: SITE.phone, contactType: 'customer service', availableLanguage: 'English' },
+    sameAs: [absUrl('/'), SITE.instagram, SITE.facebook, `https://wa.me/${SITE.whatsapp}`],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      // SITE.phone is still a placeholder (no real landline yet) -- the
+      // WhatsApp number is the one real, confirmed-working contact number,
+      // and it's a genuine E.164 phone number in its own right, so it's
+      // what's published here until a separate real phone is supplied.
+      telephone: SITE.phone !== PHONE_PLACEHOLDER ? SITE.phone : `+${SITE.whatsapp}`,
+      contactType: 'customer service',
+      availableLanguage: 'English',
+    },
   };
 
   return (

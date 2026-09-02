@@ -1,7 +1,8 @@
-import { SITE } from '@/config/site';
+import { SITE, PHONE_PLACEHOLDER, fmtWhatsApp } from '@/config/site';
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const hasRealPhone = SITE.phone !== PHONE_PLACEHOLDER;
   return (
     <footer className="footer">
       <div className="footer-in">
@@ -19,7 +20,15 @@ export default function Footer() {
           <p className="desc">
             <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
             <br />
-            {SITE.phone}
+            {hasRealPhone && (
+              <>
+                {SITE.phone}
+                <br />
+              </>
+            )}
+            <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener">
+              WhatsApp: {fmtWhatsApp(SITE.whatsapp)}
+            </a>
           </p>
         </div>
         <div>
