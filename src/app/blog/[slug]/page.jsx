@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import JsonLd from '@/components/JsonLd';
 import SmartImage from '@/components/SmartImage';
+import FaqAccordion from '@/components/FaqAccordion';
 import { SITE, POSTS, getPost, absUrl } from '@/config/site';
 
 export function generateStaticParams() {
@@ -31,6 +32,8 @@ export default async function BlogPostPage({ params }) {
   const post = getPost(slug);
   if (!post) notFound();
 
+  const keywords = post.primaryKeyword ? [post.primaryKeyword, ...(post.supportingKeywords || [])] : null;
+
   const postLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -42,12 +45,23 @@ export default async function BlogPostPage({ params }) {
     publisher: { '@type': 'Organization', name: SITE.name, logo: { '@type': 'ImageObject', url: absUrl('/images/logo.webp') } },
     mainEntityOfPage: absUrl(`/blog/${post.slug}/`),
     about: { '@type': 'Thing', name: post.tag },
+    ...(keywords ? { keywords: keywords.join(', ') } : {}),
     ...(post.image ? { image: absUrl(post.image) } : {}),
   };
+
+  const faqLd =
+    post.faqs && post.faqs.length
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: post.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        }
+      : null;
 
   return (
     <>
       <JsonLd data={postLd} />
+      {faqLd && <JsonLd data={faqLd} />}
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog/' }, { label: post.title, href: `/blog/${post.slug}/` }]} />
       {post.image && (
         <div className="container">
@@ -58,6 +72,12 @@ export default async function BlogPostPage({ params }) {
       )}
       <section className="section">
         <article dangerouslySetInnerHTML={{ __html: post.body }} />
+        {post.faqs && post.faqs.length > 0 && (
+          <div className="container prose" style={{ maxWidth: 820, marginTop: '1rem' }}>
+            <h2>Frequently asked questions</h2>
+            <FaqAccordion faqs={post.faqs} />
+          </div>
+        )}
       </section>
     </>
   );

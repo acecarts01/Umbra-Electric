@@ -25,6 +25,9 @@ export const metadata = {
   },
 };
 
+const PRIMARY_KEYWORD = 'electric dirt bikes';
+const SUPPORTING_KEYWORDS = ['premium electric dirt bike', 'e-bikes', 'electric dirt bike for sale', 'electric bike brands', 'electric mountain bike'];
+
 const FEATURED_SLUGS = [
   'stark-varg-standard', 'sur-ron-ultra-bee', 'talaria-komodo-new-2026', 'specialized-turbo-levo-sl-comp-carbon',
   'santa-cruz-heckler-sl-cc-x0-axs', 'zero-fx', 'altis-sigma', 'aventon-level-3',
@@ -39,6 +42,7 @@ export default function HomePage() {
     '@type': 'WebSite',
     name: SITE.name,
     url: absUrl('/'),
+    keywords: [PRIMARY_KEYWORD, ...SUPPORTING_KEYWORDS].join(', '),
     potentialAction: {
       '@type': 'SearchAction',
       target: { '@type': 'EntryPoint', urlTemplate: absUrl('/shop/?q={search_term_string}') },
@@ -81,8 +85,11 @@ export default function HomePage() {
           <p className="muted" style={{ marginTop: '.4rem' }}>
             {PRODUCTS.length} models from ~100 premium brands — browse by name.
           </p>
-          <div style={{ marginTop: '1.5rem' }}>
+          <div style={{ marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
             <BrandMenu />
+            <a href="/shop/brand/" className="btn-secondary">
+              Shop all brands →
+            </a>
           </div>
         </div>
       </section>

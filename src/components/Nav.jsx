@@ -36,6 +36,7 @@ export default function Nav() {
                   {c.title}
                 </a>
               ))}
+              <a href="/shop/brand/">Shop by Brand</a>
             </div>
           </div>
           <a href="/premium/">Premium</a>

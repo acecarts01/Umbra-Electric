@@ -24,6 +24,7 @@ export default function Footer() {
         </div>
         <div>
           <h4>Shop</h4>
+          <a href="/shop/brand/">Shop by Brand</a>
           <a href="/shop/adult-electric-dirt-bikes/">Adult Electric Dirt Bikes</a>
           <a href="/shop/kids-electric-dirt-bikes/">Kids &amp; Youth Electric Dirt Bikes</a>
           <a href="/shop/electric-mountain-bikes/">Electric Mountain Bikes</a>

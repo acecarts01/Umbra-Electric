@@ -36,6 +36,8 @@ export default async function CategoryPage({ params }) {
   const products = PRODUCTS.filter((p) => p.category === cat.slug);
   const relatedPosts = (cat.relatedPosts || []).map((slug) => POSTS.find((p) => p.slug === slug)).filter(Boolean);
 
+  const keywords = cat.primaryKeyword ? [cat.primaryKeyword, ...(cat.supportingKeywords || [])] : null;
+
   const collectionLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -43,6 +45,7 @@ export default async function CategoryPage({ params }) {
     url: absUrl(`/shop/${cat.slug}/`),
     about: cat.title,
     numberOfItems: products.length,
+    ...(keywords ? { keywords: keywords.join(', ') } : {}),
   };
 
   return (

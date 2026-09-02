@@ -27,6 +27,8 @@ export default async function BrandPage({ params }) {
   if (!brand) notFound();
   const products = PRODUCTS.filter((p) => p.brand === brand.name);
 
+  const keywords = brand.primaryKeyword ? [brand.primaryKeyword, ...(brand.supportingKeywords || [])] : null;
+
   const collectionLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -35,6 +37,7 @@ export default async function BrandPage({ params }) {
     ...(brand.metaDescription ? { description: brand.metaDescription } : {}),
     about: { '@type': 'Brand', name: brand.name },
     numberOfItems: products.length,
+    ...(keywords ? { keywords: keywords.join(', ') } : {}),
   };
 
   return (

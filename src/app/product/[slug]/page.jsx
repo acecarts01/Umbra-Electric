@@ -3,6 +3,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import Gallery from '@/components/Gallery';
 import ProductCard from '@/components/ProductCard';
 import ProductBuyRow from '@/components/ProductBuyRow';
+import FaqAccordion from '@/components/FaqAccordion';
 import JsonLd from '@/components/JsonLd';
 import { SITE, PRODUCTS, getProduct, getCategory, relatedProducts, absUrl, fmtPrice } from '@/config/site';
 
@@ -49,6 +50,8 @@ export default async function ProductPage({ params }) {
   const isDirtBike = DIRT_BIKE_CATEGORIES.includes(p.category);
   const waMessage = `Hi ${SITE.name}, I am interested in the ${p.name} (${fmtPrice(p.price)}).`;
 
+  const keywords = p.primaryKeyword ? [p.primaryKeyword, ...(p.supportingKeywords || [])] : null;
+
   const productLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -58,6 +61,7 @@ export default async function ProductPage({ params }) {
     sku: p.sku,
     brand: { '@type': 'Brand', name: p.brand },
     category: p.categoryName,
+    ...(keywords ? { keywords: keywords.join(', ') } : {}),
     offers: {
       '@type': 'Offer',
       url: absUrl(`/product/${p.slug}/`),
@@ -68,9 +72,19 @@ export default async function ProductPage({ params }) {
     },
   };
 
+  const faqLd =
+    p.faqs && p.faqs.length
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: p.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        }
+      : null;
+
   return (
     <>
       <JsonLd data={productLd} />
+      {faqLd && <JsonLd data={faqLd} />}
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },
@@ -145,6 +159,13 @@ export default async function ProductPage({ params }) {
                   <ProductCard key={r.slug} product={r} />
                 ))}
               </div>
+            </div>
+          )}
+
+          {p.faqs && p.faqs.length > 0 && (
+            <div className="tabs">
+              <h2>Frequently asked questions</h2>
+              <FaqAccordion faqs={p.faqs} />
             </div>
           )}
         </div>

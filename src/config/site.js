@@ -52,6 +52,8 @@ export const BRANDS = Array.from(new Set(PRODUCTS.map((p) => p.brand)))
     count: PRODUCTS.filter((p) => p.brand === name).length,
     metaDescription: brandsSeo[name]?.metaDescription || null,
     seoIntro: brandsSeo[name]?.seoIntro || null,
+    primaryKeyword: brandsSeo[name]?.primaryKeyword || null,
+    supportingKeywords: brandsSeo[name]?.supportingKeywords || [],
   }))
   .sort((a, b) => a.name.localeCompare(b.name));
 

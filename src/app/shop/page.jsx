@@ -35,8 +35,11 @@ export default async function ShopPage({ searchParams }) {
       </section>
       <section className="section">
         <div className="container">
-          <div style={{ marginBottom: '1.75rem' }}>
+          <div className="shop-brand-row" style={{ marginBottom: '1.75rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
             <BrandMenu />
+            <a href="/shop/brand/" className="muted" style={{ fontSize: '.9rem' }}>
+              Browse all brands →
+            </a>
           </div>
           <ProductGrid products={PRODUCTS} searchQuery={q} />
         </div>

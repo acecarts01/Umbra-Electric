@@ -147,6 +147,31 @@ for (const p of POSTS) {
 }
 if (!missingPostImages) pass(`All ${POSTS.length} blog posts have a valid image.`);
 
+// SEO keyword + FAQ coverage: every product and post must carry a primary
+// keyword, 5 supporting keywords and 5 FAQs; every category and brand must
+// carry a primary keyword + 5 supporting keywords (2026-09 Semrush pass).
+const BRANDS_SEO = JSON.parse(fs.readFileSync(rel('src/data/brands.json'), 'utf8'));
+
+function checkKeywordFaqCoverage(items, label, { requireFaqs }) {
+  let bad = 0;
+  for (const item of items) {
+    const id = item.slug || item.name;
+    if (!item.primaryKeyword) { fail(`${label} "${id}" is missing primaryKeyword.`); bad++; continue; }
+    if (!Array.isArray(item.supportingKeywords) || item.supportingKeywords.length !== 5) {
+      fail(`${label} "${id}" does not have exactly 5 supportingKeywords.`); bad++;
+    }
+    if (requireFaqs && (!Array.isArray(item.faqs) || item.faqs.length < 5)) {
+      fail(`${label} "${id}" has fewer than 5 faqs.`); bad++;
+    }
+  }
+  if (!bad) pass(`All ${items.length} ${label.toLowerCase()}s have primaryKeyword + 5 supportingKeywords${requireFaqs ? ' + >=5 faqs' : ''}.`);
+}
+
+checkKeywordFaqCoverage(PRODUCTS, 'Product', { requireFaqs: true });
+checkKeywordFaqCoverage(POSTS, 'Post', { requireFaqs: true });
+checkKeywordFaqCoverage(CATEGORIES, 'Category', { requireFaqs: false });
+checkKeywordFaqCoverage(Object.entries(BRANDS_SEO).map(([name, v]) => ({ name, ...v })), 'Brand', { requireFaqs: false });
+
 // Reviews: every review must carry rating/name/state/date/text, and no
 // bracketed placeholder text should ever ship to the live site.
 let reviewIssues = 0;

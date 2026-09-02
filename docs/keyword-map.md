@@ -1,9 +1,14 @@
 # Umbra Electric — keyword map
 
-Tracks implementation status against `docs/keyword-cluster-map.md` (258 keywords / 15 clusters). Never
-publish this file or the cluster map — `docs/` only, never `public/` or the deploy output.
+Tracks implementation status. Originally built against `docs/keyword-cluster-map.md` (258 hand-picked
+keywords / 15 clusters, no volume data). As of 2026-09-02, real Semrush volume/difficulty/intent data
+(`docs/semrush-keyword-pool.json`, from the client's `New Umbra Keywords Research Cluster/` export) is the
+primary reference — every category, brand, product and blog post now carries a structured `primaryKeyword` +
+5 `supportingKeywords` directly in its JSON record (see PROJECT.md's "SEO pass" section for full detail).
+The cluster map below is retained for blog-post topic history only. Never publish this file, the cluster
+map, or the keyword pool — `docs/` only, never `public/` or the deploy output.
 
-Last updated: 2026-08-15
+Last updated: 2026-09-02
 
 ---
 
@@ -21,8 +26,9 @@ Last updated: 2026-08-15
 | `/shop/electric-fat-tire-bikes/` | electric fat tire bike | fat tire electric bike, fat tire e-bike, electric fat tire bike off-road | 7 | Trans + Info | ✅ Implemented |
 | `/shop/kids-electric-bikes/` | kids e-bike | youth electric bike, electric bike for children, safe electric bike for kids | 8 | Transactional | ✅ Implemented |
 | `/shop/folding-electric-bikes/` | folding electric bike | folding e-bike, compact electric bike, portable electric bike | 9 | Trans + Info | ✅ Implemented |
-| `/shop/brand/[brand]/` (36 pages) | `[Brand] electric bikes & dirt bikes` | brand + category name, from Cluster 10's brand terms (Sur-Ron electric bike, KTM electric dirt bike, etc.) | 10 | Commercial | ✅ Implemented via template |
-| `/product/[slug]/` (128 pages) | `[Product Name]` | category cluster (1–9) inherited via accurate categoryName in meta description + brand name | 1–9 + 10 | Transactional | ✅ Implemented via template (meta-description bug fixed — was mislabeling every product "electric dirt bike" regardless of category) |
+| `/shop/brand/` (new, 2026-09-02) | electric bike brands | best electric dirt bike brands, top electric bike brands USA, premium electric bike brands, electric dirt bike brands, dirt bike brands | 10 | Commercial | ✅ Implemented — real hub page fixing the orphan-link gap (see PROJECT.md) |
+| `/shop/brand/[brand]/` (36 pages) | Real per-brand `primaryKeyword` in `brands.json` (Semrush-sourced, 2026-09-02) | 5 real `supportingKeywords` per brand in `brands.json` | 10 | Commercial | ✅ Implemented via template |
+| `/product/[slug]/` (128 pages) | `[Product Name]` (`primaryKeyword` field, `products.json`) | 5 real `supportingKeywords` per product (Semrush-sourced, 2026-09-02) + 5 fact-grounded FAQs per product (`faqs[]`) | 1–9 + 10 | Transactional | ✅ Implemented via template |
 | `/compare/` | electric dirt bike comparison | electric bike brand comparison | 10 | Commercial Investigation | ✅ Implemented |
 | `/premium/` | premium electric dirt bike | premium electric bike brands, high performance electric dirt bike | 1 + 10 | Trans + Commercial | ✅ Implemented |
 | `/financing/` | electric dirt bike financing | finance electric bike, electric bike payment plan, pay monthly electric bike | 11 | Transactional | ✅ Implemented |

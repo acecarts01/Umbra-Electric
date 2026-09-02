@@ -33,11 +33,16 @@ category. What sets Umbra apart is ruthless curation — only bikes worth owning
 Home · Shop · Premium · Finance · About · Blog · Contact (+ footer: Wholesale, FAQ, Compare, Track Order,
 Finance Calculator, Legal)
 
-## Catalog (128 products, 8 categories, 6 blog posts, ~34 pages)
+## Catalog (128 products, 8 categories, 36 brands, 23 blog posts, ~36 pages)
 - Adult Electric Dirt Bikes (31) · Kids & Youth Electric Dirt Bikes (8) · Electric Mountain Bikes (27)
 - Electric Commuter & Urban Bikes (33) · Electric Road & Gravel Bikes (9) · Electric Fat Tire Bikes (6)
 - Kids & Youth E-Bikes (8) · Folding E-Bikes (6)
 - Price range: $399–$14,000
+- `/shop/brand/` — brand hub page (added 2026-09-02) listing all 36 brands; fixes an orphan-page gap where
+  the 36 individual `/shop/brand/[brand]/` pages were previously reachable only through a client-side-only
+  BrandMenu dropdown that renders empty in server/static HTML (closed by default) and via sitemap.xml —
+  neither counts as a real inbound link for crawl-discovery purposes. Nav, Footer and homepage now also link
+  to it directly.
 
 ## Forms
 - Provider: Web3Forms (exact CORS method: FormData + Accept-only header, in `src/components/WebForm.jsx`)
@@ -66,14 +71,36 @@ Finance Calculator, Legal)
 - Live MCP/API layer (Pass 2 — `/api/mcp`, `/api/products`, markdown negotiation middleware) was not built in
   this pass; the site ships the static declaration layer only. Can be added later without touching content.
 
+## SEO pass — Semrush keyword research + FAQs (2026-09-02)
+
+Client supplied `New Umbra Keywords Research Cluster/` (~80 Semrush "all keywords" exports covering all 8
+categories and 32 of 36 brands, plus long-tail single-topic files) — real Volume/Keyword Difficulty/Intent
+data, a first for this project (all prior keyword work used hand-built, unverified term lists). Consolidated
+via a one-off parser into `docs/semrush-keyword-pool.json` (9,917 deduped keywords, never published — same
+handling as other strategy docs). 4 brands had no dedicated export (79Bike, EMORTAL, Electric Bike Company,
+Specialized) — their keywords were derived from real product names + category/brand-pattern phrasing instead.
+
+Every category (8), brand (36), product (128) and blog post (23) now carries structured `primaryKeyword` +
+5 `supportingKeywords` fields in its JSON record (`categories.json`, `brands.json`, `products.json`,
+`posts.json`), woven invisibly into `<title>`/meta description and each page's JSON-LD `keywords` property —
+no visible keyword lists, no stuffing. Every product and post also carries exactly 5 fact-grounded FAQs
+(`faqs: [{q,a}]`), rendered on-page via `FaqAccordion` plus a per-page `FAQPage` JSON-LD block. Dirt-bike
+category FAQs (adult + kids) always include the mandatory off-road/not-street-legal compliance framing.
+`scripts/crosscheck.mjs` now permanently enforces this coverage (fails the build if any product/post/
+category/brand is missing its keyword or FAQ fields) so it can't silently regress.
+
+Old `docs/keyword-cluster-map.md` (258 hand-picked terms, no volume data) is retained as historical context
+but the Semrush pool now supersedes it as the primary keyword reference for this site.
+
 ## ⚠ PENDING before go-live
-1. Get a Web3Forms access key (web3forms.com) → `src/data/site.json` → `web3formsKey`. Until set, the
-   contact/order/wholesale forms redirect straight to the thank-you page WITHOUT sending email.
-2. Real phone and WhatsApp number → `src/data/site.json`.
-3. GSC + Bing verification codes → `src/data/site.json` → `gscCode` / `bingCode`.
-4. Confirm the Instagram/Facebook URLs in `src/data/site.json` are the real, live profiles.
-5. Confirm/verify all prices with the client before the site is publicly promoted.
-6. Award/partner claims: the source site's intake listed "Auto Dealers of the Year" with no verifiable name —
+1. Real phone and WhatsApp number → `src/data/site.json` (still the placeholder `+1 (000) 000-0000` /
+   `10000000000`). Web3Forms key, GSC code and Bing code are already set in `site.json` — confirm the GSC/Bing
+   codes are actually verified live in Search Console / Bing Webmaster Tools (a code being present in the
+   file doesn't guarantee the property was verified there).
+2. Confirm the Instagram/Facebook URLs in `src/data/site.json` are the real, live profiles.
+3. Confirm/verify all prices with the client before the site is publicly promoted.
+4. Award/partner claims: the source site's intake listed "Auto Dealers of the Year" with no verifiable name —
    this was correctly never published. Only add real, named awards/partners if supplied.
-7. Connect the umbraelectric.com domain in Vercel's project settings (DNS/domain assignment is separate
-   from setting `SITE.domain` — both are needed for the live site to resolve correctly).
+5. Connect the umbraelectric.com domain in Vercel's project settings (DNS/domain assignment is separate
+   from setting `SITE.domain` — both are needed for the live site to resolve correctly). `SITE.domain` is
+   currently `www.umbraelectric.com`.
