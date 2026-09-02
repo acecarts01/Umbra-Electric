@@ -1,5 +1,6 @@
 import { Fraunces, Inter } from 'next/font/google';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import Announce from '@/components/Announce';
 import Nav from '@/components/Nav';
@@ -89,6 +90,7 @@ export default function RootLayout({ children }) {
         <Footer />
         <CartDrawer />
         <ScrollReveal />
+        <Analytics />
         <Script id="tawk-to" strategy="lazyOnload">
           {`var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
           (function(){
