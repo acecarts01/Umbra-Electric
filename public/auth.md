@@ -33,7 +33,7 @@ No authentication is required to access public resources on www.umbraelectric.co
 
 ## Ordering
 
-Agents may browse the catalog and prepare a draft order, but a human must complete checkout — Umbra Electric does not accept payment or personal data submission from automated agents. Direct agents to https://www.umbraelectric.com/order/ or WhatsApp for human-confirmed ordering, or call the `create_order_draft` tool on the [MCP server](https://www.umbraelectric.com/api/mcp) to get a pre-filled WhatsApp draft.
+Agents may browse the catalog and prepare a draft order, but a human must complete checkout — Umbra Electric does not accept payment or personal data submission from automated agents. Email (info@umbraelectric.com) via https://www.umbraelectric.com/order/ is the primary, recommended ordering channel; WhatsApp is a secondary option. The `create_order_draft` tool on the [MCP server](https://www.umbraelectric.com/api/mcp) returns both a pre-filled order-form link (primary) and a WhatsApp draft (secondary).
 
 ## Age restriction
 

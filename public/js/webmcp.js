@@ -13,8 +13,14 @@
         },
       },
       {
+        name: 'order_by_email',
+        description: 'Start an order by email — the primary, recommended ordering method. Minimum order $500.',
+        inputSchema: { type: 'object', properties: {} },
+        execute: async () => { window.location.href = 'https://www.umbraelectric.com/order/'; return { url: 'https://www.umbraelectric.com/order/' }; },
+      },
+      {
         name: 'order_via_whatsapp',
-        description: 'Initiate a WhatsApp order. Minimum order $500.',
+        description: 'Initiate a WhatsApp order — a secondary option to email. Minimum order $500.',
         inputSchema: { type: 'object', properties: { message: { type: 'string', description: 'Pre-filled order message' } } },
         execute: async ({ message }) => {
           const url = message ? 'https://wa.me/14482348667?text=' + encodeURIComponent(message) : 'https://wa.me/14482348667';

@@ -19,9 +19,16 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
+      "name": "order-by-email",
+      "type": "commerce",
+      "description": "Place an order by email — the primary, recommended ordering method. Minimum order $500. Accepts crypto, bank transfer and card.",
+      "url": "https://www.umbraelectric.com/order/",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
       "name": "order-via-whatsapp",
       "type": "commerce",
-      "description": "Place an order via WhatsApp. Minimum order $500. Accepts crypto and bank transfer.",
+      "description": "Place an order via WhatsApp — a secondary option to email. Minimum order $500.",
       "url": "https://wa.me/14482348667",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },

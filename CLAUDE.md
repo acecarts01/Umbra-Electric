@@ -14,6 +14,10 @@ schema and nav all regenerate from it. Never hand-edit generated output (`vercel
 ## Rules
 
 - `npm run build` must pass before every push. Run `npm run crosscheck` after building.
+- Email is the primary order/contact channel sitewide (order form, mailto). WhatsApp is secondary — never let it
+  appear before email in ordering or contact copy, in agent-facing files (llms.txt, auth.md, server-card.json,
+  acp.json, ucp.json, webmcp.js, mcp-tools.json), or in FAQ/product/post copy. Live chat widget is separate and
+  untouched by this rule.
 - One `<h1>` per page. Meta descriptions ~150 chars. Titles ≤60.
 - Product images live in `public/images/products/`, referenced by filename in `src/data/products.json`.
 - Emails are never in plaintext inside JSON-LD or `<script>` tags — encoded/obscured in visible markup.

@@ -14,10 +14,16 @@
       "description": "Full product catalog"
     },
     {
-      "id": "order",
+      "id": "order-by-email",
+      "type": "commerce",
+      "url": "https://www.umbraelectric.com/order/",
+      "description": "Place orders by email — the primary, recommended method"
+    },
+    {
+      "id": "order-via-whatsapp",
       "type": "commerce",
       "url": "https://wa.me/14482348667",
-      "description": "Place orders via WhatsApp"
+      "description": "Place orders via WhatsApp — a secondary option to email"
     },
     {
       "id": "wholesale",
@@ -34,6 +40,7 @@
   ],
   "endpoints": {
     "catalog": "https://www.umbraelectric.com/shop/",
+    "order": "https://www.umbraelectric.com/order/",
     "contact": "https://www.umbraelectric.com/contact/",
     "agent_skills": "https://www.umbraelectric.com/.well-known/agent-skills/index.json",
     "mcp_server_card": "https://www.umbraelectric.com/.well-known/mcp/server-card.json",

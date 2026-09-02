@@ -129,17 +129,42 @@ Old `docs/keyword-cluster-map.md` (258 hand-picked terms, no volume data) is ret
 but the Semrush pool now supersedes it as the primary keyword reference for this site.
 
 ## ⚠ PENDING before go-live
-1. Real phone number → `src/data/site.json` (still the placeholder `+1 (000) 000-0000`; WhatsApp is set).
-   **Set `NEXT_PUBLIC_WEB3FORMS_KEY` in Vercel's Project Settings → Environment Variables** (Production, and
-   Preview/Development too if you want forms to send from preview deploys) — it's already in `.env.local`
-   for local dev, but that file is never deployed, so production forms will silently redirect-without-sending
-   until this is set in the Vercel dashboard. GSC code and Bing code are already set in `site.json` — confirm
-   both are actually verified live in Search Console / Bing Webmaster Tools (a code being present in the
-   file doesn't guarantee the property was verified there).
+1. Real phone number → `src/data/site.json` (still the placeholder `+1 (000) 000-0000`; WhatsApp is set and
+   is now the sitewide secondary contact channel — see "Email-primary ordering" below).
+   `NEXT_PUBLIC_WEB3FORMS_KEY` is confirmed set in Vercel Production (2026-09-02) and verified working end to
+   end (real test order accepted by Web3Forms). Bing code is set in `site.json` but unconfirmed live in Bing
+   Webmaster Tools. **GSC: confirmed NOT actually verified** (2026-09-02 audit) — the account has zero verified
+   properties in Search Console despite `gscCode` being present in `site.json`; the code being in the HTML
+   never actually got submitted/verified as a property. Needs the property added and verified, then the
+   sitemap submitted.
 2. Confirm the Instagram/Facebook URLs in `src/data/site.json` are the real, live profiles.
 3. Confirm/verify all prices with the client before the site is publicly promoted.
 4. Award/partner claims: the source site's intake listed "Auto Dealers of the Year" with no verifiable name —
    this was correctly never published. Only add real, named awards/partners if supplied.
+
+## Email-primary ordering (2026-09-02)
+
+Audited every ordering/contact touchpoint sitewide (footer, homepage, about/shipping/tracking/contact pages,
+FAQs, product/post FAQs, and the entire agent-facing layer — llms.txt, auth.md, server-card.json, acp.json,
+ucp.json, `/api/acp/catalog`, `/api/ucp/services`, webmcp.js, mcp-tools.json, mcpExecutors.js) to make email
+the primary ordering/contact channel everywhere, with WhatsApp explicitly secondary. `/tracking/` was the one
+real gap found — it offered WhatsApp only, no email option at all; fixed to lead with a `mailto:` CTA.
+`create_order_draft` (MCP) now returns `orderFormUrl` + `mailtoUrl` as primary alongside `whatsappDraftUrl` as
+secondary. The live chat widget is untouched — this only affects WhatsApp vs. email framing.
+See the rule in `CLAUDE.md` — this convention must hold for all future copy.
+
+## Content-depth pass (2026-09-02)
+
+Every product's `description`/`fullDescription` was templated boilerplate — nearly identical across all 128
+products, a real thin/duplicate-content risk. Rewrote both fields for all 128 products (avg fullDescription
+now 204 words, was ~2 templated sentences) with genuine differentiation: real price positioning computed from
+the actual catalog, real named comparisons to other real products, real brand lineage pulled from `brands.json`
+`seoIntro`, the product's own `highlight` where present — no invented specs. Blog posts were also thinner than
+their own stated read time (232–352 words claiming "6-8 min read" — a real 6-8 min read is 1200+ words);
+expanded all 23 to a genuinely deeper, honestly-labeled length (avg 289→565 words, `readTime` recomputed at
+~225 wpm) by adding real new sections/depth, not padding — sourced from real catalog facts plus general
+uncontroversial technical knowledge, never invented statistics or specs. Categories/brands were left alone —
+already substantial (77-100 / 41-73 word intros) for pages that also carry a full product grid.
 5. Connect the umbraelectric.com domain in Vercel's project settings (DNS/domain assignment is separate
    from setting `SITE.domain` — both are needed for the live site to resolve correctly). `SITE.domain` is
    currently `www.umbraelectric.com`.

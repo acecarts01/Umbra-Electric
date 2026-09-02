@@ -39,7 +39,7 @@
   },
   {
     "name": "create_order_draft",
-    "description": "Prepare a draft order summary and a WhatsApp link pre-filled with the order details for a human to review and complete. Never captures payment or personal data.",
+    "description": "Prepare a draft order summary with a pre-filled email order link (the primary, recommended way to complete it) and a WhatsApp link as a secondary option, for a human to review and complete. Never captures payment or personal data.",
     "inputSchema": {
       "type": "object",
       "properties": {

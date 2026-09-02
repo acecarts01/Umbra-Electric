@@ -60,7 +60,7 @@ export default function AboutPage() {
             </div>
             <div className="card-soft">
               <h3>Real guidance</h3>
-              <p className="muted">Concierge help over WhatsApp, honest advice on street-legality, and financing on premium orders.</p>
+              <p className="muted">Concierge help by email (WhatsApp too), honest advice on street-legality, and financing on premium orders.</p>
             </div>
             <div className="card-soft">
               <h3>Worldwide delivery</h3>
@@ -85,9 +85,9 @@ export default function AboutPage() {
           </p>
           <h2>Where we ship &amp; how to reach us</h2>
           <p>
-            We ship across the United States, Europe and worldwide. Questions before you buy? Reach us on{' '}
-            <a href={`https://wa.me/${SITE.whatsapp}`}>WhatsApp</a> or via the <a href="/contact/">contact page</a> — we typically respond
-            within 24 hours.
+            We ship across the United States, Europe and worldwide. Questions before you buy? Reach us via the{' '}
+            <a href="/contact/">contact page</a> or email — <a href={`https://wa.me/${SITE.whatsapp}`}>WhatsApp</a> works too — we typically
+            respond within 24 hours.
           </p>
           <div style={{ marginTop: '1.5rem' }}>
             <a className="btn-primary" href="/shop/">

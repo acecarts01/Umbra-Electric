@@ -17,7 +17,8 @@
       "blog",
       "faq"
     ],
-    "ordering": "human-assisted-whatsapp",
+    "ordering": "human-assisted-email",
+    "ordering_secondary": "human-assisted-whatsapp",
     "payment_methods": [
       "crypto-BTC",
       "crypto-USDT",
@@ -29,12 +30,13 @@
     "free_shipping_threshold_usd": "2000"
   },
   "endpoints": {
+    "order": "https://www.umbraelectric.com/order/",
     "catalog": "https://www.umbraelectric.com/api/acp/catalog",
     "mcp": "https://www.umbraelectric.com/api/mcp"
   },
   "contact": {
-    "whatsapp": "https://wa.me/14482348667",
-    "email": "info@umbraelectric.com"
+    "email": "info@umbraelectric.com",
+    "whatsapp": "https://wa.me/14482348667"
   },
   "legal": {
     "age_restriction": "Buyer/parent responsibility per local law",

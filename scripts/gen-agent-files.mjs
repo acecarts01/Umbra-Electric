@@ -63,8 +63,8 @@ ${SITE.name} is headquartered in ${SITE.hqPlace} and ships across ${SITE.areaSer
 
 ## Contact
 
-- WhatsApp: [Message us](https://wa.me/${SITE.whatsapp})
-- Email: ${SITE.email}
+- Email (primary): ${SITE.email}
+- WhatsApp (secondary): [Message us](https://wa.me/${SITE.whatsapp})
 - Minimum order: $${SITE.minOrder} · Free shipping over $${SITE.freeShipThreshold} · Crypto discount: ${SITE.cryptoDiscountPct}%
 
 ## Categories
@@ -143,7 +143,7 @@ ${isLive ? `| MCP server (live) | ${abs('/api/mcp')} |
 
 ## Ordering
 
-Agents may browse the catalog and prepare a draft order, but a human must complete checkout — ${SITE.name} does not accept payment or personal data submission from automated agents. Direct agents to ${abs('/order/')} or WhatsApp for human-confirmed ordering${isLive ? `, or call the \`create_order_draft\` tool on the [MCP server](${abs('/api/mcp')}) to get a pre-filled WhatsApp draft` : ''}.
+Agents may browse the catalog and prepare a draft order, but a human must complete checkout — ${SITE.name} does not accept payment or personal data submission from automated agents. Email (${SITE.email}) via ${abs('/order/')} is the primary, recommended ordering channel; WhatsApp is a secondary option${isLive ? `. The \`create_order_draft\` tool on the [MCP server](${abs('/api/mcp')}) returns both a pre-filled order-form link (primary) and a WhatsApp draft (secondary)` : ''}.
 
 ## Age restriction
 
@@ -192,7 +192,8 @@ const agentSkills = {
   skills: [
     { name: 'browse-products', type: 'navigation', description: 'Browse the full product catalog by category', url: abs('/shop/'), sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' },
     { name: 'browse-brands', type: 'navigation', description: 'Browse the full product catalog by brand', url: abs('/shop/brand/'), sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' },
-    { name: 'order-via-whatsapp', type: 'commerce', description: `Place an order via WhatsApp. Minimum order $${SITE.minOrder}. Accepts crypto and bank transfer.`, url: `https://wa.me/${SITE.whatsapp}`, sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' },
+    { name: 'order-by-email', type: 'commerce', description: `Place an order by email — the primary, recommended ordering method. Minimum order $${SITE.minOrder}. Accepts crypto, bank transfer and card.`, url: abs('/order/'), sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' },
+    { name: 'order-via-whatsapp', type: 'commerce', description: `Place an order via WhatsApp — a secondary option to email. Minimum order $${SITE.minOrder}.`, url: `https://wa.me/${SITE.whatsapp}`, sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' },
     { name: 'wholesale-inquiry', type: 'commerce', description: 'Wholesale pricing tiers and bulk ordering', url: abs('/wholesale/'), sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' },
     { name: 'product-education', type: 'content', description: 'Educational blog content about electric dirt bikes and e-bikes', url: abs('/blog/'), sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' },
     { name: 'contact', type: 'support', description: 'Contact for product questions, orders, or wholesale inquiries', url: abs('/contact/'), sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' },
@@ -236,7 +237,7 @@ const serverCard = {
     ],
     ...(isLive ? { tools: MCP_TOOLS } : {}),
     commerce: {
-      ordering: 'WhatsApp or email',
+      ordering: 'email (primary) or WhatsApp (secondary)',
       payment: ['crypto-BTC', 'crypto-USDT', 'bank-transfer', 'card'],
       currency: SITE.currency,
       minimumOrder: String(SITE.minOrder),
@@ -318,14 +319,15 @@ const acp = {
   transports: ['https'],
   capabilities: {
     services: ['product-catalog', 'wholesale', 'blog', 'faq'],
-    ordering: 'human-assisted-whatsapp',
+    ordering: 'human-assisted-email',
+    ordering_secondary: 'human-assisted-whatsapp',
     payment_methods: ['crypto-BTC', 'crypto-USDT', 'bank-transfer', 'card'],
     currency: SITE.currency,
     minimum_order_usd: String(SITE.minOrder),
     free_shipping_threshold_usd: String(SITE.freeShipThreshold),
   },
-  endpoints: isLive ? { catalog: abs('/api/acp/catalog'), mcp: abs('/api/mcp') } : { catalog: abs('/shop/') },
-  contact: { whatsapp: `https://wa.me/${SITE.whatsapp}`, email: SITE.email },
+  endpoints: isLive ? { order: abs('/order/'), catalog: abs('/api/acp/catalog'), mcp: abs('/api/mcp') } : { order: abs('/order/'), catalog: abs('/shop/') },
+  contact: { email: SITE.email, whatsapp: `https://wa.me/${SITE.whatsapp}` },
   legal: {
     age_restriction: 'Buyer/parent responsibility per local law',
     region: SITE.hqRegion,
@@ -350,12 +352,14 @@ const ucp = {
   description: SITE.brandStatement,
   services: [
     { id: 'product-catalog', type: 'catalog', url: isLive ? abs('/api/ucp/services') : abs('/shop/'), description: 'Full product catalog' },
-    { id: 'order', type: 'commerce', url: `https://wa.me/${SITE.whatsapp}`, description: 'Place orders via WhatsApp' },
+    { id: 'order-by-email', type: 'commerce', url: abs('/order/'), description: 'Place orders by email — the primary, recommended method' },
+    { id: 'order-via-whatsapp', type: 'commerce', url: `https://wa.me/${SITE.whatsapp}`, description: 'Place orders via WhatsApp — a secondary option to email' },
     { id: 'wholesale', type: 'b2b', url: abs('/wholesale/'), description: 'Wholesale pricing and bulk ordering' },
   ],
   capabilities: ['browse', 'inquiry', 'wholesale', 'content'],
   endpoints: {
     catalog: abs('/shop/'),
+    order: abs('/order/'),
     contact: abs('/contact/'),
     agent_skills: abs('/.well-known/agent-skills/index.json'),
     mcp_server_card: abs('/.well-known/mcp/server-card.json'),
@@ -390,8 +394,14 @@ const webmcp = `(function () {
         },
       },
       {
+        name: 'order_by_email',
+        description: 'Start an order by email — the primary, recommended ordering method. Minimum order $${SITE.minOrder}.',
+        inputSchema: { type: 'object', properties: {} },
+        execute: async () => { window.location.href = 'https://${D}/order/'; return { url: 'https://${D}/order/' }; },
+      },
+      {
         name: 'order_via_whatsapp',
-        description: 'Initiate a WhatsApp order. Minimum order $${SITE.minOrder}.',
+        description: 'Initiate a WhatsApp order — a secondary option to email. Minimum order $${SITE.minOrder}.',
         inputSchema: { type: 'object', properties: { message: { type: 'string', description: 'Pre-filled order message' } } },
         execute: async ({ message }) => {
           const url = message ? 'https://wa.me/${SITE.whatsapp}?text=' + encodeURIComponent(message) : 'https://wa.me/${SITE.whatsapp}';

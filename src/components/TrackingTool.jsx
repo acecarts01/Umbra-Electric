@@ -14,14 +14,21 @@ export default function TrackingTool() {
       </div>
       <a
         className="btn-primary btn-block"
+        href={`mailto:${SITE.email}?subject=${encodeURIComponent(`Order status — ${orderNo || 'UE-#####'}`)}&body=${encodeURIComponent(msg)}`}
+      >
+        Email us for a status update
+      </a>
+      <a
+        className="btn-secondary btn-block"
         href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(msg)}`}
         target="_blank"
         rel="noopener"
+        style={{ marginTop: '.6rem' }}
       >
-        Check status on WhatsApp
+        Or check status on WhatsApp
       </a>
       <p className="muted" style={{ marginTop: '1rem', fontSize: '.9rem' }}>
-        Prefer email? Write to <a href={`mailto:${SITE.email}`}>{SITE.email}</a> with your order number and we&apos;ll reply with tracking.
+        Email is our primary support channel — we reply with tracking within 24 hours. WhatsApp is there for quicker questions.
       </p>
     </div>
   );

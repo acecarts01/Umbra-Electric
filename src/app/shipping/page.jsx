@@ -38,7 +38,7 @@ export default function ShippingPage() {
           <h2>Tracking</h2>
           <p>
             Once dispatched, we provide tracking details by email. You can also request an update any time via our{' '}
-            <a href="/tracking/">tracking page</a> or WhatsApp.
+            <a href="/tracking/">tracking page</a>, by emailing {SITE.email}, or on WhatsApp.
           </p>
         </div>
       </section>

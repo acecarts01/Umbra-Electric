@@ -103,7 +103,7 @@ export default function HomePage() {
             <span className="ic" aria-hidden="true">✓</span> Curated premium brands
           </div>
           <div>
-            <span className="ic" aria-hidden="true">💬</span> WhatsApp concierge support
+            <span className="ic" aria-hidden="true">💬</span> Concierge support by email
           </div>
           <div>
             <span className="ic" aria-hidden="true">₿</span> Crypto welcome · {SITE.cryptoDiscountPct}% off
@@ -174,8 +174,8 @@ export default function HomePage() {
           </p>
           <p>
             Most e-motos are off-highway vehicles — not street-legal without registration and licensing. We keep that front and center so
-            you buy with clear expectations. Questions? Reach our team on <a href={`https://wa.me/${SITE.whatsapp}`}>WhatsApp</a> or the{' '}
-            <a href="/contact/">contact page</a>.
+            you buy with clear expectations. Questions? Reach our team via the <a href="/contact/">contact page</a> or on{' '}
+            <a href={`https://wa.me/${SITE.whatsapp}`}>WhatsApp</a>.
           </p>
         </div>
       </section>
@@ -250,7 +250,7 @@ export default function HomePage() {
           <div className="news">
             <div>
               <h2 style={{ color: 'var(--ivory)', margin: 0 }}>Have a question before you buy?</h2>
-              <p style={{ color: '#D8D1C4', margin: '.4rem 0 0' }}>Message our team on WhatsApp or send us a note.</p>
+              <p style={{ color: '#D8D1C4', margin: '.4rem 0 0' }}>Send us a note by email — WhatsApp works too.</p>
             </div>
             <a className="btn-primary" href="/contact/">
               Contact us

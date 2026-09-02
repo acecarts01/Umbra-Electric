@@ -27,8 +27,9 @@ export async function GET() {
         currency: SITE.currency,
         url: absUrl(`/product/${p.slug}/`),
       })),
-      ordering: 'human-assisted-whatsapp',
-      contact: { whatsapp: `https://wa.me/${SITE.whatsapp}`, email: SITE.email },
+      ordering: 'human-assisted-email',
+      ordering_secondary: 'human-assisted-whatsapp',
+      contact: { email: SITE.email, order: absUrl('/order/'), whatsapp: `https://wa.me/${SITE.whatsapp}` },
     },
     { headers: HEADERS }
   );

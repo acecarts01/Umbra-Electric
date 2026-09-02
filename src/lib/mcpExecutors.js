@@ -66,10 +66,11 @@ export function get_policies() {
     returns:
       'Unused, undamaged items in original packaging can be returned within our stated return window. Some items may be non-returnable once registered or ridden. See the Returns & Refunds page for full details.',
     payment: ['crypto-BTC', 'crypto-USDT', 'bank-transfer', 'card', 'financing'],
+    ordering: `Email (${SITE.email} or ${absUrl('/order/')}) is the primary, recommended ordering method. WhatsApp is a secondary option for those who prefer chat.`,
     cryptoDiscountPct: SITE.cryptoDiscountPct,
     minimumOrderUsd: SITE.minOrder,
     currency: SITE.currency,
-    policyUrls: { shipping: absUrl('/shipping/'), returns: absUrl('/refund/'), terms: absUrl('/terms/'), financing: absUrl('/financing/') },
+    policyUrls: { order: absUrl('/order/'), shipping: absUrl('/shipping/'), returns: absUrl('/refund/'), terms: absUrl('/terms/'), financing: absUrl('/financing/') },
   };
 }
 
@@ -120,9 +121,13 @@ export function create_order_draft(args = {}) {
     meetsMinimumOrder,
     minimumOrderUsd: SITE.minOrder,
     cryptoDiscountIfPaidInCrypto,
-    draftOrderUrl: `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`,
+    // Email is the primary, recommended ordering method -- orderFormUrl and
+    // mailtoUrl come first and are what an agent should offer by default.
+    // whatsappDraftUrl is a secondary option, only if the buyer prefers chat.
     orderFormUrl: absUrl('/order/'),
-    note: `This is a draft only. A human at ${SITE.name} confirms stock, final pricing and shipping before any payment is taken. No payment or personal data is collected via this tool.`,
+    mailtoUrl: `mailto:${SITE.email}?subject=${encodeURIComponent(`New order — ${SITE.name}`)}&body=${encodeURIComponent(message)}`,
+    whatsappDraftUrl: `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`,
+    note: `This is a draft only. Email (orderFormUrl or mailtoUrl) is the primary, recommended way to complete this — WhatsApp (whatsappDraftUrl) is a secondary option. A human at ${SITE.name} confirms stock, final pricing and shipping before any payment is taken. No payment or personal data is collected via this tool.`,
   };
 }
 

@@ -4,7 +4,7 @@ import { absUrl } from '@/config/site';
 
 export const metadata = {
   title: 'Track Your Order',
-  description: "Enter your order number and we'll pull up its status. For the fastest update, message us on WhatsApp.",
+  description: "Enter your order number and email us for a status update — WhatsApp is there too.",
   alternates: { canonical: absUrl('/tracking/') },
   robots: { index: false, follow: true },
 };
@@ -17,7 +17,7 @@ export default function TrackingPage() {
         <div className="container">
           <span className="eyebrow">Support</span>
           <h1>Track Your Order</h1>
-          <p className="lead">Enter your order number and we&apos;ll pull up its status. For the fastest update, message us on WhatsApp.</p>
+          <p className="lead">Enter your order number and email us for a status update — WhatsApp is there too.</p>
         </div>
       </section>
       <section className="section">

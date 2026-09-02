@@ -31,7 +31,10 @@ export const FORMS = {
 };
 
 export const CHAT = {
-  channels: [{ type: 'whatsapp', value: SITE.whatsapp }],
+  channels: [
+    { type: 'email', value: SITE.email, primary: true },
+    { type: 'whatsapp', value: SITE.whatsapp, primary: false },
+  ],
 };
 
 export const CATEGORIES = categoriesRaw;
