@@ -10,7 +10,7 @@
     {
       "id": "product-catalog",
       "type": "catalog",
-      "url": "https://www.umbraelectric.com/shop/",
+      "url": "https://www.umbraelectric.com/api/ucp/services",
       "description": "Full product catalog"
     },
     {
@@ -38,7 +38,10 @@
     "agent_skills": "https://www.umbraelectric.com/.well-known/agent-skills/index.json",
     "mcp_server_card": "https://www.umbraelectric.com/.well-known/mcp/server-card.json",
     "api_catalog": "https://www.umbraelectric.com/.well-known/api-catalog",
-    "llms_txt": "https://www.umbraelectric.com/llms.txt"
+    "llms_txt": "https://www.umbraelectric.com/llms.txt",
+    "mcp": "https://www.umbraelectric.com/api/mcp",
+    "products_api": "https://www.umbraelectric.com/api/products",
+    "search_api": "https://www.umbraelectric.com/api/search"
   },
   "currency": "USD",
   "minimum_order_usd": "500",

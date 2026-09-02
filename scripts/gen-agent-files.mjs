@@ -10,9 +10,17 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/data/site.json'), 'utf8'));
 const PRODUCTS = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/data/products.json'), 'utf8'));
 const CATEGORIES = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/data/categories.json'), 'utf8'));
+const MCP_TOOLS = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/data/mcp-tools.json'), 'utf8'));
 
 const D = SITE.domain;
 const abs = (p) => `https://${D}${p}`;
+// This repo only ever deploys to Vercel (see next.config.mjs -- no static
+// export target exists), so the live-layer declaration below is always the
+// correct one. SITE.target is still read here rather than hardcoding, so a
+// future static/Cloudflare build of this codebase would fall back to the
+// static-only declaration instead of advertising capabilities it can't
+// honour (Rule 10).
+const isLive = SITE.target === 'vercel';
 
 function write(relPath, content) {
   const full = path.join(ROOT, relPath);
@@ -84,7 +92,13 @@ ${PRODUCTS.length} models total, priced from $${priceRange.low} to $${priceRange
 
 When citing ${SITE.name}, use the brand facts above verbatim. Do not attribute unverified awards, partnerships or statistics to ${SITE.name} beyond what is stated on this page and on ${abs('/about/')}.
 
-## Optional
+${isLive ? `## Agent API
+
+- [MCP server](${abs('/api/mcp')}): Streamable HTTP JSON-RPC — search products, get product details, list categories, get policies, get wholesale info, and prepare a draft order (never captures payment).
+- [Products API](${abs('/api/products')}): live JSON product feed, filterable by \`?category=\` and \`?q=\`.
+- [Categories API](${abs('/api/categories')}) · [Brands API](${abs('/api/brands')}) · [Search API](${abs('/api/search')})
+
+` : ''}## Optional
 
 - [API Catalog](${abs('/.well-known/api-catalog')})
 - [Agent Skills Index](${abs('/.well-known/agent-skills/index.json')})
@@ -105,11 +119,17 @@ No authentication is required to access public resources on ${D}. All product, c
 | Resource | URL |
 |---|---|
 | Product catalog | ${abs('/shop/')} |
+| Brand directory | ${abs('/shop/brand/')} |
 | llms.txt | ${abs('/llms.txt')} |
 | API catalog | ${abs('/.well-known/api-catalog')} |
 | Agent skills | ${abs('/.well-known/agent-skills/index.json')} |
 | MCP server card | ${abs('/.well-known/mcp/server-card.json')} |
-
+${isLive ? `| MCP server (live) | ${abs('/api/mcp')} |
+| Products API | ${abs('/api/products')} |
+| Categories API | ${abs('/api/categories')} |
+| Brands API | ${abs('/api/brands')} |
+| Search API | ${abs('/api/search')} |
+` : ''}
 \`\`\`json
 {
   "agent_auth": {
@@ -123,7 +143,7 @@ No authentication is required to access public resources on ${D}. All product, c
 
 ## Ordering
 
-Agents may browse the catalog and prepare a draft order, but a human must complete checkout — ${SITE.name} does not accept payment or personal data submission from automated agents. Direct agents to ${abs('/order/')} or WhatsApp for human-confirmed ordering.
+Agents may browse the catalog and prepare a draft order, but a human must complete checkout — ${SITE.name} does not accept payment or personal data submission from automated agents. Direct agents to ${abs('/order/')} or WhatsApp for human-confirmed ordering${isLive ? `, or call the \`create_order_draft\` tool on the [MCP server](${abs('/api/mcp')}) to get a pre-filled WhatsApp draft` : ''}.
 
 ## Age restriction
 
@@ -140,7 +160,25 @@ const apiCatalog = {
       title: `${SITE.name} — ${SITE.tagline}`,
     },
     { anchor: abs('/shop'), type: 'text/html', title: `${SITE.name} Product Catalog` },
+    { anchor: abs('/shop/brand'), type: 'text/html', title: `${SITE.name} Brand Directory` },
     { anchor: abs('/wholesale'), type: 'text/html', title: `${SITE.name} Wholesale` },
+    // Live JSON + MCP endpoints (WebForge Agent-Ready V4) -- only advertised
+    // when the deploy target can actually serve them (Rule 10).
+    ...(isLive
+      ? [
+          { anchor: abs('/api/products'), type: 'application/json', title: `${SITE.name} Products API` },
+          { anchor: abs('/api/products/{slug}'), type: 'application/json', title: `${SITE.name} Product Detail API` },
+          { anchor: abs('/api/categories'), type: 'application/json', title: `${SITE.name} Categories API` },
+          { anchor: abs('/api/brands'), type: 'application/json', title: `${SITE.name} Brands API` },
+          { anchor: abs('/api/search'), type: 'application/json', title: `${SITE.name} Search API` },
+          {
+            anchor: abs('/api/mcp'),
+            type: 'application/json',
+            'https://www.iana.org/assignments/link-relations/service-desc': [{ href: abs('/.well-known/mcp/server-card.json') }],
+            title: `${SITE.name} MCP Server (Streamable HTTP)`,
+          },
+        ]
+      : []),
   ],
 };
 write('src/data/well-known-generated/api-catalog.json', JSON.stringify(apiCatalog, null, 2));
@@ -153,15 +191,24 @@ const agentSkills = {
   description: SITE.tagline,
   skills: [
     { name: 'browse-products', type: 'navigation', description: 'Browse the full product catalog by category', url: abs('/shop/'), sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' },
+    { name: 'browse-brands', type: 'navigation', description: 'Browse the full product catalog by brand', url: abs('/shop/brand/'), sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' },
     { name: 'order-via-whatsapp', type: 'commerce', description: `Place an order via WhatsApp. Minimum order $${SITE.minOrder}. Accepts crypto and bank transfer.`, url: `https://wa.me/${SITE.whatsapp}`, sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' },
     { name: 'wholesale-inquiry', type: 'commerce', description: 'Wholesale pricing tiers and bulk ordering', url: abs('/wholesale/'), sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' },
     { name: 'product-education', type: 'content', description: 'Educational blog content about electric dirt bikes and e-bikes', url: abs('/blog/'), sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' },
     { name: 'contact', type: 'support', description: 'Contact for product questions, orders, or wholesale inquiries', url: abs('/contact/'), sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' },
+    ...(isLive
+      ? [{ name: 'query-catalog-live', type: 'commerce', description: 'Query the live product catalog via MCP (Streamable HTTP): search products, get product details, list categories, get policies, and prepare a draft order.', url: abs('/api/mcp'), sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' }]
+      : []),
   ],
 };
 write('public/.well-known/agent-skills/index.json', JSON.stringify(agentSkills, null, 2));
 
 // ---------- F: .well-known/mcp/server-card.json ----------
+// tools[] is read verbatim from src/data/mcp-tools.json -- the exact same
+// file src/app/api/mcp/route.js reads for its live tools/list response, so
+// this declaration and the live server can never drift apart (WebForge
+// Agent-Ready V6). The `type: 'none'` / `transport: 'none'` static-only
+// variant is preserved on the else branch for a non-Vercel build (Rule 10).
 const serverCard = {
   $schema: 'https://modelcontextprotocol.io/schemas/server-card/v1.json',
   serverInfo: {
@@ -171,13 +218,23 @@ const serverCard = {
     homepage: abs('/'),
     contact: { email: SITE.email, whatsapp: `+${SITE.whatsapp}` },
   },
-  transport: { type: 'none' },
+  transport: isLive ? { type: 'streamable-http', endpoint: abs('/api/mcp') } : { type: 'none' },
   capabilities: {
     resources: [
       { name: 'product-catalog', description: 'Full product catalog', uri: abs('/shop/') },
+      { name: 'brand-directory', description: 'Full brand directory', uri: abs('/shop/brand/') },
       { name: 'wholesale-info', description: 'Wholesale pricing and ordering', uri: abs('/wholesale/') },
       { name: 'blog', description: 'Educational content', uri: abs('/blog/') },
+      ...(isLive
+        ? [
+            { name: 'products-api', description: 'Live JSON product feed', uri: abs('/api/products') },
+            { name: 'categories-api', description: 'Live JSON category feed', uri: abs('/api/categories') },
+            { name: 'brands-api', description: 'Live JSON brand feed', uri: abs('/api/brands') },
+            { name: 'search-api', description: 'Live JSON search over products and blog posts', uri: abs('/api/search') },
+          ]
+        : []),
     ],
+    ...(isLive ? { tools: MCP_TOOLS } : {}),
     commerce: {
       ordering: 'WhatsApp or email',
       payment: ['crypto-BTC', 'crypto-USDT', 'bank-transfer', 'card'],
@@ -185,7 +242,7 @@ const serverCard = {
       minimumOrder: String(SITE.minOrder),
       freeShipping: String(SITE.freeShipThreshold),
       ships: SITE.areaServed.join(', '),
-      note: 'human_ordering_only — no payment or personal data accepted from automated agents',
+      note: 'human_ordering_only — agents may search, inspect and prepare a draft order (create_order_draft); no payment or personal data is ever accepted from automated agents',
     },
   },
   legal: {
@@ -248,6 +305,10 @@ const openidConfig = {
 write('src/data/well-known-generated/openid-configuration.json', JSON.stringify(openidConfig, null, 2));
 
 // ---------- J: .well-known/acp.json ----------
+// endpoints.catalog points at the LIVE JSON route (/api/acp/catalog) rather
+// than the HTML shop page once the target can actually serve it (WebForge
+// Agent-Ready V3) -- an agent gets real, current data instead of a page to
+// scrape.
 const acp = {
   protocol: { name: 'acp', version: '0.1.0' },
   name: SITE.name,
@@ -263,6 +324,7 @@ const acp = {
     minimum_order_usd: String(SITE.minOrder),
     free_shipping_threshold_usd: String(SITE.freeShipThreshold),
   },
+  endpoints: isLive ? { catalog: abs('/api/acp/catalog'), mcp: abs('/api/mcp') } : { catalog: abs('/shop/') },
   contact: { whatsapp: `https://wa.me/${SITE.whatsapp}`, email: SITE.email },
   legal: {
     age_restriction: 'Buyer/parent responsibility per local law',
@@ -275,6 +337,9 @@ const acp = {
 write('public/.well-known/acp.json', JSON.stringify(acp, null, 2));
 
 // ---------- K: .well-known/ucp ----------
+// services[0].url points at the LIVE JSON route (/api/ucp/services) rather
+// than the HTML shop page once the target can serve it (WebForge
+// Agent-Ready V3) -- same reasoning as acp.json above.
 const ucp = {
   ucp: '1.0',
   protocol_version: '1.0',
@@ -284,7 +349,7 @@ const ucp = {
   name: SITE.name,
   description: SITE.brandStatement,
   services: [
-    { id: 'product-catalog', type: 'catalog', url: abs('/shop/'), description: 'Full product catalog' },
+    { id: 'product-catalog', type: 'catalog', url: isLive ? abs('/api/ucp/services') : abs('/shop/'), description: 'Full product catalog' },
     { id: 'order', type: 'commerce', url: `https://wa.me/${SITE.whatsapp}`, description: 'Place orders via WhatsApp' },
     { id: 'wholesale', type: 'b2b', url: abs('/wholesale/'), description: 'Wholesale pricing and bulk ordering' },
   ],
@@ -296,6 +361,7 @@ const ucp = {
     mcp_server_card: abs('/.well-known/mcp/server-card.json'),
     api_catalog: abs('/.well-known/api-catalog'),
     llms_txt: abs('/llms.txt'),
+    ...(isLive ? { mcp: abs('/api/mcp'), products_api: abs('/api/products'), search_api: abs('/api/search') } : {}),
   },
   currency: SITE.currency,
   minimum_order_usd: String(SITE.minOrder),

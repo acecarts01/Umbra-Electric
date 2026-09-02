@@ -186,6 +186,53 @@ const productGrid = fs.readFileSync(rel('src/components/ProductGrid.jsx'), 'utf8
 if (!/PAGE_SIZE\s*=\s*10/.test(productGrid)) fail('ProductGrid.jsx PAGE_SIZE is not 10.');
 else pass('ProductGrid.jsx paginates at 10 products per page.');
 
+// Live MCP/API layer (WebForge Agent-Ready V1-V6, Vercel-only). Full live
+// HTTP smoke-testing (booting `next start` and issuing real requests) is
+// deliberately NOT done here -- see PROJECT.md's "Live MCP/API layer"
+// section for why a shared-source-of-truth design was chosen instead.
+const apiRouteFiles = [
+  'src/app/api/mcp/route.js', 'src/app/api/products/route.js', 'src/app/api/products/[slug]/route.js',
+  'src/app/api/categories/route.js', 'src/app/api/brands/route.js', 'src/app/api/search/route.js',
+  'src/app/api/acp/catalog/route.js', 'src/app/api/ucp/services/route.js',
+];
+let missingApiRoutes = 0;
+for (const f of apiRouteFiles) {
+  if (!fs.existsSync(rel(f))) { fail(`Missing live API route: ${f}`); missingApiRoutes++; }
+}
+if (!missingApiRoutes) pass('All 8 live MCP/API route files present.');
+
+// mcp-tools.json is the single source of truth for both server-card.json's
+// tools[] and the live /api/mcp tools/list response -- assert it's valid
+// and every tool is well-formed, then assert the generated server-card.json
+// actually used it verbatim (catches a generator bug, not runtime drift).
+const MCP_TOOLS = JSON.parse(fs.readFileSync(rel('src/data/mcp-tools.json'), 'utf8'));
+let badTool = 0;
+for (const t of MCP_TOOLS) {
+  if (!t.name || !t.description || !t.inputSchema) { fail(`mcp-tools.json entry missing name/description/inputSchema: ${JSON.stringify(t).slice(0, 60)}`); badTool++; }
+}
+if (!badTool) pass(`All ${MCP_TOOLS.length} MCP tools in mcp-tools.json are well-formed.`);
+
+const serverCard = JSON.parse(fs.readFileSync(rel('public/.well-known/mcp/server-card.json'), 'utf8'));
+if (JSON.stringify(serverCard.capabilities?.tools) !== JSON.stringify(MCP_TOOLS)) {
+  fail('server-card.json capabilities.tools does not match src/data/mcp-tools.json verbatim.');
+} else {
+  pass('server-card.json tools[] matches mcp-tools.json exactly (cannot drift from the live /api/mcp tools/list response).');
+}
+if (serverCard.transport?.type !== 'streamable-http' || !serverCard.transport?.endpoint) {
+  fail('server-card.json transport is not declared as live streamable-http (check SITE.target and gen-agent-files.mjs).');
+} else {
+  pass('server-card.json declares a live streamable-http transport.');
+}
+
+// Never let a live agent endpoint capture payment or personal credentials
+// (Rule: agents may draft, humans complete).
+let paymentLeaks = 0;
+for (const f of [...apiRouteFiles, 'src/lib/mcpExecutors.js']) {
+  const src = fs.existsSync(rel(f)) ? fs.readFileSync(rel(f), 'utf8') : '';
+  if (/cvv|card[_-]?number|cardnumber|stripe\.charges|payment[_-]?token/i.test(src)) { fail(`Possible payment-capture code in live API route: ${f}`); paymentLeaks++; }
+}
+if (!paymentLeaks) pass('No payment-capture code in any live API route (agents may draft, humans complete).');
+
 // Deploy config present
 if (!fs.existsSync(rel('vercel.json'))) fail('vercel.json missing at repo root.');
 else pass('vercel.json present.');

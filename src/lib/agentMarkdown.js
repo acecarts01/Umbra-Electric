@@ -47,12 +47,15 @@ function homepageMd() {
     ...CATEGORIES.map((c) => `- [${c.title}](${absUrl(`/shop/${c.slug}/`)}): ${c.count} models — ${c.lead}`),
     '',
     '## Shop by Brand',
-    `${BRANDS.length} brands, ${PRODUCTS.length} models total. [Browse all brands](${absUrl('/shop/')})`,
+    `${BRANDS.length} brands, ${PRODUCTS.length} models total. [Browse all brands](${absUrl('/shop/brand/')})`,
     '',
     '## About',
     `${SITE.name} is based in ${SITE.hqCity}, ${SITE.hqRegion}, founded ${SITE.founded}. Ships to ${SITE.areaServed}.`,
     '',
     `[Shop the full collection](${absUrl('/shop/')}) · [Contact](${absUrl('/contact/')}) · [Financing](${absUrl('/financing/')}) · [FAQ](${absUrl('/faq/')})`,
+    '',
+    `## Live data`,
+    `Agents can query the catalog directly via [/api/mcp](${absUrl('/api/mcp')}) (MCP Streamable HTTP) or the plain JSON API: [/api/products](${absUrl('/api/products')}), [/api/categories](${absUrl('/api/categories')}), [/api/brands](${absUrl('/api/brands')}), [/api/search](${absUrl('/api/search')}).`,
   ];
   return lines.join('\n');
 }
@@ -65,6 +68,23 @@ function shopIndexMd() {
     '',
     '## Categories',
     ...CATEGORIES.map((c) => `- [${c.title}](${absUrl(`/shop/${c.slug}/`)}): ${c.count} models — ${c.lead}`),
+    '',
+    '## Brands',
+    ...BRANDS.map((b) => `- [${b.name}](${absUrl(`/shop/brand/${b.slug}/`)}): ${b.count} ${b.count === 1 ? 'model' : 'models'}`),
+  ];
+  return lines.join('\n');
+}
+
+function faqSection(faqs) {
+  if (!faqs || !faqs.length) return [];
+  return ['', '## Frequently asked questions', '', ...faqs.flatMap((f) => [`**${f.q}**`, '', f.a, ''])];
+}
+
+function brandHubMd() {
+  const lines = [
+    `# Shop Electric Bike Brands`,
+    '',
+    `> ${BRANDS.length} electric dirt bike and e-bike brands, ${PRODUCTS.length} curated models at ${SITE.name}.`,
     '',
     '## Brands',
     ...BRANDS.map((b) => `- [${b.name}](${absUrl(`/shop/brand/${b.slug}/`)}): ${b.count} ${b.count === 1 ? 'model' : 'models'}`),
@@ -112,6 +132,7 @@ function productMd(p) {
     `**Warranty:** ${p.warranty}`,
     '',
     `[Shop more ${p.categoryName}](${absUrl(`/shop/${p.category}/`)}) · [More from ${p.brand}](${absUrl(`/shop/brand/${BRANDS.find((b) => b.name === p.brand)?.slug || ''}/`)})`,
+    ...faqSection(p.faqs),
   ];
   if (cat) lines.splice(6, 0, '');
   return lines.join('\n');
@@ -133,7 +154,7 @@ function blogPostMd(post) {
   // post.body already opens with its own H1, date/readTime line and lead
   // paragraph (see posts.json) -- converting it alone avoids duplicating
   // that header, unlike every other page type here which builds its own.
-  return htmlToMarkdown(post.body);
+  return htmlToMarkdown(post.body) + faqSection(post.faqs).join('\n');
 }
 
 function faqMd() {
@@ -159,6 +180,7 @@ function reviewsMd() {
 export function getMarkdownForPath(pathname) {
   if (pathname === '/') return homepageMd();
   if (pathname === '/shop/') return shopIndexMd();
+  if (pathname === '/shop/brand/') return brandHubMd();
   if (pathname === '/blog/') return blogIndexMd();
   if (pathname === '/faq/') return faqMd();
   if (pathname === '/reviews/') return reviewsMd();

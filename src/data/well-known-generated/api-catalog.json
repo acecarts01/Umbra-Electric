@@ -15,9 +15,49 @@
       "title": "Umbra Electric Product Catalog"
     },
     {
+      "anchor": "https://www.umbraelectric.com/shop/brand",
+      "type": "text/html",
+      "title": "Umbra Electric Brand Directory"
+    },
+    {
       "anchor": "https://www.umbraelectric.com/wholesale",
       "type": "text/html",
       "title": "Umbra Electric Wholesale"
+    },
+    {
+      "anchor": "https://www.umbraelectric.com/api/products",
+      "type": "application/json",
+      "title": "Umbra Electric Products API"
+    },
+    {
+      "anchor": "https://www.umbraelectric.com/api/products/{slug}",
+      "type": "application/json",
+      "title": "Umbra Electric Product Detail API"
+    },
+    {
+      "anchor": "https://www.umbraelectric.com/api/categories",
+      "type": "application/json",
+      "title": "Umbra Electric Categories API"
+    },
+    {
+      "anchor": "https://www.umbraelectric.com/api/brands",
+      "type": "application/json",
+      "title": "Umbra Electric Brands API"
+    },
+    {
+      "anchor": "https://www.umbraelectric.com/api/search",
+      "type": "application/json",
+      "title": "Umbra Electric Search API"
+    },
+    {
+      "anchor": "https://www.umbraelectric.com/api/mcp",
+      "type": "application/json",
+      "https://www.iana.org/assignments/link-relations/service-desc": [
+        {
+          "href": "https://www.umbraelectric.com/.well-known/mcp/server-card.json"
+        }
+      ],
+      "title": "Umbra Electric MCP Server (Streamable HTTP)"
     }
   ]
 }

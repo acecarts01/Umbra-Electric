@@ -12,6 +12,13 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
+      "name": "browse-brands",
+      "type": "navigation",
+      "description": "Browse the full product catalog by brand",
+      "url": "https://www.umbraelectric.com/shop/brand/",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
       "name": "order-via-whatsapp",
       "type": "commerce",
       "description": "Place an order via WhatsApp. Minimum order $500. Accepts crypto and bank transfer.",
@@ -37,6 +44,13 @@
       "type": "support",
       "description": "Contact for product questions, orders, or wholesale inquiries",
       "url": "https://www.umbraelectric.com/contact/",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "query-catalog-live",
+      "type": "commerce",
+      "description": "Query the live product catalog via MCP (Streamable HTTP): search products, get product details, list categories, get policies, and prepare a draft order.",
+      "url": "https://www.umbraelectric.com/api/mcp",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     }
   ]

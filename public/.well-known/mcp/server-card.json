@@ -11,7 +11,8 @@
     }
   },
   "transport": {
-    "type": "none"
+    "type": "streamable-http",
+    "endpoint": "https://www.umbraelectric.com/api/mcp"
   },
   "capabilities": {
     "resources": [
@@ -19,6 +20,11 @@
         "name": "product-catalog",
         "description": "Full product catalog",
         "uri": "https://www.umbraelectric.com/shop/"
+      },
+      {
+        "name": "brand-directory",
+        "description": "Full brand directory",
+        "uri": "https://www.umbraelectric.com/shop/brand/"
       },
       {
         "name": "wholesale-info",
@@ -29,6 +35,125 @@
         "name": "blog",
         "description": "Educational content",
         "uri": "https://www.umbraelectric.com/blog/"
+      },
+      {
+        "name": "products-api",
+        "description": "Live JSON product feed",
+        "uri": "https://www.umbraelectric.com/api/products"
+      },
+      {
+        "name": "categories-api",
+        "description": "Live JSON category feed",
+        "uri": "https://www.umbraelectric.com/api/categories"
+      },
+      {
+        "name": "brands-api",
+        "description": "Live JSON brand feed",
+        "uri": "https://www.umbraelectric.com/api/brands"
+      },
+      {
+        "name": "search-api",
+        "description": "Live JSON search over products and blog posts",
+        "uri": "https://www.umbraelectric.com/api/search"
+      }
+    ],
+    "tools": [
+      {
+        "name": "search_products",
+        "description": "Search the Umbra Electric catalog by keyword, category slug and/or maximum price. Returns matching products with slug, name, price, currency, category and URL.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Free-text search across product name, brand and description"
+            },
+            "category": {
+              "type": "string",
+              "description": "Category slug to filter by, e.g. adult-electric-dirt-bikes"
+            },
+            "max_price": {
+              "type": "number",
+              "description": "Maximum price in USD"
+            }
+          }
+        }
+      },
+      {
+        "name": "get_product",
+        "description": "Get full details for one product by slug: description, price, brand, category, warranty, images and FAQs.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "description": "Product slug, e.g. sur-ron-ultra-bee"
+            }
+          },
+          "required": [
+            "slug"
+          ]
+        }
+      },
+      {
+        "name": "list_categories",
+        "description": "List all product categories with slug, title, description and model count.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "get_policies",
+        "description": "Get Umbra Electric's shipping, returns, payment and minimum-order policies.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "get_wholesale_info",
+        "description": "Get information on Umbra Electric's wholesale/dealer application process.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "create_order_draft",
+        "description": "Prepare a draft order summary and a WhatsApp link pre-filled with the order details for a human to review and complete. Never captures payment or personal data.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "description": "Products to include in the draft order",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "slug": {
+                    "type": "string",
+                    "description": "Product slug"
+                  },
+                  "qty": {
+                    "type": "number",
+                    "description": "Quantity, defaults to 1"
+                  }
+                },
+                "required": [
+                  "slug"
+                ]
+              }
+            },
+            "notes": {
+              "type": "string",
+              "description": "Optional note to include in the order message"
+            }
+          },
+          "required": [
+            "items"
+          ]
+        }
       }
     ],
     "commerce": {
@@ -43,7 +168,7 @@
       "minimumOrder": "500",
       "freeShipping": "2000",
       "ships": "United States, Europe, Worldwide",
-      "note": "human_ordering_only — no payment or personal data accepted from automated agents"
+      "note": "human_ordering_only — agents may search, inspect and prepare a draft order (create_order_draft); no payment or personal data is ever accepted from automated agents"
     }
   },
   "legal": {

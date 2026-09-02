@@ -28,6 +28,10 @@
     "minimum_order_usd": "500",
     "free_shipping_threshold_usd": "2000"
   },
+  "endpoints": {
+    "catalog": "https://www.umbraelectric.com/api/acp/catalog",
+    "mcp": "https://www.umbraelectric.com/api/mcp"
+  },
   "contact": {
     "whatsapp": "https://wa.me/10000000000",
     "email": "info@umbraelectric.com"

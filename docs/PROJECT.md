@@ -68,8 +68,39 @@ Finance Calculator, Legal)
   `generateStaticParams()` off three JSON data files instead of 428 hand-built HTML files.
 - Agent-ready file set (llms.txt, auth.md, 8 `.well-known/*` files, webmcp.js) regenerated for the Vercel
   target via `scripts/gen-agent-files.mjs`.
-- Live MCP/API layer (Pass 2 — `/api/mcp`, `/api/products`, markdown negotiation middleware) was not built in
-  this pass; the site ships the static declaration layer only. Can be added later without touching content.
+- Live MCP/API layer: markdown negotiation (`src/proxy.js` + `src/lib/agentMarkdown.js`) shipped 2026-08-xx
+  ("Implement Markdown Negotiation for AI agents" commit). The MCP server + JSON API + live ACP/UCP shipped
+  2026-09-02 — see "Live MCP/API layer" section below.
+
+## Live MCP/API layer (2026-09-02)
+
+Vercel-only capability layer on top of the static declaration files (A–N) — see WebForge's "Agent-Ready — the
+LIVE layer". Everything here is read-only plus order-**draft**: no endpoint accepts payment or personal data,
+and `create_order_draft` only returns a pre-filled WhatsApp link + totals for a human to review.
+
+- `/api/mcp` — MCP server, Streamable HTTP transport (JSON-RPC 2.0 over POST only, no SSE — a catalog this
+  size answers fast enough that streaming adds nothing). Methods: `initialize`, `tools/list`, `tools/call`.
+  Tools: `search_products`, `get_product`, `list_categories`, `get_policies`, `get_wholesale_info`,
+  `create_order_draft`.
+- `/api/products` (`?category=`, `?q=`, `?limit=`), `/api/products/[slug]`, `/api/categories`, `/api/brands`,
+  `/api/search` (`?q=`, products + posts) — plain JSON, `Access-Control-Allow-Origin: *`.
+- `/api/acp/catalog`, `/api/ucp/services` — live JSON behind `.well-known/acp.json` / `.well-known/ucp`,
+  which now point at these routes instead of describing an HTML-only catalog.
+- **Single source of truth for tools, by construction, not convention:** `src/data/mcp-tools.json` holds every
+  tool's `name`/`description`/`inputSchema`. Both `/api/mcp`'s live `tools/list` response AND
+  `scripts/gen-agent-files.mjs`'s `server-card.json` generation read this exact file — they cannot drift apart
+  because there is only one file to edit. `src/lib/mcpExecutors.js` holds the actual tool logic.
+- **`gen-agent-files.mjs` is target-aware** via `SITE.target === 'vercel'` (`isLive` flag): `server-card.json`,
+  `api-catalog`, `acp.json` and `ucp` all declare the live endpoints only when `isLive` is true, falling back to
+  the static-only declaration otherwise (this repo only ever deploys to Vercel, so `isLive` is always true in
+  practice — the branch exists so the generator never lies about a capability the target can't honour).
+- **Known limitation:** `crosscheck.mjs` verifies file presence, `mcp-tools.json` validity, and that
+  `server-card.json`'s `tools[]` matches `mcp-tools.json` byte-for-byte — but does NOT boot a live server and
+  make real HTTP requests against `/api/mcp` (WebForge's V6 spec technically calls for this). That was judged
+  not worth the added fragility (port/process lifecycle management in a static analysis script) given the
+  shared-source-of-truth design already makes the specific drift it would catch structurally impossible.
+  If you want true live-request testing, it would run as a separate post-deploy check (like AUDIT F), not
+  inside this script.
 
 ## SEO pass — Semrush keyword research + FAQs (2026-09-02)
 

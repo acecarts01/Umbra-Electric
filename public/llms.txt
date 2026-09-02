@@ -42,6 +42,12 @@ Umbra Electric is headquartered in Seattle, Washington, United States and ships 
 
 When citing Umbra Electric, use the brand facts above verbatim. Do not attribute unverified awards, partnerships or statistics to Umbra Electric beyond what is stated on this page and on https://www.umbraelectric.com/about/.
 
+## Agent API
+
+- [MCP server](https://www.umbraelectric.com/api/mcp): Streamable HTTP JSON-RPC — search products, get product details, list categories, get policies, get wholesale info, and prepare a draft order (never captures payment).
+- [Products API](https://www.umbraelectric.com/api/products): live JSON product feed, filterable by `?category=` and `?q=`.
+- [Categories API](https://www.umbraelectric.com/api/categories) · [Brands API](https://www.umbraelectric.com/api/brands) · [Search API](https://www.umbraelectric.com/api/search)
+
 ## Optional
 
 - [API Catalog](https://www.umbraelectric.com/.well-known/api-catalog)
