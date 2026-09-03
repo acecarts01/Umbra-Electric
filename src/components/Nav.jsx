@@ -40,6 +40,7 @@ export default function Nav() {
             </div>
           </div>
           <a href="/premium/">Premium</a>
+          <a href="/reservation/">Reserve</a>
           <a href="/about/">About</a>
           <a href="/blog/">Blog</a>
           <a href="/contact/">Contact</a>

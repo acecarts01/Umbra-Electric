@@ -4,7 +4,7 @@ import { SITE, CATEGORIES, PRODUCTS, POSTS, BRANDS, absUrl } from '@/config/site
 // `robots: { index: false }` in their own metadata) -- a sitemap entry for a
 // noindex page trips GSC's "Submitted URL marked noindex" warning.
 const STATIC_PAGES = [
-  '', 'shop', 'shop/brand', 'premium', 'compare',
+  '', 'shop', 'shop/brand', 'premium', 'compare', 'reservation',
   'about', 'blog', 'contact', 'wholesale', 'faq', 'reviews',
   'shipping', 'refund', 'privacy', 'terms',
 ];

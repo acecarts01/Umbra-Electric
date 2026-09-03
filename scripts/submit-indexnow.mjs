@@ -10,7 +10,7 @@ import categories from '../src/data/categories.json' with { type: 'json' };
 import posts from '../src/data/posts.json' with { type: 'json' };
 
 const SITE = site;
-const STATIC_PAGES = ['', 'shop', 'shop/brand', 'premium', 'compare', 'about', 'blog', 'contact', 'wholesale', 'faq', 'reviews', 'shipping', 'refund', 'privacy', 'terms'];
+const STATIC_PAGES = ['', 'shop', 'shop/brand', 'premium', 'compare', 'reservation', 'about', 'blog', 'contact', 'wholesale', 'faq', 'reviews', 'shipping', 'refund', 'privacy', 'terms'];
 
 function absUrl(path) {
   return `https://${SITE.domain}${path}`;

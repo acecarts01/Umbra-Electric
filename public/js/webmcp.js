@@ -35,6 +35,12 @@
         execute: async () => { window.location.href = 'https://www.umbraelectric.com/wholesale/'; return { url: 'https://www.umbraelectric.com/wholesale/' }; },
       },
       {
+        name: 'get_reservation_info',
+        description: 'Get bike reservation info: 20% holding deposit, balance due before shipping, 10% crypto discount applied before the deposit is calculated.',
+        inputSchema: { type: 'object', properties: {} },
+        execute: async () => { window.location.href = 'https://www.umbraelectric.com/reservation/'; return { url: 'https://www.umbraelectric.com/reservation/' }; },
+      },
+      {
         name: 'contact',
         description: 'Contact for product questions or support',
         inputSchema: { type: 'object', properties: {} },

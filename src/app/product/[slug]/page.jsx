@@ -106,6 +106,9 @@ export default async function ProductPage({ params }) {
               <p className="instock">✓ In stock · Ships United States, Europe &amp; Worldwide</p>
               <p className="muted">{p.fullDescription}</p>
               <ProductBuyRow slug={p.slug} name={p.name} price={p.price} />
+              <a className="btn-ghost btn-block" href="/reservation/">
+                Reserve with a 20% deposit →
+              </a>
               <p className="buyrow-note">
                 Ordering by email is our primary, recommended method — we confirm stock, final pricing and shipping before any payment. Prefer
                 chat?{' '}

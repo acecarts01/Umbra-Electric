@@ -67,10 +67,12 @@ export function get_policies() {
       'Unused, undamaged items in original packaging can be returned within our stated return window. Some items may be non-returnable once registered or ridden. See the Returns & Refunds page for full details.',
     payment: ['crypto-BTC', 'crypto-USDT', 'bank-transfer', 'card'],
     ordering: `Email (${SITE.email} or ${absUrl('/order/')}) is the primary, recommended ordering method. WhatsApp is a secondary option for those who prefer chat.`,
+    reservation: `Any model can be reserved with a ${SITE.reservationDepositPct}% holding deposit; the remaining balance is due before shipping. The ${SITE.cryptoDiscountPct}% crypto discount applies to the total before the deposit is calculated. See ${absUrl('/reservation/')}.`,
     cryptoDiscountPct: SITE.cryptoDiscountPct,
+    reservationDepositPct: SITE.reservationDepositPct,
     minimumOrderUsd: SITE.minOrder,
     currency: SITE.currency,
-    policyUrls: { order: absUrl('/order/'), shipping: absUrl('/shipping/'), returns: absUrl('/refund/'), terms: absUrl('/terms/') },
+    policyUrls: { order: absUrl('/order/'), shipping: absUrl('/shipping/'), returns: absUrl('/refund/'), terms: absUrl('/terms/'), reservation: absUrl('/reservation/') },
   };
 }
 

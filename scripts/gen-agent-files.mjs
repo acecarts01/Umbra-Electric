@@ -66,6 +66,7 @@ ${SITE.name} is headquartered in ${SITE.hqPlace} and ships across ${SITE.areaSer
 - Email (primary): ${SITE.email}
 - WhatsApp (secondary): [Message us](https://wa.me/${SITE.whatsapp})
 - Minimum order: $${SITE.minOrder} · Free shipping over $${SITE.freeShipThreshold} · Crypto discount: ${SITE.cryptoDiscountPct}%
+- [Reservations](${abs('/reservation/')}): reserve any model with a ${SITE.reservationDepositPct}% holding deposit, balance due before shipping.
 
 ## Categories
 
@@ -414,6 +415,12 @@ const webmcp = `(function () {
         description: 'Get wholesale pricing tiers and ordering info',
         inputSchema: { type: 'object', properties: {} },
         execute: async () => { window.location.href = 'https://${D}/wholesale/'; return { url: 'https://${D}/wholesale/' }; },
+      },
+      {
+        name: 'get_reservation_info',
+        description: 'Get bike reservation info: ${SITE.reservationDepositPct}% holding deposit, balance due before shipping, ${SITE.cryptoDiscountPct}% crypto discount applied before the deposit is calculated.',
+        inputSchema: { type: 'object', properties: {} },
+        execute: async () => { window.location.href = 'https://${D}/reservation/'; return { url: 'https://${D}/reservation/' }; },
       },
       {
         name: 'contact',

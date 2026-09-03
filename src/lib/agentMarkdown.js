@@ -5,7 +5,7 @@
 // export with literal HTML files to convert. Covers every data-driven route
 // (home, shop index, all categories, all brands, all products, blog index,
 // all blog posts, FAQ, reviews). Pure-presentational static pages (about,
-// contact, about, etc.) are intentionally NOT covered here -- they fall
+// contact, about, reservation, etc.) are intentionally NOT covered here -- they fall
 // through to normal HTML, which is the honest default (Rule 10: never claim
 // a capability the site doesn't have) rather than a lie about coverage.
 import { SITE, CATEGORIES, PRODUCTS, BRANDS, POSTS, FAQS, REVIEWS, REVIEW_STATS, getProduct, getCategory, getBrand, getPost, absUrl, fmtPrice } from '@/config/site';
@@ -52,7 +52,7 @@ function homepageMd() {
     '## About',
     `${SITE.name} is based in ${SITE.hqCity}, ${SITE.hqRegion}, founded ${SITE.founded}. Ships to ${SITE.areaServed}.`,
     '',
-    `[Shop the full collection](${absUrl('/shop/')}) · [Contact](${absUrl('/contact/')}) · [FAQ](${absUrl('/faq/')})`,
+    `[Shop the full collection](${absUrl('/shop/')}) · [Contact](${absUrl('/contact/')}) · [Reservations](${absUrl('/reservation/')}) · [FAQ](${absUrl('/faq/')})`,
     '',
     `## Live data`,
     `Agents can query the catalog directly via [/api/mcp](${absUrl('/api/mcp')}) (MCP Streamable HTTP) or the plain JSON API: [/api/products](${absUrl('/api/products')}), [/api/categories](${absUrl('/api/categories')}), [/api/brands](${absUrl('/api/brands')}), [/api/search](${absUrl('/api/search')}).`,

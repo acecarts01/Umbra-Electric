@@ -29,8 +29,8 @@ schema and nav all regenerate from it. Never hand-edit generated output (`vercel
 ## Live placeholders (set before going live)
 
 In `src/data/site.json` unless noted:
-- `domain` — set to `www.umbraelectric.com`. Still needs to be connected as a custom domain in Vercel's
-  project settings (separate step from this config value).
+- `domain` — set to `www.umbraelectric.com` and confirmed connected/live in Vercel (verified 2026-09-03: the
+  domain resolves, serves the current build, and is registered in Bing Webmaster Tools).
 - `email` — set to `info@umbraelectric.com` (Zoho Mail).
 - Web3Forms key — set via the `NEXT_PUBLIC_WEB3FORMS_KEY` Vercel environment variable, NOT in site.json
   (see `.env.example`). Until it's set (locally in `.env.local`, in prod in Vercel's dashboard), forms
@@ -38,6 +38,8 @@ In `src/data/site.json` unless noted:
 - `whatsapp` — set to the real number. `phone` is still a placeholder.
 - `gscCode`, `bingCode` — codes are set; confirm both properties are actually verified live in Search
   Console / Bing Webmaster Tools (a code being present doesn't guarantee verification happened there).
+- After any batch content change (new products/posts/pages), re-run `node scripts/submit-indexnow.mjs` to
+  notify IndexNow (Bing/Yandex) of the updated URL set — it's safe to re-run any time.
 
 ## Brand facts (only these are true — never invent more)
 
@@ -46,3 +48,9 @@ Umbra Electric: founded 2022, Seattle WA. Ships United States, Europe, Worldwide
 10% crypto discount. No invented statistics, awards, press mentions, or named clients — the previous
 build's intake explicitly withheld an unverifiable "Auto Dealers of the Year" claim; do not add it back
 unless the client supplies a verifiable award name, year and issuing body.
+
+Financing was removed sitewide (2026-09-03) and replaced by a reservation system: any model can be reserved
+with a 20% holding deposit (`SITE.reservationDepositPct`), remaining balance due before shipping; the 10%
+crypto discount applies to the total before the deposit is calculated. Page: `/reservation/`, calculator:
+`src/components/ReservationCalculator.jsx`. Never reintroduce "financing" as a payment/offer option — use
+the reservation system instead.

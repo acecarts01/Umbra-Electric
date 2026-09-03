@@ -55,6 +55,7 @@ export default function Footer() {
         </div>
         <div>
           <h4>Support</h4>
+          <a href="/reservation/">Reservations</a>
           <a href="/shipping/">Shipping</a>
           <a href="/refund/">Returns &amp; Refunds</a>
           <a href="/privacy/">Privacy</a>
