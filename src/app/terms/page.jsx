@@ -3,7 +3,7 @@ import { SITE, absUrl } from '@/config/site';
 
 export const metadata = {
   title: 'Terms & Conditions',
-  description: 'Umbra Electric terms and conditions of sale.',
+  description: "Umbra Electric's terms and conditions of sale, covering ordering, payment, shipping, returns and off-road use disclaimers.",
   alternates: { canonical: absUrl('/terms/') },
 };
 

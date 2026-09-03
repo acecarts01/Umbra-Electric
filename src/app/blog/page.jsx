@@ -4,7 +4,7 @@ import { SITE, POSTS, absUrl } from '@/config/site';
 
 export const metadata = {
   title: 'Electric Dirt Bike Blog & Guides',
-  description: `Buying guides, comparisons and plain-English answers on electric dirt bikes, e-motos and e-bikes from ${SITE.name}.`,
+  description: `Buying guides, comparisons and plain-English answers on electric dirt bikes, e-motos and e-bikes from ${SITE.name}'s team.`,
   alternates: { canonical: absUrl('/blog/') },
 };
 

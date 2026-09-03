@@ -3,7 +3,7 @@ import { absUrl } from '@/config/site';
 
 export const metadata = {
   title: 'Privacy Policy',
-  description: 'Umbra Electric privacy policy — what information we collect and how we use it.',
+  description: "Umbra Electric's privacy policy: what personal information we collect, how it's used, and your rights and choices as a customer.",
   alternates: { canonical: absUrl('/privacy/') },
 };
 

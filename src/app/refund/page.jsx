@@ -3,7 +3,7 @@ import { absUrl } from '@/config/site';
 
 export const metadata = {
   title: 'Returns & Refunds',
-  description: 'Umbra Electric returns and refunds policy.',
+  description: "Umbra Electric's returns and refunds policy: what's eligible, our stated return window, and how to start a return with our team.",
   alternates: { canonical: absUrl('/refund/') },
 };
 

@@ -4,7 +4,7 @@ import { SITE, absUrl } from '@/config/site';
 
 export const metadata = {
   title: 'Contact Us',
-  description: `Questions about a model or shipping? Contact ${SITE.name} and we'll reply within 24 hours.`,
+  description: `Questions about a model, an order or shipping? Contact ${SITE.name} by email or WhatsApp and we'll reply within 24 hours.`,
   alternates: { canonical: absUrl('/contact/') },
 };
 

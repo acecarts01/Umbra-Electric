@@ -5,7 +5,7 @@ import { SITE, REVIEWS, REVIEW_STATS, absUrl } from '@/config/site';
 
 export const metadata = {
   title: 'Customer Reviews',
-  description: `${REVIEW_STATS.count} verified customer reviews of ${SITE.name} — ${REVIEW_STATS.average} out of 5 stars average.`,
+  description: `${REVIEW_STATS.count} verified customer reviews of ${SITE.name} — ${REVIEW_STATS.average} out of 5 stars average, from real buyers of our electric dirt bikes and e-bikes.`,
   alternates: { canonical: absUrl('/reviews/') },
 };
 

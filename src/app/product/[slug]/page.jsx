@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
   if (!p) return {};
   const titleTag = productTitleTag(p.name);
   const title = `${titleTag} — ${SITE.name}`;
-  const description = `${p.name} for sale — ${fmtPrice(p.price)}. ${p.categoryName} from ${p.brand} at ${SITE.name}, worldwide shipping.`;
+  const description = `${p.name} for sale — ${fmtPrice(p.price)}. ${p.categoryName} from ${p.brand} at ${SITE.name}, with worldwide shipping and a 10% crypto discount.`;
   return {
     title: titleTag,
     description,
