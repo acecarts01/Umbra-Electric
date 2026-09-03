@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
     title: `${brand.name} Electric Bikes & Dirt Bikes`,
     description:
       brand.metaDescription ||
-      `Shop ${brand.count} ${brand.name} electric dirt bikes and e-bikes at ${SITE.name}. Curated models, financing and worldwide shipping.`,
+      `Shop ${brand.count} ${brand.name} electric dirt bikes and e-bikes at ${SITE.name}. Curated models and worldwide shipping.`,
     alternates: { canonical: absUrl(`/shop/brand/${brand.slug}/`) },
   };
 }

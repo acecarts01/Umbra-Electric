@@ -4,7 +4,7 @@ import { SITE, absUrl } from '@/config/site';
 
 export const metadata = {
   title: 'Contact Us',
-  description: `Questions about a model, financing or shipping? Contact ${SITE.name} and we'll reply within 24 hours.`,
+  description: `Questions about a model or shipping? Contact ${SITE.name} and we'll reply within 24 hours.`,
   alternates: { canonical: absUrl('/contact/') },
 };
 
@@ -16,7 +16,7 @@ export default function ContactPage() {
         <div className="container">
           <span className="eyebrow">Get in touch</span>
           <h1>Contact {SITE.name}</h1>
-          <p className="lead">Questions about a model, financing or shipping? Fill out the form and we&apos;ll reply within 24 hours.</p>
+          <p className="lead">Questions about a model or shipping? Fill out the form and we&apos;ll reply within 24 hours.</p>
           <ContactForm />
           <div className="contact-cards">
             <div className="card-soft">

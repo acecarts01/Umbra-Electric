@@ -55,8 +55,6 @@ export default function Footer() {
         </div>
         <div>
           <h4>Support</h4>
-          <a href="/financing/">Financing</a>
-          <a href="/finance-calculator/">Finance Calculator</a>
           <a href="/shipping/">Shipping</a>
           <a href="/refund/">Returns &amp; Refunds</a>
           <a href="/privacy/">Privacy</a>

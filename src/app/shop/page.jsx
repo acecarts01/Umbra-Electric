@@ -6,7 +6,7 @@ import { SITE, PRODUCTS, absUrl } from '@/config/site';
 
 export const metadata = {
   title: 'Shop All Electric Dirt Bikes & E-Bikes',
-  description: `Browse all ${PRODUCTS.length} premium electric dirt bikes, e-motos and e-bikes at ${SITE.name}. Financing and worldwide shipping.`,
+  description: `Browse all ${PRODUCTS.length} premium electric dirt bikes, e-motos and e-bikes at ${SITE.name}. Worldwide shipping.`,
   alternates: { canonical: absUrl('/shop/') },
 };
 
@@ -30,7 +30,7 @@ export default async function ShopPage({ searchParams }) {
         <div className="container">
           <span className="eyebrow">Shop</span>
           <h1>All Electric Dirt Bikes &amp; E-Bikes</h1>
-          <p className="lead">{PRODUCTS.length} curated models across 8 categories. Premium brands, financing and worldwide shipping.</p>
+          <p className="lead">{PRODUCTS.length} curated models across 8 categories. Premium brands and worldwide shipping.</p>
         </div>
       </section>
       <section className="section">

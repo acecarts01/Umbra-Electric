@@ -60,7 +60,7 @@ export default function AboutPage() {
             </div>
             <div className="card-soft">
               <h3>Real guidance</h3>
-              <p className="muted">Concierge help by email (WhatsApp too), honest advice on street-legality, and financing on premium orders.</p>
+              <p className="muted">Concierge help by email (WhatsApp too) and honest advice on street-legality before you order.</p>
             </div>
             <div className="card-soft">
               <h3>Worldwide delivery</h3>

@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
   if (!p) return {};
   const titleTag = productTitleTag(p.name);
   const title = `${titleTag} — ${SITE.name}`;
-  const description = `${p.name} for sale — ${fmtPrice(p.price)}. ${p.categoryName} from ${p.brand} at ${SITE.name}, with financing.`;
+  const description = `${p.name} for sale — ${fmtPrice(p.price)}. ${p.categoryName} from ${p.brand} at ${SITE.name}, worldwide shipping.`;
   return {
     title: titleTag,
     description,
@@ -106,9 +106,6 @@ export default async function ProductPage({ params }) {
               <p className="instock">✓ In stock · Ships United States, Europe &amp; Worldwide</p>
               <p className="muted">{p.fullDescription}</p>
               <ProductBuyRow slug={p.slug} name={p.name} price={p.price} />
-              <a className="btn-ghost btn-block" href="/financing/">
-                Financing available →
-              </a>
               <p className="buyrow-note">
                 Ordering by email is our primary, recommended method — we confirm stock, final pricing and shipping before any payment. Prefer
                 chat?{' '}

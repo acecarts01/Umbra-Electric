@@ -17,11 +17,7 @@
   },
   {
     "q": "What payment methods do you accept?",
-    "a": "We accept crypto (BTC/USDT) with a 10% discount, bank transfer, card and financing. Payment details are confirmed once your order is placed."
-  },
-  {
-    "q": "Do you offer financing?",
-    "a": "Yes. Financing is available on eligible orders, including premium machines. Use our finance calculator to estimate payments, then choose a financing option at checkout or ask our team."
+    "a": "We accept crypto (BTC/USDT) with a 10% discount, bank transfer and card. Payment details are confirmed once your order is placed."
   },
   {
     "q": "How long does shipping take?",
@@ -41,7 +37,7 @@
   },
   {
     "q": "How much does an electric dirt bike cost?",
-    "a": "Electric dirt bikes at Umbra Electric range from roughly $399 for entry-level youth models to $14,000 for flagship race machines, with most adult electric dirt bikes falling between $4,000 and $12,000. Use our finance calculator to estimate a payment plan for any price point."
+    "a": "Electric dirt bikes at Umbra Electric range from roughly $399 for entry-level youth models to $14,000 for flagship race machines, with most adult electric dirt bikes falling between $4,000 and $12,000."
   },
   {
     "q": "Does Umbra Electric ship electric bikes to Europe?",

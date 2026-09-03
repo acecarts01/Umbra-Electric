@@ -65,12 +65,12 @@ export function get_policies() {
     shipping: `Ships to ${SITE.areaServed.join(', ')}. Free shipping over $${SITE.freeShipThreshold.toLocaleString()}, flat $${SITE.flatShip} below that. International orders may be subject to import duties and taxes payable by the recipient.`,
     returns:
       'Unused, undamaged items in original packaging can be returned within our stated return window. Some items may be non-returnable once registered or ridden. See the Returns & Refunds page for full details.',
-    payment: ['crypto-BTC', 'crypto-USDT', 'bank-transfer', 'card', 'financing'],
+    payment: ['crypto-BTC', 'crypto-USDT', 'bank-transfer', 'card'],
     ordering: `Email (${SITE.email} or ${absUrl('/order/')}) is the primary, recommended ordering method. WhatsApp is a secondary option for those who prefer chat.`,
     cryptoDiscountPct: SITE.cryptoDiscountPct,
     minimumOrderUsd: SITE.minOrder,
     currency: SITE.currency,
-    policyUrls: { order: absUrl('/order/'), shipping: absUrl('/shipping/'), returns: absUrl('/refund/'), terms: absUrl('/terms/'), financing: absUrl('/financing/') },
+    policyUrls: { order: absUrl('/order/'), shipping: absUrl('/shipping/'), returns: absUrl('/refund/'), terms: absUrl('/terms/') },
   };
 }
 

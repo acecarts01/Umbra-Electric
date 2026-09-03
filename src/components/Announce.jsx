@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 
 const SLIDES = [
-  { text: 'Crypto payments save 10% at checkout', linkHref: '/financing/', linkText: 'Financing available →' },
+  { text: 'Crypto payments save 10% at checkout' },
   { text: 'Free shipping on orders over $2,000 · Ships United States, Europe & Worldwide' },
   { text: 'Minimum order $500 · Authorized premium dealer' },
   { text: 'Order by email', linkHref: '/order/', linkText: 'Place an order →', suffix: '· we confirm before payment' },

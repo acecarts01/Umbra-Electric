@@ -85,7 +85,6 @@ export default function OrderForm() {
               <option>Bank Transfer</option>
               <option>Credit / Debit Card</option>
               <option>Apple Pay</option>
-              <option>Klarna / Pay in 4 (financing)</option>
             </select>
           </div>
           <div className="form-group">

@@ -12,12 +12,12 @@ import { SITE, PRODUCTS, POSTS, FAQS, REVIEWS, REVIEW_STATS, getProduct, absUrl 
 export const metadata = {
   title: `${SITE.name} — Premium Electric Dirt Bikes & E-Bikes`,
   description:
-    'Premium electric dirt bikes, e-motos & e-bikes for adults and kids. Curated flagship brands, financing and worldwide shipping from Umbra Electric.',
+    'Premium electric dirt bikes, e-motos & e-bikes for adults and kids. Curated flagship brands and worldwide shipping from Umbra Electric.',
   alternates: { canonical: absUrl('/') },
   openGraph: {
     type: 'website',
     title: `${SITE.name} — Premium Electric Dirt Bikes & E-Bikes`,
-    description: 'Premium electric dirt bikes, e-motos & e-bikes for adults and kids. Curated flagship brands, financing and worldwide shipping.',
+    description: 'Premium electric dirt bikes, e-motos & e-bikes for adults and kids. Curated flagship brands and worldwide shipping.',
     url: absUrl('/'),
     siteName: SITE.name,
     locale: SITE.locale,
@@ -165,11 +165,10 @@ export default function HomePage() {
             and folding formats. Whether you want a race-ready <a href="/product/stark-varg-standard/">Stark Varg</a> or an everyday{' '}
             <a href="/shop/electric-commuter-bikes/">commuter</a>, each pick is chosen for build quality, ride feel and long-term ownership.
           </p>
-          <h3>Guidance, financing and worldwide delivery</h3>
+          <h3>Guidance and worldwide delivery</h3>
           <p>
-            Big-ticket bikes deserve real guidance. We help you match a machine to your terrain, experience and budget, offer{' '}
-            <a href="/financing/">financing</a> and a <a href="/finance-calculator/">payment calculator</a>, and ship across the United
-            States, Europe and worldwide. Riders new to the category can start with our <a href="/blog/">guides</a> or use the{' '}
+            Big-ticket bikes deserve real guidance. We help you match a machine to your terrain, experience and budget, and ship across the
+            United States, Europe and worldwide. Riders new to the category can start with our <a href="/blog/">guides</a> or use the{' '}
             <a href="/compare/">compare tool</a> to weigh models side by side.
           </p>
           <p>

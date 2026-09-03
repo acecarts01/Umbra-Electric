@@ -34,8 +34,6 @@ export default function TermsPage() {
             are not street-legal without appropriate registration, insurance and licensing where required. Always wear a helmet and proper
             safety gear, and check your state and local OHV laws before riding. You are responsible for lawful and safe operation.
           </div>
-          <h2>Financing</h2>
-          <p>Pay-later and financing options are subject to status, approval and provider terms, and require you to be 18 or older.</p>
           <h2>Governing law</h2>
           <p>These terms are governed by the laws of the State of Washington, United States.</p>
         </div>

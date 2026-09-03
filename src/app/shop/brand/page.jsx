@@ -14,7 +14,7 @@ const SUPPORTING_KEYWORDS = [
 
 export const metadata = {
   title: 'Shop Electric Bike Brands',
-  description: `Browse all ${BRANDS.length} electric dirt bike and e-bike brands at ${SITE.name} — ${PRODUCTS.length} curated models, financing and worldwide shipping.`,
+  description: `Browse all ${BRANDS.length} electric dirt bike and e-bike brands at ${SITE.name} — ${PRODUCTS.length} curated models, worldwide shipping.`,
   alternates: { canonical: absUrl('/shop/brand/') },
 };
 

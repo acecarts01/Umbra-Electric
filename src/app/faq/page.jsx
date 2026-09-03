@@ -5,7 +5,7 @@ import { FAQS, absUrl } from '@/config/site';
 
 export const metadata = {
   title: 'FAQ — Electric Dirt Bikes & E-Bikes',
-  description: 'Answers to common questions about electric dirt bikes and e-bikes: ordering, financing, shipping, returns and more at Umbra Electric.',
+  description: 'Answers to common questions about electric dirt bikes and e-bikes: ordering, shipping, returns and more at Umbra Electric.',
   alternates: { canonical: absUrl('/faq/') },
 };
 

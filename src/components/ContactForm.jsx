@@ -40,7 +40,6 @@ export default function ContactForm() {
                 <option>Shipping Question</option>
                 <option>Returns &amp; Refunds</option>
                 <option>Wholesale Enquiry</option>
-                <option>Financing</option>
                 <option>Other</option>
               </select>
             </div>
