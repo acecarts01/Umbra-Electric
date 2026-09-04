@@ -147,6 +147,31 @@ button{font-family:inherit}
 .review-summary .stars-lg{color:var(--bronze);font-size:1.3rem;letter-spacing:.08em}
 @media(max-width:900px){ .review-grid{grid-template-columns:1fr 1fr} }
 @media(max-width:600px){ .review-grid{grid-template-columns:1fr} }
+.rcarousel{display:flex;align-items:center;gap:1rem;margin-top:1.5rem}
+.rcarousel-arrow{flex:0 0 auto;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);
+  font-size:1.4rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.18s}
+.rcarousel-arrow:hover{background:var(--bronze);color:#fff;border-color:var(--bronze)}
+.rcarousel-viewport{flex:1;overflow:hidden;touch-action:pan-y}
+.rcarousel-track{display:flex;cursor:grab}
+.rcarousel-track:active{cursor:grabbing}
+.rcarousel-slide{flex:0 0 100%;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:2.2rem 2.4rem;box-shadow:var(--shadow);text-align:center;user-select:none}
+.rcarousel-slide h3{margin:0 0 .7rem;font-size:1.3rem}
+.rcarousel-slide .review-stars{justify-content:center;display:flex}
+.rcarousel-slide .review-text{font-family:var(--font-fraunces),Georgia,serif;font-size:1.15rem;line-height:1.55;color:var(--ink);
+  max-width:56ch;margin:0 auto 1rem;flex:none}
+.rcarousel-slide .review-meta{border-top:none;padding-top:0;justify-content:center;display:flex}
+.rcarousel-foot{display:flex;flex-direction:column;align-items:center;gap:.6rem;margin-top:1.2rem}
+.rcarousel-progress{width:160px;height:3px;background:var(--line);border-radius:2px;overflow:hidden}
+.rcarousel-progress .bar{height:100%;width:0;background:var(--bronze);animation:rcarousel-fill linear forwards}
+@keyframes rcarousel-fill{from{width:0}to{width:100%}}
+.rcarousel-count{font-family:var(--font-inter),sans-serif;font-size:.8rem;color:var(--ink-soft);letter-spacing:.04em}
+@media(max-width:700px){
+  .rcarousel{gap:.5rem}
+  .rcarousel-arrow{width:36px;height:36px;font-size:1.2rem}
+  .rcarousel-slide{padding:1.6rem 1.3rem}
+  .rcarousel-slide .review-text{font-size:1.02rem}
+}
 .pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.18s;position:relative}
 .pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d8cdb8}
 .pcard .imgwrap{position:relative;aspect-ratio:1/1;background:#f6f4ef;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden}

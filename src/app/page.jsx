@@ -3,7 +3,7 @@ import CategoryGrid from '@/components/CategoryGrid';
 import BrandMenu from '@/components/BrandMenu';
 import ProductCard from '@/components/ProductCard';
 import FaqAccordion from '@/components/FaqAccordion';
-import ReviewCard from '@/components/ReviewCard';
+import ReviewCarousel from '@/components/ReviewCarousel';
 import JsonLd from '@/components/JsonLd';
 import SmartImage from '@/components/SmartImage';
 import CountUp from '@/components/CountUp';
@@ -189,12 +189,8 @@ export default function HomePage() {
             <span className="stars-lg">★★★★★</span>
             <span className="muted">based on {REVIEW_STATS.count} verified customer reviews</span>
           </div>
-          <div className="review-grid" style={{ marginTop: '1.5rem' }}>
-            {[REVIEWS[0], REVIEWS[8], REVIEWS[10]].map((r) => (
-              <ReviewCard key={r.id} review={r} />
-            ))}
-          </div>
-          <div style={{ marginTop: '1.5rem' }}>
+          <ReviewCarousel reviews={REVIEWS} />
+          <div className="center" style={{ marginTop: '1.5rem' }}>
             <a className="btn-secondary" href="/reviews/">
               Read all {REVIEW_STATS.count} reviews
             </a>
