@@ -2,7 +2,7 @@
 import { useMemo } from 'react';
 import SmartImage from './SmartImage';
 import { useCart, incItem, decItem, removeItem, clearCart } from '@/lib/cart';
-import { SITE, fmtPrice } from '@/config/site';
+import { SITE, fmtPrice, getProduct } from '@/config/site';
 
 export default function CartView() {
   const cart = useCart();
@@ -10,8 +10,12 @@ export default function CartView() {
   const totals = useMemo(() => {
     const sub = cart.reduce((a, i) => a + i.price * i.q, 0);
     const disc = Math.round((sub * SITE.cryptoDiscountPct) / 100);
+    const accessorySub = cart.reduce((a, i) => a + (getProduct(i.slug)?.category === 'gear-accessories' ? i.price * i.q : 0), 0);
+    const bikeSub = sub - accessorySub;
+    const hasBundle = accessorySub > 0 && bikeSub > 0;
+    const bundleDisc = hasBundle ? Math.round((bikeSub * SITE.bundleDiscountPct) / 100) : 0;
     const ship = sub >= SITE.freeShipThreshold ? 0 : SITE.flatShip;
-    return { sub, disc, ship, total: sub - disc + ship };
+    return { sub, disc, hasBundle, bundleDisc, ship, total: sub - disc - bundleDisc + ship };
   }, [cart]);
 
   const waMessage = `Hi ${SITE.name}, I would like to order:\n${cart.map((i) => `${i.q}x ${i.name}`).join('\n')}\nTotal approx $${totals.total}`;
@@ -66,6 +70,12 @@ export default function CartView() {
             Minimum order is {fmtPrice(SITE.minOrder)}. Add more to check out.
           </div>
         )}
+        {cart.length > 0 && !totals.hasBundle && (
+          <p className="muted" style={{ marginTop: '1rem', fontSize: '.85rem' }}>
+            Add any item from our <a href="/shop/gear-accessories/">gear &amp; accessories</a> collection and get {SITE.bundleDiscountPct}%
+            off the bikes in your cart.
+          </p>
+        )}
       </div>
       {cart.length > 0 && (
         <aside className="cart-summary">
@@ -80,6 +90,14 @@ export default function CartView() {
               -{fmtPrice(totals.disc)} (crypto {SITE.cryptoDiscountPct}%)
             </span>
           </div>
+          {totals.hasBundle && (
+            <div className="line">
+              <span>Bundle discount</span>
+              <span>
+                -{fmtPrice(totals.bundleDisc)} (gear + bike {SITE.bundleDiscountPct}%)
+              </span>
+            </div>
+          )}
           <div className="line">
             <span>Shipping</span>
             <span>{totals.ship ? fmtPrice(totals.ship) : 'FREE'}</span>
