@@ -69,6 +69,14 @@ export default async function ProductPage({ params }) {
       price: String(p.price),
       availability: 'https://schema.org/InStock',
       seller: { '@type': 'Organization', name: SITE.name },
+      hasMerchantReturnPolicy: {
+        '@type': 'MerchantReturnPolicy',
+        applicableCountry: SITE.areaServed,
+        returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+        merchantReturnDays: 14,
+        returnMethod: 'https://schema.org/ReturnByMail',
+        returnFees: 'https://schema.org/ReturnShippingFees',
+      },
     },
   };
 

@@ -21,6 +21,11 @@ export const metadata = {
   title: { default: `${SITE.name} — Premium Electric Dirt Bikes & E-Bikes`, template: `%s — ${SITE.name}` },
   description: DEFAULT_DESCRIPTION,
   verification: { google: SITE.gscCode, other: { 'msvalidate.01': SITE.bingCode } },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
+  },
   other: { 'IndexNow-key': SITE.indexNowKey, 'geo.region': `${SITE.hqCountry}-${SITE.hqRegion}`, 'geo.placename': SITE.hqCity },
   icons: { icon: '/images/favicon.svg', apple: '/images/logo.webp' },
   openGraph: {
