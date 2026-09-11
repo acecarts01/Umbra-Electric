@@ -26,13 +26,24 @@ function productTitleTag(name) {
   return name;
 }
 
+// Meta descriptions should land in the ~120-160 char sweet spot regardless
+// of how long a given product name is -- try the fullest phrasing first and
+// fall back to progressively shorter ones only when the name pushes it over.
+function productMetaDescription(p) {
+  const full = `${p.name} for sale — ${fmtPrice(p.price)}. ${p.categoryName} from ${p.brand} at ${SITE.name}, with worldwide shipping and a 10% crypto discount.`;
+  if (full.length <= 160) return full;
+  const medium = `${p.name} for sale — ${fmtPrice(p.price)}. ${p.categoryName} from ${p.brand} at ${SITE.name}. Worldwide shipping, 10% crypto discount.`;
+  if (medium.length <= 160) return medium;
+  return `${p.name} for sale — ${fmtPrice(p.price)}. ${p.categoryName} from ${p.brand}. Worldwide shipping, 10% crypto discount.`;
+}
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const p = getProduct(slug);
   if (!p) return {};
   const titleTag = productTitleTag(p.name);
   const title = `${titleTag} — ${SITE.name}`;
-  const description = `${p.name} for sale — ${fmtPrice(p.price)}. ${p.categoryName} from ${p.brand} at ${SITE.name}, with worldwide shipping and a 10% crypto discount.`;
+  const description = productMetaDescription(p);
   return {
     title: titleTag,
     description,
