@@ -15,7 +15,9 @@ const CSP = [
   // unstyled icon instead of a small animated pointer.
   "style-src 'self' 'unsafe-inline' https://embed.tawk.to",
   "img-src 'self' data: blob: https://embed.tawk.to",
-  "font-src 'self' data:",
+  // Tawk's chat UI icons (send/attach/emoji buttons) are an icon font, not
+  // inline SVGs -- blocked here too until embed.tawk.to is whitelisted.
+  "font-src 'self' data: https://embed.tawk.to",
   "connect-src 'self' https://api.web3forms.com https://*.tawk.to wss://*.tawk.to",
   "frame-src https://*.tawk.to",
   "object-src 'none'",
