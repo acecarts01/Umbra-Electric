@@ -8,8 +8,13 @@
 const CSP = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://embed.tawk.to",
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  // Tawk's own widget CSS (branding/bubble/min-widget/message-preview) and
+  // its "attention grabber" SVG load directly into the parent page, not
+  // just inside its iframe -- without embed.tawk.to whitelisted here, that
+  // CSS/image gets silently blocked and the grabber renders as a giant
+  // unstyled icon instead of a small animated pointer.
+  "style-src 'self' 'unsafe-inline' https://embed.tawk.to",
+  "img-src 'self' data: blob: https://embed.tawk.to",
   "font-src 'self' data:",
   "connect-src 'self' https://api.web3forms.com https://*.tawk.to wss://*.tawk.to",
   "frame-src https://*.tawk.to",
