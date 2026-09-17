@@ -40,11 +40,12 @@ export default async function PayPage({ params, searchParams }) {
         </h1>
 
         {order.status === 'new' && (
-          <p className="lead">We&apos;re confirming stock, final pricing and shipping. An invoice with payment instructions will be emailed to you shortly.</p>
+          <p className="lead">We&apos;re confirming stock, final pricing and shipping. A tax invoice with payment instructions will be emailed to you shortly.</p>
         )}
 
         {order.status !== 'new' && order.invoice && (
           <div className="admin-panel" style={{ marginTop: '1.5rem' }}>
+            <div className="admin-section-title" style={{ marginTop: 0 }}>Tax Invoice</div>
             <div className="admin-kv"><span>Amount due now</span><span>{fmtPrice(order.invoice.amountDueNow)}</span></div>
             {order.invoice.dueDate && <div className="admin-kv"><span>Due date</span><span>{order.invoice.dueDate}</span></div>}
             <div style={{ marginTop: '1rem', whiteSpace: 'pre-wrap', fontSize: '.92rem', lineHeight: 1.6 }}>{order.invoice.instructions}</div>

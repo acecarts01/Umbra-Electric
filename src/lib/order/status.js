@@ -5,7 +5,7 @@ export const STATUS_ORDER = ['new', 'invoice_sent', 'paid', 'dispatched'];
 export const ADVANCEABLE = ['paid', 'dispatched'];
 
 export function statusLabel(status) {
-  return { new: 'New', invoice_sent: 'Invoice Sent', paid: 'Paid', dispatched: 'Dispatched' }[status] || status;
+  return { new: 'New', invoice_sent: 'Tax Invoice Sent', paid: 'Paid', dispatched: 'Dispatched' }[status] || status;
 }
 
 export function canAdvanceTo(currentStatus, nextStatus) {

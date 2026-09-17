@@ -108,13 +108,13 @@ export function adminOrderNotificationEmail(order, settleUrl) {
 export function invoiceEmail(order, payUrl) {
   const inv = order.invoice || {};
   const body =
-    header('Invoice', `Payment for ${esc(order.ref)}`) +
+    header('Tax Invoice', `Payment for ${esc(order.ref)}`) +
     row(
       COLORS.surface,
       'padding:0 40px 20px;',
       `<div class="be-pad" style="font-family:Inter,Arial,sans-serif;font-size:15px;line-height:1.6;color:${COLORS.inkSoft};">
-        ${statusBadge('Invoice Sent', { bg: '#fdf1de', color: '#8a5a10', dot: '#d99a2b' })}
-        <div style="margin-top:14px;">Here's your invoice for order <strong style="color:${COLORS.ink};">${esc(order.ref)}</strong>. Full payment instructions are on the linked page.</div>
+        ${statusBadge('Tax Invoice Sent', { bg: '#fdf1de', color: '#8a5a10', dot: '#d99a2b' })}
+        <div style="margin-top:14px;">Here's your tax invoice for order <strong style="color:${COLORS.ink};">${esc(order.ref)}</strong>. Full payment instructions are on the linked page.</div>
       </div>`
     ) +
     row(
@@ -125,11 +125,11 @@ export function invoiceEmail(order, payUrl) {
     row(
       COLORS.surface,
       'padding:28px 40px 8px;',
-      `<div class="be-pad">${button(payUrl, 'View Invoice & Payment Details', { accent: ACCENT, full: true })}</div>`
+      `<div class="be-pad">${button(payUrl, 'View Tax Invoice & Payment Details', { accent: ACCENT, full: true })}</div>`
     ) +
     footerSpacer();
   return {
-    subject: `Invoice for Order ${order.ref} — ${fmtPrice(inv.amountDueNow || 0)} due`,
-    html: shell(`Invoice for ${order.ref} — ${fmtPrice(inv.amountDueNow || 0)} due now.`, body),
+    subject: `Tax Invoice for Order ${order.ref} — ${fmtPrice(inv.amountDueNow || 0)} due`,
+    html: shell(`Tax Invoice for ${order.ref} — ${fmtPrice(inv.amountDueNow || 0)} due now.`, body),
   };
 }

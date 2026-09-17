@@ -38,7 +38,7 @@ export async function POST(request) {
   };
 
   await upsertOrder(order);
-  await insertEvent(ref, 'invoice_sent', `Invoice issued: $${order.invoice.amountDueNow} due now.`);
+  await insertEvent(ref, 'invoice_sent', `Tax invoice issued: $${order.invoice.amountDueNow} due now.`);
 
   const token = signOrder(order);
   const payUrl = `${siteUrl()}/pay/${ref}/?t=${token}`;

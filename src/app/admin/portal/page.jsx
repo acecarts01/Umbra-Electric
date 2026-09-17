@@ -213,7 +213,7 @@ async function OrdersTab({ status, q }) {
         <select name="status" defaultValue={status}>
           <option value="">All statuses</option>
           <option value="new">New</option>
-          <option value="invoice_sent">Invoice Sent</option>
+          <option value="invoice_sent">Tax Invoice Sent</option>
           <option value="paid">Paid</option>
           <option value="dispatched">Dispatched</option>
         </select>

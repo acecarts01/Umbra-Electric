@@ -68,7 +68,7 @@ async function OrderDetail({ row, orderRef }) {
 
             {order.invoice && (
               <>
-                <div className="admin-section-title">Invoice</div>
+                <div className="admin-section-title">Tax Invoice</div>
                 <div className="admin-kv"><span>Amount due now</span><span>{fmtPrice(order.invoice.amountDueNow)}</span></div>
                 {order.invoice.dueDate && <div className="admin-kv"><span>Due date</span><span>{order.invoice.dueDate}</span></div>}
                 <div className="admin-kv"><span>Instructions</span><span style={{ whiteSpace: 'pre-wrap', textAlign: 'left' }}>{order.invoice.instructions}</span></div>

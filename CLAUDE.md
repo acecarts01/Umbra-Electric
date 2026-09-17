@@ -24,6 +24,10 @@ Postgres-backed (Neon, free tier, connected via Vercel Storage as `DATABASE_URL`
   either), which emails the customer an invoice linking to `/pay/[ref]/`. "Mark Paid" / "Mark Dispatched"
   advance status; every state-changing endpoint checks the live DB status first so a stale link can never
   regress an order backward.
+- Customer/admin-facing invoice copy reads "Tax Invoice" (email heading/subject, pay page, settlement terminal,
+  status labels) — Umbra Electric holds real business registration documents, so this is a legitimate tax
+  invoice, not a generic payment request. Internal-only identifiers (`invoice_sent` status value, `order.invoice`
+  field, `invoiceEmail()`) stay as-is; only user-visible strings changed.
 - Admin login is a single shared passphrase (`ADMIN_PASSPHRASE` env var) → signed cookie, no user table.
 - Order tokens are signed with `ORDER_SIGNING_SECRET` (HMAC, ≥16 chars) — the token proves an order's contents,
   the DB row proves its current status. `/admin/`, `/api/orders/`, `/api/admin/`, `/pay/` are disallowed in

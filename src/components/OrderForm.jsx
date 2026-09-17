@@ -132,7 +132,7 @@ export default function OrderForm() {
       </div>
 
       <p className="buyrow-note" style={{ marginBottom: '1rem' }}>
-        No payment is taken here. We confirm stock, final pricing and shipping by email, then send an official invoice with payment instructions.
+        No payment is taken here. We confirm stock, final pricing and shipping by email, then send an official tax invoice with payment instructions.
       </p>
       <button type="submit" className="btn-primary" disabled={status === 'sending'}>
         {status === 'sending' ? 'Submitting...' : 'Place Order'}

@@ -47,7 +47,7 @@ export default function OrderSettlementTerminal({ order }) {
         body: JSON.stringify({ ref: order.ref, amountDueNow: Number(amountDueNow), instructions, dueDate, notes }),
       });
       const data = await res.json();
-      if (!data.success) throw new Error(data.message || 'Failed to send invoice.');
+      if (!data.success) throw new Error(data.message || 'Failed to send tax invoice.');
       window.location.reload();
     } catch (e) {
       setError(e.message);
@@ -62,7 +62,7 @@ export default function OrderSettlementTerminal({ order }) {
       {order.status === 'new' && (
         <form onSubmit={handleSettle}>
           <p className="muted" style={{ fontSize: '.85rem', marginTop: 0 }}>
-            Suggested amount due now: {fmtPrice(suggestedAmount(order))}. Adjust and add payment coordinates below, then send the invoice.
+            Suggested amount due now: {fmtPrice(suggestedAmount(order))}. Adjust and add payment coordinates below, then send the tax invoice.
           </p>
           <div className="form-group">
             <label htmlFor="amountDueNow">Amount Due Now (USD) *</label>
@@ -88,14 +88,14 @@ export default function OrderSettlementTerminal({ order }) {
             <textarea id="notes" rows={2} value={notes} onChange={(e) => setNotes(e.target.value)} />
           </div>
           <button className="btn-primary btn-block" type="submit" disabled={busy}>
-            {busy ? 'Sending...' : 'Send Invoice'}
+            {busy ? 'Sending...' : 'Send Tax Invoice'}
           </button>
         </form>
       )}
 
       {order.status === 'invoice_sent' && (
         <>
-          <p className="muted" style={{ marginTop: 0 }}>Invoice sent — {fmtPrice(order.invoice?.amountDueNow || 0)} due now.</p>
+          <p className="muted" style={{ marginTop: 0 }}>Tax invoice sent — {fmtPrice(order.invoice?.amountDueNow || 0)} due now.</p>
           <button className="btn-primary btn-block" type="button" disabled={busy} onClick={() => callStatusAction('paid')}>
             Mark Paid
           </button>
