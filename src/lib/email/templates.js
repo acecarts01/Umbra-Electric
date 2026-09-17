@@ -105,6 +105,80 @@ export function adminOrderNotificationEmail(order, settleUrl) {
   };
 }
 
+export function paymentReceivedEmail(order, statusUrl) {
+  const body =
+    header('Payment received', `Thanks, ${order.customer.name.split(' ')[0]}.`) +
+    row(
+      COLORS.surface,
+      'padding:0 40px 20px;',
+      `<div class="be-pad" style="font-family:Inter,Arial,sans-serif;font-size:15px;line-height:1.6;color:${COLORS.inkSoft};">
+        ${statusBadge('Paid', { bg: '#e4f5e8', color: '#1f7a3d', dot: '#2f9e50' })}
+        <div style="margin-top:14px;">We've received your payment for order <strong style="color:${COLORS.ink};">${esc(order.ref)}</strong>. We're now preparing it for dispatch.</div>
+      </div>`
+    ) +
+    lineItemsTable(order.lines) +
+    totalsBlock(order.totals) +
+    row(
+      COLORS.surface,
+      'padding:28px 40px 8px;',
+      `<div class="be-pad">${button(statusUrl, 'View Order Status', { accent: ACCENT, full: true })}</div>`
+    ) +
+    footerSpacer();
+  return {
+    subject: `Payment Received — Order ${order.ref}`,
+    html: shell(`Payment received for order ${order.ref} — we're preparing it for dispatch.`, body),
+  };
+}
+
+export function orderDispatchedEmail(order, statusUrl) {
+  const body =
+    header('Order dispatched', `On its way, ${order.customer.name.split(' ')[0]}.`) +
+    row(
+      COLORS.surface,
+      'padding:0 40px 20px;',
+      `<div class="be-pad" style="font-family:Inter,Arial,sans-serif;font-size:15px;line-height:1.6;color:${COLORS.inkSoft};">
+        ${statusBadge('Dispatched', { bg: '#e9e6fb', color: '#4b3a9c', dot: '#6b52d6' })}
+        <div style="margin-top:14px;">Order <strong style="color:${COLORS.ink};">${esc(order.ref)}</strong> has been dispatched. Thanks for choosing ${esc(SITE.name)}.</div>
+      </div>`
+    ) +
+    lineItemsTable(order.lines) +
+    row(
+      COLORS.surface,
+      'padding:28px 40px 8px;',
+      `<div class="be-pad">${button(statusUrl, 'View Order Status', { accent: ACCENT, full: true })}</div>`
+    ) +
+    footerSpacer();
+  return {
+    subject: `Order Dispatched — ${order.ref}`,
+    html: shell(`Order ${order.ref} has been dispatched.`, body),
+  };
+}
+
+// Admin's own copy when an order's status changes outside the settlement
+// flow (paid / dispatched) -- same "always notify the sales desk" pattern
+// as the new-order and tax-invoice sends.
+export function adminStatusUpdateEmail(order, statusText, portalUrl) {
+  const body =
+    header('Order updated', `${esc(order.ref)} marked ${statusText}`) +
+    row(
+      COLORS.surface,
+      'padding:0 40px 16px;',
+      `<div class="be-pad" style="font-family:Inter,Arial,sans-serif;font-size:14px;color:${COLORS.inkSoft};">
+        ${esc(order.customer.name)} &middot; ${esc(order.customer.email)} &middot; ${fmtPrice(order.totals.total)}
+      </div>`
+    ) +
+    row(
+      COLORS.surface,
+      'padding:28px 40px 8px;',
+      `<div class="be-pad">${button(portalUrl, 'View in Admin Portal', { accent: ACCENT, full: true })}</div>`
+    ) +
+    footerSpacer();
+  return {
+    subject: `Order ${order.ref} marked ${statusText}`,
+    html: shell(`Order ${order.ref} marked ${statusText}.`, body),
+  };
+}
+
 export function invoiceEmail(order, payUrl) {
   const inv = order.invoice || {};
   const body =
