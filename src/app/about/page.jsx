@@ -1,6 +1,7 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import JsonLd from '@/components/JsonLd';
 import SmartImage from '@/components/SmartImage';
+import BusinessVerification from '@/components/BusinessVerification';
 import { SITE, PRODUCTS, absUrl } from '@/config/site';
 
 export const metadata = {
@@ -76,7 +77,8 @@ export default function AboutPage() {
             <li><b>2024</b><span>Began worldwide shipping across the U.S., Europe and beyond.</span></li>
             <li><b>2026</b><span>Curated catalog grows to {PRODUCTS.length} models from {brandCount} premium brands.</span></li>
           </ul>
-          <h2>Product range</h2>
+          <BusinessVerification />
+          <h2 style={{ marginTop: '2.5rem' }}>Product range</h2>
           <p>
             From race-level <a href="/product/stark-varg-standard/">electric motocross</a> to category-defining{' '}
             <a href="/shop/adult-electric-dirt-bikes/">e-motos</a>, carbon <a href="/shop/electric-mountain-bikes/">eMTBs</a>, and everyday{' '}

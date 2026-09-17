@@ -296,6 +296,31 @@ button{font-family:inherit}
 .news{background:var(--night);color:var(--ivory);border-radius:var(--r);padding:2.2rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
 .news form{display:flex;gap:.6rem;flex:1;min-width:260px;max-width:460px}
 .news input{flex:1;padding:.8rem 1rem;border-radius:var(--pill);border:none;font-size:1rem}
+/* business verification -- persistent top strip, everywhere-visible per the
+   trust pattern real dealers use (ABN-style public registry disclosure) */
+.verify-bar{background:var(--panel);border-bottom:1px solid var(--line)}
+.verify-bar-in{max-width:var(--maxw);margin:0 auto;padding:.5rem 20px;display:flex;align-items:center;justify-content:center;gap:.5rem .9rem;flex-wrap:wrap;font-family:var(--font-inter),sans-serif;font-size:.76rem;color:var(--ink-soft);text-align:center;line-height:1.5}
+.verify-bar-in strong{color:var(--ink);font-weight:700}
+.verify-bar-in a{color:var(--bronze-d);font-weight:700;white-space:nowrap}
+@media(max-width:600px){
+  .verify-bar-in{font-size:.72rem}
+  .verify-bar-taxno{display:none}
+}
+/* the full "certificate" card -- homepage + About page */
+.verify-section{background:var(--night);color:var(--ivory);border-radius:var(--r);padding:2.6rem;margin-top:1.4rem}
+.verify-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.verify-seal{display:inline-flex;align-items:center;gap:.5rem;background:rgba(91,130,214,.16);border:1px solid rgba(91,130,214,.4);color:#9DB4EA;border-radius:var(--pill);padding:.45rem 1.1rem;font-family:var(--font-inter),sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.verify-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:2.5rem;border-top:1px solid rgba(245,241,233,.14)}
+.verify-row{display:flex;justify-content:space-between;gap:1rem;padding:.85rem 0;border-bottom:1px solid rgba(245,241,233,.14)}
+.verify-label{color:#B9B2A2;font-size:.82rem;font-family:var(--font-inter),sans-serif}
+.verify-value{color:var(--ivory);font-weight:600;font-family:var(--font-inter),sans-serif;text-align:right;font-variant-numeric:tabular-nums}
+.verify-foot{margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid rgba(245,241,233,.14);display:flex;justify-content:space-between;align-items:center;gap:1.2rem;flex-wrap:wrap}
+.verify-foot p{margin:0;color:#B9B2A2;font-size:.86rem;max-width:50ch;line-height:1.6}
+.verify-foot .btn-primary{background:var(--bronze);white-space:nowrap}
+.verify-foot .btn-primary:hover{background:#fff;color:var(--ink)}
+/* compact badge -- footer */
+.verify-badge{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-inter),sans-serif;font-size:.78rem;color:#9a9384;margin-top:.7rem}
+.verify-badge a{color:#c9c2b2;font-weight:700}
 /* blog */
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .bcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.18s;display:flex;flex-direction:column}
@@ -372,6 +397,7 @@ button{font-family:inherit}
   .has-mega:hover .mega{display:grid}
   .trust-in{grid-template-columns:1fr 1fr} .contact-cards{grid-template-columns:1fr}
   .calc .out{grid-template-columns:1fr 1fr}
+  .verify-section{padding:1.8rem} .verify-grid{grid-template-columns:1fr;column-gap:0}
 }
 @media(max-width:600px){
   .section{padding:3rem 0}

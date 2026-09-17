@@ -86,6 +86,17 @@ Umbra Electric: founded 2022, Seattle WA. Ships United States, Europe, Worldwide
 build's intake explicitly withheld an unverifiable "Auto Dealers of the Year" claim; do not add it back
 unless the client supplies a verifiable award name, year and issuing body.
 
+Legal registration (added 2026-09-17, verified live against the Texas Comptroller's public Franchise Tax
+Account Status search — `SITE.verifyUrl`): "Umbra Electric" is a trading name, not the legal entity — the
+site is legally operated by **`SITE.legalEntityName`** ("Bikes & Backpacks, Inc."), a Texas corporation,
+Texas Taxpayer Number `SITE.taxpayerNumber` (17601401049), SOS File Number `SITE.sosFileNumber` (0105432400),
+active and in good standing since 1988-02-01. Never present "Umbra Electric" itself as the incorporated legal
+entity in verification copy — always frame it as "Umbra Electric, operated by Bikes & Backpacks, Inc." The
+verification facts are shown sitewide: `VerifyBar` (persistent top strip, every page), `Footer` (compact
+line), `BusinessVerification` (full card — homepage + `/about/`), the Organization JSON-LD (`taxID`/
+`identifier`), and every order-system email footer + the Tax Invoice/Receipt specifically. All of it must
+keep pointing at the real, live government record — never a placeholder or invented number.
+
 Financing was removed sitewide (2026-09-03) and replaced by a reservation system: any model can be reserved
 with a 20% holding deposit (`SITE.reservationDepositPct`), remaining balance due before shipping; the 10%
 crypto discount applies to the total before the deposit is calculated. Page: `/reservation/`, calculator:

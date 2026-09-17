@@ -3,6 +3,7 @@ import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import Announce from '@/components/Announce';
+import VerifyBar from '@/components/VerifyBar';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
     '@context': 'https://schema.org',
     '@type': ['Store', 'Organization'],
     name: SITE.name,
+    legalName: SITE.legalEntityName,
     url: absUrl('/'),
     logo: absUrl('/images/logo.webp'),
     image: absUrl('/images/og-default.webp'),
@@ -53,6 +55,11 @@ export default function RootLayout({ children }) {
     foundingLocation: { '@type': 'Place', name: SITE.hqPlace },
     address: { '@type': 'PostalAddress', addressLocality: SITE.hqCity, addressRegion: SITE.hqRegion, addressCountry: SITE.hqCountry },
     areaServed: SITE.areaServed,
+    taxID: SITE.taxpayerNumber,
+    identifier: [
+      { '@type': 'PropertyValue', propertyID: 'Texas Comptroller Taxpayer Number', value: SITE.taxpayerNumber },
+      { '@type': 'PropertyValue', propertyID: 'Texas SOS File Number', value: SITE.sosFileNumber },
+    ],
     numberOfItems: PRODUCTS.length,
     knowsAbout: [
       'electric dirt bikes', 'e-motos', 'electric mountain bikes', 'electric commuter bikes', 'electric fat tire bikes',
@@ -89,6 +96,7 @@ export default function RootLayout({ children }) {
           Skip to content
         </a>
         <JsonLd data={orgLd} />
+        <VerifyBar />
         <Announce />
         <Nav />
         <main id="main">{children}</main>

@@ -4,6 +4,7 @@ import BrandMenu from '@/components/BrandMenu';
 import ProductCard from '@/components/ProductCard';
 import FaqAccordion from '@/components/FaqAccordion';
 import ReviewCarousel from '@/components/ReviewCarousel';
+import BusinessVerification from '@/components/BusinessVerification';
 import JsonLd from '@/components/JsonLd';
 import SmartImage from '@/components/SmartImage';
 import CountUp from '@/components/CountUp';
@@ -177,6 +178,7 @@ export default function HomePage() {
             you buy with clear expectations. Questions? Reach our team via the <a href="/contact/">contact page</a> or on{' '}
             <a href={`https://wa.me/${SITE.whatsapp}`}>WhatsApp</a>.
           </p>
+          <BusinessVerification />
         </div>
       </section>
 

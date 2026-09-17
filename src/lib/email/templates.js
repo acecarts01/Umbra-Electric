@@ -14,6 +14,9 @@ function shell(preheader, bodyHtml) {
     siteDomain: SITE.domain,
     siteEmail: SITE.email,
     siteAddress: SITE.legalAddress || SITE.hqPlace,
+    legalEntity: SITE.legalEntityName,
+    taxpayerNumber: SITE.taxpayerNumber,
+    verifyUrl: SITE.verifyUrl,
   });
 }
 
@@ -121,8 +124,8 @@ function receiptBlock(order) {
     bg,
     `width:50%;font-family:${SANS};font-size:12px;color:${COLORS.inkSoft};vertical-align:top;text-align:right;`,
     `<div style="font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:10.5px;color:${COLORS.inkSoft};margin-bottom:4px;">From</div>
-     <div style="color:${COLORS.ink};font-weight:600;">${esc(SITE.name)}</div>
-     ${esc(SITE.legalAddress || SITE.hqPlace)}`
+     <div style="color:${COLORS.ink};font-weight:600;">${esc(SITE.legalEntityName || SITE.name)}</div>
+     ${esc(SITE.legalAddress || SITE.hqPlace)}<br/>TX Taxpayer #${esc(SITE.taxpayerNumber)}`
   );
   const partiesRow = row(bg, 'padding:16px 26px 0;', table(bg, `<tr>${billedToCell}${fromCell}</tr>`));
 
@@ -189,7 +192,7 @@ export function invoiceEmail(order, payUrl) {
     row(
       COLORS.card,
       'padding:0 40px;',
-      `<div class="be-pad">${table(COLORS.paper, kv('Amount due now', fmtPrice(inv.amountDueNow || 0), { strong: true, size: 'lg', bg: COLORS.paper }) + (inv.dueDate ? kv('Due date', inv.dueDate, { bg: COLORS.paper }) : ''), 'border-radius:12px;padding:6px 20px;border:1px solid ' + COLORS.line + ';')}</div>`
+      `<div class="be-pad">${table(COLORS.paper, kv('Amount due now', fmtPrice(inv.amountDueNow || 0), { strong: true, size: 'lg', bg: COLORS.paper }) + (inv.dueDate ? kv('Due date', inv.dueDate, { bg: COLORS.paper }) : '') + kv('Billed by', `${SITE.legalEntityName} (TX #${SITE.taxpayerNumber})`, { bg: COLORS.paper }), 'border-radius:12px;padding:6px 20px;border:1px solid ' + COLORS.line + ';')}</div>`
     ) +
     ctaBlock(payUrl, 'View Tax Invoice & Payment Details') +
     bottomSpacer();

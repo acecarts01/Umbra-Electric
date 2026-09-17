@@ -133,7 +133,7 @@ function brandBar(siteName) {
 // characters so the inbox preview doesn't leak visible body text, a 600px
 // centred content card sitting on the site's own ivory ground, and a
 // 620px responsive breakpoint.
-export function emailShell({ preheader, bodyHtml, siteName, siteTagline, siteDomain, siteEmail, siteAddress }) {
+export function emailShell({ preheader, bodyHtml, siteName, siteTagline, siteDomain, siteEmail, siteAddress, legalEntity, taxpayerNumber, verifyUrl }) {
   const hiddenPad = '&#847;&zwnj;&nbsp;'.repeat(20);
   return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
@@ -185,6 +185,18 @@ ${table(
           `<strong style="color:${COLORS.ink};">${esc(siteName)}</strong><br/>${esc(siteAddress)}<br/>${esc(siteDomain)} &middot; ${esc(siteEmail)}`
         )
       )}
+      ${
+        legalEntity && taxpayerNumber
+          ? table(
+              COLORS.ivory,
+              row(
+                COLORS.ivory,
+                'padding:0 20px 6px;text-align:center;font-family:' + SANS + ';font-size:11px;line-height:1.7;color:' + COLORS.inkSoft + ';',
+                `${esc(legalEntity)} &middot; TX Taxpayer #${esc(taxpayerNumber)}${verifyUrl ? ` &middot; <a href="${esc(verifyUrl)}" style="color:${COLORS.accentDark};">Verify</a>` : ''}`
+              )
+            )
+          : ''
+      }
       ${table(COLORS.ivory, row(COLORS.ivory, 'padding:18px 0 0;', ''))}
       ${table(
         COLORS.ink,

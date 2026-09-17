@@ -30,6 +30,12 @@ export default function Footer() {
               WhatsApp: {fmtWhatsApp(SITE.whatsapp)}
             </a>
           </p>
+          <p className="verify-badge">
+            ✓ {SITE.legalEntityName} · TX Taxpayer #{SITE.taxpayerNumber} ·{' '}
+            <a href={SITE.verifyUrl} target="_blank" rel="noopener noreferrer">
+              Verify ↗
+            </a>
+          </p>
         </div>
         <div>
           <h4>Shop</h4>
