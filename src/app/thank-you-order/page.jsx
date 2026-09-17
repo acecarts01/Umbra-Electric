@@ -6,12 +6,14 @@ export const metadata = {
   robots: { index: false, follow: true },
 };
 
-export default function ThankYouOrderPage() {
+export default async function ThankYouOrderPage({ searchParams }) {
+  const { ref } = await searchParams;
   return (
     <section className="thankyou-section">
       <div className="container thankyou-container">
         <div className="thankyou-icon" aria-hidden="true">✓</div>
         <h1>Order Received</h1>
+        {ref && <p className="muted" style={{ fontFamily: 'monospace', fontSize: '.95rem' }}>Order reference: {ref}</p>}
         <p>Thanks for your order at {SITE.name}. We&apos;ll confirm stock, final pricing and shipping by email — usually within a few hours.</p>
         <p>No payment has been taken. We&apos;ll follow up with next steps before anything is charged.</p>
         <div className="thankyou-actions">

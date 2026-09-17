@@ -3,7 +3,7 @@ import WebForm from './WebForm';
 
 export default function ContactForm() {
   return (
-    <WebForm subject="New Contact Message — Umbra Electric" fromName="Umbra Electric Website" thankYouUrl="/thank-you-contact/">
+    <WebForm subject="New Contact Message — Umbra Electric" fromName="Umbra Electric Website" thankYouUrl="/thank-you-contact/" enquiryType="contact">
       {({ replyEmail, setReplyEmail }) => (
         <>
           <div className="form-row">

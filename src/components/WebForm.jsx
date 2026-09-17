@@ -2,7 +2,36 @@
 import { useState } from 'react';
 import { FORMS, SITE } from '@/config/site';
 
-export default function WebForm({ subject, fromName, thankYouUrl, children, onSuccess, extraFields }) {
+// Enquiries also get logged (fire-and-forget, non-blocking) to the order
+// system's admin portal so it lists every contact/wholesale enquiry, not
+// just orders -- never allowed to affect this form's existing, working
+// Web3Forms send path if the log call fails.
+function logEnquiry(form, enquiryType) {
+  try {
+    const fd = new FormData(form);
+    const payload = {};
+    for (const [key, value] of fd.entries()) {
+      if (['access_key', 'botcheck', 'subject', 'from_name', 'replyto'].includes(key)) continue;
+      payload[key] = value;
+    }
+    fetch('/api/enquiries/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        formType: enquiryType,
+        name: fd.get('name') || fd.get('business_name') || 'Unknown',
+        email: fd.get('email'),
+        phone: fd.get('phone'),
+        message: fd.get('message'),
+        ...payload,
+      }),
+    }).catch(() => {});
+  } catch {
+    // never let enquiry logging affect the real form submission
+  }
+}
+
+export default function WebForm({ subject, fromName, thankYouUrl, children, onSuccess, extraFields, enquiryType }) {
   const [status, setStatus] = useState('idle'); // idle | sending | error
   const [replyEmail, setReplyEmail] = useState('');
 
@@ -10,6 +39,7 @@ export default function WebForm({ subject, fromName, thankYouUrl, children, onSu
     e.preventDefault();
     setStatus('sending');
     const form = e.currentTarget;
+    if (enquiryType) logEnquiry(form, enquiryType);
 
     const keyPending = !FORMS.web3formsKey || FORMS.web3formsKey.startsWith('YOUR-') || FORMS.web3formsKey === 'WEB3FORMS_KEY_PENDING';
     if (keyPending) {

@@ -6,6 +6,7 @@ out/
 .DS_Store
 .claude/
 .env*.local
+.email-outbox/
 
 # Raw source assets — not referenced by code, feed into public/images/ and docs/ instead
 /ELECTRIC DIRT BIKES PRODUCT IMAGES/

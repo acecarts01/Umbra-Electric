@@ -3,7 +3,7 @@ import WebForm from './WebForm';
 
 export default function WholesaleForm() {
   return (
-    <WebForm subject="New Wholesale Application — Umbra Electric" fromName="Umbra Electric Wholesale" thankYouUrl="/thank-you-wholesale/">
+    <WebForm subject="New Wholesale Application — Umbra Electric" fromName="Umbra Electric Wholesale" thankYouUrl="/thank-you-wholesale/" enquiryType="wholesale">
       {({ replyEmail, setReplyEmail }) => (
         <>
           <h2 className="form-section-title">Business Details</h2>

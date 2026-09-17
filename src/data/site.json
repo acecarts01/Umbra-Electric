@@ -9,6 +9,7 @@
   "hqRegion": "WA",
   "hqCountry": "US",
   "hqPlace": "Seattle, Washington, United States",
+  "legalAddress": "400 Del Norte Street, Houston, TX 77018",
   "areaServed": ["United States", "Europe", "Worldwide"],
   "locale": "en_US",
   "currency": "USD",

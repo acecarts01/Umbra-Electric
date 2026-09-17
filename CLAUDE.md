@@ -11,6 +11,32 @@ schema and nav all regenerate from it. Never hand-edit generated output (`vercel
 `public/.well-known/*`, `public/robots.txt`) — edit `src/data/site.json` and rerun `npm run build` (the
 `prebuild` script regenerates them automatically).
 
+## Order & Invoice System (Intake Section P)
+
+Transactional order/invoice email system + `/admin/portal/` admin portal, added 2026-09-17. Vercel-only,
+Postgres-backed (Neon, free tier, connected via Vercel Storage as `DATABASE_URL`).
+
+- Customer places an order at `/order/` → `POST /api/orders/create` prices it server-side (never trusts a
+  client-supplied price/ref), writes a row to Postgres, emails the customer a confirmation and the sales desk
+  (`ORDER_NOTIFY_EMAIL`) a settlement-terminal link.
+- Admin settles at `/admin/portal/orders/[ref]/` — a plain "Amount due now" field + free-text payment
+  instructions per invoice (works for both full-payment and the 20% reservation-deposit flow without hardcoding
+  either), which emails the customer an invoice linking to `/pay/[ref]/`. "Mark Paid" / "Mark Dispatched"
+  advance status; every state-changing endpoint checks the live DB status first so a stale link can never
+  regress an order backward.
+- Admin login is a single shared passphrase (`ADMIN_PASSPHRASE` env var) → signed cookie, no user table.
+- Order tokens are signed with `ORDER_SIGNING_SECRET` (HMAC, ≥16 chars) — the token proves an order's contents,
+  the DB row proves its current status. `/admin/`, `/api/orders/`, `/api/admin/`, `/pay/` are disallowed in
+  robots.txt and excluded from the sitemap.
+- Email templates (`src/lib/email/*`) use the bulletproof `table()`/`td()`/`row()` primitives — every
+  `<table>`/`<td>` must carry both `bgcolor` and `background-color`, checked by crosscheck items 36-43.
+  Never hand-write a raw `<table>`/`<td>` in an email template.
+- Contact/Wholesale forms still send via Web3Forms (`WebForm.jsx`) but also fire-and-forget log to
+  `/api/enquiries/create` so the portal's Enquiries tab has data — never make that logging call block or
+  affect the real Web3Forms send.
+- If `SMTP_USER`/`SMTP_PASS` aren't set, emails write to `.email-outbox/` (gitignored) instead of failing the
+  build — check there when testing locally without real SMTP configured.
+
 ## Rules
 
 - `npm run build` must pass before every push. Run `npm run crosscheck` after building.
@@ -40,6 +66,12 @@ In `src/data/site.json` unless noted:
   Console / Bing Webmaster Tools (a code being present doesn't guarantee verification happened there).
 - After any batch content change (new products/posts/pages), re-run `node scripts/submit-indexnow.mjs` to
   notify IndexNow (Bing/Yandex) of the updated URL set — it's safe to re-run any time.
+- Order System secrets (Vercel env vars, all three environments): `SMTP_HOST=smtp.zoho.com` (free-tier Zoho —
+  if the plan is ever upgraded to paid, change to `smtppro.zoho.com` or every send fails with a
+  password-shaped error), `SMTP_PORT=465`, `SMTP_SECURE=true`, `SMTP_USER=info@umbraelectric.com`,
+  `SMTP_PASS` (Zoho app-specific password), `ORDER_NOTIFY_EMAIL=acecarts01@gmail.com` (live test/sales-desk
+  inbox), `ORDER_SIGNING_SECRET`, `ADMIN_PASSPHRASE`, `DATABASE_URL` (Neon Postgres, connected via Vercel
+  Storage). See `.env.example` for the full list with descriptions.
 
 ## Brand facts (only these are true — never invent more)
 

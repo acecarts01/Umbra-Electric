@@ -35,6 +35,10 @@ const AI_BOTS = [
 ];
 const robotsTxt = `User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/orders/
+Disallow: /api/admin/
+Disallow: /pay/
 
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 

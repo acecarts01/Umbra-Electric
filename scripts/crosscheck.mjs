@@ -289,11 +289,18 @@ for (const f of ['public/.well-known/api-catalog', 'public/.well-known/oauth-pro
 }
 if (!staleWellKnown) pass('No stale static files shadowing the well-known Route Handlers.');
 
-// Forms: WebForm.jsx uses the exact CORS shape
+// Forms: WebForm.jsx uses the exact CORS shape. Scoped to the
+// api.web3forms.com fetch call specifically -- the file also contains an
+// unrelated same-origin JSON fetch (enquiry logging, see order-system
+// module below), which legitimately needs its own Content-Type header.
 const webForm = fs.readFileSync(rel('src/components/WebForm.jsx'), 'utf8');
+const web3formsCallMatch = webForm.match(/fetch\('https:\/\/api\.web3forms\.com\/submit',\s*\{[\s\S]*?\}\);/);
+const web3formsCall = web3formsCallMatch ? web3formsCallMatch[0] : '';
 if (!webForm.includes("headers: { Accept: 'application/json' }")) fail('WebForm.jsx does not use the Accept-only header (Web3Forms CORS method).');
 else pass('WebForm.jsx uses the exact Web3Forms CORS method (FormData + Accept-only header).');
-if (webForm.includes("'Content-Type'")) fail('WebForm.jsx sets a Content-Type header — this breaks the Web3Forms CORS simple-request path.');
+if (!web3formsCall) fail('Could not locate the api.web3forms.com fetch call in WebForm.jsx to verify its CORS shape.');
+else if (web3formsCall.includes("'Content-Type'")) fail('WebForm.jsx sets a Content-Type header on the Web3Forms call — this breaks its CORS simple-request path.');
+else pass('The Web3Forms fetch call itself sets no Content-Type header.');
 
 // .gitignore hygiene
 const gitignore = fs.existsSync(rel('.gitignore')) ? fs.readFileSync(rel('.gitignore'), 'utf8') : '';
@@ -305,6 +312,102 @@ if (gitignore.includes('node_modules') && gitignore.includes('.next')) pass('.gi
 // package.json at repo root
 if (!fs.existsSync(rel('package.json'))) fail('package.json missing at repo root.');
 else pass('package.json present at repo root.');
+
+// ===================================================================
+// Order System module (Intake Section P, AUDIT G) — crosscheck items 36-43
+// ===================================================================
+if (fs.existsSync(rel('src/lib/email/layout.js'))) {
+  const emailSrc = fs.readFileSync(rel('src/lib/email/layout.js'), 'utf8') + fs.readFileSync(rel('src/lib/email/templates.js'), 'utf8');
+
+  // 36: every <table / <td opening tag must carry BOTH bgcolor= and
+  // background-color: before its closing '>' -- this is what catches the
+  // one place the table()/td() helpers can't reach: a hand-written MSO
+  // conditional-comment table, where the pairing has to be applied by hand.
+  // Requires whitespace right after the tag name so a bare "<table>" /
+  // "<td>" mentioned in prose (e.g. this file's own doc comments) can't
+  // false-positive -- every real emitted tag always has attributes.
+  const tagMatches = emailSrc.match(/<(table|td)\s[^>]*>/g) || [];
+  let badTags = 0;
+  for (const tag of tagMatches) {
+    if (!tag.includes('bgcolor=') || !tag.includes('background-color:')) { fail(`Email markup tag missing bgcolor+background-color pairing: ${tag.slice(0, 80)}`); badTags++; }
+  }
+  if (!badTags && tagMatches.length) pass(`All ${tagMatches.length} <table>/<td> tags in the email layer carry both bgcolor and background-color.`);
+
+  // 37: color-scheme metas present, no external stylesheet / @import.
+  if (!emailSrc.includes('name="color-scheme"') || !emailSrc.includes('name="supported-color-schemes"')) {
+    fail('Email layout is missing color-scheme / supported-color-schemes metas.');
+  } else pass('Email layout declares color-scheme + supported-color-schemes metas.');
+  if (/<link[^>]+stylesheet/i.test(emailSrc) || /@import/i.test(emailSrc)) fail('Email layout references an external stylesheet or @import — not supported by most mail clients.');
+  else pass('Email layout has no external stylesheet or @import.');
+
+  // 38: no hardcoded contact-detail string literal in lib/email/* -- every
+  // contact detail must read from SITE, never be typed as a literal (a real
+  // bug class: one sibling template gets missed when the number changes).
+  const SITE_JSON = JSON.parse(fs.readFileSync(rel('src/data/site.json'), 'utf8'));
+  let hardcodedContact = 0;
+  for (const needle of [SITE_JSON.email, SITE_JSON.domain, SITE_JSON.whatsapp]) {
+    if (needle && emailSrc.includes(needle)) { fail(`lib/email/* contains a hardcoded contact literal instead of a SITE.* read: "${needle}"`); hardcodedContact++; }
+  }
+  if (!hardcodedContact) pass('No hardcoded contact-detail literals in lib/email/* (all read from SITE.*).');
+
+  // 39: robots.txt disallows the order-system's private routes.
+  const robotsTxt = fs.readFileSync(rel('public/robots.txt'), 'utf8');
+  for (const path of ['/admin/', '/api/orders/', '/api/admin/', '/pay/']) {
+    if (!robotsTxt.includes(`Disallow: ${path}`)) fail(`robots.txt does not disallow ${path}`);
+  }
+  pass('robots.txt disallows /admin/, /api/orders/, /api/admin/ and /pay/.');
+
+  // 40: admin/pay pages declare noindex.
+  const noindexPages = [
+    'src/app/admin/login/page.jsx', 'src/app/admin/portal/page.jsx',
+    'src/app/admin/portal/orders/[ref]/page.jsx', 'src/app/pay/[ref]/page.jsx',
+  ];
+  let missingNoindex = 0;
+  for (const f of noindexPages) {
+    const src = fs.existsSync(rel(f)) ? fs.readFileSync(rel(f), 'utf8') : '';
+    if (!/robots:\s*{\s*index:\s*false/.test(src)) { fail(`${f} does not declare robots: { index: false }.`); missingNoindex++; }
+  }
+  if (!missingNoindex) pass('All admin/pay pages declare robots: { index: false }.');
+
+  // 41: ORDER_SIGNING_SECRET present and >=16 chars.
+  if (!process.env.ORDER_SIGNING_SECRET || process.env.ORDER_SIGNING_SECRET.length < 16) {
+    warn('ORDER_SIGNING_SECRET is missing or shorter than 16 chars in this environment — order-system routes will throw at runtime until it is set.');
+  } else pass('ORDER_SIGNING_SECRET is set and >=16 characters.');
+  if (!process.env.ADMIN_PASSPHRASE) warn('ADMIN_PASSPHRASE is not set in this environment — admin login will always fail until it is set.');
+  else pass('ADMIN_PASSPHRASE is set.');
+
+  // 42: order-submission endpoint never accepts a client-supplied ref.
+  const createRoute = fs.readFileSync(rel('src/app/api/orders/create/route.js'), 'utf8');
+  if (/ref:\s*(body|req)\.ref/.test(createRoute) || /ref:\s*items?\.ref/.test(createRoute)) {
+    fail('api/orders/create accepts a client-supplied ref — the server must be the only generator.');
+  } else pass('api/orders/create generates its own ref (newOrderRef()) — no client-supplied ref accepted.');
+
+  // 43: status-changing endpoints guard against regression via a live DB check.
+  let missingGuard = 0;
+  for (const f of ['src/app/api/admin/orders/settle/route.js', 'src/app/api/admin/orders/status/route.js']) {
+    const src = fs.existsSync(rel(f)) ? fs.readFileSync(rel(f), 'utf8') : '';
+    if (!/getOrder\(/.test(src) || (!/status === 'paid'/.test(src) && !/canAdvanceTo/.test(src))) {
+      fail(`${f} does not appear to guard against a status regression with a live DB check.`); missingGuard++;
+    }
+  }
+  if (!missingGuard) pass('Status-changing order endpoints guard against regression with a live DB status check.');
+
+  // Dead-enum check: every STATUS_ORDER value must actually be assigned
+  // somewhere in the order API routes (no rail segment nothing ever sets).
+  const statusSrc = fs.readFileSync(rel('src/lib/order/status.js'), 'utf8');
+  const enumMatch = statusSrc.match(/STATUS_ORDER\s*=\s*\[([^\]]+)\]/);
+  const statuses = enumMatch ? enumMatch[1].match(/'([a-z_]+)'/g).map((s) => s.replace(/'/g, '')) : [];
+  const allRouteSrc = ['src/app/api/orders/create/route.js', 'src/app/api/admin/orders/settle/route.js', 'src/app/api/admin/orders/status/route.js']
+    .map((f) => (fs.existsSync(rel(f)) ? fs.readFileSync(rel(f), 'utf8') : ''))
+    .join('\n');
+  let deadStatus = 0;
+  for (const s of statuses) {
+    if (!allRouteSrc.includes(`'${s}'`)) { fail(`OrderStatus "${s}" is defined but no route ever assigns it.`); deadStatus++; }
+  }
+  if (!deadStatus && statuses.length) pass(`All ${statuses.length} order statuses are actually assigned by a route.`);
+} else {
+  warn('Order System module (Intake Section P) is not present — skipping AUDIT G (items 36-43).');
+}
 
 console.log(`\nCrosscheck complete: ${failures} failing, ${warnings} warnings (pending-domain items are expected until go-live).`);
 if (failures > 0) process.exit(1);
