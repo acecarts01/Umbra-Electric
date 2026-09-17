@@ -69,9 +69,10 @@ In `src/data/site.json` unless noted:
 - Order System secrets (Vercel env vars, all three environments): `SMTP_HOST=smtp.zoho.com` (free-tier Zoho —
   if the plan is ever upgraded to paid, change to `smtppro.zoho.com` or every send fails with a
   password-shaped error), `SMTP_PORT=465`, `SMTP_SECURE=true`, `SMTP_USER=info@umbraelectric.com`,
-  `SMTP_PASS` (Zoho app-specific password), `ORDER_NOTIFY_EMAIL=acecarts01@gmail.com` (live test/sales-desk
-  inbox), `ORDER_SIGNING_SECRET`, `ADMIN_PASSPHRASE`, `DATABASE_URL` (Neon Postgres, connected via Vercel
-  Storage). See `.env.example` for the full list with descriptions.
+  `SMTP_PASS` (Zoho app-specific password), `ORDER_NOTIFY_EMAIL=info@umbraelectric.com` (sales-desk inbox —
+  the site's own official email, not a personal address), `ORDER_SIGNING_SECRET`, `ADMIN_PASSPHRASE`,
+  `DATABASE_URL` (Neon Postgres, connected via Vercel Storage). See `.env.example` for the full list with
+  descriptions.
 
 ## Brand facts (only these are true — never invent more)
 
