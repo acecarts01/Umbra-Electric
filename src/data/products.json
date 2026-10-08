@@ -7403,5 +7403,651 @@
         "a": "Rack mounting points and frame compatibility can vary by bike model, so our team confirms exact fit by email before your order is finalized."
       }
     ]
+  },
+  {
+    "slug": "bosch-powertube-750wh-battery",
+    "name": "Bosch PowerTube 750Wh Battery",
+    "brand": "Bosch",
+    "category": "gear-accessories",
+    "categoryName": "Gear & Accessories",
+    "price": 900,
+    "description": "Bosch's largest PowerTube pack — a genuine 750Wh battery for Bosch eBike Systems-equipped electric mountain and commuter bikes, built for riders who want real all-day range.",
+    "fullDescription": "The Bosch PowerTube 750Wh is a genuine Bosch eBike Systems battery, the largest capacity in Bosch's PowerTube lineup and the pack serious distance riders reach for when a standard-capacity battery leaves them planning rides around range anxiety. It's built for bikes running the Bosch Smart System, so fitment depends on your specific frame and mount orientation — our team confirms exact compatibility by email before any order is finalized, since PowerTube batteries aren't universally interchangeable across Bosch-equipped models. This is the kind of upgrade that pairs naturally with our electric mountain bike and electric commuter bike lineups, both of which include Bosch-powered models. At $900, it ships across the United States, to Europe, and worldwide, with a 10% discount for paying in BTC or USDT. Buy it alongside any bike in the same order and that bike gets an automatic 5% bundle discount, part of Umbra Electric's gear-plus-bike promotion. Email is our primary ordering channel, with WhatsApp as a secondary option, and nothing ships until fitment and stock are confirmed.",
+    "highlight": "",
+    "warranty": "Manufacturer warranty",
+    "images": [
+      "bosch-powertube-750wh-battery.webp"
+    ],
+    "sku": "bosch-powertube-750wh-battery",
+    "primaryKeyword": "Bosch PowerTube 750Wh battery",
+    "supportingKeywords": [
+      "Bosch eBike battery for sale",
+      "Bosch PowerTube price",
+      "genuine Bosch ebike battery",
+      "electric bike spare battery",
+      "Bosch Smart System battery"
+    ],
+    "faqs": [
+      {
+        "q": "Is the Bosch PowerTube 750Wh a genuine Bosch part?",
+        "a": "Yes, this is a genuine Bosch eBike Systems battery, not an aftermarket or compatible pack. It's the largest capacity in Bosch's PowerTube lineup."
+      },
+      {
+        "q": "Will this fit any Bosch-equipped e-bike?",
+        "a": "Not automatically — PowerTube batteries vary by mount orientation and frame compatibility across Bosch's Smart System lineup. Our team confirms exact fitment for your specific bike by email before any order is finalized."
+      },
+      {
+        "q": "How much does the Bosch PowerTube 750Wh cost, and is there a crypto discount?",
+        "a": "It's priced at $900 through Umbra Electric. Paying with BTC or USDT takes 10% off the total."
+      },
+      {
+        "q": "Do I get a discount buying this with a bike?",
+        "a": "Yes. Buying this battery alongside any bike in the same order automatically applies a 5% bundle discount to that bike, part of Umbra Electric's gear-plus-bike promotion."
+      },
+      {
+        "q": "Does Umbra Electric ship this battery internationally?",
+        "a": "Yes, we ship across the United States, to Europe, and worldwide. Orders over $2,000 ship free; orders under that carry a flat $248 shipping charge."
+      }
+    ]
+  },
+  {
+    "slug": "shimano-steps-bt-e8036-630wh-battery",
+    "name": "Shimano STEPS BT-E8036 630Wh Battery",
+    "brand": "Shimano",
+    "category": "gear-accessories",
+    "categoryName": "Gear & Accessories",
+    "price": 750,
+    "description": "A genuine Shimano STEPS 630Wh battery pack for Shimano-equipped electric mountain and road bikes, built for riders who want a factory-matched spare or replacement.",
+    "fullDescription": "The Shimano STEPS BT-E8036 is a genuine 630Wh battery built for Shimano STEPS-equipped electric bikes, giving riders a factory-matched spare or replacement rather than a generic substitute. Shimano STEPS systems run across a range of e-MTB and electric road platforms, so exact mount compatibility varies by frame — our team confirms fitment for your specific bike by email before any order is finalized. It's a natural fit alongside our electric mountain bike and electric road and gravel bike lineups, where Shimano STEPS-powered models live. At $750, it ships across the United States, to Europe, and worldwide, with a 10% discount for paying in BTC or USDT. Buy it alongside any bike in the same order and that bike gets an automatic 5% bundle discount, part of Umbra Electric's gear-plus-bike promotion. Email is our primary ordering channel, with WhatsApp as a secondary option, and nothing ships until fitment and stock are confirmed.",
+    "highlight": "",
+    "warranty": "Manufacturer warranty",
+    "images": [
+      "shimano-steps-bt-e8036-630wh-battery.webp",
+      "shimano-steps-bt-e8036-630wh-battery-2.webp"
+    ],
+    "sku": "shimano-steps-bt-e8036-630wh-battery",
+    "primaryKeyword": "Shimano STEPS BT-E8036 battery",
+    "supportingKeywords": [
+      "Shimano STEPS battery for sale",
+      "Shimano ebike battery price",
+      "genuine Shimano STEPS battery",
+      "630Wh ebike battery",
+      "Shimano STEPS spare battery"
+    ],
+    "faqs": [
+      {
+        "q": "Is the Shimano STEPS BT-E8036 a genuine Shimano part?",
+        "a": "Yes, this is a genuine Shimano STEPS battery, not an aftermarket pack."
+      },
+      {
+        "q": "Will this battery fit any Shimano STEPS e-bike?",
+        "a": "Mount compatibility varies by frame across the Shimano STEPS platform lineup. Our team confirms exact fitment for your specific bike by email before any order is finalized."
+      },
+      {
+        "q": "How much does the Shimano STEPS BT-E8036 cost, and is there a crypto discount?",
+        "a": "It's priced at $750 through Umbra Electric. Paying with BTC or USDT takes 10% off the total."
+      },
+      {
+        "q": "Do I get a discount buying this with a bike?",
+        "a": "Yes. Buying this battery alongside any bike in the same order automatically applies a 5% bundle discount to that bike."
+      },
+      {
+        "q": "Does Umbra Electric ship this battery internationally?",
+        "a": "Yes, we ship across the United States, to Europe, and worldwide. Orders over $2,000 ship free; orders under that carry a flat $248 shipping charge."
+      }
+    ]
+  },
+  {
+    "slug": "bafang-52v-17-5ah-battery-pack",
+    "name": "Bafang 52V 17.5Ah Aftermarket Battery Pack",
+    "brand": "Bafang",
+    "category": "gear-accessories",
+    "categoryName": "Gear & Accessories",
+    "price": 600,
+    "description": "A 52V 17.5Ah lithium battery pack built to be compatible with Bafang mid-drive motor systems, for riders running a Bafang-powered conversion or spare-battery setup.",
+    "fullDescription": "This 52V 17.5Ah lithium battery pack is built to be compatible with Bafang mid-drive motor systems, the aftermarket and conversion-kit motor platform used across a wide range of e-bike builds. It's important to be clear about what this is: a compatible battery sourced from a specialist e-bike battery supplier, not an official Bafang-branded product. That distinction matters for fitment and mount style, which is exactly why our team confirms exact compatibility for your specific setup by email before any order is finalized. It's the kind of accessory riders running a Bafang-equipped conversion reach for when they want a genuine spare rather than gambling on an unverified pack. At $600, it ships across the United States, to Europe, and worldwide, with a 10% discount for paying in BTC or USDT. Buy it alongside any bike in the same order and that bike gets an automatic 5% bundle discount, part of Umbra Electric's gear-plus-bike promotion. Email is our primary ordering channel, with WhatsApp as a secondary option, and nothing ships until fitment and stock are confirmed.",
+    "highlight": "",
+    "warranty": "Manufacturer warranty",
+    "images": [
+      "bafang-52v-17-5ah-battery-pack.webp"
+    ],
+    "sku": "bafang-52v-17-5ah-battery-pack",
+    "primaryKeyword": "Bafang 52V battery pack",
+    "supportingKeywords": [
+      "Bafang ebike battery for sale",
+      "52V 17.5Ah battery price",
+      "Bafang compatible battery",
+      "ebike conversion battery",
+      "Bafang mid-drive battery"
+    ],
+    "faqs": [
+      {
+        "q": "Is this an official Bafang battery?",
+        "a": "No — this is a compatible aftermarket battery sourced from a specialist e-bike battery supplier, built to work with Bafang mid-drive motor systems. It isn't an official Bafang-branded product."
+      },
+      {
+        "q": "Will this battery fit my Bafang setup?",
+        "a": "Mount style and wiring vary across Bafang conversion builds. Our team confirms exact compatibility for your specific setup by email before any order is finalized."
+      },
+      {
+        "q": "How much does this battery cost, and is there a crypto discount?",
+        "a": "It's priced at $600 through Umbra Electric. Paying with BTC or USDT takes 10% off the total."
+      },
+      {
+        "q": "Do I get a discount buying this with a bike?",
+        "a": "Yes. Buying this battery alongside any bike in the same order automatically applies a 5% bundle discount to that bike."
+      },
+      {
+        "q": "Does Umbra Electric ship this battery internationally?",
+        "a": "Yes, we ship across the United States, to Europe, and worldwide. Orders over $2,000 ship free; orders under that carry a flat $248 shipping charge."
+      }
+    ]
+  },
+  {
+    "slug": "rad-power-bikes-radrover-spare-battery",
+    "name": "Rad Power Bikes RadRover Spare Battery",
+    "brand": "Rad Power Bikes",
+    "category": "gear-accessories",
+    "categoryName": "Gear & Accessories",
+    "price": 450,
+    "description": "A spare battery pack built to be compatible with the Rad Power Bikes RadRover line, for riders who want a backup pack ready to swap in rather than waiting on a charge.",
+    "fullDescription": "This spare battery pack is built to be compatible with the Rad Power Bikes RadRover line, giving RadRover owners a backup pack they can swap in rather than waiting out a full charge cycle. It's important to be clear about what this is: a compatible spare sourced from a specialist e-bike battery supplier, not an official Rad Power Bikes product. That distinction matters for fitment, which is exactly why our team confirms exact compatibility for your specific RadRover model by email before any order is finalized. It's a natural pairing with our electric fat tire bike lineup, where RadRover models live. At $450, it ships across the United States, to Europe, and worldwide, with a 10% discount for paying in BTC or USDT. Buy it alongside any bike in the same order and that bike gets an automatic 5% bundle discount, part of Umbra Electric's gear-plus-bike promotion. Email is our primary ordering channel, with WhatsApp as a secondary option, and nothing ships until fitment and stock are confirmed.",
+    "highlight": "",
+    "warranty": "Manufacturer warranty",
+    "images": [
+      "rad-power-bikes-radrover-spare-battery.webp"
+    ],
+    "sku": "rad-power-bikes-radrover-spare-battery",
+    "primaryKeyword": "Rad Power Bikes RadRover spare battery",
+    "supportingKeywords": [
+      "RadRover battery for sale",
+      "Rad Power Bikes spare battery price",
+      "RadRover compatible battery",
+      "electric fat tire bike battery",
+      "Rad Power Bikes battery replacement"
+    ],
+    "faqs": [
+      {
+        "q": "Is this an official Rad Power Bikes battery?",
+        "a": "No — this is a compatible spare battery sourced from a specialist e-bike battery supplier, built for the RadRover line. It isn't an official Rad Power Bikes product."
+      },
+      {
+        "q": "Will this fit my specific RadRover model?",
+        "a": "Fitment varies across RadRover model years. Our team confirms exact compatibility for your specific bike by email before any order is finalized."
+      },
+      {
+        "q": "How much does this spare battery cost, and is there a crypto discount?",
+        "a": "It's priced at $450 through Umbra Electric. Paying with BTC or USDT takes 10% off the total."
+      },
+      {
+        "q": "Do I get a discount buying this with a bike?",
+        "a": "Yes. Buying this battery alongside any bike in the same order automatically applies a 5% bundle discount to that bike."
+      },
+      {
+        "q": "Does Umbra Electric ship this battery internationally?",
+        "a": "Yes, we ship across the United States, to Europe, and worldwide. Orders over $2,000 ship free; orders under that carry a flat $248 shipping charge."
+      }
+    ]
+  },
+  {
+    "slug": "bosch-fast-charger-6a",
+    "name": "Bosch Fast Charger 6A",
+    "brand": "Bosch",
+    "category": "gear-accessories",
+    "categoryName": "Gear & Accessories",
+    "price": 180,
+    "description": "Bosch's genuine 6A fast charger for PowerTube and PowerPack batteries — roughly double the charge rate of the standard charger, for riders who need a quick turnaround between rides.",
+    "fullDescription": "The Bosch Fast Charger 6A is a genuine Bosch eBike Systems charger, built to cut charge time roughly in half compared to Bosch's standard 2A/4A chargers for riders who need a quick turnaround between rides rather than an overnight wait. It's compatible with Bosch PowerTube and PowerPack batteries across the Smart System and Active/Performance line — our team confirms exact compatibility for your specific battery by email before any order is finalized. At $180, it ships across the United States, to Europe, and worldwide, with a 10% discount for paying in BTC or USDT. Buy it alongside any bike in the same order and that bike gets an automatic 5% bundle discount, part of Umbra Electric's gear-plus-bike promotion. Email is our primary ordering channel, with WhatsApp as a secondary option, and nothing ships until compatibility and stock are confirmed.",
+    "highlight": "",
+    "warranty": "Manufacturer warranty",
+    "images": [
+      "bosch-fast-charger-6a.webp"
+    ],
+    "sku": "bosch-fast-charger-6a",
+    "primaryKeyword": "Bosch Fast Charger 6A",
+    "supportingKeywords": [
+      "Bosch ebike charger for sale",
+      "Bosch 6A fast charger price",
+      "genuine Bosch charger",
+      "PowerTube fast charger",
+      "Bosch Smart System charger"
+    ],
+    "faqs": [
+      {
+        "q": "Is the Bosch Fast Charger 6A a genuine Bosch part?",
+        "a": "Yes, this is a genuine Bosch eBike Systems charger, not an aftermarket unit."
+      },
+      {
+        "q": "How much faster is this than the standard Bosch charger?",
+        "a": "It charges roughly double the rate of Bosch's standard 2A/4A chargers, cutting a typical full charge time significantly for riders who need a quick turnaround."
+      },
+      {
+        "q": "Will this charger work with my Bosch battery?",
+        "a": "It's compatible with Bosch PowerTube and PowerPack batteries across the Smart System and Active/Performance line, but our team confirms exact compatibility for your specific battery by email before any order is finalized."
+      },
+      {
+        "q": "How much does the Bosch Fast Charger 6A cost, and is there a crypto discount?",
+        "a": "It's priced at $180 through Umbra Electric. Paying with BTC or USDT takes 10% off the total."
+      },
+      {
+        "q": "Does Umbra Electric ship this charger internationally?",
+        "a": "Yes, we ship across the United States, to Europe, and worldwide. Orders over $2,000 ship free; orders under that carry a flat $248 shipping charge."
+      }
+    ]
+  },
+  {
+    "slug": "shimano-steps-smart-charger-ec-e6000",
+    "name": "Shimano STEPS Smart Charger EC-E6000",
+    "brand": "Shimano",
+    "category": "gear-accessories",
+    "categoryName": "Gear & Accessories",
+    "price": 150,
+    "description": "Shimano's genuine EC-E6000 smart charger for STEPS battery systems, built for safe, efficient charging on Shimano-equipped electric mountain and road bikes.",
+    "fullDescription": "The Shimano STEPS Smart Charger EC-E6000 is a genuine Shimano charger built specifically for STEPS battery systems, with smart charge management that protects battery health over repeated cycles rather than just pushing current as fast as possible. It's compatible with Shimano STEPS batteries including the BT-E8036 — our team confirms exact compatibility for your specific battery by email before any order is finalized. At $150, it ships across the United States, to Europe, and worldwide, with a 10% discount for paying in BTC or USDT. Buy it alongside any bike in the same order and that bike gets an automatic 5% bundle discount, part of Umbra Electric's gear-plus-bike promotion. Email is our primary ordering channel, with WhatsApp as a secondary option, and nothing ships until compatibility and stock are confirmed.",
+    "highlight": "",
+    "warranty": "Manufacturer warranty",
+    "images": [
+      "shimano-steps-smart-charger-ec-e6000.webp"
+    ],
+    "sku": "shimano-steps-smart-charger-ec-e6000",
+    "primaryKeyword": "Shimano STEPS EC-E6000 charger",
+    "supportingKeywords": [
+      "Shimano STEPS charger for sale",
+      "Shimano ebike charger price",
+      "genuine Shimano STEPS charger",
+      "EC-E6000 smart charger",
+      "Shimano STEPS battery charger"
+    ],
+    "faqs": [
+      {
+        "q": "Is the EC-E6000 a genuine Shimano charger?",
+        "a": "Yes, this is a genuine Shimano STEPS charger, not an aftermarket unit."
+      },
+      {
+        "q": "Will this charger work with my Shimano STEPS battery?",
+        "a": "It's compatible with Shimano STEPS batteries including the BT-E8036, but our team confirms exact compatibility for your specific battery by email before any order is finalized."
+      },
+      {
+        "q": "How much does the EC-E6000 cost, and is there a crypto discount?",
+        "a": "It's priced at $150 through Umbra Electric. Paying with BTC or USDT takes 10% off the total."
+      },
+      {
+        "q": "Do I get a discount buying this with a bike?",
+        "a": "Yes. Buying this charger alongside any bike in the same order automatically applies a 5% bundle discount to that bike."
+      },
+      {
+        "q": "Does Umbra Electric ship this charger internationally?",
+        "a": "Yes, we ship across the United States, to Europe, and worldwide. Orders over $2,000 ship free; orders under that carry a flat $248 shipping charge."
+      }
+    ]
+  },
+  {
+    "slug": "universal-48v-2a-smart-charger",
+    "name": "Universal 48V 2A Smart Charger",
+    "brand": "Umbra Electric",
+    "category": "gear-accessories",
+    "categoryName": "Gear & Accessories",
+    "price": 90,
+    "description": "A universal 48V 2A smart charger built to work across a wide range of 48V e-bike and electric dirt bike battery systems, for riders who want a reliable backup or replacement charger.",
+    "fullDescription": "This universal 48V 2A smart charger is built to work across a wide range of 48V battery systems used throughout our e-bike and electric dirt bike categories, giving riders a reliable backup or replacement without hunting down a brand-specific original. Smart charge management protects battery health over repeated cycles rather than just pushing current as fast as possible. Connector style varies across brands and models, so our team confirms exact compatibility for your specific bike by email before any order is finalized. At $90, it ships across the United States, to Europe, and worldwide, with a 10% discount for paying in BTC or USDT. Buy it alongside any bike in the same order and that bike gets an automatic 5% bundle discount, part of Umbra Electric's gear-plus-bike promotion. Email is our primary ordering channel, with WhatsApp as a secondary option, and nothing ships until compatibility and stock are confirmed.",
+    "highlight": "",
+    "warranty": "Manufacturer warranty",
+    "images": [
+      "universal-48v-2a-smart-charger.webp"
+    ],
+    "sku": "universal-48v-2a-smart-charger",
+    "primaryKeyword": "universal 48V ebike charger",
+    "supportingKeywords": [
+      "48V smart charger for sale",
+      "ebike charger price",
+      "universal ebike charger",
+      "electric dirt bike charger",
+      "48V 2A charger"
+    ],
+    "faqs": [
+      {
+        "q": "Will this charger work with my specific bike?",
+        "a": "It's built to work across a wide range of 48V battery systems, but connector style varies by brand and model, so our team confirms exact compatibility for your specific bike by email before any order is finalized."
+      },
+      {
+        "q": "What does \"smart charger\" mean here?",
+        "a": "It uses charge management that protects battery health over repeated cycles rather than simply pushing maximum current regardless of battery condition."
+      },
+      {
+        "q": "How much does this charger cost, and is there a crypto discount?",
+        "a": "It's priced at $90 through Umbra Electric. Paying with BTC or USDT takes 10% off the total."
+      },
+      {
+        "q": "Do I get a discount buying this with a bike?",
+        "a": "Yes. Buying this charger alongside any bike in the same order automatically applies a 5% bundle discount to that bike."
+      },
+      {
+        "q": "Does Umbra Electric ship this charger internationally?",
+        "a": "Yes, we ship across the United States, to Europe, and worldwide. Orders over $2,000 ship free; orders under that carry a flat $248 shipping charge."
+      }
+    ]
+  },
+  {
+    "slug": "santa-cruz-reserve-30-wheelset",
+    "name": "Santa Cruz Reserve 30 Carbon MTB Wheelset",
+    "brand": "Santa Cruz",
+    "category": "gear-accessories",
+    "categoryName": "Gear & Accessories",
+    "price": 1600,
+    "description": "Santa Cruz's in-house Reserve 30 carbon mountain bike wheelset — a trail-to-enduro-width rim built and warrantied by the same company that builds the frames, for riders ready to upgrade past stock wheels.",
+    "fullDescription": "The Reserve 30 is Santa Cruz's own in-house carbon mountain bike wheelset, engineered and warrantied by the same company that builds Santa Cruz frames rather than a third-party rim brand. The 30mm internal width targets trail-to-enduro riding, giving confident tire support without the harshness some carbon wheels carry over rough terrain. It's a genuine upgrade for riders who've outgrown their stock wheelset and want the stiffness and reduced rotating weight of carbon, and it pairs naturally with our electric mountain bike lineup. Hub and axle spacing vary by frame, so our team confirms exact compatibility for your specific bike by email before any order is finalized. At $1,600, it ships across the United States, to Europe, and worldwide, with a 10% discount for paying in BTC or USDT. Buy it alongside any bike in the same order and that bike gets an automatic 5% bundle discount, part of Umbra Electric's gear-plus-bike promotion. Email is our primary ordering channel, with WhatsApp as a secondary option, and nothing ships until fitment and stock are confirmed.",
+    "highlight": "",
+    "warranty": "Manufacturer warranty",
+    "images": [
+      "santa-cruz-reserve-30-wheelset.webp"
+    ],
+    "sku": "santa-cruz-reserve-30-wheelset",
+    "primaryKeyword": "Santa Cruz Reserve 30 wheelset",
+    "supportingKeywords": [
+      "Reserve carbon wheelset for sale",
+      "Santa Cruz Reserve price",
+      "carbon mountain bike wheels",
+      "Reserve 30 wheelset price",
+      "eMTB carbon wheelset"
+    ],
+    "faqs": [
+      {
+        "q": "Who makes the Reserve 30 wheelset?",
+        "a": "Santa Cruz builds the Reserve 30 in-house — it's warrantied by Santa Cruz directly, not a third-party rim brand rebadged."
+      },
+      {
+        "q": "Will the Reserve 30 fit my electric mountain bike?",
+        "a": "Hub and axle spacing vary by frame, so our team confirms exact compatibility for your specific bike by email before any order is finalized."
+      },
+      {
+        "q": "What riding is the Reserve 30 built for?",
+        "a": "Its 30mm internal width targets trail-to-enduro riding, giving confident tire support without the harshness some carbon wheels carry over rough terrain."
+      },
+      {
+        "q": "How much does the Reserve 30 cost, and is there a crypto discount?",
+        "a": "It's priced at $1,600 through Umbra Electric. Paying with BTC or USDT takes 10% off the total."
+      },
+      {
+        "q": "Does Umbra Electric ship this wheelset internationally?",
+        "a": "Yes, we ship across the United States, to Europe, and worldwide. This order clears our $2,000 free-shipping threshold only when combined with another item — on its own it carries a flat $248 shipping charge."
+      }
+    ]
+  },
+  {
+    "slug": "dt-swiss-h1900-spline-emtb-wheelset",
+    "name": "DT Swiss H 1900 Spline e-MTB Wheelset",
+    "brand": "DT Swiss",
+    "category": "gear-accessories",
+    "categoryName": "Gear & Accessories",
+    "price": 800,
+    "description": "A DT Swiss alloy wheelset built specifically for the extra loads of e-MTB riding, with reinforced rims and DT Swiss's proven hub internals for riders who want a durable upgrade over stock.",
+    "fullDescription": "The DT Swiss H 1900 Spline is built specifically for e-MTB use, with reinforced alloy rims engineered to handle the extra weight and torque loads an electric mountain bike puts through its wheels compared to an unpowered bike. DT Swiss's hub internals are widely regarded as some of the most durable in the category, which matters for riders putting consistent hours on an e-MTB rather than occasional weekend use. It's a straightforward upgrade for riders who've worn through a stock wheelset and want something built for the job from the start. Hub and axle spacing vary by frame, so our team confirms exact compatibility for your specific bike by email before any order is finalized. At $800, it ships across the United States, to Europe, and worldwide, with a 10% discount for paying in BTC or USDT. Buy it alongside any bike in the same order and that bike gets an automatic 5% bundle discount, part of Umbra Electric's gear-plus-bike promotion. Email is our primary ordering channel, with WhatsApp as a secondary option, and nothing ships until fitment and stock are confirmed.",
+    "highlight": "",
+    "warranty": "Manufacturer warranty",
+    "images": [
+      "dt-swiss-h1900-spline-emtb-wheelset.webp"
+    ],
+    "sku": "dt-swiss-h1900-spline-emtb-wheelset",
+    "primaryKeyword": "DT Swiss H 1900 Spline wheelset",
+    "supportingKeywords": [
+      "DT Swiss eMTB wheelset for sale",
+      "DT Swiss H 1900 price",
+      "e-MTB wheelset",
+      "alloy mountain bike wheels",
+      "DT Swiss wheelset price"
+    ],
+    "faqs": [
+      {
+        "q": "What makes the H 1900 Spline different from a standard MTB wheelset?",
+        "a": "It's built specifically for e-MTB use, with reinforced alloy rims engineered to handle the extra weight and torque loads an electric mountain bike puts through its wheels."
+      },
+      {
+        "q": "Will this wheelset fit my electric mountain bike?",
+        "a": "Hub and axle spacing vary by frame, so our team confirms exact compatibility for your specific bike by email before any order is finalized."
+      },
+      {
+        "q": "How much does the H 1900 Spline cost, and is there a crypto discount?",
+        "a": "It's priced at $800 through Umbra Electric. Paying with BTC or USDT takes 10% off the total."
+      },
+      {
+        "q": "Do I get a discount buying this with a bike?",
+        "a": "Yes. Buying this wheelset alongside any bike in the same order automatically applies a 5% bundle discount to that bike."
+      },
+      {
+        "q": "Does Umbra Electric ship this wheelset internationally?",
+        "a": "Yes, we ship across the United States, to Europe, and worldwide. Orders over $2,000 ship free; orders under that carry a flat $248 shipping charge."
+      }
+    ]
+  },
+  {
+    "slug": "stans-notubes-flow-mk4-wheelset",
+    "name": "Stan's NoTubes Flow MK4 Alloy Wheelset",
+    "brand": "Stan's NoTubes",
+    "category": "gear-accessories",
+    "categoryName": "Gear & Accessories",
+    "price": 650,
+    "description": "Stan's NoTubes Flow MK4 — a wide, tubeless-ready alloy trail wheelset from the brand that popularized tubeless mountain biking, built for riders who want a durable, lower-cost alternative to carbon.",
+    "fullDescription": "Stan's NoTubes built its name on tubeless rim technology, and the Flow MK4 carries that heritage into a wide, trail-oriented alloy wheelset designed to run tubeless from the start. It's a genuine alternative to carbon for riders who want the durability and lower cost of alloy without sacrificing trail capability — alloy wheels also tend to handle a hard trailside impact more forgivingly than carbon, which matters for aggressive trail and enduro riding. It pairs naturally with our electric mountain bike lineup. Hub and axle spacing vary by frame, so our team confirms exact compatibility for your specific bike by email before any order is finalized. At $650, it ships across the United States, to Europe, and worldwide, with a 10% discount for paying in BTC or USDT. Buy it alongside any bike in the same order and that bike gets an automatic 5% bundle discount, part of Umbra Electric's gear-plus-bike promotion. Email is our primary ordering channel, with WhatsApp as a secondary option, and nothing ships until fitment and stock are confirmed.",
+    "highlight": "",
+    "warranty": "Manufacturer warranty",
+    "images": [
+      "stans-notubes-flow-mk4-wheelset.webp"
+    ],
+    "sku": "stans-notubes-flow-mk4-wheelset",
+    "primaryKeyword": "Stan's NoTubes Flow MK4 wheelset",
+    "supportingKeywords": [
+      "Stans Flow MK4 for sale",
+      "tubeless mountain bike wheelset",
+      "alloy MTB wheelset price",
+      "Stans NoTubes price",
+      "trail wheelset for sale"
+    ],
+    "faqs": [
+      {
+        "q": "Is the Flow MK4 tubeless-ready?",
+        "a": "Yes, it's built to run tubeless from the start, carrying Stan's NoTubes' tubeless rim heritage into a trail-oriented alloy wheelset."
+      },
+      {
+        "q": "Why choose alloy over carbon here?",
+        "a": "Alloy wheels like the Flow MK4 cost less than carbon and tend to handle a hard trailside impact more forgivingly, which matters for aggressive trail and enduro riding."
+      },
+      {
+        "q": "Will this wheelset fit my electric mountain bike?",
+        "a": "Hub and axle spacing vary by frame, so our team confirms exact compatibility for your specific bike by email before any order is finalized."
+      },
+      {
+        "q": "How much does the Flow MK4 cost, and is there a crypto discount?",
+        "a": "It's priced at $650 through Umbra Electric. Paying with BTC or USDT takes 10% off the total."
+      },
+      {
+        "q": "Does Umbra Electric ship this wheelset internationally?",
+        "a": "Yes, we ship across the United States, to Europe, and worldwide. Orders over $2,000 ship free; orders under that carry a flat $248 shipping charge."
+      }
+    ]
+  },
+  {
+    "slug": "reserve-27-5-carbon-gravel-wheelset",
+    "name": "Reserve 27.5 Carbon Gravel Wheelset",
+    "brand": "Reserve",
+    "category": "gear-accessories",
+    "categoryName": "Gear & Accessories",
+    "price": 1400,
+    "description": "A Reserve carbon gravel wheelset built around the 27.5-inch platform for wider tire clearance and more rollover on rough gravel, for riders upgrading past a stock road-oriented wheelset.",
+    "fullDescription": "Reserve's carbon gravel wheelset is built around the 27.5-inch platform specifically for gravel riding, giving wider tire clearance and smoother rollover over rough, unpaved terrain than a traditional 700c road wheelset allows. It's a genuine upgrade for riders who've pushed their stock wheels past their comfort zone on technical gravel routes and want carbon's stiffness and reduced rotating weight without compromising durability. It pairs naturally with our electric road and gravel bike lineup. Hub and axle spacing vary by frame, so our team confirms exact compatibility for your specific bike by email before any order is finalized. At $1,400, it ships across the United States, to Europe, and worldwide, with a 10% discount for paying in BTC or USDT. Buy it alongside any bike in the same order and that bike gets an automatic 5% bundle discount, part of Umbra Electric's gear-plus-bike promotion. Email is our primary ordering channel, with WhatsApp as a secondary option, and nothing ships until fitment and stock are confirmed.",
+    "highlight": "",
+    "warranty": "Manufacturer warranty",
+    "images": [
+      "reserve-27-5-carbon-gravel-wheelset.webp"
+    ],
+    "sku": "reserve-27-5-carbon-gravel-wheelset",
+    "primaryKeyword": "Reserve 27.5 gravel wheelset",
+    "supportingKeywords": [
+      "carbon gravel wheelset for sale",
+      "Reserve gravel wheels price",
+      "27.5 gravel wheelset",
+      "gravel bike wheel upgrade",
+      "carbon gravel wheels price"
+    ],
+    "faqs": [
+      {
+        "q": "Why 27.5-inch for a gravel wheelset?",
+        "a": "The 27.5-inch platform allows wider tire clearance and smoother rollover over rough, unpaved terrain than a traditional 700c road wheelset."
+      },
+      {
+        "q": "Will this wheelset fit my electric gravel bike?",
+        "a": "Hub and axle spacing vary by frame, so our team confirms exact compatibility for your specific bike by email before any order is finalized."
+      },
+      {
+        "q": "How much does this wheelset cost, and is there a crypto discount?",
+        "a": "It's priced at $1,400 through Umbra Electric. Paying with BTC or USDT takes 10% off the total."
+      },
+      {
+        "q": "Do I get a discount buying this with a bike?",
+        "a": "Yes. Buying this wheelset alongside any bike in the same order automatically applies a 5% bundle discount to that bike."
+      },
+      {
+        "q": "Does Umbra Electric ship this wheelset internationally?",
+        "a": "Yes, we ship across the United States, to Europe, and worldwide. This order clears our $2,000 free-shipping threshold only when combined with another item — on its own it carries a flat $248 shipping charge."
+      }
+    ]
+  },
+  {
+    "slug": "thule-easyfold-xt-2-hitch-rack",
+    "name": "Thule EasyFold XT 2 Hitch Rack",
+    "brand": "Thule",
+    "category": "gear-accessories",
+    "categoryName": "Gear & Accessories",
+    "price": 600,
+    "description": "A genuine Thule hitch-mounted rack that folds flat for storage and tilts down for trunk access, built to carry two bikes including heavier e-bikes.",
+    "fullDescription": "The Thule EasyFold XT 2 is a genuine Thule hitch-mounted rack built to carry two bikes, including the added weight of e-bikes, with a hinged design that folds flat when not in use and tilts down for trunk access without unloading the bikes first. It's a real quality-of-life upgrade for owners who want to actually use their hitch rack rather than wrestle with a fixed platform rack every time. Hitch receiver size and weight capacity vary, so our team confirms the right configuration for your vehicle and bike weight by email before any order is finalized. At $600, it ships across the United States, to Europe, and worldwide, with a 10% discount for paying in BTC or USDT. Buy it alongside any bike in the same order and that bike gets an automatic 5% bundle discount, part of Umbra Electric's gear-plus-bike promotion. Email is our primary ordering channel, with WhatsApp as a secondary option, and nothing ships until fitment and stock are confirmed.",
+    "highlight": "",
+    "warranty": "Manufacturer warranty",
+    "images": [
+      "thule-easyfold-xt-2-hitch-rack.webp"
+    ],
+    "sku": "thule-easyfold-xt-2-hitch-rack",
+    "primaryKeyword": "Thule EasyFold XT 2 hitch rack",
+    "supportingKeywords": [
+      "Thule hitch rack for sale",
+      "ebike hitch rack price",
+      "Thule EasyFold price",
+      "two bike hitch rack",
+      "folding bike rack for sale"
+    ],
+    "faqs": [
+      {
+        "q": "Is the EasyFold XT 2 a genuine Thule product?",
+        "a": "Yes, this is a genuine Thule rack, not an aftermarket or rebadged unit."
+      },
+      {
+        "q": "Can this rack handle the weight of an e-bike?",
+        "a": "Yes, it's built to carry two bikes including the added weight of e-bikes, but exact capacity varies by configuration — our team confirms the right setup for your bike weight by email before any order is finalized."
+      },
+      {
+        "q": "Will this fit my vehicle?",
+        "a": "Hitch receiver size varies by vehicle. Our team confirms the right configuration for your vehicle before any order is finalized."
+      },
+      {
+        "q": "How much does the EasyFold XT 2 cost, and is there a crypto discount?",
+        "a": "It's priced at $600 through Umbra Electric. Paying with BTC or USDT takes 10% off the total."
+      },
+      {
+        "q": "Does Umbra Electric ship this rack internationally?",
+        "a": "Yes, we ship across the United States, to Europe, and worldwide. This order clears our $2,000 free-shipping threshold only when combined with another item — on its own it carries a flat $248 shipping charge."
+      }
+    ]
+  },
+  {
+    "slug": "rockymounts-backstage-swing-away-hitch-rack",
+    "name": "RockyMounts Backstage Swing Away Hitch Rack",
+    "brand": "RockyMounts",
+    "category": "gear-accessories",
+    "categoryName": "Gear & Accessories",
+    "price": 700,
+    "description": "A genuine RockyMounts swing-away hitch rack that pivots fully out of the way for trunk or tailgate access, built to carry e-bikes without a wheel-tray fuss.",
+    "fullDescription": "The RockyMounts Backstage is a genuine RockyMounts hitch-mounted rack built around a swing-away hinge that pivots the entire loaded rack out of the way for full trunk or tailgate access, rather than just tilting down. That matters most for owners who load and unload cargo regularly and don't want to remove bikes just to open the trunk. It's rated to handle e-bikes, including the heavier frames and batteries common across our catalog, without requiring a wheel-tray setup for every bike. Hitch receiver size and weight capacity vary, so our team confirms the right configuration for your vehicle and bike weight by email before any order is finalized. At $700, it ships across the United States, to Europe, and worldwide, with a 10% discount for paying in BTC or USDT. Buy it alongside any bike in the same order and that bike gets an automatic 5% bundle discount, part of Umbra Electric's gear-plus-bike promotion. Email is our primary ordering channel, with WhatsApp as a secondary option, and nothing ships until fitment and stock are confirmed.",
+    "highlight": "",
+    "warranty": "Manufacturer warranty",
+    "images": [
+      "rockymounts-backstage-swing-away-hitch-rack.webp",
+      "rockymounts-backstage-swing-away-hitch-rack-2.webp"
+    ],
+    "sku": "rockymounts-backstage-swing-away-hitch-rack",
+    "primaryKeyword": "RockyMounts Backstage hitch rack",
+    "supportingKeywords": [
+      "RockyMounts hitch rack for sale",
+      "swing away bike rack price",
+      "ebike hitch rack for sale",
+      "RockyMounts Backstage price",
+      "hitch bike rack for ebikes"
+    ],
+    "faqs": [
+      {
+        "q": "What does \"swing away\" mean on this rack?",
+        "a": "The entire loaded rack pivots fully out of the way on a hinge for full trunk or tailgate access, rather than just tilting down like many hitch racks."
+      },
+      {
+        "q": "Can the Backstage handle e-bikes?",
+        "a": "Yes, it's rated to handle the heavier frames and batteries common across e-bikes, without requiring a wheel-tray setup for every bike."
+      },
+      {
+        "q": "Will this fit my vehicle?",
+        "a": "Hitch receiver size varies by vehicle. Our team confirms the right configuration for your vehicle before any order is finalized."
+      },
+      {
+        "q": "How much does the Backstage cost, and is there a crypto discount?",
+        "a": "It's priced at $700 through Umbra Electric. Paying with BTC or USDT takes 10% off the total."
+      },
+      {
+        "q": "Does Umbra Electric ship this rack internationally?",
+        "a": "Yes, we ship across the United States, to Europe, and worldwide. Orders over $2,000 ship free; orders under that carry a flat $248 shipping charge."
+      }
+    ]
+  },
+  {
+    "slug": "garmin-edge-power-mount-charging-pack",
+    "name": "Garmin Edge Power Mount Charging Pack",
+    "brand": "Garmin",
+    "category": "gear-accessories",
+    "categoryName": "Gear & Accessories",
+    "price": 90,
+    "description": "A genuine Garmin charging pack that mounts to a bike's bar or stem and charges a compatible Edge computer on the move, extending ride time on long days.",
+    "fullDescription": "The Garmin Edge Power Mount Charging Pack is a genuine Garmin accessory that mounts to a bike's handlebar or stem and keeps a compatible Edge computer charging while you ride, extending usable ride time well past what the computer's internal battery alone would allow. It's built for long-distance riders and bikepackers who need their computer running for an entire day without planning a mid-ride charging stop. Compatibility depends on your specific Edge model, so our team confirms the right match by email before any order is finalized. It pairs naturally with our Garmin Edge MTB computer. At $90, it ships across the United States, to Europe, and worldwide, with a 10% discount for paying in BTC or USDT. Buy it alongside any bike in the same order and that bike gets an automatic 5% bundle discount, part of Umbra Electric's gear-plus-bike promotion. Email is our primary ordering channel, with WhatsApp as a secondary option, and nothing ships until compatibility and stock are confirmed.",
+    "highlight": "",
+    "warranty": "Manufacturer warranty",
+    "images": [
+      "garmin-edge-power-mount-charging-pack.webp"
+    ],
+    "sku": "garmin-edge-power-mount-charging-pack",
+    "primaryKeyword": "Garmin Edge Power Mount",
+    "supportingKeywords": [
+      "Garmin charging mount for sale",
+      "Garmin Edge power pack price",
+      "bike computer charger mount",
+      "Garmin Edge accessory",
+      "Garmin Power Mount price"
+    ],
+    "faqs": [
+      {
+        "q": "Is this a genuine Garmin product?",
+        "a": "Yes, this is a genuine Garmin accessory, not a third-party mount."
+      },
+      {
+        "q": "Will this work with my Garmin Edge computer?",
+        "a": "Compatibility depends on your specific Edge model, so our team confirms the right match by email before any order is finalized."
+      },
+      {
+        "q": "Who is this built for?",
+        "a": "Long-distance riders and bikepackers who need their Edge computer running for an entire day without a mid-ride charging stop."
+      },
+      {
+        "q": "How much does the Power Mount cost, and is there a crypto discount?",
+        "a": "It's priced at $90 through Umbra Electric. Paying with BTC or USDT takes 10% off the total."
+      },
+      {
+        "q": "Does Umbra Electric ship this accessory internationally?",
+        "a": "Yes, we ship across the United States, to Europe, and worldwide. Orders over $2,000 ship free; orders under that carry a flat $248 shipping charge."
+      }
+    ]
   }
 ]
