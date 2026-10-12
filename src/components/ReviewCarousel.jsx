@@ -90,7 +90,14 @@ export default function ReviewCarousel({ reviews }) {
           }}
         >
           {reviews.map((r, i) => (
-            <article className="rcarousel-slide" key={r.id} aria-hidden={i !== index} role="group" aria-roledescription="slide">
+            // A plain div, not <article> -- ARIA-in-HTML's role mapping for
+            // <article> doesn't permit overriding its strong native semantics
+            // with role="group" (PageSpeed's Agentic Browsing audit flags
+            // this specific combination as "ARIA role should be appropriate
+            // for the element"). role="group" + aria-roledescription="slide"
+            // is still the correct WAI-ARIA Carousel Slide pattern -- div has
+            // no native role of its own, so it's a valid host for it.
+            <div className="rcarousel-slide" key={r.id} aria-hidden={i !== index} role="group" aria-roledescription="slide">
               <div className="review-stars" aria-label={`${r.rating} out of 5 stars`}>
                 {'★'.repeat(r.rating)}
                 {'☆'.repeat(5 - r.rating)}
@@ -100,7 +107,7 @@ export default function ReviewCarousel({ reviews }) {
               <div className="review-meta">
                 <span className="review-name">{r.name}</span> — {r.state} · <time dateTime={r.date}>{r.dateDisplay}</time>
               </div>
-            </article>
+            </div>
           ))}
         </div>
       </div>
