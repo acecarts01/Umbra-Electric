@@ -55,6 +55,27 @@ const SLIDES = [
 
 export default function Hero() {
   const [i, setI] = useState(0);
+  // Slide 1's image is the LCP element and ships with priority. The other 3
+  // slide images used to mount into the DOM on first paint too (same as
+  // slide 1, just without the priority flag) and ended up competing with it
+  // for network/decode bandwidth during the LCP window -- PageSpeed measured
+  // the homepage LCP at 4.0s against 2.3s on a product page using the same
+  // SmartImage pipeline with no competing requests. Deferring slides 2-4's
+  // mount to just after first paint keeps slide 1 as the only image in the
+  // initial response while leaving a full 6s head start before the carousel
+  // ever needs them.
+  const [restMounted, setRestMounted] = useState(false);
+
+  useEffect(() => {
+    const idleId =
+      typeof requestIdleCallback === 'function'
+        ? requestIdleCallback(() => setRestMounted(true), { timeout: 1500 })
+        : setTimeout(() => setRestMounted(true), 300);
+    return () => {
+      if (typeof cancelIdleCallback === 'function' && typeof idleId === 'number') cancelIdleCallback(idleId);
+      else clearTimeout(idleId);
+    };
+  }, []);
 
   useEffect(() => {
     const id = setInterval(() => setI((prev) => (prev + 1) % SLIDES.length), 6000);
@@ -63,16 +84,19 @@ export default function Hero() {
 
   return (
     <section className="hero">
-      {SLIDES.map((s, idx) => (
-        <div
-          key={s.image}
-          className={`hero-bg${idx === i ? ' on' : ''}`}
-          aria-hidden={idx !== i}
-          style={{ '--pos-d': s.posDesktop, '--pos-m': s.posMobile }}
-        >
-          <SmartImage src={s.image} alt={s.alt} fill fit="cover" priority={idx === 0} sizes="100vw" />
-        </div>
-      ))}
+      {SLIDES.map((s, idx) => {
+        if (idx !== 0 && !restMounted) return null;
+        return (
+          <div
+            key={s.image}
+            className={`hero-bg${idx === i ? ' on' : ''}`}
+            aria-hidden={idx !== i}
+            style={{ '--pos-d': s.posDesktop, '--pos-m': s.posMobile }}
+          >
+            <SmartImage src={s.image} alt={s.alt} fill fit="cover" priority={idx === 0} sizes="100vw" />
+          </div>
+        );
+      })}
       <div className="hero-scrim" />
       <div className="hero-in">
         {SLIDES.map((s, idx) => (
