@@ -2,6 +2,7 @@ import { verifyOrder } from '@/lib/order/token';
 import { getOrder } from '@/lib/order/db';
 import { statusLabel } from '@/lib/order/status';
 import { SITE, fmtPrice } from '@/config/site';
+import CryptoWalletPicker from '@/components/CryptoWalletPicker';
 
 export const metadata = { robots: { index: false, follow: false } };
 
@@ -53,6 +54,10 @@ export default async function PayPage({ params, searchParams }) {
               <p style={{ marginTop: '1rem', fontWeight: 700, color: '#1f7a3d' }}>Payment received — thank you.</p>
             )}
           </div>
+        )}
+
+        {order.payment === 'crypto' && order.status !== 'new' && order.status !== 'paid' && order.status !== 'dispatched' && (
+          <CryptoWalletPicker />
         )}
 
         <div className="admin-panel">
