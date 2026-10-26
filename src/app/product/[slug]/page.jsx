@@ -82,11 +82,19 @@ export default async function ProductPage({ params }) {
       seller: { '@type': 'Organization', name: SITE.name },
       hasMerchantReturnPolicy: {
         '@type': 'MerchantReturnPolicy',
-        applicableCountry: SITE.areaServed,
+        // GSC flagged "Invalid string length" here -- applicableCountry needs
+        // ISO 3166-1 alpha-2 codes (2 chars), not the free-text SITE.areaServed
+        // strings ("United States" / "Europe" / "Worldwide") used elsewhere on
+        // the site for human-readable shipping copy and Organization schema.
+        applicableCountry: 'US',
         returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
         merchantReturnDays: 14,
         returnMethod: 'https://schema.org/ReturnByMail',
         returnFees: 'https://schema.org/ReturnShippingFees',
+        // Required by Google whenever returnFees is ReturnShippingFees --
+        // reuses the real flat shipping fee from site.json (SITE.flatShip)
+        // rather than inventing a separate return-shipping figure.
+        returnShippingFeesAmount: { '@type': 'MonetaryAmount', value: String(SITE.flatShip), currency: SITE.currency },
       },
     },
   };
