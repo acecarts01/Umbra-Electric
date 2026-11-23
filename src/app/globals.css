@@ -255,6 +255,7 @@ button{font-family:inherit}
 /* about / prose */
 .prose{max-width:75ch} .prose h2{margin:2rem 0 .8rem} .prose h3{margin:1.4rem 0 .5rem}
 .prose ul{padding-left:1.2rem} .prose li{margin:.3rem 0}
+.prose img{width:100%;height:auto;border-radius:var(--r-sm);margin:1.2rem 0;display:block}
 .blog-toc{background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:1.1rem 1.3rem;margin:1.2rem 0}
 .blog-toc p{margin:0 0 .5rem;font-family:var(--font-inter),sans-serif;font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)}
 .blog-toc ol{margin:0;padding-left:1.2rem}
