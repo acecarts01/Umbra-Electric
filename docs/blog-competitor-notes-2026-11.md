@@ -59,3 +59,11 @@ results are J&S Accessories, 24MX, RevZilla, and Alpinestars' own buying guide â
 retailer-authored, pushing their own catalog. **Gap filled**: none address gear considerations specific to
 electric dirt bikes (no engine heat for cold-weather layering, quiet-bike trail awareness), and none cover
 breaking in new gear before a real ride, which this post's existing structure already does.
+
+## Post 8 â€” electric-dirt-bike-maintenance-checklist (`dirt bike tool kit`)
+
+Top results: Valtinsusport, niu global, Cemotoride, PostJoy Ebike, and e-moto YouTube channels (Talaria
+Boys, Charged Cycle Works). Already thorough pre-ride/post-ride/weekly/monthly checklists. **Gap filled**:
+none give a concrete, brand-neutral basic tool kit list tied to real purchasable-tool keywords (torque
+wrench, chain lube), and none draw the explicit "when to call a pro" line at sealed battery/motor/
+controller housings the way this rewrite does.
