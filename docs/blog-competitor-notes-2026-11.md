@@ -67,3 +67,18 @@ Boys, Charged Cycle Works). Already thorough pre-ride/post-ride/weekly/monthly c
 none give a concrete, brand-neutral basic tool kit list tied to real purchasable-tool keywords (torque
 wrench, chain lube), and none draw the explicit "when to call a pro" line at sealed battery/motor/
 controller housings the way this rewrite does.
+
+## Post 9 — electric-dirt-bike-battery-care-guide (`surron battery 60v 40ah`)
+
+Top results dominated by manufacturer FAQs (Bosch, generic EV sites) giving the same 20-80% charge /
+heat-avoidance guidance already in this post. **Gap filled**: ties that generic guidance to real
+purchasable spare-battery and charger products (60V Sur-Ron pack, 48V charger) rather than leaving it
+abstract, and adds a capacity-math section (Wh = V x Ah) and a "second battery worth it?" decision
+framework neither competitor set covers.
+
+**Known accepted flag**: this post's primary (`surron battery 60v 40ah`) is a real supporting keyword on
+the 60V spare-battery product, not that product's own primary -- the local audit script flags any overlap
+with a product's full keyword set (primary + supporting) as a collision, which is stricter than the rule's
+actual cannibalisation concern (two pages both targeting the same phrase as their primary). Accepted as a
+false positive for this pattern rather than further narrowing the topic with no further Semrush research
+available this session.
