@@ -7,19 +7,19 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 ## Issue frequency
 
 - **72** posts: `no-tags-field`
-- **71** posts: `word-count`
-- **70** posts: `no-toc`
-- **70** posts: `keyword-not-in-any-h2-h3`
-- **70** posts: `no-related-products-block`
-- **70** posts: `outbound-links`
-- **70** posts: `no-youtube-link`
-- **70** posts: `image-count`
-- **66** posts: `keyword-not-in-faq`
-- **62** posts: `keyword-not-in-meta-description`
-- **41** posts: `keyword-not-in-title`
-- **41** posts: `keyword-not-in-first-100-words`
+- **70** posts: `word-count`
+- **69** posts: `no-toc`
+- **69** posts: `keyword-not-in-any-h2-h3`
+- **69** posts: `no-related-products-block`
+- **69** posts: `outbound-links`
+- **69** posts: `no-youtube-link`
+- **69** posts: `image-count`
+- **65** posts: `keyword-not-in-faq`
+- **61** posts: `keyword-not-in-meta-description`
+- **40** posts: `keyword-not-in-title`
+- **40** posts: `keyword-not-in-first-100-words`
 - **23** posts: `no-category-link`
-- **22** posts: `product-links`
+- **21** posts: `product-links`
 - **3** posts: `primary-keyword-collides-with-product-or-category`
 
 ## Per-post detail
@@ -37,21 +37,9 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 
 - no-tags-field
 
-### cold-weather-riding-tips-electric-bikes (612 words)
+### cold-weather-riding-tips-electric-bikes (1509 words)
 
-- no-toc
-- word-count-612
 - no-tags-field
-- keyword-not-in-title
-- keyword-not-in-meta-description
-- keyword-not-in-first-100-words
-- keyword-not-in-any-h2-h3
-- product-links-0
-- no-related-products-block
-- outbound-links-0
-- no-youtube-link
-- image-count-1
-- keyword-not-in-faq
 
 ### choosing-the-right-size-electric-mountain-bike (572 words)
 
