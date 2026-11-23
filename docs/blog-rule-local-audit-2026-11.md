@@ -2,41 +2,27 @@
 
 Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Checks everything verifiable from `src/data/posts.json` and the blog page template alone. Does **not** verify live link health, YouTube oEmbed status, or Semrush volume/KD/intent for any keyword -- those need a live pass and are listed separately below.
 
-**1/81 posts have zero locally-detectable issues.**
+**2/81 posts have zero locally-detectable issues.**
 
 ## Issue frequency
 
-- **80** posts: `no-toc`
-- **80** posts: `word-count`
-- **80** posts: `no-tags-field`
-- **80** posts: `keyword-not-in-any-h2-h3`
-- **80** posts: `no-related-products-block`
-- **80** posts: `outbound-links`
-- **80** posts: `no-youtube-link`
-- **80** posts: `image-count`
-- **76** posts: `keyword-not-in-faq`
-- **72** posts: `keyword-not-in-meta-description`
+- **79** posts: `no-toc`
+- **79** posts: `word-count`
+- **79** posts: `no-tags-field`
+- **79** posts: `keyword-not-in-any-h2-h3`
+- **79** posts: `no-related-products-block`
+- **79** posts: `outbound-links`
+- **79** posts: `no-youtube-link`
+- **79** posts: `image-count`
+- **75** posts: `keyword-not-in-faq`
+- **71** posts: `keyword-not-in-meta-description`
 - **48** posts: `keyword-not-in-title`
 - **48** posts: `keyword-not-in-first-100-words`
-- **32** posts: `product-links`
+- **31** posts: `product-links`
 - **24** posts: `no-category-link`
 - **2** posts: `primary-keyword-collides-with-product-or-category`
 
 ## Per-post detail
-
-### electric-bike-classes-explained (592 words)
-
-- no-toc
-- word-count-592
-- no-tags-field
-- keyword-not-in-meta-description
-- keyword-not-in-any-h2-h3
-- product-links-0
-- no-related-products-block
-- outbound-links-0
-- no-youtube-link
-- image-count-1
-- keyword-not-in-faq
 
 ### electric-dirt-bikes-for-kids-guide (563 words)
 
@@ -100,10 +86,10 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 - image-count-1
 - keyword-not-in-faq
 
-### essential-gear-for-electric-dirt-bike-riding (509 words)
+### essential-gear-for-electric-dirt-bike-riding (508 words)
 
 - no-toc
-- word-count-509
+- word-count-508
 - no-tags-field
 - keyword-not-in-title
 - keyword-not-in-meta-description
@@ -116,10 +102,10 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 - image-count-1
 - keyword-not-in-faq
 
-### electric-dirt-bike-maintenance-checklist (552 words)
+### electric-dirt-bike-maintenance-checklist (551 words)
 
 - no-toc
-- word-count-552
+- word-count-551
 - no-tags-field
 - keyword-not-in-meta-description
 - keyword-not-in-any-h2-h3
@@ -146,10 +132,10 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 - image-count-1
 - keyword-not-in-faq
 
-### how-much-does-it-cost-to-charge-an-ebike (534 words)
+### how-much-does-it-cost-to-charge-an-ebike (533 words)
 
 - no-toc
-- word-count-534
+- word-count-533
 - no-tags-field
 - keyword-not-in-title
 - keyword-not-in-meta-description
@@ -163,10 +149,10 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 - image-count-1
 - keyword-not-in-faq
 
-### how-to-transport-an-electric-dirt-bike (514 words)
+### how-to-transport-an-electric-dirt-bike (513 words)
 
 - no-toc
-- word-count-514
+- word-count-513
 - no-tags-field
 - keyword-not-in-title
 - keyword-not-in-meta-description
@@ -179,10 +165,10 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 - image-count-1
 - keyword-not-in-faq
 
-### cold-weather-riding-tips-electric-bikes (613 words)
+### cold-weather-riding-tips-electric-bikes (612 words)
 
 - no-toc
-- word-count-613
+- word-count-612
 - no-tags-field
 - keyword-not-in-title
 - keyword-not-in-meta-description
@@ -195,10 +181,10 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 - image-count-1
 - keyword-not-in-faq
 
-### choosing-the-right-size-electric-mountain-bike (573 words)
+### choosing-the-right-size-electric-mountain-bike (572 words)
 
 - no-toc
-- word-count-573
+- word-count-572
 - no-tags-field
 - keyword-not-in-title
 - keyword-not-in-meta-description
@@ -211,10 +197,10 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 - image-count-1
 - keyword-not-in-faq
 
-### fat-tire-vs-standard-ebike (545 words)
+### fat-tire-vs-standard-ebike (543 words)
 
 - no-toc
-- word-count-545
+- word-count-543
 - no-tags-field
 - keyword-not-in-title
 - keyword-not-in-meta-description
@@ -227,10 +213,10 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 - image-count-1
 - keyword-not-in-faq
 
-### folding-ebike-buyers-guide (609 words)
+### folding-ebike-buyers-guide (608 words)
 
 - no-toc
-- word-count-609
+- word-count-608
 - no-tags-field
 - keyword-not-in-title
 - keyword-not-in-meta-description
@@ -258,10 +244,10 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 - image-count-1
 - keyword-not-in-faq
 
-### throttle-emotos-vs-pedal-assist-emtbs (524 words)
+### throttle-emotos-vs-pedal-assist-emtbs (523 words)
 
 - no-toc
-- word-count-524
+- word-count-523
 - no-tags-field
 - keyword-not-in-title
 - keyword-not-in-meta-description

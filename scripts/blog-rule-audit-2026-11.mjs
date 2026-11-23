@@ -18,7 +18,7 @@ function stripHtml(html) {
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
-    .replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/&middot;/g, '.')
+    .replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/&middot;/g, '.').replace(/&mdash;/g, '-').replace(/&#8217;|&#x27;/g, "'")
     .replace(/&#\d+;/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
