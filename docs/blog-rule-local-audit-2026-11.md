@@ -6,20 +6,20 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 
 ## Issue frequency
 
-- **73** posts: `word-count`
-- **72** posts: `no-toc`
+- **72** posts: `word-count`
 - **72** posts: `no-tags-field`
-- **72** posts: `keyword-not-in-any-h2-h3`
-- **72** posts: `no-related-products-block`
-- **72** posts: `outbound-links`
-- **72** posts: `no-youtube-link`
-- **72** posts: `image-count`
-- **68** posts: `keyword-not-in-faq`
-- **64** posts: `keyword-not-in-meta-description`
-- **43** posts: `keyword-not-in-title`
-- **43** posts: `keyword-not-in-first-100-words`
-- **24** posts: `no-category-link`
-- **24** posts: `product-links`
+- **71** posts: `no-toc`
+- **71** posts: `keyword-not-in-any-h2-h3`
+- **71** posts: `no-related-products-block`
+- **71** posts: `outbound-links`
+- **71** posts: `no-youtube-link`
+- **71** posts: `image-count`
+- **67** posts: `keyword-not-in-faq`
+- **63** posts: `keyword-not-in-meta-description`
+- **42** posts: `keyword-not-in-title`
+- **42** posts: `keyword-not-in-first-100-words`
+- **23** posts: `product-links`
+- **23** posts: `no-category-link`
 - **3** posts: `primary-keyword-collides-with-product-or-category`
 
 ## Per-post detail
@@ -29,22 +29,9 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 - word-count-1498
 - primary-keyword-collides-with-product-or-category
 
-### how-much-does-it-cost-to-charge-an-ebike (533 words)
+### how-much-does-it-cost-to-charge-an-ebike (1501 words)
 
-- no-toc
-- word-count-533
 - no-tags-field
-- keyword-not-in-title
-- keyword-not-in-meta-description
-- keyword-not-in-first-100-words
-- keyword-not-in-any-h2-h3
-- no-category-link
-- product-links-0
-- no-related-products-block
-- outbound-links-0
-- no-youtube-link
-- image-count-1
-- keyword-not-in-faq
 
 ### how-to-transport-an-electric-dirt-bike (513 words)
 
