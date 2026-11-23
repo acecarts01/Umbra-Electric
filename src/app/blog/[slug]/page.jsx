@@ -66,7 +66,14 @@ export default async function BlogPostPage({ params }) {
       {post.image && (
         <div className="container">
           <div className="blog-hero-img">
-            <SmartImage src={post.image} alt={post.title} fill fit="cover" priority sizes="(max-width:760px) 100vw, 900px" />
+            <SmartImage
+              src={post.image}
+              alt={post.primaryKeyword ? `${post.primaryKeyword} — ${SITE.name}` : post.title}
+              fill
+              fit="cover"
+              priority
+              sizes="(max-width:760px) 100vw, 900px"
+            />
           </div>
         </div>
       )}
@@ -76,6 +83,17 @@ export default async function BlogPostPage({ params }) {
           <div className="container prose" style={{ maxWidth: 820, marginTop: '1rem' }}>
             <h2>Frequently asked questions</h2>
             <FaqAccordion faqs={post.faqs} />
+          </div>
+        )}
+        {post.tags && post.tags.length > 0 && (
+          <div className="container prose" style={{ maxWidth: 820, marginTop: '1.5rem' }}>
+            <div className="blog-tags" aria-label="Tags">
+              {post.tags.map((t) => (
+                <span key={t} className="blog-tag-chip">
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
         )}
       </section>
