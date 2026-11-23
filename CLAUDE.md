@@ -56,6 +56,33 @@ Postgres-backed (Neon, free tier, connected via Vercel Storage as `DATABASE_URL`
   the compliance warning on their product pages — see `DIRT_BIKE_CATEGORIES` in
   `src/app/product/[slug]/page.jsx`. Never remove it or imply street-legality.
 
+## Keyword Rules (standing — added 2026-11-23)
+
+These apply to every product and category page, going forward and retroactively whenever a page's
+keywords are next touched:
+
+- **`primaryKeyword` must be Transactional intent.** Never Commercial, Informational, Question or
+  Navigational as the primary on a product/category page.
+- **All 5 `supportingKeywords` must be Transactional or Commercial intent** — never Informational,
+  Question or Navigational. **Transactional is prioritized over Commercial**: fill every slot with a
+  real Transactional keyword first; only fall back to Commercial for a slot when the real Semrush data
+  for that product/cluster doesn't have enough Transactional volume to fill all 5.
+- **Informational (and Question/Navigational) keywords never go on a product/category page — they
+  belong on blog posts only.** This was already the rule for blog vs. product keyword assignment; this
+  section makes the product/category side of it explicit and permanent.
+- **Never fabricate a keyword or its intent label.** Only use keywords sourced from a real Semrush
+  export (`New Semrush Keywords/*.csv`, processed via `scripts/process-new-semrush-export.mjs` into
+  `docs/semrush-export-2026-10-processed.json`), with the intent label Semrush itself assigned. A
+  product with no real Transactional-intent data yet stays flagged for a future Semrush export rather
+  than getting an invented or misclassified keyword.
+- Applies retroactively: the next time any product's keywords are revisited (remap, audit, new product
+  add), bring it into compliance with this ordering rather than just preserving whatever intent mix it
+  already had.
+- **Compound intent labels count as their weakest tag.** Semrush sometimes labels a keyword with more
+  than one intent (e.g. `"Informational, Transactional"`). Decided 2026-11-23: such a keyword does NOT
+  qualify as Transactional or Commercial for this rule — the Informational component disqualifies it,
+  same as if it were pure Informational. Only pure `Transactional` or pure `Commercial` labels qualify.
+
 ## Live placeholders (set before going live)
 
 In `src/data/site.json` unless noted:
