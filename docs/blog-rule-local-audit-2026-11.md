@@ -2,43 +2,27 @@
 
 Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Checks everything verifiable from `src/data/posts.json` and the blog page template alone. Does **not** verify live link health, YouTube oEmbed status, or Semrush volume/KD/intent for any keyword -- those need a live pass and are listed separately below.
 
-**4/81 posts have zero locally-detectable issues.**
+**5/81 posts have zero locally-detectable issues.**
 
 ## Issue frequency
 
-- **77** posts: `no-toc`
-- **77** posts: `word-count`
-- **77** posts: `no-tags-field`
-- **77** posts: `keyword-not-in-any-h2-h3`
-- **77** posts: `no-related-products-block`
-- **77** posts: `outbound-links`
-- **77** posts: `no-youtube-link`
-- **77** posts: `image-count`
-- **73** posts: `keyword-not-in-faq`
-- **69** posts: `keyword-not-in-meta-description`
-- **46** posts: `keyword-not-in-title`
-- **46** posts: `keyword-not-in-first-100-words`
-- **29** posts: `product-links`
+- **76** posts: `no-toc`
+- **76** posts: `word-count`
+- **76** posts: `no-tags-field`
+- **76** posts: `keyword-not-in-any-h2-h3`
+- **76** posts: `no-related-products-block`
+- **76** posts: `outbound-links`
+- **76** posts: `no-youtube-link`
+- **76** posts: `image-count`
+- **72** posts: `keyword-not-in-faq`
+- **68** posts: `keyword-not-in-meta-description`
+- **45** posts: `keyword-not-in-title`
+- **45** posts: `keyword-not-in-first-100-words`
+- **28** posts: `product-links`
 - **24** posts: `no-category-link`
 - **2** posts: `primary-keyword-collides-with-product-or-category`
 
 ## Per-post detail
-
-### how-to-choose-premium-emtb (555 words)
-
-- no-toc
-- word-count-555
-- no-tags-field
-- keyword-not-in-title
-- keyword-not-in-meta-description
-- keyword-not-in-first-100-words
-- keyword-not-in-any-h2-h3
-- product-links-0
-- no-related-products-block
-- outbound-links-0
-- no-youtube-link
-- image-count-1
-- keyword-not-in-faq
 
 ### sur-ron-vs-talaria-2026 (584 words)
 
