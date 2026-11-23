@@ -82,6 +82,12 @@ keywords are next touched:
   than one intent (e.g. `"Informational, Transactional"`). Decided 2026-11-23: such a keyword does NOT
   qualify as Transactional or Commercial for this rule — the Informational component disqualifies it,
   same as if it were pure Informational. Only pure `Transactional` or pure `Commercial` labels qualify.
+- **Documented fallback for zero-Transactional products.** Decided 2026-11-23: lower-volume gear/
+  accessory items frequently have real Semrush volume concentrated entirely in Commercial-tagged or
+  compound-tagged queries, with zero pure-Transactional keywords existing at all. When that's genuinely
+  the case for a product (checked and confirmed, not assumed), the primaryKeyword may be a pure
+  Commercial keyword instead — but only as an explicit, flagged exception per product, never a silent
+  default. Keep checking for a pure-Transactional option first every time; don't stop looking early.
 
 ## Live placeholders (set before going live)
 
