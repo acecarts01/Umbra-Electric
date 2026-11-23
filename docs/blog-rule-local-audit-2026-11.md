@@ -2,41 +2,27 @@
 
 Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Checks everything verifiable from `src/data/posts.json` and the blog page template alone. Does **not** verify live link health, YouTube oEmbed status, or Semrush volume/KD/intent for any keyword -- those need a live pass and are listed separately below.
 
-**7/81 posts have zero locally-detectable issues.**
+**8/81 posts have zero locally-detectable issues.**
 
 ## Issue frequency
 
-- **74** posts: `no-toc`
-- **74** posts: `word-count`
-- **74** posts: `no-tags-field`
-- **74** posts: `keyword-not-in-any-h2-h3`
-- **74** posts: `no-related-products-block`
-- **74** posts: `outbound-links`
-- **74** posts: `no-youtube-link`
-- **74** posts: `image-count`
-- **70** posts: `keyword-not-in-faq`
-- **66** posts: `keyword-not-in-meta-description`
+- **73** posts: `no-toc`
+- **73** posts: `word-count`
+- **73** posts: `no-tags-field`
+- **73** posts: `keyword-not-in-any-h2-h3`
+- **73** posts: `no-related-products-block`
+- **73** posts: `outbound-links`
+- **73** posts: `no-youtube-link`
+- **73** posts: `image-count`
+- **69** posts: `keyword-not-in-faq`
+- **65** posts: `keyword-not-in-meta-description`
 - **44** posts: `keyword-not-in-title`
 - **44** posts: `keyword-not-in-first-100-words`
-- **26** posts: `product-links`
+- **25** posts: `product-links`
 - **24** posts: `no-category-link`
 - **2** posts: `primary-keyword-collides-with-product-or-category`
 
 ## Per-post detail
-
-### electric-dirt-bike-maintenance-checklist (551 words)
-
-- no-toc
-- word-count-551
-- no-tags-field
-- keyword-not-in-meta-description
-- keyword-not-in-any-h2-h3
-- product-links-0
-- no-related-products-block
-- outbound-links-0
-- no-youtube-link
-- image-count-1
-- keyword-not-in-faq
 
 ### electric-dirt-bike-battery-care-guide (544 words)
 
