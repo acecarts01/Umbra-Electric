@@ -7,19 +7,19 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 ## Issue frequency
 
 - **72** posts: `no-tags-field`
-- **64** posts: `word-count`
-- **63** posts: `no-toc`
-- **63** posts: `keyword-not-in-any-h2-h3`
-- **63** posts: `no-related-products-block`
-- **63** posts: `outbound-links`
-- **63** posts: `no-youtube-link`
-- **63** posts: `image-count`
-- **59** posts: `keyword-not-in-faq`
-- **55** posts: `keyword-not-in-meta-description`
-- **34** posts: `keyword-not-in-title`
-- **34** posts: `keyword-not-in-first-100-words`
+- **59** posts: `word-count`
+- **58** posts: `no-toc`
+- **58** posts: `keyword-not-in-any-h2-h3`
+- **58** posts: `no-related-products-block`
+- **58** posts: `outbound-links`
+- **58** posts: `no-youtube-link`
+- **58** posts: `image-count`
+- **54** posts: `keyword-not-in-faq`
+- **50** posts: `keyword-not-in-meta-description`
+- **32** posts: `keyword-not-in-title`
+- **32** posts: `keyword-not-in-first-100-words`
 - **23** posts: `no-category-link`
-- **17** posts: `product-links`
+- **13** posts: `product-links`
 - **3** posts: `primary-keyword-collides-with-product-or-category`
 
 ## Per-post detail
@@ -65,78 +65,25 @@ Local (repo-only) audit of all 81 blog posts against the `blog-post` skill. Chec
 
 - no-tags-field
 
-### electric-dirt-bike-motor-types-explained (615 words)
+### electric-dirt-bike-motor-types-explained (1500 words)
 
-- no-toc
-- word-count-615
 - no-tags-field
-- keyword-not-in-meta-description
-- keyword-not-in-any-h2-h3
-- product-links-0
-- no-related-products-block
-- outbound-links-0
-- no-youtube-link
-- image-count-1
-- keyword-not-in-faq
 
-### electric-dirt-bike-watt-hours-explained (557 words)
+### electric-dirt-bike-watt-hours-explained (1500 words)
 
-- no-toc
-- word-count-557
 - no-tags-field
-- keyword-not-in-title
-- keyword-not-in-meta-description
-- keyword-not-in-first-100-words
-- keyword-not-in-any-h2-h3
-- product-links-1
-- no-related-products-block
-- outbound-links-0
-- no-youtube-link
-- image-count-1
-- keyword-not-in-faq
 
-### how-to-ride-an-electric-dirt-bike-beginners-guide (596 words)
+### how-to-ride-an-electric-dirt-bike-beginners-guide (1500 words)
 
-- no-toc
-- word-count-596
 - no-tags-field
-- keyword-not-in-meta-description
-- keyword-not-in-any-h2-h3
-- product-links-0
-- no-related-products-block
-- outbound-links-0
-- no-youtube-link
-- image-count-1
-- keyword-not-in-faq
 
-### why-electric-dirt-bikes-are-quiet (600 words)
+### why-electric-dirt-bikes-are-quiet (1502 words)
 
-- no-toc
-- word-count-600
 - no-tags-field
-- keyword-not-in-title
-- keyword-not-in-meta-description
-- keyword-not-in-first-100-words
-- keyword-not-in-any-h2-h3
-- product-links-0
-- no-related-products-block
-- outbound-links-0
-- no-youtube-link
-- image-count-1
-- keyword-not-in-faq
 
-### sur-ron-light-bee-x-vs-ultra-bee (621 words)
+### sur-ron-light-bee-x-vs-ultra-bee (1501 words)
 
-- no-toc
-- word-count-621
 - no-tags-field
-- keyword-not-in-meta-description
-- keyword-not-in-any-h2-h3
-- no-related-products-block
-- outbound-links-0
-- no-youtube-link
-- image-count-1
-- keyword-not-in-faq
 
 ### sur-ron-ultra-bee-vs-storm-bee (557 words)
 
