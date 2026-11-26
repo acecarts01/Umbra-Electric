@@ -9,7 +9,16 @@ import { useEffect } from 'react';
 // :not(:first-of-type) skips each page's first <section> (hero / phead /
 // cat-banner) -- that's above-the-fold, often the LCP element, and must
 // never be hidden behind a JS-gated opacity transition.
-const TARGETS = 'main > section:not(:first-of-type), .pcard, .cat-tile, .bcard, .card-soft, .acc, .contact-cards > div';
+//
+// :not(:has(.blog-grid)) -- the blog index renders all posts unpaginated
+// (unlike .prod-grid, which paginates at 10/page), so this wrapping
+// <section> grows to tens of thousands of px tall as posts are added.
+// Giving a `transform` (even at rest) to an element that tall forces the
+// browser to composite it as one GPU layer, which exceeds the GPU's max
+// texture size and silently fails to paint the whole section -- the posts
+// are in the DOM but invisible. Individual cards still fade in via `.bcard`
+// below, so excluding the outer section here loses no visual effect.
+const TARGETS = 'main > section:not(:first-of-type):not(:has(.blog-grid)), .pcard, .cat-tile, .bcard, .card-soft, .acc, .contact-cards > div';
 
 export default function ScrollReveal() {
   useEffect(() => {
